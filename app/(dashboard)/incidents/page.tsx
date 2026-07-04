@@ -1,21 +1,22 @@
-import IncidentTable from "@/components/incidents/IncidentTable";
-
-const incidents = [
-  { id: "inc_001", title: "Unauthorized financial workflow attempt", agent_id: "ag_002", severity: "high", status: "open", created_at: "2026-07-03" },
-  { id: "inc_002", title: "Sensitive data exposure risk detected", agent_id: "ag_001", severity: "medium", status: "investigating", created_at: "2026-07-02" },
-];
+// app/(dashboard)/incidents/page.tsx
+import ResourcePage from "@/components/shared/ResourcePage";
 
 export default function IncidentsPage() {
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold text-gray-900">AI Governance Incidents</h1>
-        <p className="mt-2 text-gray-500">
-          Track, investigate, and resolve AI safety, security, privacy, and compliance incidents.
-        </p>
-      </div>
-
-      <IncidentTable incidents={incidents} />
-    </div>
+    <ResourcePage
+      title="Incidents"
+      description="Investigate AI failures, policy violations, harm reports, and operational events."
+      actions={[{ label: "Report Incident", href: "/incidents/new" }]}
+      metrics={[
+        { label: "Open", value: 3 },
+        { label: "Investigating", value: 2 },
+        { label: "Resolved", value: 14 },
+        { label: "Critical", value: 1 },
+      ]}
+      sections={[
+        { title: "Incident Queue", description: "Track AI incidents from detection through resolution." },
+        { title: "Root Cause", description: "Capture impact, timeline, affected systems, and corrective actions." },
+      ]}
+    />
   );
 }
