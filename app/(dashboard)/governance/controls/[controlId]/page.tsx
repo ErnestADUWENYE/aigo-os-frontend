@@ -1,22 +1,30 @@
 import ResourcePage from "@/components/shared/ResourcePage";
 
-export default async function Page({
+export default async function ControlDetailPage({
   params,
 }: {
-  params: Promise<Record<string, string>>;
+  params: Promise<{ controlId: string }>;
 }) {
-  const resolvedParams = await params;
-  const id = Object.values(resolvedParams)[0];
+  const { controlId } = await params;
 
   return (
     <ResourcePage
-      title="Record Details"
-      description={`Governance record ${id}.`}
+      title="Control Details"
+      description={`Control design, implementation, evidence, testing, and framework mapping for ${controlId}.`}
+      metrics={[
+        { label: "Status", value: "Implemented" },
+        { label: "Evidence", value: "Partial" },
+        { label: "Mapped Frameworks", value: 3 },
+        { label: "Last Test", value: "Passed" },
+      ]}
       sections={[
         {
-          title: "Overview",
-          description:
-            "View profile, ownership, status, governance history, and related activity.",
+          title: "Control Design",
+          description: "Objective, scope, owner, frequency, expected operation, and linked AI assets.",
+        },
+        {
+          title: "Testing & Evidence",
+          description: "Evidence items, testing results, exceptions, gaps, and remediation notes.",
         },
       ]}
     />

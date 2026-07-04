@@ -1,22 +1,30 @@
 import ResourcePage from "@/components/shared/ResourcePage";
 
-export default async function Page({
+export default async function ReviewDetailPage({
   params,
 }: {
-  params: Promise<Record<string, string>>;
+  params: Promise<{ reviewId: string }>;
 }) {
-  const resolvedParams = await params;
-  const id = Object.values(resolvedParams)[0];
+  const { reviewId } = await params;
 
   return (
     <ResourcePage
-      title="Record Details"
-      description={`Governance record ${id}.`}
+      title="Review Details"
+      description={`Governance review, decision context, evidence, risk posture, and approval workflow for ${reviewId}.`}
+      metrics={[
+        { label: "Risk", value: "High" },
+        { label: "Status", value: "Pending" },
+        { label: "Evidence", value: 5 },
+        { label: "SLA", value: "48h" },
+      ]}
       sections={[
         {
-          title: "Overview",
-          description:
-            "View profile, ownership, status, governance history, and related activity.",
+          title: "Decision Context",
+          description: "Requested action, affected AI asset, risk rationale, policy impact, and owner notes.",
+        },
+        {
+          title: "Review Decision",
+          description: "Approve, reject, request changes, escalate, or document an exception with evidence.",
         },
       ]}
     />

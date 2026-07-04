@@ -1,22 +1,30 @@
 import ResourcePage from "@/components/shared/ResourcePage";
 
-export default async function Page({
+export default async function FrameworkDetailPage({
   params,
 }: {
-  params: Promise<Record<string, string>>;
+  params: Promise<{ frameworkId: string }>;
 }) {
-  const resolvedParams = await params;
-  const id = Object.values(resolvedParams)[0];
+  const { frameworkId } = await params;
 
   return (
     <ResourcePage
-      title="Record Details"
-      description={`Governance record ${id}.`}
+      title="Framework Details"
+      description={`Framework mapping, control coverage, evidence readiness, and compliance posture for ${frameworkId}.`}
+      metrics={[
+        { label: "Controls", value: 24 },
+        { label: "Mapped", value: 18 },
+        { label: "Evidence Ready", value: "71%" },
+        { label: "Open Gaps", value: 6 },
+      ]}
       sections={[
         {
-          title: "Overview",
-          description:
-            "View profile, ownership, status, governance history, and related activity.",
+          title: "Framework Scope",
+          description: "Requirements, domains, obligations, and applicable AI governance controls.",
+        },
+        {
+          title: "Compliance Gaps",
+          description: "Unmapped requirements, missing evidence, owner actions, and remediation timeline.",
         },
       ]}
     />
