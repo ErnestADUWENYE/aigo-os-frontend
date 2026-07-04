@@ -1,0 +1,40 @@
+import {
+    Activity,
+    AlertTriangle,
+    BarChart3,
+    Bell,
+    Bot,
+    ClipboardCheck,
+    Database,
+    FileCheck,
+    FileText,
+    Gavel,
+    LayoutDashboard,
+    LockKeyhole,
+    Plug,
+    Settings,
+    ShieldCheck,
+    Workflow,
+  } from "lucide-react";
+  
+  import { ROUTES } from "./routes";
+  
+  export const NAVIGATION_ITEMS = [
+    { label: "Dashboard", href: ROUTES.DASHBOARD, icon: LayoutDashboard },
+    { label: "AI Systems", href: ROUTES.AI_SYSTEMS, icon: Workflow },
+    { label: "Agents", href: ROUTES.AGENTS, icon: Bot },
+    { label: "Models", href: ROUTES.MODELS, icon: Database },
+    { label: "Policies", href: ROUTES.POLICIES, icon: ShieldCheck },
+    { label: "Reviews", href: ROUTES.REVIEWS, icon: ClipboardCheck },
+    { label: "Incidents", href: ROUTES.INCIDENTS, icon: AlertTriangle },
+    { label: "Alerts", href: ROUTES.ALERTS, icon: Bell },
+    { label: "Risk", href: ROUTES.RISK, icon: Activity },
+    { label: "Governance", href: ROUTES.GOVERNANCE, icon: Gavel },
+    { label: "Controls", href: ROUTES.CONTROLS, icon: LockKeyhole },
+    { label: "Frameworks", href: ROUTES.FRAMEWORKS, icon: FileCheck },
+    { label: "Evidence", href: ROUTES.EVIDENCE, icon: FileText },
+    { label: "Analytics", href: ROUTES.ANALYTICS, icon: BarChart3 },
+    { label: "Reports", href: ROUTES.REPORTS, icon: FileText },
+    { label: "Integrations", href: ROUTES.INTEGRATIONS, icon: Plug },
+    { label: "Settings", href: ROUTES.SETTINGS, icon: Settings },
+  ] as const;
