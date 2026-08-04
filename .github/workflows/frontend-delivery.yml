@@ -1,0 +1,124 @@
+name: Frontend Delivery
+
+on:
+  pull_request:
+    branches:
+      - main
+
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+    inputs:
+      target_environment:
+        description: Deployment target
+        required: true
+        type: choice
+        default: demo
+        options:
+          - demo
+          - production
+
+permissions:
+  contents: read
+
+concurrency:
+  group: frontend-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate frontend
+    runs-on: ubuntu-latest
+
+    env:
+      NEXT_PUBLIC_AIGO_ENV: demo
+      NEXT_PUBLIC_AIGO_API_URL: http://127.0.0.1:8000
+      NEXT_PUBLIC_AIGO_VERSION: ${{ github.sha }}
+      NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: pk_test_ci_placeholder
+      CLERK_SECRET_KEY: sk_test_ci_placeholder
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm run test
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Build production application
+        run: npm run build
+
+      - name: Create build manifest
+        shell: bash
+        run: |
+          mkdir -p build-artifact
+          printf '%s\n' \
+            "application=aigo-os-frontend" \
+            "commit=${GITHUB_SHA}" \
+            "branch=${GITHUB_REF_NAME}" \
+            "run_id=${GITHUB_RUN_ID}" \
+            "built_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            > build-artifact/manifest.txt
+
+          cp -R .next build-artifact/.next
+          cp package.json build-artifact/package.json
+          cp package-lock.json build-artifact/package-lock.json
+          cp next.config.ts build-artifact/next.config.ts
+
+      - name: Upload versioned build artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: aigo-os-frontend-${{ github.sha }}
+          path: build-artifact
+          if-no-files-found: error
+          retention-days: 30
+
+  demo:
+    name: Demo promotion gate
+    if: >
+      github.event_name == 'push' ||
+      (
+        github.event_name == 'workflow_dispatch' &&
+        inputs.target_environment == 'demo'
+      )
+    needs:
+      - validate
+    runs-on: ubuntu-latest
+    environment: demo
+
+    steps:
+      - name: Record Demo promotion readiness
+        run: |
+          echo "AIGO-OS frontend artifact is validated."
+          echo "Commit: ${{ github.sha }}"
+          echo "Demo deployment provider is not configured yet."
+
+  production:
+    name: Production approval gate
+    if: >
+      github.event_name == 'workflow_dispatch' &&
+      inputs.target_environment == 'production'
+    needs:
+      - validate
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Record production promotion approval
+        run: |
+          echo "AIGO-OS frontend artifact passed validation."
+          echo "Commit: ${{ github.sha }}"
+          echo "Production deployment requires environment approval."
