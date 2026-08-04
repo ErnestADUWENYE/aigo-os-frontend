@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      NEXT_PUBLIC_AIGO_ENV: ci
+      NEXT_PUBLIC_AIGO_ENV: demo
       NEXT_PUBLIC_AIGO_API_URL: http://127.0.0.1:8000
       NEXT_PUBLIC_AIGO_VERSION: ${{ github.sha }}
       NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: pk_test_ci_placeholder
