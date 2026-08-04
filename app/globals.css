@@ -1,26 +1,192 @@
 @import "tailwindcss";
+@import "../styles/tokens.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  min-width: 320px;
+  background: var(--canvas-950);
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  min-height: 100vh;
+  margin: 0;
+  color: var(--text-primary);
+  background:
+    radial-gradient(
+      circle at 8% 4%,
+      rgba(56, 201, 244, 0.15),
+      transparent 27rem
+    ),
+    radial-gradient(
+      circle at 90% 12%,
+      rgba(121, 104, 232, 0.16),
+      transparent 30rem
+    ),
+    radial-gradient(
+      circle at 52% 100%,
+      rgba(23, 105, 210, 0.12),
+      transparent 34rem
+    ),
+    linear-gradient(
+      145deg,
+      var(--canvas-950) 0%,
+      var(--canvas-900) 46%,
+      #071426 100%
+    );
   font-family: Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  color: white;
+  background: rgba(56, 201, 244, 0.34);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.glass-panel {
+  border: 1px solid var(--border-subtle);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20, 33, 59, 0.9),
+      rgba(8, 16, 31, 0.76)
+    );
+  box-shadow: var(--shadow-deep);
+  backdrop-filter: blur(24px);
+}
+
+.luminous-border {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 0 0 1px rgba(56, 201, 244, 0.12),
+    var(--shadow-aqua);
+}
+
+.text-spectrum {
+  color: transparent;
+  background:
+    linear-gradient(
+      100deg,
+      var(--aqua-300),
+      #7bbcff 42%,
+      var(--iris-400) 74%,
+      var(--magenta-400)
+    );
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+@keyframes pulse-orbit {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.96);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+.orbit-pulse {
+  animation: pulse-orbit 3.8s var(--ease-out) infinite;
+}
+
+/* AIGO-OS DARK SHELL ACCESSIBILITY */
+
+.aigo-dark-sidebar {
+  color: #f8fafc;
+}
+
+.aigo-dark-sidebar h1,
+.aigo-dark-sidebar h2,
+.aigo-dark-sidebar h3,
+.aigo-dark-sidebar p,
+.aigo-dark-sidebar span,
+.aigo-dark-sidebar a,
+.aigo-dark-sidebar button,
+.aigo-dark-sidebar div {
+  color: #f8fafc;
+}
+
+.aigo-dark-sidebar nav a,
+.aigo-dark-sidebar nav span {
+  color: #f8fafc !important;
+}
+
+.aigo-dark-sidebar nav > div {
+  color: #f8fafc;
+}
+
+.aigo-dark-sidebar nav svg {
+  color: #d7e6f5;
+  opacity: 1;
+}
+
+.aigo-dark-sidebar a:hover,
+.aigo-dark-sidebar button:hover {
+  color: #ffffff !important;
+}
+
+.aigo-dark-sidebar [class*="opacity-"] {
+  color: #dbe7f3;
+}
+
+/* Section labels such as PLATFORM */
+.aigo-dark-sidebar .uppercase {
+  color: #b8c9dc !important;
+}
+
+/* Secondary descriptive text */
+.aigo-dark-sidebar p {
+  color: #bdcadd;
+}
+
+/* Keep active navigation visually distinct */
+.aigo-dark-sidebar nav [class*="bg-[#2b536f]"],
+.aigo-dark-sidebar nav [class*="bg-[#294c69]"],
+.aigo-dark-sidebar nav [class*="bg-[#27445f]"] {
+  color: #ffffff !important;
+}
+
+/* Top application header */
+.aigo-dark-header {
+  color: #f8fafc;
+}
+
+.aigo-dark-header span,
+.aigo-dark-header a,
+.aigo-dark-header button {
+  color: #eef4fb;
+}
+
+.aigo-dark-header svg {
+  color: #c8d6e6;
+}
+
+/* Preserve environment badge accent */
+.aigo-dark-header [class*="text-[#86ddf7]"],
+.aigo-dark-header [class*="text-[#0d6e9d]"] {
+  color: #8ee7ff !important;
 }

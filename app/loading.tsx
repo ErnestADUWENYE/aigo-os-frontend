@@ -1,7 +1,12 @@
+import { LoadingState } from "@/components/system/LoadingState";
+
 export default function Loading() {
-    return (
-      <div className="flex min-h-screen items-center justify-center">
-        <div className="text-sm text-gray-500">Loading AIGO Platform...</div>
-      </div>
-    );
-  }
+  return (
+    <main className="min-h-screen bg-[#e8eef6]">
+      <LoadingState
+        title="Opening AIGO-OS"
+        description="Preparing your secure workspace..."
+      />
+    </main>
+  );
+}

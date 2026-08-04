@@ -1,25 +1,24 @@
 import type { Metadata } from "next";
-import { ClerkProvider } from "@clerk/nextjs";
+
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AIGO OS | AI Governance Operating System",
+  title: {
+    default: "AIGO-OS",
+    template: "%s | AIGO-OS",
+  },
   description:
-    "Enterprise AI governance, risk, compliance, monitoring, and human oversight platform.",
+    "AIGO — intelligent governance, assurance, and operational control.",
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className="min-h-screen bg-gray-50 text-gray-900 antialiased">
-          {children}
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en">
+      <body>{children}</body>
+    </html>
   );
 }
