@@ -1,0 +1,69 @@
+:root {
+  /* Application canvas */
+  --canvas-950: #e9eff7;
+  --canvas-900: #eef3f9;
+  --canvas-850: #f3f6fa;
+  --canvas-800: #f7f9fc;
+
+  /* Surfaces */
+  --surface-strong: #ffffff;
+  --surface: #ffffff;
+  --surface-soft: #f4f7fb;
+  --surface-hover: #edf5fc;
+  --surface-selected: #e7f2fb;
+
+  /* Typography */
+  --text-primary: #172033;
+  --text-secondary: #53647a;
+  --text-muted: #8290a3;
+
+  /* AIGO brand system */
+  --aqua-300: #55c8ed;
+  --aqua-400: #2caedc;
+  --aqua-500: #168fca;
+
+  --azure-400: #2b82c5;
+  --azure-500: #1768a7;
+  --azure-600: #0d518c;
+  --azure-700: #093d6d;
+
+  /* Intelligence accent */
+  --iris-400: #8178d8;
+  --iris-500: #655bbd;
+  --magenta-400: #b46cc6;
+
+  /* Semantic */
+  --emerald-400: #19a779;
+  --amber-400: #d99a20;
+  --rose-400: #dc5b6d;
+
+  /* Structure */
+  --border-subtle: #dce4ee;
+  --border-strong: #c9d5e3;
+  --border-active: rgba(22, 143, 202, 0.45);
+
+  /* Shadows */
+  --shadow-soft:
+    0 1px 2px rgba(20, 43, 70, 0.04),
+    0 6px 18px rgba(20, 43, 70, 0.05);
+
+  --shadow-medium:
+    0 10px 30px rgba(31, 65, 101, 0.08);
+
+  --shadow-deep:
+    0 18px 45px rgba(31, 65, 101, 0.10);
+
+  --shadow-aqua:
+    0 8px 24px rgba(44, 174, 220, 0.12);
+
+  --shadow-iris:
+    0 8px 24px rgba(101, 91, 189, 0.10);
+
+  /* Shape */
+  --radius-sm: 0.55rem;
+  --radius-md: 0.8rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
