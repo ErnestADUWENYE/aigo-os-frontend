@@ -10,6 +10,7 @@ type AccessTokenProvider =
 type ApiRequestOptions = Omit<RequestInit, "body"> & {
   body?: unknown;
   accessToken?: string | null;
+  timeoutMs?: number;
 };
 
 let accessTokenProvider: AccessTokenProvider | null = null;
@@ -59,6 +60,7 @@ export async function apiRequest<T>(
     accessToken: explicitToken,
     body,
     headers,
+    timeoutMs = 30_000,
     ...requestInit
   } = options;
 
@@ -85,6 +87,9 @@ export async function apiRequest<T>(
     `${publicEnvironment.apiBaseUrl}${normalizedPath}`,
     {
       ...requestInit,
+      signal:
+        requestInit.signal ??
+        AbortSignal.timeout(timeoutMs),
       headers: requestHeaders,
       body:
         body === undefined

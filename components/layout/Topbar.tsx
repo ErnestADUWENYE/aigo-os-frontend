@@ -1,3 +1,5 @@
+import { publicEnvironment } from "@/lib/config/environment";
+
 import {
   Bell,
   ChevronDown,
@@ -31,7 +33,7 @@ export function Topbar() {
           <span className="h-1.5 w-1.5 rounded-full bg-[#2caedc]" />
 
           <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#9ce6fb]">
-            Local
+            {publicEnvironment.name}
           </span>
         </div>
 

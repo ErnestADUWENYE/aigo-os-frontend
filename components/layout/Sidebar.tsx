@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { publicEnvironment } from "@/lib/config/environment";
 import {
   Boxes,
   Gauge,
@@ -113,12 +114,12 @@ export function Sidebar() {
             <span className="h-2 w-2 rounded-full bg-[#32d39b]" />
 
             <span className="text-xs font-semibold text-white">
-              Local environment
+              {publicEnvironment.name} environment
             </span>
           </div>
 
           <p className="mt-2 text-[11px] leading-5 text-[#d5deea]">
-            Isolated from Demo and Production.
+            Active {publicEnvironment.name} frontend configuration.
           </p>
         </div>
       </div>

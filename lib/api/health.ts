@@ -136,6 +136,7 @@ export async function getPlatformHealth(): Promise<PlatformHealth> {
         "/observability/health",
         {
           cache: "no-store",
+          timeoutMs: 65_000,
         },
       );
 

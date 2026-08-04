@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { publicEnvironment } from "@/lib/config/environment";
 import {
   Activity,
   Database,
@@ -116,13 +117,13 @@ export function PlatformOverview() {
             </div>
 
             <span className="rounded-md border border-[#ead8a6] bg-[#fff8e7] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#9a6d0e]">
-              Development
+              {publicEnvironment.name}
             </span>
           </div>
 
           <div className="divide-y divide-[#e8edf3]">
             {[
-              ["Environment", "Local"],
+              ["Environment", publicEnvironment.name],
               ["API contract", "v1"],
               ["Frontend runtime", "Next.js"],
               ["Deployment isolation", "Enabled"],
