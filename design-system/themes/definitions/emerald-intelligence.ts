@@ -1,0 +1,31 @@
+import type { AigoTheme } from "../types";
+
+export const emeraldIntelligence: AigoTheme = {
+  id: "emerald-intelligence",
+  name: "Emerald Intelligence",
+  description: "Measured emerald accents for intelligent operational work.",
+  appearance: "light",
+  tokens: {
+    page: "#e8f0ed",
+    navigation: "#102c28",
+    header: "#f5faf8",
+    panel: "#edf5f2",
+    card: "#ffffff",
+    raised: "#ffffff",
+    overlay: "#ffffff",
+    selected: "#d5ece3",
+    hover: "#e0eee9",
+    textPrimary: "#132d29",
+    textSecondary: "#405b55",
+    textMuted: "#687d78",
+    textInverse: "#f7fffc",
+    borderSubtle: "#d4e3de",
+    borderDefault: "#b7cbc4",
+    borderStrong: "#68847b",
+    accentPrimary: "#087f65",
+    accentSecondary: "#22a683",
+    accentMuted: "#d7f2e8",
+    gradient: "linear-gradient(145deg, #e4efeb 0%, #f4f9f7 58%, #d8e8e2 100%)",
+    shadowCard: "0 1px 2px rgb(6 43 35 / 8%), 0 12px 28px rgb(6 43 35 / 10%)",
+  },
+};

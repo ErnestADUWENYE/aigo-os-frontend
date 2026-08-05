@@ -1,0 +1,31 @@
+import type { AigoTheme } from "../types";
+
+export const graphiteCommand: AigoTheme = {
+  id: "graphite-command",
+  name: "Graphite Command",
+  description: "Neutral command surfaces with strong operational contrast.",
+  appearance: "dark",
+  tokens: {
+    page: "#252a31",
+    navigation: "#171b20",
+    header: "#2d333b",
+    panel: "#2a3037",
+    card: "#343b44",
+    raised: "#3a424c",
+    overlay: "#303740",
+    selected: "#3d4b5a",
+    hover: "#353d46",
+    textPrimary: "#f4f7fa",
+    textSecondary: "#d4dde5",
+    textMuted: "#aebbc6",
+    textInverse: "#ffffff",
+    borderSubtle: "#414a54",
+    borderDefault: "#55616d",
+    borderStrong: "#84919d",
+    accentPrimary: "#62a9df",
+    accentSecondary: "#5bc0c9",
+    accentMuted: "#324b5e",
+    gradient: "linear-gradient(145deg, #23282f 0%, #303740 58%, #20252b 100%)",
+    shadowCard: "0 1px 2px rgb(0 0 0 / 22%), 0 14px 34px rgb(0 0 0 / 24%)",
+  },
+};

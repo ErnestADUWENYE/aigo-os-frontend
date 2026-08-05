@@ -48,3 +48,6 @@ tsconfig.tsbuildinfo
 playwright-report/
 test-results/
 coverage/
+
+# Local repository development dumps
+AIGO_*_COMPLETE.txt

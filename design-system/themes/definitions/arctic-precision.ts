@@ -1,0 +1,31 @@
+import type { AigoTheme } from "../types";
+
+export const arcticPrecision: AigoTheme = {
+  id: "arctic-precision",
+  name: "Arctic Precision",
+  description: "Bright precise surfaces with controlled cool contrast.",
+  appearance: "light",
+  tokens: {
+    page: "#edf2f6",
+    navigation: "#243746",
+    header: "#ffffff",
+    panel: "#f4f7fa",
+    card: "#ffffff",
+    raised: "#ffffff",
+    overlay: "#ffffff",
+    selected: "#deedf7",
+    hover: "#e7eff5",
+    textPrimary: "#152837",
+    textSecondary: "#49606f",
+    textMuted: "#6f8491",
+    textInverse: "#ffffff",
+    borderSubtle: "#dce5eb",
+    borderDefault: "#c3d0d9",
+    borderStrong: "#718795",
+    accentPrimary: "#1678a5",
+    accentSecondary: "#3ca6c4",
+    accentMuted: "#dff3f8",
+    gradient: "linear-gradient(145deg, #edf3f7 0%, #ffffff 60%, #dde9ef 100%)",
+    shadowCard: "0 1px 2px rgb(25 55 72 / 7%), 0 12px 28px rgb(25 55 72 / 9%)",
+  },
+};

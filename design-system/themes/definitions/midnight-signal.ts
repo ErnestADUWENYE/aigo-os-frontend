@@ -1,0 +1,31 @@
+import type { AigoTheme } from "../types";
+
+export const midnightSignal: AigoTheme = {
+  id: "midnight-signal",
+  name: "Midnight Signal",
+  description: "Deep midnight surfaces with restrained signal-blue energy.",
+  appearance: "dark",
+  tokens: {
+    page: "#111827",
+    navigation: "#08111f",
+    header: "#182235",
+    panel: "#151f31",
+    card: "#1c2940",
+    raised: "#22314b",
+    overlay: "#18253a",
+    selected: "#263c5d",
+    hover: "#202f49",
+    textPrimary: "#f4f8ff",
+    textSecondary: "#d2def0",
+    textMuted: "#9fb0c8",
+    textInverse: "#ffffff",
+    borderSubtle: "#293a54",
+    borderDefault: "#3b4f6d",
+    borderStrong: "#7186a4",
+    accentPrimary: "#55a8ff",
+    accentSecondary: "#40d0d8",
+    accentMuted: "#223f60",
+    gradient: "linear-gradient(145deg, #0f1726 0%, #1a2740 58%, #101827 100%)",
+    shadowCard: "0 1px 2px rgb(0 0 0 / 25%), 0 16px 38px rgb(0 0 0 / 28%)",
+  },
+};

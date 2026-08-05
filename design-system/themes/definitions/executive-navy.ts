@@ -1,0 +1,31 @@
+import type { AigoTheme } from "../types";
+
+export const executiveNavy: AigoTheme = {
+  id: "executive-navy",
+  name: "Executive Navy",
+  description: "Confident enterprise navy with crisp executive surfaces.",
+  appearance: "light",
+  tokens: {
+    page: "#e9eef5",
+    navigation: "#0b1f33",
+    header: "#f8fafc",
+    panel: "#f4f7fb",
+    card: "#ffffff",
+    raised: "#ffffff",
+    overlay: "#ffffff",
+    selected: "#dce9f8",
+    hover: "#e5edf6",
+    textPrimary: "#102033",
+    textSecondary: "#3f5266",
+    textMuted: "#64748b",
+    textInverse: "#ffffff",
+    borderSubtle: "#d9e2ec",
+    borderDefault: "#bdcad8",
+    borderStrong: "#718096",
+    accentPrimary: "#0875d1",
+    accentSecondary: "#10a4b8",
+    accentMuted: "#dceeff",
+    gradient: "linear-gradient(145deg, #e8eef6 0%, #f5f8fc 55%, #dce7f2 100%)",
+    shadowCard: "0 1px 2px rgb(15 23 42 / 8%), 0 12px 28px rgb(15 23 42 / 10%)",
+  },
+};
