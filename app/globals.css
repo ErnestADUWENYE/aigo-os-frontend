@@ -628,3 +628,9 @@ a {
     background-position: -240% 0;
   }
 }
+
+.aigo-local-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--aigo-space-3);
+}
