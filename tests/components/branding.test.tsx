@@ -5,12 +5,12 @@ import { AigoMark } from "../../design-system/branding/AigoMark";
 import { AigoWordmark } from "../../design-system/branding/AigoWordmark";
 import { BrandLockup } from "../../design-system/branding/BrandLockup";
 
-describe("AIGO branding", () => {
+describe("AIGO-OS branding", () => {
   it("renders the permanent mark", () => {
     render(<AigoMark />);
 
     expect(
-      screen.getByRole("img", { name: "AIGO OS" }),
+      screen.getByRole("img", { name: "AIGO-OS" }),
     ).toBeInTheDocument();
   });
 
@@ -18,17 +18,15 @@ describe("AIGO branding", () => {
     render(<AigoWordmark />);
 
     expect(
-      screen.getByRole("img", { name: "AIGO OS" }),
+      screen.getByRole("img", { name: "AIGO-OS" }),
     ).toBeInTheDocument();
   });
 
-  it("renders the complete brand lockup", () => {
-    render(
-      <BrandLockup caption="Enterprise Workspace" />,
-    );
+  it("renders the compact official brand lockup", () => {
+    render(<BrandLockup />);
 
     expect(
-      screen.getByText("Enterprise Workspace"),
+      screen.getByRole("img", { name: "AIGO-OS" }),
     ).toBeInTheDocument();
   });
 });

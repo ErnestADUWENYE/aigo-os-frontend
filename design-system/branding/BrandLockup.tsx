@@ -1,5 +1,5 @@
-import { AigoMark } from "./AigoMark";
-import { AigoWordmark } from "./AigoWordmark";
+import Image from "next/image";
+
 import type { BrandProps } from "./types";
 
 type BrandLockupProps = BrandProps & {
@@ -7,22 +7,18 @@ type BrandLockupProps = BrandProps & {
 };
 
 export function BrandLockup({
-  caption,
   className,
-  size = "md",
-  tone = "light",
 }: BrandLockupProps) {
   return (
     <div className={className ?? "aigo-brand-lockup"}>
-      <AigoMark size={size} tone={tone} />
-
-      <div className="aigo-brand-lockup__text">
-        <AigoWordmark size={size} tone={tone} />
-
-        {caption ? (
-          <span className="aigo-brand-caption">{caption}</span>
-        ) : null}
-      </div>
+      <Image
+        alt="AIGO-OS"
+        className="aigo-brand-lockup__image"
+        height={38}
+        priority
+        src="/branding/aigo-os-sidebar-logo.png"
+        width={60}
+      />
     </div>
   );
 }
