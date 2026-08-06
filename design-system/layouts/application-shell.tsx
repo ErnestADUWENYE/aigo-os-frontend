@@ -1,4 +1,4 @@
-import "./application-shell.css";
+﻿import "./application-shell.css";
 
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
 import { BrandLockup } from "../branding/BrandLockup";
 import { ThemeSelector } from "../components/theme-selector";
 
-type ShellLink = {
+export type ShellLink = {
   href: string;
   label: string;
 };
@@ -17,6 +17,10 @@ type ApplicationShellProps = {
   eyebrow: string;
   links: ShellLink[];
   surface: "customer" | "admin";
+  contextLabel?: string | null;
+  contextDetail?: string | null;
+  headerActions?: ReactNode;
+  statusLabel?: string;
 };
 
 export function ApplicationShell({
@@ -25,6 +29,10 @@ export function ApplicationShell({
   eyebrow,
   links,
   surface,
+  contextLabel,
+  contextDetail,
+  headerActions,
+  statusLabel = "Phase 2",
 }: ApplicationShellProps) {
   return (
     <div
@@ -32,7 +40,6 @@ export function ApplicationShell({
       data-surface={surface}
     >
       <aside className="aigo-app-shell__navigation">
-
         <div className="aigo-app-shell__brand">
           <BrandLockup
             size="sm"
@@ -54,15 +61,11 @@ export function ApplicationShell({
             </Link>
           ))}
         </nav>
-
       </aside>
 
       <section className="aigo-app-shell__workspace">
-
         <header className="aigo-app-shell__header">
-
           <div className="aigo-app-shell__header-copy">
-
             <p className="aigo-app-shell__eyebrow">
               {eyebrow}
             </p>
@@ -71,26 +74,36 @@ export function ApplicationShell({
               {title}
             </h1>
 
+            {contextLabel ? (
+              <div className="mt-2">
+                <p className="text-sm font-medium">
+                  {contextLabel}
+                </p>
+
+                {contextDetail ? (
+                  <p className="text-xs opacity-65">
+                    {contextDetail}
+                  </p>
+                ) : null}
+              </div>
+            ) : null}
           </div>
 
           <div className="aigo-app-shell__header-actions">
+            {headerActions}
 
             <ThemeSelector />
 
             <span className="aigo-app-shell__status">
-              Phase 1 Foundation
+              {statusLabel}
             </span>
-
           </div>
-
         </header>
 
         <main className="aigo-app-shell__content">
           {children}
         </main>
-
       </section>
-
     </div>
   );
 }
