@@ -4,6 +4,7 @@ import axios, {
 } from "axios";
 
 const apiUrl =
+  process.env.NEXT_PUBLIC_API_BASE_URL ??
   process.env.NEXT_PUBLIC_AIGO_API_URL ??
   "http://localhost:8000";
 
@@ -15,7 +16,9 @@ export type ApiContext = {
 
 let currentContext: ApiContext = {};
 
-export function setApiContext(context: ApiContext): void {
+export function setApiContext(
+  context: ApiContext,
+): void {
   currentContext = context;
 }
 
@@ -36,7 +39,7 @@ function attachRequestContext(
 
   if (currentContext.tenantId) {
     config.headers.set(
-      "X-Tenant-ID",
+      "X-Organization-ID",
       currentContext.tenantId,
     );
   }
@@ -51,13 +54,16 @@ function attachRequestContext(
   return config;
 }
 
-export const apiClient: AxiosInstance = axios.create({
-  baseURL: apiUrl,
-  timeout: 15_000,
-  headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json",
-  },
-});
+export const apiClient: AxiosInstance =
+  axios.create({
+    baseURL: apiUrl,
+    timeout: 15_000,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  });
 
-apiClient.interceptors.request.use(attachRequestContext);
+apiClient.interceptors.request.use(
+  attachRequestContext,
+);
