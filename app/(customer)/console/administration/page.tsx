@@ -2,63 +2,35 @@
 
 import { useQuery } from "@tanstack/react-query";
 import {
-  Activity,
   AlertCircle,
-  ArrowRight,
-  BadgeCheck,
-  Clock3,
-  KeyRound,
+  Building2,
+  CheckCircle2,
+  Factory,
+  Globe2,
+  Layers3,
   LoaderCircle,
   Mail,
-  Shield,
-  SlidersHorizontal,
-  UserRoundCheck,
+  MapPin,
+  Network,
+  UserCheck,
   Users,
+  Workflow,
 } from "lucide-react";
 
 import { useAuthentication } from "../../../providers/authentication-provider";
 import { useTenant } from "../../../providers/tenant-provider";
 import {
-  listAdministrationAuditEvents,
-  listAdministrationInvitations,
-  listAdministrationMemberships,
-  listAdministrationPermissions,
-  listAdministrationResourceScopes,
-  listAdministrationRoles,
-} from "../../../../lib/api/customer-administration";
+  loadTenantAdministrationSnapshot,
+  type OrganizationalUnit,
+} from "../../../../lib/api/customer-tenant-administration";
 
-function formatDate(value: string): string {
-  const date = new Date(value);
-
-  if (Number.isNaN(date.getTime())) {
-    return "Unknown time";
-  }
-
-  return new Intl.DateTimeFormat("en", {
-    dateStyle: "medium",
-    timeStyle: "short",
-  }).format(date);
-}
-
-function formatEventLabel(value: string): string {
-  return value
-    .toLowerCase()
-    .split("_")
-    .map(
-      (part) =>
-        part.charAt(0).toUpperCase() +
-        part.slice(1),
-    )
-    .join(" ");
-}
-
-function SummaryCard({
-  title,
+function MetricCard({
+  label,
   value,
   detail,
   icon,
 }: {
-  title: string;
+  label: string;
   value: number | string;
   detail: string;
   icon: React.ReactNode;
@@ -68,7 +40,7 @@ function SummaryCard({
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="text-sm font-medium opacity-65">
-            {title}
+            {label}
           </p>
 
           <p className="mt-3 text-3xl font-semibold tracking-tight">
@@ -88,15 +60,13 @@ function SummaryCard({
   );
 }
 
-function LoadError({
-  title,
+function LoadFailure({
   retry,
 }: {
-  title: string;
   retry: () => void;
 }) {
   return (
-    <div
+    <section
       className="rounded-2xl border p-6"
       role="alert"
     >
@@ -107,11 +77,15 @@ function LoadError({
         />
 
         <div>
-          <h3 className="font-semibold">{title}</h3>
+          <h2 className="font-semibold">
+            Administration data could not be loaded
+          </h2>
 
-          <p className="mt-1 text-sm opacity-65">
-            The resource may be unavailable or your current
-            role may not have permission to view it.
+          <p className="mt-2 text-sm opacity-65">
+            Confirm that the API is running and that your
+            current role can read organization, workspace,
+            profile, membership, invitation, unit, and
+            settings data.
           </p>
 
           <button
@@ -123,8 +97,57 @@ function LoadError({
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
+}
+
+function OrganizationalUnitRow({
+  unit,
+  parentName,
+}: {
+  unit: OrganizationalUnit;
+  parentName: string | null;
+}) {
+  return (
+    <article className="p-5">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <h3 className="font-medium">
+            {unit.name}
+          </h3>
+
+          <p className="mt-1 text-xs opacity-55">
+            {unit.slug}
+          </p>
+        </div>
+
+        <span className="rounded-full border px-3 py-1 text-xs">
+          {unit.status}
+        </span>
+      </div>
+
+      <p className="mt-3 text-sm opacity-65">
+        {unit.description ??
+          "No organizational-unit description provided."}
+      </p>
+
+      <p className="mt-3 text-xs opacity-55">
+        Parent: {parentName ?? "Organization root"}
+      </p>
+    </article>
+  );
+}
+
+function formatInvitationExpiry(value: string): string {
+  const date = new Date(value);
+
+  if (Number.isNaN(date.getTime())) {
+    return "Unknown expiry";
+  }
+
+  return new Intl.DateTimeFormat("en", {
+    dateStyle: "medium",
+  }).format(date);
 }
 
 export default function CustomerAdministrationPage() {
@@ -137,96 +160,51 @@ export default function CustomerAdministrationPage() {
     workspaceName,
   } = useTenant();
 
-  const queriesEnabled =
+  const queryEnabled =
     authentication.isLoaded &&
     authentication.isAuthenticated &&
     Boolean(authentication.accessToken) &&
     Boolean(tenantId);
 
-  const membershipsQuery = useQuery({
+  const administrationQuery = useQuery({
     queryKey: [
       "customer",
-      "administration",
-      "memberships",
-      tenantId,
-      workspaceId,
-    ],
-    queryFn: listAdministrationMemberships,
-    enabled: queriesEnabled,
-  });
-
-  const invitationsQuery = useQuery({
-    queryKey: [
-      "customer",
-      "administration",
-      "invitations",
-      tenantId,
-    ],
-    queryFn: listAdministrationInvitations,
-    enabled: queriesEnabled,
-  });
-
-  const rolesQuery = useQuery({
-    queryKey: [
-      "customer",
-      "administration",
-      "roles",
-      tenantId,
-    ],
-    queryFn: listAdministrationRoles,
-    enabled: queriesEnabled,
-  });
-
-  const permissionsQuery = useQuery({
-    queryKey: [
-      "customer",
-      "administration",
-      "permissions",
-      tenantId,
-    ],
-    queryFn: listAdministrationPermissions,
-    enabled: queriesEnabled,
-  });
-
-  const scopesQuery = useQuery({
-    queryKey: [
-      "customer",
-      "administration",
-      "resource-scopes",
-      tenantId,
-      workspaceId,
-    ],
-    queryFn: listAdministrationResourceScopes,
-    enabled: queriesEnabled,
-  });
-
-  const auditQuery = useQuery({
-    queryKey: [
-      "customer",
-      "administration",
-      "audit",
+      "tenant-administration",
       tenantId,
       workspaceId,
     ],
     queryFn: () =>
-      listAdministrationAuditEvents(8),
-    enabled: queriesEnabled,
+      loadTenantAdministrationSnapshot(
+        tenantId as string,
+      ),
+    enabled: queryEnabled,
   });
 
+  const organizations =
+    administrationQuery.data?.organizations ?? [];
+
+  const workspaces =
+    administrationQuery.data?.workspaces ?? [];
+
+  const profiles =
+    administrationQuery.data?.profiles ?? [];
+
   const memberships =
-    membershipsQuery.data ?? [];
+    administrationQuery.data?.memberships ?? [];
 
   const invitations =
-    invitationsQuery.data ?? [];
+    administrationQuery.data?.invitations ?? [];
 
-  const roles = rolesQuery.data ?? [];
+  const organizationalUnits =
+    administrationQuery.data?.organizationalUnits ??
+    [];
 
-  const permissions =
-    permissionsQuery.data ?? [];
+  const settings =
+    administrationQuery.data?.organizationSettings;
 
-  const scopes = scopesQuery.data ?? [];
-
-  const auditEvents = auditQuery.data ?? [];
+  const activeProfiles = profiles.filter(
+    (profile) => profile.isActive,
+  ).length;
 
   const activeMemberships = memberships.filter(
     (membership) =>
@@ -238,28 +216,17 @@ export default function CustomerAdministrationPage() {
       invitation.status.toUpperCase() === "PENDING",
   ).length;
 
-  const activePermissions = permissions.filter(
-    (permission) =>
-      permission.status.toUpperCase() === "ACTIVE",
+  const activeUnits = organizationalUnits.filter(
+    (unit) =>
+      unit.status.toUpperCase() === "ACTIVE",
   ).length;
 
-  const activeScopes = scopes.filter(
-    (scope) =>
-      scope.status.toUpperCase() === "ACTIVE",
-  ).length;
-
-  const denyScopes = scopes.filter(
-    (scope) =>
-      scope.effect.toUpperCase() === "DENY",
-  ).length;
-
-  const isLoading =
-    membershipsQuery.isLoading ||
-    invitationsQuery.isLoading ||
-    rolesQuery.isLoading ||
-    permissionsQuery.isLoading ||
-    scopesQuery.isLoading ||
-    auditQuery.isLoading;
+  const unitNames = new Map(
+    organizationalUnits.map((unit) => [
+      unit.id,
+      unit.name,
+    ]),
+  );
 
   return (
     <div className="space-y-8">
@@ -267,27 +234,29 @@ export default function CustomerAdministrationPage() {
         <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-center">
           <div>
             <div className="flex items-center gap-2 text-sm font-medium opacity-65">
-              <Shield
+              <Building2
                 aria-hidden="true"
                 className="size-4"
               />
-              Identity and access administration
+              Tenant and identity administration
             </div>
 
             <h2 className="mt-4 text-3xl font-semibold tracking-tight">
-              Customer administration
+              Administration
             </h2>
 
             <p className="mt-3 max-w-2xl opacity-70">
-              Review memberships, invitations, roles,
-              permissions, resource scopes, and recent
-              administrative activity.
+              Manage your organization structure,
+              workspaces, people, memberships,
+              invitations, and customer settings.
             </p>
           </div>
 
           <div className="rounded-2xl border p-5 text-sm">
             <p className="font-medium">
-              {tenantName ?? "Selected organization"}
+              {tenantName ??
+                settings?.name ??
+                "Selected organization"}
             </p>
 
             <p className="mt-1 opacity-65">
@@ -302,28 +271,70 @@ export default function CustomerAdministrationPage() {
         </div>
       </section>
 
-      {isLoading ? (
+      {administrationQuery.isLoading ? (
         <div className="flex items-center gap-3 rounded-2xl border p-6">
           <LoaderCircle
             aria-hidden="true"
             className="size-5 animate-spin"
           />
-          <span>Loading administration data...</span>
+          <span>
+            Loading tenant administration...
+          </span>
         </div>
+      ) : null}
+
+      {administrationQuery.isError ? (
+        <LoadFailure
+          retry={() => {
+            void administrationQuery.refetch();
+          }}
+        />
       ) : null}
 
       <section
         aria-label="Administration summary"
-        className="grid gap-4 md:grid-cols-2 xl:grid-cols-3"
+        className="grid gap-4 md:grid-cols-2 xl:grid-cols-6"
       >
-        <SummaryCard
-          title="Active memberships"
+        <MetricCard
+          label="Organizations"
           value={
-            membershipsQuery.isError
+            administrationQuery.isError
               ? "--"
-              : activeMemberships
+              : organizations.length
           }
-          detail={`${memberships.length} visible memberships`}
+          detail="Accessible tenants"
+          icon={
+            <Building2
+              aria-hidden="true"
+              className="size-5"
+            />
+          }
+        />
+
+        <MetricCard
+          label="Workspaces"
+          value={
+            administrationQuery.isError
+              ? "--"
+              : workspaces.length
+          }
+          detail="Accessible workspaces"
+          icon={
+            <Workflow
+              aria-hidden="true"
+              className="size-5"
+            />
+          }
+        />
+
+        <MetricCard
+          label="Active profiles"
+          value={
+            administrationQuery.isError
+              ? "--"
+              : activeProfiles
+          }
+          detail={`${profiles.length} total profiles`}
           icon={
             <Users
               aria-hidden="true"
@@ -332,10 +343,26 @@ export default function CustomerAdministrationPage() {
           }
         />
 
-        <SummaryCard
-          title="Pending invitations"
+        <MetricCard
+          label="Active memberships"
           value={
-            invitationsQuery.isError
+            administrationQuery.isError
+              ? "--"
+              : activeMemberships
+          }
+          detail={`${memberships.length} assignments`}
+          icon={
+            <UserCheck
+              aria-hidden="true"
+              className="size-5"
+            />
+          }
+        />
+
+        <MetricCard
+          label="Pending invitations"
+          value={
+            administrationQuery.isError
               ? "--"
               : pendingInvitations
           }
@@ -348,67 +375,16 @@ export default function CustomerAdministrationPage() {
           }
         />
 
-        <SummaryCard
-          title="Roles"
+        <MetricCard
+          label="Active units"
           value={
-            rolesQuery.isError
+            administrationQuery.isError
               ? "--"
-              : roles.length
+              : activeUnits
           }
-          detail={`${
-            roles.filter((role) => role.isSystemRole)
-              .length
-          } system roles`}
+          detail={`${organizationalUnits.length} total units`}
           icon={
-            <UserRoundCheck
-              aria-hidden="true"
-              className="size-5"
-            />
-          }
-        />
-
-        <SummaryCard
-          title="Active permissions"
-          value={
-            permissionsQuery.isError
-              ? "--"
-              : activePermissions
-          }
-          detail={`${permissions.length} permission definitions`}
-          icon={
-            <KeyRound
-              aria-hidden="true"
-              className="size-5"
-            />
-          }
-        />
-
-        <SummaryCard
-          title="Active resource scopes"
-          value={
-            scopesQuery.isError
-              ? "--"
-              : activeScopes
-          }
-          detail={`${denyScopes} explicit deny scopes`}
-          icon={
-            <SlidersHorizontal
-              aria-hidden="true"
-              className="size-5"
-            />
-          }
-        />
-
-        <SummaryCard
-          title="Recent audit events"
-          value={
-            auditQuery.isError
-              ? "--"
-              : auditEvents.length
-          }
-          detail="Latest administrative activity"
-          icon={
-            <Activity
+            <Network
               aria-hidden="true"
               className="size-5"
             />
@@ -420,212 +396,169 @@ export default function CustomerAdministrationPage() {
         <div className="rounded-2xl border">
           <div className="border-b p-6">
             <h2 className="text-lg font-semibold">
-              Administration areas
+              Organization profile
             </h2>
 
             <p className="mt-1 text-sm opacity-65">
-              Current access-management resources in this
-              tenant context.
+              Customer identity and operating context.
             </p>
           </div>
 
-          <div className="grid gap-4 p-6 md:grid-cols-2">
+          <div className="grid gap-4 p-6 sm:grid-cols-2">
             <article className="rounded-xl border p-5">
-              <Users
+              <Building2
                 aria-hidden="true"
                 className="size-5"
               />
 
-              <h3 className="mt-4 font-semibold">
-                Memberships
-              </h3>
-
-              <p className="mt-2 text-sm opacity-65">
-                Manage organization and workspace access
-                assignments.
+              <p className="mt-4 text-xs font-medium uppercase tracking-wide opacity-55">
+                Organization
               </p>
 
-              <p className="mt-4 text-sm font-medium">
-                {memberships.length} records
+              <p className="mt-2 font-semibold">
+                {settings?.name ??
+                  tenantName ??
+                  "Unavailable"}
+              </p>
+
+              <p className="mt-1 text-sm opacity-65">
+                {settings?.slug ?? tenantId}
               </p>
             </article>
 
             <article className="rounded-xl border p-5">
-              <Mail
+              <Factory
                 aria-hidden="true"
                 className="size-5"
               />
 
-              <h3 className="mt-4 font-semibold">
-                Invitations
-              </h3>
-
-              <p className="mt-2 text-sm opacity-65">
-                Invite new users and monitor pending access
-                requests.
+              <p className="mt-4 text-xs font-medium uppercase tracking-wide opacity-55">
+                Industry
               </p>
 
-              <p className="mt-4 text-sm font-medium">
-                {pendingInvitations} pending
+              <p className="mt-2 font-semibold">
+                {settings?.industry ??
+                  "Not configured"}
+              </p>
+
+              <p className="mt-1 text-sm opacity-65">
+                Status:{" "}
+                {settings?.status ?? "Unknown"}
               </p>
             </article>
 
             <article className="rounded-xl border p-5">
-              <UserRoundCheck
+              <MapPin
                 aria-hidden="true"
                 className="size-5"
               />
 
-              <h3 className="mt-4 font-semibold">
-                Roles
-              </h3>
-
-              <p className="mt-2 text-sm opacity-65">
-                Define reusable bundles of organizational
-                access.
+              <p className="mt-4 text-xs font-medium uppercase tracking-wide opacity-55">
+                Primary region
               </p>
 
-              <p className="mt-4 text-sm font-medium">
-                {roles.length} roles
+              <p className="mt-2 font-semibold">
+                {settings?.primaryRegion ??
+                  "Not configured"}
+              </p>
+
+              <p className="mt-1 text-sm opacity-65">
+                Governance owner:{" "}
+                {settings?.governanceOwnerName ??
+                  "Not configured"}
               </p>
             </article>
 
             <article className="rounded-xl border p-5">
-              <KeyRound
+              <Globe2
                 aria-hidden="true"
                 className="size-5"
               />
 
-              <h3 className="mt-4 font-semibold">
-                Permissions
-              </h3>
-
-              <p className="mt-2 text-sm opacity-65">
-                Control supported resources and allowed
-                actions.
+              <p className="mt-4 text-xs font-medium uppercase tracking-wide opacity-55">
+                Regulatory scope
               </p>
 
-              <p className="mt-4 text-sm font-medium">
-                {permissions.length} permissions
-              </p>
-            </article>
-
-            <article className="rounded-xl border p-5 md:col-span-2">
-              <SlidersHorizontal
-                aria-hidden="true"
-                className="size-5"
-              />
-
-              <h3 className="mt-4 font-semibold">
-                Resource scopes
-              </h3>
-
-              <p className="mt-2 text-sm opacity-65">
-                Apply resource-specific allow and deny rules
-                to roles and profiles.
-              </p>
-
-              <div className="mt-4 flex flex-wrap gap-3 text-sm">
-                <span className="rounded-full border px-3 py-1">
-                  {activeScopes} active
-                </span>
-
-                <span className="rounded-full border px-3 py-1">
-                  {denyScopes} deny
-                </span>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {settings?.regulatoryScope.length ? (
+                  settings.regulatoryScope.map(
+                    (scope) => (
+                      <span
+                        className="rounded-full border px-3 py-1 text-xs"
+                        key={scope}
+                      >
+                        {scope}
+                      </span>
+                    ),
+                  )
+                ) : (
+                  <span className="text-sm opacity-65">
+                    Not configured
+                  </span>
+                )}
               </div>
             </article>
           </div>
         </div>
 
         <div className="rounded-2xl border">
-          <div className="flex items-center justify-between gap-4 border-b p-6">
-            <div>
-              <h2 className="text-lg font-semibold">
-                Recent administration activity
-              </h2>
+          <div className="border-b p-6">
+            <h2 className="text-lg font-semibold">
+              Workspaces
+            </h2>
 
-              <p className="mt-1 text-sm opacity-65">
-                Latest lifecycle and access events.
-              </p>
-            </div>
-
-            <BadgeCheck
-              aria-hidden="true"
-              className="size-5"
-            />
+            <p className="mt-1 text-sm opacity-65">
+              Operational environments available in the
+              selected organization.
+            </p>
           </div>
 
-          {auditQuery.isError ? (
-            <div className="p-6">
-              <LoadError
-                title="Audit events could not be loaded"
-                retry={() => {
-                  void auditQuery.refetch();
-                }}
-              />
-            </div>
-          ) : null}
-
-          {!auditQuery.isError &&
-          auditEvents.length === 0 &&
-          !auditQuery.isLoading ? (
-            <div className="p-8 text-center">
-              <Activity
-                aria-hidden="true"
-                className="mx-auto size-8 opacity-40"
-              />
-
-              <h3 className="mt-4 font-semibold">
-                No recent events
-              </h3>
-
-              <p className="mt-2 text-sm opacity-65">
-                Administration activity will appear here.
-              </p>
+          {workspaces.length === 0 &&
+          !administrationQuery.isLoading ? (
+            <div className="p-8 text-center text-sm opacity-65">
+              No workspaces are available.
             </div>
           ) : null}
 
           <div className="divide-y">
-            {auditEvents.map((event) => (
+            {workspaces.map((workspace) => (
               <article
                 className="p-5"
-                key={event.id}
+                key={workspace.id}
               >
-                <div className="flex items-start gap-3">
-                  <div className="rounded-lg border p-2">
-                    <Clock3
-                      aria-hidden="true"
-                      className="size-4"
-                    />
-                  </div>
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <h3 className="font-medium">
+                      {workspace.name}
+                    </h3>
 
-                  <div className="min-w-0 flex-1">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <h3 className="font-medium">
-                        {formatEventLabel(
-                          event.eventType,
-                        )}
-                      </h3>
-
-                      <time
-                        className="text-xs opacity-55"
-                        dateTime={event.createdAt}
-                      >
-                        {formatDate(event.createdAt)}
-                      </time>
-                    </div>
-
-                    <p className="mt-1 text-sm opacity-70">
-                      {event.summary}
-                    </p>
-
-                    <p className="mt-2 text-xs opacity-55">
-                      {event.actorName ??
-                        event.actorEmail ??
-                        "System actor"}
+                    <p className="mt-1 text-xs opacity-55">
+                      {workspace.slug}
                     </p>
                   </div>
+
+                  <span className="rounded-full border px-3 py-1 text-xs">
+                    {workspace.status}
+                  </span>
+                </div>
+
+                <p className="mt-3 text-sm opacity-65">
+                  {workspace.description ??
+                    "No workspace description provided."}
+                </p>
+
+                <div className="mt-3 flex flex-wrap gap-2 text-xs">
+                  {workspace.environment ? (
+                    <span className="rounded-full border px-2.5 py-1">
+                      {workspace.environment}
+                    </span>
+                  ) : null}
+
+                  {workspace.region ? (
+                    <span className="rounded-full border px-2.5 py-1">
+                      {workspace.region}
+                    </span>
+                  ) : null}
                 </div>
               </article>
             ))}
@@ -633,61 +566,192 @@ export default function CustomerAdministrationPage() {
         </div>
       </section>
 
-      <section className="grid gap-4 lg:grid-cols-2">
-        {membershipsQuery.isError ? (
-          <LoadError
-            title="Memberships could not be loaded"
-            retry={() => {
-              void membershipsQuery.refetch();
-            }}
-          />
-        ) : null}
+      <section className="grid gap-6 xl:grid-cols-2">
+        <div className="rounded-2xl border">
+          <div className="border-b p-6">
+            <h2 className="text-lg font-semibold">
+              People and memberships
+            </h2>
 
-        {invitationsQuery.isError ? (
-          <LoadError
-            title="Invitations could not be loaded"
-            retry={() => {
-              void invitationsQuery.refetch();
-            }}
-          />
-        ) : null}
+            <p className="mt-1 text-sm opacity-65">
+              Active identities and their current tenant
+              assignments.
+            </p>
+          </div>
 
-        {rolesQuery.isError ? (
-          <LoadError
-            title="Roles could not be loaded"
-            retry={() => {
-              void rolesQuery.refetch();
-            }}
-          />
-        ) : null}
+          {profiles.length === 0 &&
+          !administrationQuery.isLoading ? (
+            <div className="p-8 text-center text-sm opacity-65">
+              No profiles are available.
+            </div>
+          ) : null}
 
-        {permissionsQuery.isError ? (
-          <LoadError
-            title="Permissions could not be loaded"
-            retry={() => {
-              void permissionsQuery.refetch();
-            }}
-          />
-        ) : null}
+          <div className="divide-y">
+            {profiles.slice(0, 10).map((profile) => {
+              const profileMemberships =
+                memberships.filter(
+                  (membership) =>
+                    membership.profileId ===
+                    profile.id,
+                );
 
-        {scopesQuery.isError ? (
-          <LoadError
-            title="Resource scopes could not be loaded"
-            retry={() => {
-              void scopesQuery.refetch();
-            }}
-          />
-        ) : null}
+              return (
+                <article
+                  className="p-5"
+                  key={profile.id}
+                >
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                      <h3 className="font-medium">
+                        {profile.fullName ??
+                          profile.email}
+                      </h3>
+
+                      <p className="mt-1 text-sm opacity-65">
+                        {profile.email}
+                      </p>
+                    </div>
+
+                    <span className="flex items-center gap-1 rounded-full border px-3 py-1 text-xs">
+                      <CheckCircle2
+                        aria-hidden="true"
+                        className="size-3"
+                      />
+                      {profile.isActive
+                        ? "Active"
+                        : "Inactive"}
+                    </span>
+                  </div>
+
+                  <p className="mt-3 text-sm opacity-65">
+                    {profile.jobTitle ??
+                      "No job title"}
+                    {profile.department
+                      ? ` · ${profile.department}`
+                      : ""}
+                  </p>
+
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {profileMemberships.map(
+                      (membership) => (
+                        <span
+                          className="rounded-full border px-2.5 py-1 text-xs"
+                          key={membership.id}
+                        >
+                          {membership.role} ·{" "}
+                          {membership.status}
+                        </span>
+                      ),
+                    )}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="rounded-2xl border">
+          <div className="border-b p-6">
+            <h2 className="text-lg font-semibold">
+              Invitations
+            </h2>
+
+            <p className="mt-1 text-sm opacity-65">
+              Pending and historical organization access
+              invitations.
+            </p>
+          </div>
+
+          {invitations.length === 0 &&
+          !administrationQuery.isLoading ? (
+            <div className="p-8 text-center text-sm opacity-65">
+              No invitations are available.
+            </div>
+          ) : null}
+
+          <div className="divide-y">
+            {invitations.slice(0, 10).map(
+              (invitation) => (
+                <article
+                  className="p-5"
+                  key={invitation.id}
+                >
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                      <h3 className="font-medium">
+                        {invitation.email}
+                      </h3>
+
+                      <p className="mt-1 text-sm opacity-65">
+                        Role: {invitation.role}
+                      </p>
+                    </div>
+
+                    <span className="rounded-full border px-3 py-1 text-xs">
+                      {invitation.status}
+                    </span>
+                  </div>
+
+                  <p className="mt-3 text-xs opacity-55">
+                    Expires{" "}
+                    {formatInvitationExpiry(
+                      invitation.expiresAt,
+                    )}
+                  </p>
+                </article>
+              ),
+            )}
+          </div>
+        </div>
       </section>
 
-      <div className="flex items-center gap-2 text-sm opacity-55">
-        <ArrowRight
-          aria-hidden="true"
-          className="size-4"
-        />
-        Detailed create, update, and delete workflows will
-        be added as dedicated administration views.
-      </div>
+      <section className="rounded-2xl border">
+        <div className="border-b p-6">
+          <h2 className="text-lg font-semibold">
+            Organizational structure
+          </h2>
+
+          <p className="mt-1 text-sm opacity-65">
+            Departments, divisions, and other internal
+            operating units.
+          </p>
+        </div>
+
+        {organizationalUnits.length === 0 &&
+        !administrationQuery.isLoading ? (
+          <div className="p-8 text-center">
+            <Layers3
+              aria-hidden="true"
+              className="mx-auto size-8 opacity-40"
+            />
+
+            <h3 className="mt-4 font-semibold">
+              No organizational units
+            </h3>
+
+            <p className="mt-2 text-sm opacity-65">
+              Units will appear here after they are
+              configured.
+            </p>
+          </div>
+        ) : null}
+
+        <div className="grid gap-px md:grid-cols-2 xl:grid-cols-3">
+          {organizationalUnits.map((unit) => (
+            <OrganizationalUnitRow
+              key={unit.id}
+              unit={unit}
+              parentName={
+                unit.parentUnitId
+                  ? unitNames.get(
+                      unit.parentUnitId,
+                    ) ?? null
+                  : null
+              }
+            />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
