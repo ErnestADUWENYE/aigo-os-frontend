@@ -27,7 +27,7 @@ const customerLinks: ShellLink[] = [
   },
   {
     href: "/console/governance",
-    label: "Governance",
+    label: "Access Governance",
   },
   {
     href: "/console/assurance",
@@ -220,3 +220,4 @@ export function CustomerConsoleLayout({
     </ApplicationShell>
   );
 }
+
