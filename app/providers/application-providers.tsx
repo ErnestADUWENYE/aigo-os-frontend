@@ -1,5 +1,6 @@
 "use client";
 
+import { ClerkProvider } from "@clerk/nextjs";
 import {
   QueryClient,
   QueryClientProvider,
@@ -45,6 +46,26 @@ function ApiContextSynchronizer({
   return children;
 }
 
+function AuthenticatedProviders({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  return (
+    <AuthenticationProvider>
+      <TenantProvider>
+        <AuthorizationProvider>
+          <ThemeProvider>
+            <ApiContextSynchronizer>
+              {children}
+            </ApiContextSynchronizer>
+          </ThemeProvider>
+        </AuthorizationProvider>
+      </TenantProvider>
+    </AuthenticationProvider>
+  );
+}
+
 export function ApplicationProviders({
   children,
 }: {
@@ -67,18 +88,12 @@ export function ApplicationProviders({
   );
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <AuthenticationProvider>
-        <TenantProvider>
-          <AuthorizationProvider>
-            <ThemeProvider>
-              <ApiContextSynchronizer>
-                {children}
-              </ApiContextSynchronizer>
-            </ThemeProvider>
-          </AuthorizationProvider>
-        </TenantProvider>
-      </AuthenticationProvider>
-    </QueryClientProvider>
+    <ClerkProvider>
+      <QueryClientProvider client={queryClient}>
+        <AuthenticatedProviders>
+          {children}
+        </AuthenticatedProviders>
+      </QueryClientProvider>
+    </ClerkProvider>
   );
 }
