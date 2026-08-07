@@ -1,8 +1,16 @@
-﻿export default function Page() {
+﻿"use client";
+
+import { SignIn } from "@clerk/nextjs";
+
+export default function SignInPage() {
   return (
-    <main>
-      <h1>Sign In</h1>
-      <p>This capability will be implemented in its locked development phase.</p>
+    <main className="flex min-h-screen items-center justify-center p-6">
+      <SignIn
+        fallbackRedirectUrl="/select-organization"
+        path="/sign-in"
+        routing="path"
+        signUpUrl="/sign-up"
+      />
     </main>
   );
 }
