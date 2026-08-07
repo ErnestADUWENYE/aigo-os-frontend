@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 
 import { useAuthentication } from "../../../providers/authentication-provider";
+import { useAuthorization } from "../../../providers/authorization-provider";
 import { useTenant } from "../../../providers/tenant-provider";
 import {
   getCustomerAnalytics,
@@ -173,6 +174,7 @@ function TrendRow({
 
 export default function AnalyticsPage() {
   const authentication = useAuthentication();
+const authorization = useAuthorization();
 
   const {
     tenantId,
@@ -209,6 +211,26 @@ export default function AnalyticsPage() {
     ),
   );
 
+const canViewAnalytics = authorization.canAny([
+  "organization.admin",
+  "analytics.read",
+]);
+
+if (!canViewAnalytics) {
+  return (
+    <main className="flex min-h-[60vh] items-center justify-center">
+      <section className="rounded-2xl border p-8 text-center">
+        <h1 className="text-2xl font-semibold">
+          Access denied
+        </h1>
+
+        <p className="mt-3 text-sm opacity-70">
+          You do not have permission to access Analytics.
+        </p>
+      </section>
+    </main>
+  );
+}
   return (
     <div className="space-y-8">
       <section className="rounded-3xl border p-8">
@@ -536,3 +558,5 @@ export default function AnalyticsPage() {
     </div>
   );
 }
+
+
