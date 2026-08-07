@@ -24,6 +24,7 @@ import {
 } from "react";
 
 import { useAuthentication } from "../../../providers/authentication-provider";
+import { useAuthorization } from "../../../providers/authorization-provider";
 import { useTenant } from "../../../providers/tenant-provider";
 import { useTheme } from "../../../../design-system/themes/provider";
 import { themeList } from "../../../../design-system/themes/registry";
@@ -352,6 +353,7 @@ function OrganizationSettingsForm({
 
 export default function CustomerSettingsPage() {
   const authentication = useAuthentication();
+const authorization = useAuthorization();
   const queryClient = useQueryClient();
   const { tenantId, tenantName } = useTenant();
   const { themeId, setThemeId } = useTheme();
@@ -415,6 +417,27 @@ export default function CustomerSettingsPage() {
     organizationQuery.isError ||
     appearanceQuery.isError;
 
+const canManageSettings = authorization.canAny([
+  "organization.admin",
+  "organization.settings.read",
+  "organization.settings.manage",
+]);
+
+if (!canManageSettings) {
+  return (
+    <main className="flex min-h-[60vh] items-center justify-center">
+      <section className="rounded-2xl border p-8 text-center">
+        <h1 className="text-2xl font-semibold">
+          Access denied
+        </h1>
+
+        <p className="mt-3 text-sm opacity-70">
+          You do not have permission to access Settings.
+        </p>
+      </section>
+    </main>
+  );
+}
   return (
     <div className="space-y-8">
       <section className="rounded-3xl border p-8">
@@ -613,3 +636,5 @@ export default function CustomerSettingsPage() {
     </div>
   );
 }
+
+
