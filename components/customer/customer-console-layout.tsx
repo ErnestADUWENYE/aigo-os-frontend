@@ -20,52 +20,113 @@ import {
 } from "react";
 
 import { useAuthentication } from "../../app/providers/authentication-provider";
+import { useAuthorization } from "../../app/providers/authorization-provider";
 import { useTenant } from "../../app/providers/tenant-provider";
 import {
   ApplicationShell,
   type ShellLink,
 } from "../../design-system/layouts/application-shell";
 
-const customerLinks: ShellLink[] = [
+type CustomerShellLink = ShellLink & {
+  requiredPermissions: string[];
+};
+
+const customerLinks: CustomerShellLink[] = [
   {
     href: "/console/dashboard",
     label: "Dashboard",
+    requiredPermissions: [],
   },
   {
     href: "/console/governance",
     label: "Access Governance",
+    requiredPermissions: [
+      "audit.read",
+      "roles.read",
+      "profiles.read",
+      "memberships.read",
+      "organization.admin",
+    ],
   },
   {
     href: "/console/assurance",
     label: "Assurance",
+    requiredPermissions: [
+      "assurance.read",
+      "assurance.manage",
+      "organization.admin",
+    ],
   },
   {
     href: "/console/administration",
     label: "Administration",
+    requiredPermissions: [
+      "memberships.read",
+      "memberships.manage",
+      "invitations.read",
+      "invitations.manage",
+      "roles.read",
+      "roles.manage",
+      "profiles.read",
+      "profiles.manage",
+      "organizational_units.read",
+      "organizational_units.manage",
+      "organization.admin",
+    ],
   },
   {
     href: "/console/notifications",
     label: "Notifications",
+    requiredPermissions: [
+      "notifications.read",
+      "organization.admin",
+    ],
+  },
+  {
+    href: "/console/search",
+    label: "Search",
+    requiredPermissions: [
+      "search.read",
+      "organization.admin",
+    ],
   },
   {
     href: "/console/analytics",
     label: "Analytics",
+    requiredPermissions: [
+      "analytics.read",
+      "organization.admin",
+    ],
   },
   {
     href: "/console/reports",
     label: "Reports",
+    requiredPermissions: [
+      "reports.read",
+      "organization.admin",
+    ],
   },
   {
     href: "/console/tasks",
     label: "Tasks",
+    requiredPermissions: [
+      "tasks.read",
+      "organization.admin",
+    ],
   },
   {
     href: "/console/settings",
     label: "Settings",
+    requiredPermissions: [
+      "organization.settings.read",
+      "organization.settings.manage",
+      "organization.admin",
+    ],
   },
   {
     href: "/console/help",
     label: "Help",
+    requiredPermissions: [],
   },
 ];
 
@@ -142,7 +203,9 @@ export function CustomerConsoleLayout({
 }) {
   const router = useRouter();
   const pathname = usePathname();
+
   const authentication = useAuthentication();
+  const authorization = useAuthorization();
 
   const {
     isLoaded: isTenantLoaded,
@@ -151,6 +214,33 @@ export function CustomerConsoleLayout({
     workspaceId,
     workspaceName,
   } = useTenant();
+
+  const currentRoute = customerLinks.find(
+    (link) =>
+      pathname === link.href ||
+      pathname.startsWith(`${link.href}/`),
+  );
+
+  const hasCurrentRouteAccess =
+    !currentRoute ||
+    currentRoute.requiredPermissions.length === 0 ||
+    authorization.canAny(
+      currentRoute.requiredPermissions,
+    );
+
+  const visibleLinks: ShellLink[] =
+    customerLinks
+      .filter(
+        (link) =>
+          link.requiredPermissions.length === 0 ||
+          authorization.canAny(
+            link.requiredPermissions,
+          ),
+      )
+      .map(({ href, label }) => ({
+        href,
+        label,
+      }));
 
   useEffect(() => {
     if (
@@ -168,10 +258,30 @@ export function CustomerConsoleLayout({
       !tenantId
     ) {
       router.replace("/select-organization");
+      return;
+    }
+
+    if (
+      authorization.isLoaded &&
+      !authorization.isLoading &&
+      tenantId &&
+      !hasCurrentRouteAccess
+    ) {
+      const required =
+        currentRoute?.requiredPermissions.join(",") ??
+        "";
+
+      router.replace(
+        `/forbidden?required=${encodeURIComponent(required)}`,
+      );
     }
   }, [
     authentication.isAuthenticated,
     authentication.isLoaded,
+    authorization.isLoaded,
+    authorization.isLoading,
+    currentRoute,
+    hasCurrentRouteAccess,
     isTenantLoaded,
     router,
     tenantId,
@@ -180,6 +290,7 @@ export function CustomerConsoleLayout({
   if (
     !authentication.isLoaded ||
     !isTenantLoaded ||
+    authorization.isLoading ||
     (
       authentication.isAuthenticated &&
       !authentication.accessToken
@@ -203,7 +314,8 @@ export function CustomerConsoleLayout({
 
   if (
     !authentication.isAuthenticated ||
-    !tenantId
+    !tenantId ||
+    !hasCurrentRouteAccess
   ) {
     return (
       <main className="flex min-h-screen items-center justify-center">
@@ -284,18 +396,23 @@ export function CustomerConsoleLayout({
         />
       </button>
 
-      <Link
-        aria-label="Notifications"
-        className="relative rounded-lg border p-2"
-        href="/console/notifications"
-      >
-        <Bell
-          aria-hidden="true"
-          className="size-4"
-        />
+      {authorization.canAny([
+        "notifications.read",
+        "organization.admin",
+      ]) ? (
+        <Link
+          aria-label="Notifications"
+          className="relative rounded-lg border p-2"
+          href="/console/notifications"
+        >
+          <Bell
+            aria-hidden="true"
+            className="size-4"
+          />
 
-        <span className="absolute right-1 top-1 size-1.5 rounded-full bg-current" />
-      </Link>
+          <span className="absolute right-1 top-1 size-1.5 rounded-full bg-current" />
+        </Link>
+      ) : null}
 
       <UserButton showName={false} />
     </div>
@@ -307,7 +424,7 @@ export function CustomerConsoleLayout({
       contextLabel={activeOrganization}
       eyebrow="Customer workspace"
       headerActions={tenantActions}
-      links={customerLinks}
+      links={visibleLinks}
       statusLabel="Phase 2"
       surface="customer"
       title={formatSegment(currentSection)}
