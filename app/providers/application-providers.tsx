@@ -12,7 +12,10 @@ import {
 } from "react";
 
 import { ThemeProvider } from "../../design-system/themes/provider";
-import { setApiContext } from "../../lib/api/client";
+import {
+  setApiContext,
+  setApiSessionHandlers,
+} from "../../lib/api/client";
 import {
   useCustomerAccessContext,
 } from "../hooks/use-customer-access-context";
@@ -44,6 +47,21 @@ function ApiContextSynchronizer({
     authentication.accessToken,
     tenant.tenantId,
     tenant.workspaceId,
+  ]);
+
+  useEffect(() => {
+    setApiSessionHandlers({
+      refreshAccessToken:
+        authentication.refreshAccessToken,
+      clearTenant: tenant.clearTenant,
+    });
+
+    return () => {
+      setApiSessionHandlers(null);
+    };
+  }, [
+    authentication.refreshAccessToken,
+    tenant.clearTenant,
   ]);
 
   return children;
