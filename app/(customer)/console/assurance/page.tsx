@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 
 import { useAuthentication } from "../../../providers/authentication-provider";
+import { useAuthorization } from "../../../providers/authorization-provider";
 import { useTenant } from "../../../providers/tenant-provider";
 import {
   getCustomerAssuranceOverview,
@@ -110,6 +111,7 @@ function ProgressBar({
 
 export default function AssurancePage() {
   const authentication = useAuthentication();
+const authorization = useAuthorization();
 
   const {
     tenantId,
@@ -152,6 +154,27 @@ export default function AssurancePage() {
     (overview?.evidencePending ?? 0) +
     (overview?.evidenceApproved ?? 0);
 
+const canViewAssurance = authorization.canAny([
+  "organization.admin",
+  "assurance.read",
+  "assurance.manage",
+]);
+
+if (!canViewAssurance) {
+  return (
+    <main className="flex min-h-[60vh] items-center justify-center">
+      <section className="rounded-2xl border p-8 text-center">
+        <h1 className="text-2xl font-semibold">
+          Access denied
+        </h1>
+
+        <p className="mt-3 text-sm opacity-70">
+          You do not have permission to access Assurance.
+        </p>
+      </section>
+    </main>
+  );
+}
   return (
     <div className="space-y-8">
       <section className="rounded-3xl border p-8">
@@ -467,3 +490,5 @@ export default function AssurancePage() {
     </div>
   );
 }
+
+
