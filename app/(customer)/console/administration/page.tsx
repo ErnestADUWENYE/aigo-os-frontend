@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 
 import { useAuthentication } from "../../../providers/authentication-provider";
+import { useAuthorization } from "../../../providers/authorization-provider";
 import { useTenant } from "../../../providers/tenant-provider";
 import {
   loadTenantAdministrationSnapshot,
@@ -152,6 +153,7 @@ function formatInvitationExpiry(value: string): string {
 
 export default function CustomerAdministrationPage() {
   const authentication = useAuthentication();
+const authorization = useAuthorization();
 
   const {
     tenantId,
@@ -228,6 +230,30 @@ export default function CustomerAdministrationPage() {
     ]),
   );
 
+const canViewAdministration = authorization.canAny([
+  "organization.admin",
+  "memberships.read",
+  "roles.read",
+  "profiles.read",
+  "organizational_units.read",
+  "invitations.read",
+]);
+
+if (!canViewAdministration) {
+  return (
+    <main className="flex min-h-[60vh] items-center justify-center">
+      <section className="rounded-2xl border p-8 text-center">
+        <h1 className="text-2xl font-semibold">
+          Access denied
+        </h1>
+
+        <p className="mt-3 text-sm opacity-70">
+          You do not have permission to access Administration.
+        </p>
+      </section>
+    </main>
+  );
+}
   return (
     <div className="space-y-8">
       <section className="rounded-3xl border p-8">
@@ -755,3 +781,8 @@ export default function CustomerAdministrationPage() {
     </div>
   );
 }
+
+
+
+
+
