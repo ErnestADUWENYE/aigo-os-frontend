@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { ClerkProvider } from "@clerk/nextjs";
 import {
@@ -13,6 +13,9 @@ import {
 
 import { ThemeProvider } from "../../design-system/themes/provider";
 import { setApiContext } from "../../lib/api/client";
+import {
+  useCustomerAccessContext,
+} from "../hooks/use-customer-access-context";
 import {
   AuthenticationProvider,
   useAuthentication,
@@ -51,18 +54,37 @@ function AuthenticatedProviders({
 }: {
   children: ReactNode;
 }) {
+  const accessContextQuery =
+    useCustomerAccessContext();
+
+  const context = accessContextQuery.data;
+
   return (
-    <AuthenticationProvider>
-      <TenantProvider>
-        <AuthorizationProvider>
-          <ThemeProvider>
-            <ApiContextSynchronizer>
-              {children}
-            </ApiContextSynchronizer>
-          </ThemeProvider>
-        </AuthorizationProvider>
-      </TenantProvider>
-    </AuthenticationProvider>
+    <AuthorizationProvider
+      clerkUserId={context?.clerkUserId ?? null}
+      isError={accessContextQuery.isError}
+      isLoaded={
+        !accessContextQuery.enabled ||
+        accessContextQuery.isSuccess ||
+        accessContextQuery.isError
+      }
+      isLoading={
+        accessContextQuery.enabled &&
+        accessContextQuery.isLoading
+      }
+      organizationId={
+        context?.organizationId ?? null
+      }
+      permissions={context?.permissions ?? []}
+      profileId={context?.profileId ?? null}
+      roleIds={context?.roleIds ?? []}
+      roleSlugs={context?.roleSlugs ?? []}
+      workspaceId={context?.workspaceId ?? null}
+    >
+      <ApiContextSynchronizer>
+        {children}
+      </ApiContextSynchronizer>
+    </AuthorizationProvider>
   );
 }
 
@@ -90,9 +112,15 @@ export function ApplicationProviders({
   return (
     <ClerkProvider>
       <QueryClientProvider client={queryClient}>
-        <AuthenticatedProviders>
-          {children}
-        </AuthenticatedProviders>
+        <ThemeProvider>
+          <AuthenticationProvider>
+            <TenantProvider>
+              <AuthenticatedProviders>
+                {children}
+              </AuthenticatedProviders>
+            </TenantProvider>
+          </AuthenticationProvider>
+        </ThemeProvider>
       </QueryClientProvider>
     </ClerkProvider>
   );

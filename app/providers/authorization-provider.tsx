@@ -1,18 +1,37 @@
-"use client";
+﻿"use client";
 
 import {
   createContext,
   type ReactNode,
+  useCallback,
   useContext,
   useMemo,
 } from "react";
 
 export type AuthorizationState = {
   permissions: ReadonlySet<string>;
+  roleIds: readonly string[];
+  roleSlugs: readonly string[];
+  profileId: string | null;
+  organizationId: string | null;
+  workspaceId: string | null;
+  clerkUserId: string | null;
+  isLoaded: boolean;
+  isLoading: boolean;
+  isError: boolean;
 };
 
 const defaultAuthorizationState: AuthorizationState = {
   permissions: new Set<string>(),
+  roleIds: [],
+  roleSlugs: [],
+  profileId: null,
+  organizationId: null,
+  workspaceId: null,
+  clerkUserId: null,
+  isLoaded: false,
+  isLoading: false,
+  isError: false,
 };
 
 const AuthorizationContext =
@@ -23,9 +42,27 @@ const AuthorizationContext =
 export function AuthorizationProvider({
   children,
   permissions = [],
+  roleIds = [],
+  roleSlugs = [],
+  profileId = null,
+  organizationId = null,
+  workspaceId = null,
+  clerkUserId = null,
+  isLoaded = true,
+  isLoading = false,
+  isError = false,
 }: {
   children: ReactNode;
   permissions?: string[];
+  roleIds?: string[];
+  roleSlugs?: string[];
+  profileId?: string | null;
+  organizationId?: string | null;
+  workspaceId?: string | null;
+  clerkUserId?: string | null;
+  isLoaded?: boolean;
+  isLoading?: boolean;
+  isError?: boolean;
 }) {
   const value = useMemo<AuthorizationState>(
     () => ({
@@ -34,8 +71,28 @@ export function AuthorizationProvider({
           .map((permission) => permission.trim())
           .filter(Boolean),
       ),
+      roleIds,
+      roleSlugs,
+      profileId,
+      organizationId,
+      workspaceId,
+      clerkUserId,
+      isLoaded,
+      isLoading,
+      isError,
     }),
-    [permissions],
+    [
+      clerkUserId,
+      isError,
+      isLoaded,
+      isLoading,
+      organizationId,
+      permissions,
+      profileId,
+      roleIds,
+      roleSlugs,
+      workspaceId,
+    ],
   );
 
   return (
@@ -46,34 +103,39 @@ export function AuthorizationProvider({
 }
 
 export function useAuthorization() {
-  const { permissions } =
-    useContext(AuthorizationContext);
+  const context = useContext(AuthorizationContext);
 
-  function can(permission: string): boolean {
-    return (
-      permissions.has("*") ||
-      permissions.has(permission)
-    );
-  }
+  const can = useCallback(
+    (permission: string): boolean =>
+      context.permissions.has("*") ||
+      context.permissions.has(permission),
+    [context.permissions],
+  );
 
-  function canAny(required: string[]): boolean {
-    if (required.length === 0) {
-      return true;
-    }
+  const canAny = useCallback(
+    (required: string[]): boolean => {
+      if (required.length === 0) {
+        return true;
+      }
 
-    return required.some(can);
-  }
+      return required.some(can);
+    },
+    [can],
+  );
 
-  function canAll(required: string[]): boolean {
-    if (required.length === 0) {
-      return true;
-    }
+  const canAll = useCallback(
+    (required: string[]): boolean => {
+      if (required.length === 0) {
+        return true;
+      }
 
-    return required.every(can);
-  }
+      return required.every(can);
+    },
+    [can],
+  );
 
   return {
-    permissions,
+    ...context,
     can,
     canAny,
     canAll,
