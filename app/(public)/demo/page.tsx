@@ -1,98 +1,49 @@
-import { StateCard } from "../../../design-system/components/states/state-card";
-
-const states = [
-  {
-    title: "Loading",
-    description: "Data and workspace context are being prepared.",
-    state: "loading",
-  },
-  {
-    title: "Empty",
-    description: "No records are available for this workspace.",
-    state: "empty",
-  },
-  {
-    title: "Success",
-    description: "The requested operation completed successfully.",
-    state: "success",
-  },
-  {
-    title: "Warning",
-    description: "Review is recommended before continuing.",
-    state: "warning",
-  },
-  {
-    title: "Error",
-    description: "The operation could not be completed.",
-    state: "error",
-  },
-  {
-    title: "Forbidden",
-    description: "Your current role cannot access this resource.",
-    state: "forbidden",
-  },
-  {
-    title: "Disabled",
-    description: "This control is unavailable in the current state.",
-    state: "disabled",
-  },
-] as const;
+import Link from "next/link";
 
 export default function DemoPage() {
   return (
-    <section className="aigo-demo">
-      <div className="aigo-demo__hero">
-        <p className="aigo-demo__eyebrow">
-          Phase 1 design foundation
-        </p>
-
-        <h1>AIGO OS Visual System</h1>
-
-        <p>
-          Switch between the five locked background designs
-          using the selector in the application header.
-        </p>
-      </div>
-
-      <div className="aigo-demo__metrics">
-        <article className="aigo-metric-card">
-          <span>Application surfaces</span>
-          <strong>4</strong>
-          <small>Public, Auth, Customer, Admin</small>
-        </article>
-
-        <article className="aigo-metric-card">
-          <span>Locked designs</span>
-          <strong>5</strong>
-          <small>Platform-wide visual consistency</small>
-        </article>
-
-        <article className="aigo-metric-card">
-          <span>Foundation status</span>
-          <strong>Ready</strong>
-          <small>No governance functionality represented</small>
-        </article>
-      </div>
-
-      <div className="aigo-demo__section">
+    <div className="public-page demo-page">
+      <section className="public-page__hero demo-hero">
         <div>
-          <p className="aigo-demo__eyebrow">
-            Required UX states
+          <div className="public-page__eyebrow">
+            Request a Demo
+          </div>
+
+          <h1 className="public-page__title">
+            See how AIGO-OS governs enterprise AI.
+          </h1>
+
+          <p className="public-page__lead">
+            We will walk through the AIGO-OS operating model and discuss
+            how discovery, identity, authority, risk, governance
+            decisions and traceability could apply to your environment.
           </p>
-          <h2>Permanent component states</h2>
+
+          <div className="demo-hero__actions">
+            <Link href="/contact">
+              Request a conversation
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+
+            <Link href="/design-partners">
+              Explore Design Partners
+            </Link>
+          </div>
         </div>
 
-        <div className="aigo-state-grid">
-          {states.map((item) => (
-            <StateCard
-              key={item.state}
-              title={item.title}
-              description={item.description}
-              state={item.state}
-            />
-          ))}
+        <div className="demo-hero__panel">
+          <span>What we can cover</span>
+
+          <ul>
+            <li>Enterprise AI discovery</li>
+            <li>AI actor identity and passports</li>
+            <li>Authority and machine boundaries</li>
+            <li>Continuous risk intelligence</li>
+            <li>Governance decisions and receipts</li>
+            <li>Enterprise integration model</li>
+          </ul>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

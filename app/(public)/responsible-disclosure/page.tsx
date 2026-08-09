@@ -9,10 +9,10 @@ export default function Page() {
             AIGO-OS
           </span>
 
-          <h1>Privacy</h1>
+          <h1>Responsible Disclosure</h1>
 
           <p>
-            This page describes the privacy principles intended to govern the AIGO-OS public website and related business communications.
+            AIGO-OS takes the security of its systems and services seriously. This page provides the foundation for responsible reporting of potential security issues.
           </p>
         </div>
       </header>

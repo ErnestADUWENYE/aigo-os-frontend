@@ -1,26 +1,22 @@
+import type { ReactNode } from "react";
+
+import { PublicFooter } from "@/components/public-footer";
+import { PublicHeader } from "@/components/public-header";
+
 export default function PublicLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
-    <div className="aigo-public-shell">
-      <header className="aigo-public-shell__header">
-        <div className="aigo-brand-lockup">
-          <div className="aigo-brand-mark" aria-hidden="true">
-            AI
-          </div>
+    <div className="public-site">
+      <PublicHeader />
 
-          <div>
-            <div className="aigo-brand-name">AIGO OS</div>
-            <div className="aigo-brand-caption">
-              AI Governance Operating System
-            </div>
-          </div>
-        </div>
-      </header>
+      <main className="public-site__main">
+        {children}
+      </main>
 
-      <main>{children}</main>
+      <PublicFooter />
     </div>
   );
 }

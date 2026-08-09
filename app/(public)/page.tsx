@@ -1,48 +1,27 @@
-import Link from "next/link";
-import { redirect } from "next/navigation";
+import { TrustArchitectureSection } from "@/components/trust-architecture-section";
+import { FinalConversionSection } from "@/components/final-conversion-section";
+import { ResourceSalesSection } from "@/components/resource-sales-section";
+import { DesignPartnerSection } from "@/components/design-partner-section";
+import { IntegrationStorySection } from "@/components/integration-story-section";
+import { BusinessOutcomeSection } from "@/components/business-outcome-section";
+import { GovernanceProblemSection } from "@/components/governance-problem-section";
+import { GovernanceLifecycleSection } from "@/components/governance-lifecycle-section";
+import { PublicHero } from "@/components/public-hero";
+import { CapabilityOverview } from "@/components/capability-overview";
 
 export default function HomePage() {
-  const environment =
-    process.env.NEXT_PUBLIC_AIGO_ENV ?? "local";
-
-  if (environment === "demo") {
-    redirect("/demo");
-  }
-
   return (
-    <main className="aigo-system-state">
-      <section className="aigo-system-state__card">
-        <p className="aigo-system-state__eyebrow">
-          Local development
-        </p>
-
-        <h1>AIGO OS Development Workspace</h1>
-
-        <p>
-          This environment runs locally against the local API and
-          local Supabase services.
-        </p>
-
-        <div className="aigo-local-links">
-          <Link className="aigo-button" href="/demo">
-            Design system
-          </Link>
-
-          <Link
-            className="aigo-button"
-            href="/console/dashboard"
-          >
-            Customer Console
-          </Link>
-
-          <Link
-            className="aigo-button"
-            href="/admin/dashboard"
-          >
-            Admin Console
-          </Link>
-        </div>
-      </section>
-    </main>
+    <>
+      <PublicHero />
+      <GovernanceProblemSection />
+      <CapabilityOverview />
+      <GovernanceLifecycleSection />
+      <BusinessOutcomeSection />
+      <IntegrationStorySection />
+      <TrustArchitectureSection />
+      <DesignPartnerSection />
+      <ResourceSalesSection />
+      <FinalConversionSection />
+    </>
   );
 }
