@@ -8,10 +8,12 @@ import {
 import {
   type ReactNode,
   useEffect,
+  useLayoutEffect,
   useState,
 } from "react";
 
 import { ThemeProvider } from "../../design-system/themes/provider";
+import { useCustomerPreferences } from "../hooks/use-customer-preferences";
 import {
   setApiContext,
   setApiSessionHandlers,
@@ -37,7 +39,18 @@ function ApiContextSynchronizer({
   const authentication = useAuthentication();
   const tenant = useTenant();
 
-  useEffect(() => {
+  const isReady =
+    authentication.isLoaded &&
+    (
+      !authentication.isAuthenticated ||
+      Boolean(authentication.accessToken)
+    );
+
+  useLayoutEffect(() => {
+    if (!isReady) {
+      return;
+    }
+
     setApiContext({
       accessToken: authentication.accessToken,
       tenantId: tenant.tenantId,
@@ -45,11 +58,16 @@ function ApiContextSynchronizer({
     });
   }, [
     authentication.accessToken,
+    isReady,
     tenant.tenantId,
     tenant.workspaceId,
   ]);
 
   useEffect(() => {
+    if (!isReady) {
+      return;
+    }
+
     setApiSessionHandlers({
       refreshAccessToken:
         authentication.refreshAccessToken,
@@ -61,12 +79,39 @@ function ApiContextSynchronizer({
     };
   }, [
     authentication.refreshAccessToken,
+    isReady,
     tenant.clearTenant,
   ]);
 
+  if (!isReady) {
+    return null;
+  }
+
   return children;
 }
+function CustomerThemeSynchronizer({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  const preferences = useCustomerPreferences();
 
+  return (
+    <ThemeProvider
+      companyThemeId={
+        preferences.data
+          ?.organizationDefaultBackgroundDesign
+      }
+      userThemeId={
+        preferences.data
+          ? preferences.data.backgroundDesign
+          : undefined
+      }
+    >
+      {children}
+    </ThemeProvider>
+  );
+}
 function AuthenticatedProviders({
   children,
 }: {
@@ -99,9 +144,7 @@ function AuthenticatedProviders({
       roleSlugs={context?.roleSlugs ?? []}
       workspaceId={context?.workspaceId ?? null}
     >
-      <ApiContextSynchronizer>
-        {children}
-      </ApiContextSynchronizer>
+      {children}
     </AuthorizationProvider>
   );
 }
@@ -129,17 +172,26 @@ export function ApplicationProviders({
 
   return (
     <ClerkProvider>
-      <QueryClientProvider client={queryClient}>
-        <ThemeProvider>
-          <AuthenticationProvider>
-            <TenantProvider>
-              <AuthenticatedProviders>
-                {children}
-              </AuthenticatedProviders>
-            </TenantProvider>
-          </AuthenticationProvider>
-        </ThemeProvider>
-      </QueryClientProvider>
-    </ClerkProvider>
+  <QueryClientProvider client={queryClient}>
+    <AuthenticationProvider>
+      <TenantProvider>
+        <ApiContextSynchronizer>
+          <CustomerThemeSynchronizer>
+            <AuthenticatedProviders>
+              {children}
+            </AuthenticatedProviders>
+          </CustomerThemeSynchronizer>
+        </ApiContextSynchronizer>
+      </TenantProvider>
+    </AuthenticationProvider>
+  </QueryClientProvider>
+</ClerkProvider>
   );
 }
+
+
+
+
+
+
+

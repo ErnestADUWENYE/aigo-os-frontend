@@ -1,13 +1,5 @@
-import { ApplicationShell } from "../../design-system/layouts/application-shell";
-
-const adminLinks = [
-  { href: "/admin/dashboard", label: "Dashboard" },
-  { href: "/admin/customers", label: "Customers" },
-  { href: "/admin/system-health", label: "System Health" },
-  { href: "/admin/security", label: "Security" },
-  { href: "/admin/audit", label: "Audit" },
-  { href: "/admin/settings", label: "Settings" },
-];
+import { AdminConsoleLayout } from "../../components/admin/admin-console-layout";
+import { AdminAccessGate } from "../../components/admin/admin-access-gate";
 
 export default function AdminLayout({
   children,
@@ -15,13 +7,10 @@ export default function AdminLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ApplicationShell
-      title="Admin Console"
-      eyebrow="AIGO Administration"
-      links={adminLinks}
-      surface="admin"
-    >
-      {children}
-    </ApplicationShell>
+    <AdminAccessGate>
+      <AdminConsoleLayout>
+        {children}
+      </AdminConsoleLayout>
+    </AdminAccessGate>
   );
 }

@@ -7,7 +7,14 @@ const STORAGE_KEY = "aigo.customer.tenant";
 const emptySelection: TenantSelection = {
   tenantId: null,
   workspaceId: null,
+  tenantName: null,
+  workspaceName: null,
 };
+
+type StoredTenantSelection =
+  TenantSelection & {
+    ownerUserId?: string | null;
+  };
 
 export function readTenantSelection(): TenantSelection {
   if (typeof window === "undefined") {
@@ -15,9 +22,8 @@ export function readTenantSelection(): TenantSelection {
   }
 
   try {
-    const value = window.localStorage.getItem(
-      STORAGE_KEY,
-    );
+    const value =
+      window.localStorage.getItem(STORAGE_KEY);
 
     if (!value) {
       return emptySelection;
@@ -25,7 +31,7 @@ export function readTenantSelection(): TenantSelection {
 
     const parsed = JSON.parse(
       value,
-    ) as Partial<TenantSelection>;
+    ) as Partial<StoredTenantSelection>;
 
     return {
       tenantId:
@@ -36,14 +42,49 @@ export function readTenantSelection(): TenantSelection {
         typeof parsed.workspaceId === "string"
           ? parsed.workspaceId
           : null,
+      tenantName:
+        typeof parsed.tenantName === "string"
+          ? parsed.tenantName
+          : null,
+      workspaceName:
+        typeof parsed.workspaceName === "string"
+          ? parsed.workspaceName
+          : null,
     };
   } catch {
     return emptySelection;
   }
 }
 
+export function readTenantSelectionOwner():
+  string | null {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  try {
+    const value =
+      window.localStorage.getItem(STORAGE_KEY);
+
+    if (!value) {
+      return null;
+    }
+
+    const parsed = JSON.parse(
+      value,
+    ) as Partial<StoredTenantSelection>;
+
+    return typeof parsed.ownerUserId === "string"
+      ? parsed.ownerUserId
+      : null;
+  } catch {
+    return null;
+  }
+}
+
 export function writeTenantSelection(
   selection: TenantSelection,
+  ownerUserId: string | null,
 ): void {
   if (typeof window === "undefined") {
     return;
@@ -51,7 +92,10 @@ export function writeTenantSelection(
 
   window.localStorage.setItem(
     STORAGE_KEY,
-    JSON.stringify(selection),
+    JSON.stringify({
+      ...selection,
+      ownerUserId,
+    }),
   );
 }
 

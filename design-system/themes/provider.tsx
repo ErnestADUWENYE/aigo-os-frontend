@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import {
   createContext,
@@ -36,7 +36,7 @@ function getInitialThemeId(
   const stored = readStoredTheme();
 
   return resolveTheme({
-    userThemeId: stored ?? userThemeId,
+    userThemeId: userThemeId ?? stored,
     companyThemeId,
   }).id;
 }
@@ -138,4 +138,5 @@ export function useTheme(): ThemeContextValue {
 
   return context;
 }
+
 

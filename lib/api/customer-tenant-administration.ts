@@ -11,6 +11,10 @@ import {
   type CustomerProfile,
 } from "./customer-dashboard";
 import { apiClient } from "./client";
+import {
+  listCustomerTeams,
+  type CustomerTeam,
+} from "./customer-teams";
 import type {
   OrganizationOption,
   WorkspaceOption,
@@ -134,6 +138,7 @@ export type TenantAdministrationSnapshot = {
   memberships: CustomerMembership[];
   invitations: CustomerInvitation[];
   organizationalUnits: OrganizationalUnit[];
+  teams: CustomerTeam[];
   organizationSettings: OrganizationSettings;
 };
 
@@ -147,6 +152,7 @@ export async function loadTenantAdministrationSnapshot(
     memberships,
     invitations,
     organizationalUnits,
+    teams,
     organizationSettings,
   ] = await Promise.all([
     listAccessibleOrganizations(),
@@ -155,6 +161,7 @@ export async function loadTenantAdministrationSnapshot(
     listCustomerMemberships(),
     listCustomerInvitations(),
     listOrganizationalUnits(),
+    listCustomerTeams(),
     getOrganizationSettings(),
   ]);
 
@@ -165,6 +172,8 @@ export async function loadTenantAdministrationSnapshot(
     memberships,
     invitations,
     organizationalUnits,
+    teams,
     organizationSettings,
   };
 }
+
