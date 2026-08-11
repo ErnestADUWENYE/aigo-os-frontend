@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const trustDomains = [
   {
@@ -64,7 +64,7 @@ export default function TrustPage() {
           </h1>
 
           <p>
-            AIGO-OS is being built for a consequential position in the
+            AIGO-OS operates in a consequential position in the
             enterprise stack. That requires disciplined security,
             bounded access, reconstructable decisions and transparent
             operating principles.
@@ -73,7 +73,7 @@ export default function TrustPage() {
           <div className="trust-page__actions">
             <Link href="/security">
               Security architecture
-              <span aria-hidden="true">→</span>
+              <span aria-hidden="true">â†’</span>
             </Link>
 
             <Link href="/responsible-disclosure">
@@ -113,7 +113,7 @@ export default function TrustPage() {
 
                 <Link href={domain.href}>
                   {domain.link}
-                  <span aria-hidden="true">→</span>
+                  <span aria-hidden="true">â†’</span>
                 </Link>
               </article>
             ))}
@@ -183,7 +183,7 @@ export default function TrustPage() {
 
               <Link href="/contact">
                 Ask a trust or security question
-                <span aria-hidden="true">→</span>
+                <span aria-hidden="true">â†’</span>
               </Link>
             </div>
           </div>
@@ -205,7 +205,7 @@ export default function TrustPage() {
 
           <Link href="/contact">
             Start a security conversation
-            <span aria-hidden="true">→</span>
+            <span aria-hidden="true">â†’</span>
           </Link>
         </div>
       </section>

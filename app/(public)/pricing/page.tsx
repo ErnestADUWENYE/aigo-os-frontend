@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const principles = [
   {
@@ -67,7 +67,7 @@ export default function PricingPage() {
             <div className="commercial-actions">
               <Link
                 className="commercial-button commercial-button--primary"
-                href="/design-partners"
+                href="/contact?intent=demo"
               >
                 Discuss a Design Partnership
               </Link>
@@ -155,9 +155,9 @@ export default function PricingPage() {
 
             <Link
               className="commercial-text-link"
-              href="/design-partners"
+              href="/contact?intent=demo"
             >
-              Explore the design partner program →
+              Explore the design partner program â†’
             </Link>
           </div>
 
@@ -189,7 +189,7 @@ export default function PricingPage() {
               </p>
             </div>
 
-            <div className="commercial-expansion__connector">→</div>
+            <div className="commercial-expansion__connector">â†’</div>
 
             <div className="commercial-expansion__stage">
               <span>02</span>
@@ -200,7 +200,7 @@ export default function PricingPage() {
               </p>
             </div>
 
-            <div className="commercial-expansion__connector">→</div>
+            <div className="commercial-expansion__connector">â†’</div>
 
             <div className="commercial-expansion__stage">
               <span>03</span>
@@ -245,9 +245,9 @@ export default function PricingPage() {
           <div className="commercial-actions">
             <Link
               className="commercial-button commercial-button--primary"
-              href="/design-partners"
+              href="/contact?intent=demo"
             >
-              Become a Design Partner
+              Request a Demo
             </Link>
 
             <Link

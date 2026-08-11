@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const pathways = [
   {
@@ -15,63 +15,84 @@ const pathways = [
   },
 ];
 
+const governanceSignals = [
+  "Identity",
+  "Authority",
+  "Risk",
+  "Decision",
+  "Evidence",
+];
+
 export function IntegrationStorySection() {
   return (
-    <section className="integration-story">
-      <div className="integration-story__shell">
-        <div className="integration-story__copy">
-          <span className="integration-story__kicker">
-            Govern where AI operates
-          </span>
+    <section className="aigo-integration-story">
+      <div className="aigo-home-shell">
+        <div className="aigo-integration-story__heading">
+          <div>
+            <span className="aigo-home-eyebrow">
+              Govern where AI operates
+            </span>
 
-          <h2>
-            Governance cannot live in isolation.
-          </h2>
+            <h2>
+              Governance cannot live in isolation.
+            </h2>
+          </div>
 
-          <p>
-            AIGO-OS is designed to connect governance context with
-            the systems where enterprise AI is discovered, identified,
-            authorized, observed and operated.
-          </p>
+          <div className="aigo-integration-story__intro">
+            <p>
+              AIGO-OS connects governance context with the systems where
+              enterprise AI is discovered, identified, authorized,
+              observed and operated.
+            </p>
 
-          <Link href="/integrations">
-            Explore integrations
-            <span aria-hidden="true">→</span>
-          </Link>
+            <Link href="/integrations">
+              Explore integrations
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
 
-        <div className="integration-story__visual">
-          <div className="integration-story__sources">
+        <div className="aigo-integration-story__system">
+          <div className="aigo-integration-story__sources">
             {pathways.map((pathway) => (
-              <div
-                className="integration-story__source"
+              <article
+                className="aigo-integration-story__source"
                 key={pathway.label}
               >
                 <span>{pathway.label}</span>
 
-                {pathway.items.map((item) => (
-                  <strong key={item}>{item}</strong>
-                ))}
-              </div>
+                <div>
+                  {pathway.items.map((item) => (
+                    <strong key={item}>{item}</strong>
+                  ))}
+                </div>
+              </article>
             ))}
           </div>
 
-          <div className="integration-story__rails">
+          <div
+            aria-hidden="true"
+            className="aigo-integration-story__connector"
+          >
             <i />
             <i />
             <i />
           </div>
 
-          <div className="integration-story__core">
-            <span>Governance layer</span>
+          <div className="aigo-integration-story__core">
+            <span>Governance operating layer</span>
+
             <strong>AIGO-OS</strong>
 
-            <div>
-              <small>Identity</small>
-              <small>Authority</small>
-              <small>Risk</small>
-              <small>Decision</small>
-              <small>Evidence</small>
+            <p>
+              Context and control remain connected as AI moves across
+              enterprise systems.
+            </p>
+
+            <div className="aigo-integration-story__signals">
+              {governanceSignals.map((signal) => (
+                <small key={signal}>{signal}</small>
+              ))}
             </div>
           </div>
         </div>

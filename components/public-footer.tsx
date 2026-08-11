@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 
 const footerColumns = [
@@ -17,10 +17,10 @@ const footerColumns = [
     title: "Solutions",
     links: [
       ["Solutions Overview", "/solutions"],
-      ["AI Agent Governance", "/solutions/ai-agents"],
-      ["Enterprise AI", "/solutions/enterprise-ai"],
-      ["Governed Autonomy", "/solutions/governed-autonomy"],
-      ["Design Partners", "/design-partners"],
+      ["Excessive Agency", "/solutions/excessive-agency"],
+      ["Agent Tool Misuse", "/solutions/agent-tool-misuse"],
+      ["Human Oversight", "/solutions/human-oversight"],
+      ["Authority Abuse", "/solutions/authority-abuse"],
     ],
   },
   {
@@ -47,9 +47,11 @@ const footerColumns = [
     title: "Company",
     links: [
       ["About AIGO-OS", "/company"],
-      ["Commercial Model", "/pricing"],
+      ["Our Approach", "/our-approach"],
+      ["Careers", "/careers"],
+      ["Newsroom", "/newsroom"],
+      ["Design Partners", "/design-partners"],
       ["Contact", "/contact"],
-      ["Sign in", "/sign-in"],
     ],
   },
 ];
@@ -60,18 +62,18 @@ export function PublicFooter() {
       <div className="public-footer__conversion">
         <div className="public-footer__conversion-inner">
           <div>
-            <span>GOVERN THE NEXT OPERATING LAYER</span>
+            <span>GOVERN AUTONOMOUS AI WITH CONFIDENCE</span>
 
             <h2>
-              Your AI is becoming more autonomous.
+              Your AI is gaining authority.
               <br />
-              Its governance has to become operational.
+              Put governance in its operating path.
             </h2>
           </div>
 
           <div className="public-footer__conversion-actions">
-            <Link href="/design-partners">
-              Become a Design Partner
+            <Link href="/contact?intent=demo">
+              Request a Demo
               <span aria-hidden="true">→</span>
             </Link>
 

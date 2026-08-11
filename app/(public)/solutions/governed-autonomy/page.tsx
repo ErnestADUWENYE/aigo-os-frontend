@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 export default function Page() {
   return (
@@ -14,9 +14,9 @@ export default function Page() {
           <p>AIGO-OS is designed for an operating model where routine machine activity proceeds inside explicit boundaries and humans intervene when governance context requires judgment.</p>
 
           <div className="capability-detail__actions">
-            <Link href="/design-partners">
-              Become a Design Partner
-              <span aria-hidden="true">→</span>
+            <Link href="/contact?intent=demo">
+              Request a Demo
+              <span aria-hidden="true">â†’</span>
             </Link>
 
             <Link href="/contact">
@@ -41,19 +41,19 @@ export default function Page() {
 
             <ul>
             <li>
-              <span aria-hidden="true">✓</span>
+              <span aria-hidden="true">âœ“</span>
               <strong>Define explicit autonomous operating boundaries</strong>
             </li>
             <li>
-              <span aria-hidden="true">✓</span>
+              <span aria-hidden="true">âœ“</span>
               <strong>Evaluate authority and risk at decision time</strong>
             </li>
             <li>
-              <span aria-hidden="true">✓</span>
+              <span aria-hidden="true">âœ“</span>
               <strong>Escalate exceptions instead of every routine action</strong>
             </li>
             <li>
-              <span aria-hidden="true">✓</span>
+              <span aria-hidden="true">âœ“</span>
               <strong>Preserve evidence across machine-speed execution</strong>
             </li>
             </ul>
@@ -79,9 +79,9 @@ export default function Page() {
           </h2>
         </div>
 
-        <Link href="/design-partners">
-          Explore the Design Partner Program
-          <span aria-hidden="true">→</span>
+        <Link href="/contact?intent=demo">
+          Request a Demo
+          <span aria-hidden="true">â†’</span>
         </Link>
       </section>
     </div>

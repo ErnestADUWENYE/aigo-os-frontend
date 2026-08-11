@@ -1,4 +1,6 @@
-import Link from "next/link";
+﻿import Link from "next/link";
+
+import { AigoCapabilityDemo } from "@/components/aigo-capability-demo";
 
 export default function Page() {
   return (
@@ -14,9 +16,9 @@ export default function Page() {
           <p>AIGO-OS creates a canonical governance record for each AI actor, connecting identity, ownership, provenance, relationships, lifecycle state and operating context.</p>
 
           <div className="capability-detail__actions">
-            <Link href="/design-partners">
-              Become a Design Partner
-              <span aria-hidden="true">→</span>
+            <Link href="/contact?intent=demo">
+              Request a Demo
+              <span aria-hidden="true">â†’</span>
             </Link>
 
             <Link href="/contact">
@@ -41,19 +43,19 @@ export default function Page() {
 
             <ul>
             <li>
-              <span aria-hidden="true">✓</span>
+              <span aria-hidden="true">âœ“</span>
               <strong>Resolve fragmented observations into a canonical actor</strong>
             </li>
             <li>
-              <span aria-hidden="true">✓</span>
+              <span aria-hidden="true">âœ“</span>
               <strong>Connect technical identity with accountable ownership</strong>
             </li>
             <li>
-              <span aria-hidden="true">✓</span>
+              <span aria-hidden="true">âœ“</span>
               <strong>Preserve provenance, relationships and lifecycle context</strong>
             </li>
             <li>
-              <span aria-hidden="true">✓</span>
+              <span aria-hidden="true">âœ“</span>
               <strong>Create the foundation for authority, risk and governance decisions</strong>
             </li>
             </ul>
@@ -61,15 +63,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="capability-detail__flow">
-        <div className="capability-detail__flow-shell">
-          <span>Enterprise AI</span>
-          <i />
-          <strong>Actor Passports</strong>
-          <i />
-          <span>Governed operation</span>
-        </div>
-      </section>
+      <AigoCapabilityDemo mode="passport" />
 
       <section className="capability-detail__conversion">
         <div>
@@ -79,9 +73,9 @@ export default function Page() {
           </h2>
         </div>
 
-        <Link href="/design-partners">
-          Explore the Design Partner Program
-          <span aria-hidden="true">→</span>
+        <Link href="/contact?intent=demo">
+          Request a Demo
+          <span aria-hidden="true">â†’</span>
         </Link>
       </section>
     </div>

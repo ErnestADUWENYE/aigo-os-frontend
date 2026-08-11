@@ -1,4 +1,6 @@
-import Link from "next/link";
+﻿import Link from "next/link";
+
+import { AigoCapabilityDemo } from "@/components/aigo-capability-demo";
 
 export default function Page() {
   return (
@@ -14,9 +16,9 @@ export default function Page() {
           <p>AIGO-OS combines technical signals with authority, dependencies, business significance and operating context so risk reflects how an AI actor can affect the enterprise.</p>
 
           <div className="capability-detail__actions">
-            <Link href="/design-partners">
-              Become a Design Partner
-              <span aria-hidden="true">→</span>
+            <Link href="/contact?intent=demo">
+              Request a Demo
+              <span aria-hidden="true">â†’</span>
             </Link>
 
             <Link href="/contact">
@@ -41,19 +43,19 @@ export default function Page() {
 
             <ul>
             <li>
-              <span aria-hidden="true">✓</span>
+              <span aria-hidden="true">âœ“</span>
               <strong>Combine technical and governance signals</strong>
             </li>
             <li>
-              <span aria-hidden="true">✓</span>
+              <span aria-hidden="true">âœ“</span>
               <strong>Interpret exposure against effective authority</strong>
             </li>
             <li>
-              <span aria-hidden="true">✓</span>
+              <span aria-hidden="true">âœ“</span>
               <strong>Include dependencies and business significance</strong>
             </li>
             <li>
-              <span aria-hidden="true">✓</span>
+              <span aria-hidden="true">âœ“</span>
               <strong>Continuously reassess risk as operating context changes</strong>
             </li>
             </ul>
@@ -61,15 +63,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="capability-detail__flow">
-        <div className="capability-detail__flow-shell">
-          <span>Enterprise AI</span>
-          <i />
-          <strong>Risk Intelligence</strong>
-          <i />
-          <span>Governed operation</span>
-        </div>
-      </section>
+      <AigoCapabilityDemo mode="risk" />
 
       <section className="capability-detail__conversion">
         <div>
@@ -79,9 +73,9 @@ export default function Page() {
           </h2>
         </div>
 
-        <Link href="/design-partners">
-          Explore the Design Partner Program
-          <span aria-hidden="true">→</span>
+        <Link href="/contact?intent=demo">
+          Request a Demo
+          <span aria-hidden="true">â†’</span>
         </Link>
       </section>
     </div>

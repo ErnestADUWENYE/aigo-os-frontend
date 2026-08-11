@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 export function FinalConversionSection() {
   return (
@@ -24,10 +24,10 @@ export function FinalConversionSection() {
         <div className="final-conversion__actions">
           <Link
             className="final-conversion__primary"
-            href="/design-partners"
+            href="/contact?intent=demo"
           >
-            Become a Design Partner
-            <span aria-hidden="true">→</span>
+            Request a Demo
+            <span aria-hidden="true">â†’</span>
           </Link>
 
           <Link

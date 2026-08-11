@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const principles = [
   {
@@ -46,7 +46,7 @@ export default function CompanyPage() {
           <span>About AIGO-OS</span>
 
           <h1>
-            We are building the governance operating layer for
+            AIGO-OS is the governance operating layer for
             autonomous enterprise AI.
           </h1>
 
@@ -60,11 +60,11 @@ export default function CompanyPage() {
           <div className="company-page__hero-actions">
             <Link href="/product">
               Explore AIGO-OS
-              <span aria-hidden="true">→</span>
+              <span aria-hidden="true">â†’</span>
             </Link>
 
-            <Link href="/design-partners">
-              Design Partner Program
+            <Link href="/contact?intent=demo">
+              Request a Demo
             </Link>
           </div>
         </div>
@@ -99,7 +99,7 @@ export default function CompanyPage() {
               </p>
 
               <p>
-                AIGO-OS is being built to make that environment
+                AIGO-OS makes that environment
                 continuously understandable and governable.
               </p>
             </div>
@@ -174,14 +174,14 @@ export default function CompanyPage() {
           </h2>
 
           <p>
-            We are working with organizations confronting this shift
-            now and using those operating realities to shape AIGO-OS.
+            AIGO-OS gives organizations an operational control layer for
+            governing AI actors as autonomy expands across the enterprise.
           </p>
 
           <div>
-            <Link href="/design-partners">
-              Become a Design Partner
-              <span aria-hidden="true">→</span>
+            <Link href="/contact?intent=demo">
+              Request a Demo
+              <span aria-hidden="true">â†’</span>
             </Link>
 
             <Link href="/contact">

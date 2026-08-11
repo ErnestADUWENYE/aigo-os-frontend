@@ -1,65 +1,74 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
-const solutions = [
+const useCases = [
   {
     number: "01",
-    eyebrow: "AI agents",
-    title: "Govern agents as operating actors.",
+    eyebrow: "EXCESSIVE AGENCY",
+    title: "Control Excessive Agency",
     body:
-      "Discover agents across the enterprise, establish governance identity, understand their effective authority and continuously evaluate how they operate.",
-    href: "/solutions/ai-agents",
-    signal: "Actor governance",
+      "Keep autonomous AI inside the authority, purpose and operating conditions the enterprise intended — even as systems become more capable.",
+    href: "/solutions/excessive-agency",
+    signal: "Authority boundaries",
   },
   {
     number: "02",
-    eyebrow: "Enterprise AI",
-    title: "Create one governance model across a fragmented AI estate.",
+    eyebrow: "TOOL MISUSE",
+    title: "Prevent Inappropriate Agent Tool Use",
     body:
-      "Connect models, applications, agents, automations and surrounding enterprise systems into a continuously understandable governance environment.",
-    href: "/solutions/enterprise-ai",
-    signal: "Estate governance",
+      "Govern when and how AI actors use enterprise tools, APIs, systems and workflows instead of relying on access permission alone.",
+    href: "/solutions/agent-tool-misuse",
+    signal: "Action control",
   },
   {
     number: "03",
-    eyebrow: "Governed autonomy",
-    title: "Let machines move quickly inside explicit boundaries.",
+    eyebrow: "HUMAN OVERSIGHT",
+    title: "Apply Human Oversight Where It Matters",
     body:
-      "Evaluate authority, risk and policy at decision time so routine activity can proceed while consequential exceptions reach the right human.",
-    href: "/solutions/governed-autonomy",
-    signal: "Runtime governance",
+      "Let routine autonomous work proceed while consequential actions are directed to the appropriate human authority with the context needed to decide.",
+    href: "/solutions/human-oversight",
+    signal: "Contextual escalation",
+  },
+  {
+    number: "04",
+    eyebrow: "AUTHORITY ABUSE",
+    title: "Detect and Contain Authority Abuse",
+    body:
+      "Identify when legitimate machine authority is being exercised outside expected purpose, context or operating conditions and respond before impact expands.",
+    href: "/solutions/authority-abuse",
+    signal: "Runtime containment",
   },
 ];
 
 const pressures = [
   {
-    label: "Visibility",
-    before: "AI is distributed across tools, teams and platforms.",
-    after: "Continuously discover and correlate the operating AI estate.",
-  },
-  {
     label: "Identity",
-    before: "Inventory records do not explain the actor behind an action.",
-    after: "Establish persistent governance identity for AI actors.",
+    before: "The enterprise sees an account, token or service.",
+    after: "Establish a persistent governance identity for the AI actor.",
   },
   {
     label: "Authority",
-    before: "Configured permissions do not reveal effective machine power.",
-    after: "Understand what an actor can actually access and influence.",
+    before: "Permissions show what access exists.",
+    after: "Understand what the actor can actually access, execute and influence.",
+  },
+  {
+    label: "Context",
+    before: "A permitted action is often treated as an acceptable action.",
+    after: "Evaluate purpose, conditions and business context before action.",
   },
   {
     label: "Risk",
-    before: "Static classifications lose the context of live operation.",
-    after: "Evaluate risk using authority, environment and business context.",
+    before: "Static assessments fall behind changing autonomous behavior.",
+    after: "Continuously evaluate risk as authority and operating conditions change.",
   },
   {
-    label: "Decisions",
-    before: "Manual review cannot keep pace with autonomous activity.",
-    after: "Make routine governance decisions at machine speed.",
+    label: "Decision",
+    before: "Every exception competes for manual human review.",
+    after: "Allow, deny, review, escalate or suspend based on contextual policy.",
   },
   {
     label: "Evidence",
-    before: "Governance decisions become difficult to reconstruct later.",
-    after: "Preserve the context and evidence behind every decision.",
+    before: "Teams reconstruct consequential decisions after the fact.",
+    after: "Preserve governance evidence as part of the operating path.",
   },
 ];
 
@@ -69,45 +78,45 @@ export default function SolutionsPage() {
       <section className="solutions-page__hero">
         <div className="solutions-page__hero-shell">
           <div className="solutions-page__hero-copy">
-            <span>Solutions</span>
+            <span>Enterprise AI governance use cases</span>
 
             <h1>
-              Govern AI where autonomy becomes an operating reality.
+              Govern the actions autonomous AI is trusted to take.
             </h1>
 
             <p>
-              AIGO-OS gives enterprises a governance operating layer
-              for AI actors, fragmented AI environments and autonomous
-              workflows that can no longer depend on periodic review.
+              AIGO-OS gives enterprises an operational control layer for
+              machine identity, authority, contextual risk, runtime
+              decisions and governance evidence.
             </p>
 
             <div className="solutions-page__hero-actions">
-              <Link href="/design-partners">
-                Discuss your environment
+              <Link href="/contact?intent=demo">
+                Request a Demo
                 <span aria-hidden="true">→</span>
               </Link>
 
               <Link href="/product">
-                Explore the platform
+                Explore AIGO-OS
               </Link>
             </div>
           </div>
 
           <div
-            aria-label="Enterprise AI governance flow"
+            aria-label="AIGO-OS runtime governance model"
             className="solutions-page__visual"
           >
             <div className="solutions-page__visual-head">
-              <span>Enterprise AI</span>
-              <strong>Governance state</strong>
+              <span>Autonomous action</span>
+              <strong>Governance decision</strong>
             </div>
 
             <div className="solutions-page__visual-flow">
               <div className="solutions-page__visual-inputs">
-                <span>Agents</span>
-                <span>Models</span>
-                <span>AI apps</span>
-                <span>Automations</span>
+                <span>Actor</span>
+                <span>Authority</span>
+                <span>Tool</span>
+                <span>Context</span>
               </div>
 
               <div className="solutions-page__visual-line">
@@ -118,9 +127,9 @@ export default function SolutionsPage() {
 
               <div className="solutions-page__visual-core">
                 <small>AIGO-OS</small>
-                <strong>Govern</strong>
+                <strong>Evaluate</strong>
                 <span>
-                  Identity · Authority · Risk · Decision
+                  Identity · Authority · Risk · Policy
                 </span>
               </div>
 
@@ -131,10 +140,10 @@ export default function SolutionsPage() {
               </div>
 
               <div className="solutions-page__visual-outcomes">
-                <span>Known</span>
-                <span>Authorized</span>
-                <span>Monitored</span>
-                <span>Traceable</span>
+                <span>Allow</span>
+                <span>Deny</span>
+                <span>Review</span>
+                <span>Escalate</span>
               </div>
             </div>
 
@@ -155,38 +164,38 @@ export default function SolutionsPage() {
           <div className="solutions-page__section-heading">
             <div>
               <span className="public-section-kicker">
-                Where AIGO-OS operates
+                Where AIGO-OS applies
               </span>
 
               <h2>
-                Three governance problems. One operating layer.
+                Four critical control problems created by autonomous AI.
               </h2>
             </div>
 
             <p>
-              The challenge is not simply managing more AI. It is
-              governing systems whose identity, authority, risk and
-              behavior can change as they operate.
+              These problems emerge when AI moves beyond generating
+              information and begins exercising authority through tools,
+              systems and enterprise workflows.
             </p>
           </div>
 
           <div className="solutions-page__cards">
-            {solutions.map((solution) => (
-              <article key={solution.number}>
+            {useCases.map((useCase) => (
+              <article key={useCase.number}>
                 <div className="solutions-page__card-top">
-                  <span>{solution.number}</span>
-                  <small>{solution.signal}</small>
+                  <span>{useCase.number}</span>
+                  <small>{useCase.signal}</small>
                 </div>
 
                 <span className="solutions-page__card-eyebrow">
-                  {solution.eyebrow}
+                  {useCase.eyebrow}
                 </span>
 
-                <h3>{solution.title}</h3>
-                <p>{solution.body}</p>
+                <h3>{useCase.title}</h3>
+                <p>{useCase.body}</p>
 
-                <Link href={solution.href}>
-                  Explore solution
+                <Link href={useCase.href}>
+                  Explore use case
                   <span aria-hidden="true">→</span>
                 </Link>
               </article>
@@ -198,18 +207,19 @@ export default function SolutionsPage() {
       <section className="solutions-page__shift">
         <div className="solutions-page__shift-shell">
           <div className="solutions-page__shift-heading">
-            <span>Why the operating model changes</span>
+            <span>Why existing controls are not enough</span>
 
             <h2>
-              Autonomous AI creates governance pressure at every layer.
+              Autonomous operation changes what enterprise governance
+              has to understand.
             </h2>
           </div>
 
           <div className="solutions-page__pressure-table">
             <div className="solutions-page__pressure-head">
               <span>Governance dimension</span>
-              <span>Without an operating layer</span>
-              <span>With AIGO-OS</span>
+              <span>Traditional view</span>
+              <span>AIGO-OS operating view</span>
             </div>
 
             {pressures.map((pressure) => (
@@ -231,7 +241,7 @@ export default function SolutionsPage() {
           <div className="solutions-page__decision-grid">
             <div>
               <span className="public-section-kicker">
-                The result
+                Governed autonomy
               </span>
 
               <h2>
@@ -239,33 +249,33 @@ export default function SolutionsPage() {
               </h2>
 
               <p>
-                AIGO-OS is designed to make governance part of the
-                operating path, giving machines room to act inside
-                explicit boundaries while preserving accountability.
+                AIGO-OS puts governance into the operating path so AI can
+                move at machine speed inside explicit boundaries while
+                consequential exceptions reach human decision-makers.
               </p>
             </div>
 
             <div className="solutions-page__decision-model">
               <div>
                 <span>Routine action</span>
-                <strong>Machine decision</strong>
-                <small>Proceed inside verified boundaries</small>
+                <strong>Proceed</strong>
+                <small>Inside verified authority and policy</small>
               </div>
 
               <i />
 
               <div>
                 <span>Material exception</span>
-                <strong>Human judgment</strong>
+                <strong>Human oversight</strong>
                 <small>Escalate with context and evidence</small>
               </div>
 
               <i />
 
               <div>
-                <span>Every outcome</span>
-                <strong>Governance receipt</strong>
-                <small>Preserve a reconstructable decision trail</small>
+                <span>Every decision</span>
+                <strong>Governance evidence</strong>
+                <small>Maintain a reconstructable decision trail</small>
               </div>
             </div>
           </div>
@@ -274,19 +284,20 @@ export default function SolutionsPage() {
 
       <section className="solutions-page__cta">
         <div className="solutions-page__cta-shell">
-          <span>Start with the operating problem</span>
+          <span>Evaluate AIGO-OS</span>
 
           <h2>
-            Show us where AI is gaining authority in your enterprise.
+            See how AIGO-OS can govern autonomous action in your
+            environment.
           </h2>
 
           <p>
-            We will start with the actors, systems and decisions that
-            are becoming difficult to govern with existing approaches.
+            Start with the actors, tools, authority paths and decisions
+            that create the greatest governance exposure today.
           </p>
 
-          <Link href="/design-partners">
-            Become a Design Partner
+          <Link href="/contact?intent=demo">
+            Request a Demo
             <span aria-hidden="true">→</span>
           </Link>
         </div>

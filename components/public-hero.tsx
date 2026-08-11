@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 import { GovernanceEngineVisual } from "@/components/governance-engine-visual";
 
@@ -34,9 +34,9 @@ export function PublicHero() {
           <div className="public-hero__actions">
             <Link
               className="public-hero__primary"
-              href="/design-partners"
+              href="/contact?intent=demo"
             >
-              Become a Design Partner
+              Request a Demo
               <span aria-hidden="true">&rarr;</span>
             </Link>
 

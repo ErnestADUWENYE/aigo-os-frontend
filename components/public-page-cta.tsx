@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 type PublicPageCtaProps = {
   eyebrow?: string;
@@ -22,9 +22,9 @@ export function PublicPageCta({
         </div>
 
         <div className="public-page-cta__actions">
-          <Link href="/design-partners">
-            Become a Design Partner
-            <span aria-hidden="true">→</span>
+          <Link href="/contact?intent=demo">
+            Request a Demo
+            <span aria-hidden="true">â†’</span>
           </Link>
 
           <Link href="/contact">

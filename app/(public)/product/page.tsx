@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const operatingModel = [
   {
@@ -157,8 +157,8 @@ export default function ProductPage() {
           </p>
         </div>
 
-        <Link href="/design-partners">
-          Become a Design Partner
+        <Link href="/contact?intent=demo">
+          Request a Demo
           <span aria-hidden="true">&rarr;</span>
         </Link>
       </section>

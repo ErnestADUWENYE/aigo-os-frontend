@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const foundations = [
   {
@@ -130,7 +130,7 @@ export default function DocumentationPage() {
                 <span className="docs-card__number">{item.number}</span>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
-                <Link href={item.href}>{item.link} →</Link>
+                <Link href={item.href}>{item.link} â†’</Link>
               </article>
             ))}
           </div>
@@ -187,7 +187,7 @@ export default function DocumentationPage() {
               <h3>Bring governance to the systems already running your AI.</h3>
             </div>
 
-            <Link href="/integrations">View integration architecture →</Link>
+            <Link href="/integrations">View integration architecture â†’</Link>
           </div>
         </div>
       </section>
@@ -212,8 +212,8 @@ export default function DocumentationPage() {
               placeholder APIs as if they are production contracts.
             </p>
 
-            <Link href="/design-partners">
-              Work with AIGO-OS as a design partner →
+            <Link href="/contact?intent=demo">
+              Work with AIGO-OS as a design partner â†’
             </Link>
           </div>
         </div>
@@ -231,9 +231,9 @@ export default function DocumentationPage() {
           <div className="docs-actions">
             <Link
               className="docs-button docs-button--primary"
-              href="/design-partners"
+              href="/contact?intent=demo"
             >
-              Become a Design Partner
+              Request a Demo
             </Link>
 
             <Link
