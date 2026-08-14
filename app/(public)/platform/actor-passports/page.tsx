@@ -1,5 +1,5 @@
-﻿import { Page03ActorPassports } from "@/components/page03-actor-passports";
+﻿import { Page03ActorPassports } from "./page-content";
 
-export default function ActorPassportsPage() {
+export default function Page() {
   return <Page03ActorPassports />;
 }

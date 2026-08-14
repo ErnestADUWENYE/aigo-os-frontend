@@ -1,5 +1,5 @@
-﻿import { Page02PlatformOverview } from "@/components/page02-platform-overview";
+﻿import { Page02PlatformOverview } from "./page-content";
 
-export default function ProductPage() {
+export default function Page() {
   return <Page02PlatformOverview />;
 }

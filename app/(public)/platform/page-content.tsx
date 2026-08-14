@@ -17,7 +17,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
-import styles from "@/styles/page02-platform-overview.module.css";
+import styles from "./page.module.css";
 
 
 type CapabilityKey =
@@ -1041,4 +1041,5 @@ export function Page02PlatformOverview() {
     </div>
   );
 }
+
 

@@ -1,5 +1,5 @@
-﻿import { Page04MachineAuthority } from "@/components/page04-machine-authority";
+﻿import { Page04MachineAuthority } from "./page-content";
 
-export default function MachineAuthorityPage() {
+export default function Page() {
   return <Page04MachineAuthority />;
 }

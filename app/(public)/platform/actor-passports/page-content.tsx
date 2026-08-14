@@ -15,7 +15,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
-import styles from "@/styles/page03-actor-passports.module.css";
+import styles from "./page.module.css";
 
 
 type PassportFieldKey =
@@ -801,4 +801,5 @@ export function Page03ActorPassports() {
     </main>
   );
 }
+
 

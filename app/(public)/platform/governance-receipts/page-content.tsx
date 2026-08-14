@@ -17,7 +17,7 @@ import {
   UserCheck,
 } from "lucide-react";
 
-import styles from "@/styles/page08-governance-receipts.module.css";
+import styles from "./page.module.css";
 
 
 const receiptContents = [
@@ -768,3 +768,4 @@ export function Page08GovernanceReceipts() {
     </main>
   );
 }
+

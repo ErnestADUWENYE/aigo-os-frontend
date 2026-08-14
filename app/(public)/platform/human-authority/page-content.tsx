@@ -18,7 +18,7 @@ import {
   X,
 } from "lucide-react";
 
-import styles from "@/styles/page07-human-authority.module.css";
+import styles from "./page.module.css";
 
 
 const humanActions = [
@@ -803,6 +803,7 @@ export function Page07HumanAuthority() {
     </main>
   );
 }
+
 
 
 

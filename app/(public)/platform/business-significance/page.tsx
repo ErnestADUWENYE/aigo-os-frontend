@@ -1,5 +1,5 @@
-﻿import { Page05BusinessSignificance } from "@/components/page05-business-significance";
+﻿import { Page05BusinessSignificance } from "./page-content";
 
-export default function BusinessSignificancePage() {
+export default function Page() {
   return <Page05BusinessSignificance />;
 }

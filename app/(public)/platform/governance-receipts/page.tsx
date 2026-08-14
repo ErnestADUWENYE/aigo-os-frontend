@@ -1,5 +1,5 @@
-﻿import { Page08GovernanceReceipts } from "@/components/page08-governance-receipts";
+﻿import { Page08GovernanceReceipts } from "./page-content";
 
-export default function GovernanceReceiptsPage() {
+export default function Page() {
   return <Page08GovernanceReceipts />;
 }

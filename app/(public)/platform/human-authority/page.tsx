@@ -1,5 +1,5 @@
-﻿import { Page07HumanAuthority } from "@/components/page07-human-authority";
+﻿import { Page07HumanAuthority } from "./page-content";
 
-export default function HumanAuthorityPage() {
+export default function Page() {
   return <Page07HumanAuthority />;
 }

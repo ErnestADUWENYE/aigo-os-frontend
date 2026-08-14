@@ -16,7 +16,7 @@ import {
   UserCheck,
 } from "lucide-react";
 
-import styles from "@/styles/page04-machine-authority.module.css";
+import styles from "./page.module.css";
 
 
 const authoritySources = [
@@ -751,4 +751,5 @@ export function Page04MachineAuthority() {
     </main>
   );
 }
+
 

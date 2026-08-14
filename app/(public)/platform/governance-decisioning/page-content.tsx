@@ -18,7 +18,7 @@ import {
   UserCheck,
 } from "lucide-react";
 
-import styles from "@/styles/page06-governance-decisioning.module.css";
+import styles from "./page.module.css";
 
 
 const decisionOutcomes = [
@@ -742,3 +742,4 @@ export function Page06GovernanceDecisioning() {
     </main>
   );
 }
+

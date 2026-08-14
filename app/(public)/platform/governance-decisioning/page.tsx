@@ -1,5 +1,5 @@
-﻿import { Page06GovernanceDecisioning } from "@/components/page06-governance-decisioning";
+﻿import { Page06GovernanceDecisioning } from "./page-content";
 
-export default function GovernanceDecisioningPage() {
+export default function Page() {
   return <Page06GovernanceDecisioning />;
 }

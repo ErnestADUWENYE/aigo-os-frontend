@@ -14,7 +14,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
-import styles from "@/styles/page05-business-significance.module.css";
+import styles from "./page.module.css";
 
 
 const businessContext = [
@@ -646,4 +646,5 @@ export function Page05BusinessSignificance() {
     </main>
   );
 }
+
 
