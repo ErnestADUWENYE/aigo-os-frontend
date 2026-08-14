@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const resourceAreas = [
   {
@@ -29,13 +29,13 @@ const resourceAreas = [
     title: "Risk Intelligence",
     body:
       "See how technical signals, business significance, dependencies and authority can be interpreted together.",
-    href: "/product/risk-intelligence",
+    href: "/platform",
   },
   {
     title: "Governance Receipts",
     body:
       "Explore the role of traceable decision and action records in proving what happened and why.",
-    href: "/product/governance-receipts",
+    href: "/platform/governance-receipts",
   },
 ];
 

@@ -2,50 +2,35 @@
 
 export function FinalConversionSection() {
   return (
-    <section className="final-conversion">
-      <div className="final-conversion__signal final-conversion__signal--one" />
-      <div className="final-conversion__signal final-conversion__signal--two" />
+    <section className="aigo-public-final">
+      <div className="aigo-public-shell aigo-public-final__inner">
+        <div>
+          <span className="aigo-public-kicker">
+            GOVERN THE NEXT ERA OF ENTERPRISE AI
+          </span>
 
-      <div className="final-conversion__shell">
-        <span className="final-conversion__kicker">
-          Govern what comes next
-        </span>
+          <h2>
+            Consequential AI activity needs
+            <span>
+              identity, authority, governance reasoning and evidence.
+            </span>
+          </h2>
+        </div>
 
-        <h2>
-          Autonomous AI needs an operating system for governance.
-        </h2>
+        <div>
+          <p>
+            See how AIGO-OS connects discovery, authority, business
+            significance, risk, governance decisions, supported execution
+            and evidence across the enterprise AI lifecycle.
+          </p>
 
-        <p>
-          See how AIGO-OS can help your organization establish
-          visibility, identity, authority, contextual risk,
-          governance decisions and traceability across enterprise AI.
-        </p>
-
-        <div className="final-conversion__actions">
           <Link
-            className="final-conversion__primary"
+            className="aigo-public-button aigo-public-button--primary"
             href="/contact?intent=demo"
           >
             Request a Demo
-            <span aria-hidden="true">â†’</span>
+            <span aria-hidden="true" className="aigo-ui-arrow" />
           </Link>
-
-          <Link
-            className="final-conversion__secondary"
-            href="/contact"
-          >
-            Request a conversation
-          </Link>
-        </div>
-
-        <div className="final-conversion__principles">
-          <span>Discover continuously</span>
-          <i />
-          <span>Govern contextually</span>
-          <i />
-          <span>Intervene by exception</span>
-          <i />
-          <span>Preserve evidence</span>
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --public-bg: #06111f;
   --public-bg-soft: #0b1a2d;
   --public-surface: rgba(10, 27, 47, 0.72);
@@ -8302,7 +8302,7 @@
 }
 
 /* =========================================================
-   AIGO-OS GLOBAL PUBLIC SHELL V2
+   AIGO-OS GLOBAL PUBLIC SHELL
    ========================================================= */
 
 .public-header {
@@ -9404,7 +9404,7 @@
 }
 
 /* =========================================================
-   AIGO-OS PUBLIC SHELL — LAYOUT STABILIZATION
+   AIGO-OS PUBLIC SHELL ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â LAYOUT STABILIZATION
    Keep this block LAST in public-site.css.
    ========================================================= */
 
@@ -10667,7 +10667,7 @@
 
 
 /* =========================================================
-   AIGO-OS Solutions � four-use-case responsive grid
+   AIGO-OS Solutions ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â four-use-case responsive grid
    ========================================================= */
 
 @media (min-width: 901px) {
@@ -10683,7 +10683,7 @@
 }
 
 /* =========================================================
-   PUBLIC HEADER � HIGH-CONTRAST DESKTOP MEGA MENUS
+   PUBLIC HEADER ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â HIGH-CONTRAST DESKTOP MEGA MENUS
    ========================================================= */
 
 @media (min-width: 901px) {
@@ -11778,7 +11778,7 @@
 
 
 /* =========================================================
-   AIGO-OS NAVIGATION — CLEAN 2026 SYSTEM
+   AIGO-OS NAVIGATION ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â CLEAN 2026 SYSTEM
    ========================================================= */
 
 .aigo-nav {
@@ -12525,7 +12525,7 @@ body {
 
 
 /* =========================================================
-   AIGO-OS INTEGRATION STORY — CLEAN SYSTEM
+   AIGO-OS INTEGRATION STORY ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â CLEAN SYSTEM
    ========================================================= */
 
 .aigo-integration-story {
@@ -13097,4 +13097,4888 @@ body {
     width: calc(100% - 28px) !important;
   }
 }
+
+
+/* ========================================================================
+   AIGO-OS PUBLIC WEBSITE
+   Isolated commercial + motion design system
+   ======================================================================== */
+
+:root {
+  --aigo-public-dark: #051524;
+  --aigo-public-dark-2: #081e33;
+  --aigo-public-dark-3: #0b2945;
+  --aigo-public-blue: #2796f2;
+  --aigo-public-blue-soft: #6bc3ff;
+  --aigo-public-gold: #d8ab4c;
+  --aigo-public-text: #eff7ff;
+  --aigo-public-muted: #91a9c0;
+  --aigo-public-border: rgba(111, 174, 228, 0.18);
+}
+
+.aigo-public-shell {
+  width: min(1400px, calc(100% - 80px));
+  margin: 0 auto;
+}
+
+.aigo-public-kicker {
+  color: var(--aigo-public-gold);
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.aigo-public-button {
+  min-height: 52px;
+  padding: 0 22px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  font-size: 14px;
+  font-weight: 850;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.aigo-public-button:hover {
+  transform: translateY(-2px);
+}
+
+.aigo-public-button--primary {
+  color: #fff;
+  background: #1478db;
+  border: 1px solid #278eea;
+}
+
+.aigo-public-button--secondary {
+  color: #e8f3ff;
+  background: rgba(255,255,255,.025);
+  border: 1px solid rgba(135,182,226,.22);
+}
+
+.aigo-public-actions {
+  margin-top: 34px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* HERO */
+
+.aigo-public-hero {
+  min-height: calc(100svh - 76px);
+  padding: 72px 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 75% 28%, rgba(30,132,220,.15), transparent 31%),
+    radial-gradient(circle at 8% 90%, rgba(20,105,195,.10), transparent 28%),
+    #051524;
+}
+
+.aigo-public-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, .92fr) minmax(520px, 1.08fr);
+  gap: clamp(48px, 6vw, 100px);
+  align-items: center;
+}
+
+.aigo-public-hero__copy h1 {
+  max-width: 770px;
+  margin: 25px 0 0;
+  color: #fff;
+  font-size: clamp(56px, 6vw, 88px);
+  line-height: .94;
+  letter-spacing: -.06em;
+}
+
+.aigo-public-hero__copy h1 span {
+  display: block;
+  color: #49aaf5;
+}
+
+.aigo-public-hero__lead {
+  max-width: 720px;
+  margin: 27px 0 0;
+  color: #a2b6ca;
+  font-size: 17px;
+  line-height: 1.72;
+}
+
+.aigo-public-hero__principles {
+  margin-top: 34px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 21px;
+  color: #7894ae;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.aigo-public-engine {
+  position: relative;
+  border: 1px solid rgba(104,176,232,.22);
+  border-radius: 24px;
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba(11,39,66,.96), rgba(4,21,37,.98));
+  box-shadow: 0 50px 100px rgba(0,0,0,.24);
+}
+
+.aigo-public-engine__top,
+.aigo-public-engine__bottom {
+  min-height: 70px;
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(103,166,218,.14);
+}
+
+.aigo-public-engine__top div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.aigo-public-engine__top span {
+  color: #50b2ff;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.aigo-public-engine__top strong {
+  color: #dbeafe;
+  font-size: 13px;
+}
+
+.aigo-public-live {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #86a9c9;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.aigo-public-live i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #41adff;
+  box-shadow: 0 0 14px #41adff;
+  animation: aigo-public-pulse 1.8s infinite;
+}
+
+.aigo-public-engine__stage {
+  position: relative;
+  min-height: 520px;
+  padding: 42px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.aigo-public-engine__stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .08;
+  background-image:
+    linear-gradient(rgba(85,164,225,.6) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(85,164,225,.6) 1px, transparent 1px);
+  background-size: 38px 38px;
+}
+
+.aigo-public-engine__orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border: 1px solid rgba(70,160,230,.18);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.aigo-public-engine__orbit--one {
+  width: 430px;
+  height: 430px;
+  animation: aigo-public-spin 32s linear infinite;
+}
+
+.aigo-public-engine__orbit--two {
+  width: 330px;
+  height: 330px;
+  border-style: dashed;
+  animation: aigo-public-spin-reverse 24s linear infinite;
+}
+
+.aigo-public-engine__core {
+  position: relative;
+  z-index: 3;
+  width: min(310px, 70%);
+  min-height: 210px;
+  padding: 29px;
+  border: 1px solid rgba(80,180,246,.3);
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(48,164,242,.18), transparent 48%),
+    #071d31;
+  box-shadow:
+    0 0 70px rgba(35,145,224,.13),
+    inset 0 0 40px rgba(43,157,234,.05);
+}
+
+.aigo-public-engine__core > span {
+  color: #4eb4ff;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .13em;
+}
+
+.aigo-public-engine__core strong {
+  margin-top: 13px;
+  color: #fff;
+  font-size: 25px;
+  line-height: 1.1;
+}
+
+.aigo-public-engine__core p {
+  margin: 13px 0 0;
+  color: #8ea9c4;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.aigo-public-engine__nodes {
+  position: absolute;
+  z-index: 5;
+  inset: 25px;
+  pointer-events: none;
+}
+
+.aigo-public-engine__node {
+  position: absolute;
+  width: 126px;
+  min-height: 46px;
+  padding: 9px 12px;
+  border: 1px solid rgba(107,161,208,.15);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #819cb6;
+  background: #071a2c;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: .04em;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: 220ms ease;
+}
+
+.aigo-public-engine__node span {
+  color: #4b7195;
+  font-size: 8px;
+}
+
+.aigo-public-engine__node--active {
+  border-color: rgba(63,174,247,.6);
+  color: #fff;
+  background: #0a2946;
+  box-shadow: 0 0 22px rgba(43,160,237,.15);
+}
+
+.aigo-public-engine__node:nth-child(1) {
+  top: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.aigo-public-engine__node:nth-child(2) {
+  top: 25%;
+  right: 0;
+}
+
+.aigo-public-engine__node:nth-child(3) {
+  bottom: 25%;
+  right: 0;
+}
+
+.aigo-public-engine__node:nth-child(4) {
+  bottom: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.aigo-public-engine__node:nth-child(5) {
+  bottom: 25%;
+  left: 0;
+}
+
+.aigo-public-engine__node:nth-child(6) {
+  top: 25%;
+  left: 0;
+}
+
+.aigo-public-engine__bottom {
+  min-height: 62px;
+  justify-content: flex-start;
+  gap: 9px;
+  border-top: 1px solid rgba(103,166,218,.14);
+  border-bottom: 0;
+  overflow-x: auto;
+}
+
+.aigo-public-engine__bottom span {
+  padding: 7px 9px;
+  border: 1px solid rgba(105,165,218,.12);
+  border-radius: 6px;
+  color: #7594b1;
+  font-size: 8px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* SHARED SECTIONS */
+
+.aigo-public-why,
+.aigo-public-difference,
+.aigo-public-usecases {
+  padding: 110px 0;
+}
+
+.aigo-public-section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, .55fr);
+  gap: 80px;
+  align-items: end;
+}
+
+.aigo-public-section-heading h2,
+.aigo-public-significance h2 {
+  max-width: 800px;
+  margin: 18px 0 0;
+  font-size: clamp(42px, 5vw, 66px);
+  line-height: 1;
+  letter-spacing: -.045em;
+}
+
+.aigo-public-section-heading h2 span,
+.aigo-public-significance h2 span {
+  display: block;
+}
+
+.aigo-public-section-heading > p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+/* WHY */
+
+.aigo-public-why {
+  color: #10263c;
+  background: #f6f9fc;
+}
+
+.aigo-public-why .aigo-public-section-heading p {
+  color: #647b91;
+}
+
+.aigo-public-agency {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid #dce6ef;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.aigo-public-agency__item {
+  position: relative;
+  min-height: 235px;
+  padding: 29px;
+  border-right: 1px solid #e1e9f0;
+}
+
+.aigo-public-agency__item:last-child {
+  border-right: 0;
+}
+
+.aigo-public-agency__item > span {
+  color: #1678d7;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.aigo-public-agency__item strong {
+  display: block;
+  margin-top: 45px;
+  color: #102b45;
+  font-size: 25px;
+}
+
+.aigo-public-agency__item p {
+  color: #6d8195;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.aigo-public-agency__item i {
+  position: absolute;
+  top: 50%;
+  right: -15px;
+  z-index: 2;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #d8e2ea;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  color: #1780df;
+  font-style: normal;
+}
+
+.aigo-public-thesis {
+  margin-top: 35px;
+  padding: 33px;
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  align-items: center;
+  gap: 30px;
+  background: #071c30;
+}
+
+.aigo-public-thesis span {
+  color: #d5a94e;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.aigo-public-thesis strong {
+  color: #fff;
+  font-size: clamp(21px, 2.5vw, 33px);
+  font-weight: 700;
+}
+
+.aigo-public-thesis em {
+  display: block;
+  margin-top: 7px;
+  color: #54b2fa;
+  font-style: normal;
+}
+
+/* SIGNIFICANCE */
+
+.aigo-public-significance {
+  padding: 120px 0;
+  color: #fff;
+  background:
+    radial-gradient(circle at 75% 40%, rgba(32,126,210,.12), transparent 32%),
+    #061526;
+}
+
+.aigo-public-significance__grid {
+  display: grid;
+  grid-template-columns: .78fr 1.22fr;
+  gap: 90px;
+  align-items: center;
+}
+
+.aigo-public-significance h2 span {
+  color: #4eacf3;
+}
+
+.aigo-public-significance__grid > div:first-child > p {
+  margin-top: 27px;
+  color: #91a9c1;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.aigo-public-significance__visual {
+  padding: 28px;
+  border: 1px solid rgba(95,165,220,.2);
+  border-radius: 20px;
+  background: rgba(5,25,43,.85);
+}
+
+.aigo-public-signal,
+.aigo-public-significance__result {
+  padding: 22px;
+  border: 1px solid rgba(96,155,207,.16);
+  border-radius: 12px;
+  background: #082039;
+}
+
+.aigo-public-signal > span,
+.aigo-public-significance__result > span {
+  color: #4eaef4;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.aigo-public-signal > strong {
+  display: block;
+  margin-top: 9px;
+  color: #fff;
+  font-size: 18px;
+}
+
+.aigo-public-signal > div {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.aigo-public-signal i {
+  padding: 7px 10px;
+  border-radius: 6px;
+  color: #8fa9c3;
+  background: #06192c;
+  font-size: 10px;
+  font-style: normal;
+}
+
+.aigo-public-significance__bridge {
+  height: 65px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #547b9f;
+}
+
+.aigo-public-significance__bridge span {
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.aigo-public-significance__bridge b {
+  color: #3ba4f2;
+}
+
+.aigo-public-significance__result > div {
+  margin-top: 17px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.aigo-public-significance__result strong {
+  min-height: 55px;
+  padding: 10px;
+  border: 1px solid rgba(104,166,219,.12);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  color: #d9e9f7;
+  background: #061a2d;
+  font-size: 10px;
+}
+
+.aigo-public-significance__decision {
+  padding: 21px;
+  border: 1px solid rgba(213,169,78,.25);
+  border-radius: 10px;
+  color: #f1d18a;
+  background: rgba(213,169,78,.055);
+  text-align: center;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+/* MODEL */
+
+.aigo-public-model {
+  padding: 120px 0;
+  color: #122b44;
+  background: #fff;
+}
+
+.aigo-public-model > .aigo-public-shell > h2 {
+  margin: 18px 0 50px;
+  font-size: clamp(56px, 7vw, 92px);
+  line-height: .9;
+  letter-spacing: -.055em;
+}
+
+.aigo-public-model > .aigo-public-shell > h2 span {
+  color: #1a7bd7;
+}
+
+.aigo-public-model__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid #dde6ee;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.aigo-public-model article {
+  min-height: 470px;
+  padding: 30px;
+  border-right: 1px solid #e0e8ef;
+}
+
+.aigo-public-model article:last-child {
+  border-right: 0;
+}
+
+.aigo-public-model__number {
+  color: #9eb1c1;
+  font-size: 10px;
+}
+
+.aigo-public-model article > span {
+  display: block;
+  margin-top: 42px;
+  color: #197adc;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.aigo-public-model h3 {
+  max-width: 330px;
+  margin: 15px 0 35px;
+  color: #142d46;
+  font-size: 27px;
+  line-height: 1.15;
+}
+
+.aigo-public-model article > div:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.aigo-public-model small {
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: #647d93;
+  background: #f4f7fa;
+}
+
+/* USE CASE */
+
+.aigo-public-usecases {
+  color: #fff;
+  background: #061526;
+}
+
+.aigo-public-usecases .aigo-public-section-heading p {
+  color: #8ea7bf;
+}
+
+.aigo-public-usecases h2 span {
+  color: #4cabf3;
+}
+
+.aigo-public-pill {
+  width: fit-content;
+  margin-top: 19px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  color: #b6c9da;
+  background: rgba(255,255,255,.06);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .08em;
+}
+
+.aigo-public-usecases__grid {
+  margin-top: 55px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.aigo-public-usecases__grid a {
+  min-height: 290px;
+  padding: 29px;
+  border: 1px solid rgba(110,166,213,.17);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  background: #082039;
+  text-decoration: none;
+  transition: 200ms ease;
+}
+
+.aigo-public-usecases__grid a:hover {
+  transform: translateY(-4px);
+  border-color: rgba(64,164,236,.45);
+  background: #0a2845;
+}
+
+.aigo-public-usecases__grid a > span {
+  color: #4eacf3;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.aigo-public-usecases__grid h3 {
+  margin: 36px 0 0;
+  font-size: clamp(24px, 2.7vw, 34px);
+}
+
+.aigo-public-usecases__grid p {
+  max-width: 580px;
+  color: #8ea8c1;
+  line-height: 1.65;
+}
+
+.aigo-public-usecases__grid a > strong {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  color: #dcecff;
+  font-size: 12px;
+}
+
+.aigo-public-usecases__grid i {
+  color: #52aff5;
+  font-style: normal;
+}
+
+/* DIFFERENTIATION */
+
+.aigo-public-difference {
+  color: #122b44;
+  background: #f5f8fb;
+}
+
+.aigo-public-difference .aigo-public-section-heading p {
+  color: #687f94;
+}
+
+.aigo-public-difference h2 span {
+  color: #197bdd;
+}
+
+.aigo-public-difference__grid {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.aigo-public-difference article {
+  padding: 30px;
+  border: 1px solid #dce5ed;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.aigo-public-difference article > span {
+  color: #8b9eae;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.aigo-public-difference h3 {
+  margin: 18px 0 0;
+  color: #112b45;
+  font-size: 26px;
+}
+
+.aigo-public-difference article > p {
+  color: #6e8396;
+  line-height: 1.65;
+}
+
+.aigo-public-difference article > div {
+  margin-top: 25px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #071c31;
+}
+
+.aigo-public-difference small {
+  display: block;
+  color: #4eabf1;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .11em;
+}
+
+.aigo-public-difference article > div strong {
+  display: block;
+  margin-top: 9px;
+  color: #dceafa;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* FINAL */
+
+.aigo-public-final {
+  padding: 120px 0;
+  color: #fff;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(37,131,215,.17), transparent 28%),
+    #041321;
+}
+
+.aigo-public-final__inner {
+  display: grid;
+  grid-template-columns: 1.1fr .6fr;
+  gap: 80px;
+  align-items: end;
+}
+
+.aigo-public-final h2 {
+  max-width: 850px;
+  margin: 20px 0 0;
+  font-size: clamp(45px, 5vw, 68px);
+  line-height: 1;
+  letter-spacing: -.045em;
+}
+
+.aigo-public-final h2 span {
+  color: #4aacf3;
+}
+
+.aigo-public-final__inner > div:last-child p {
+  color: #8ea6bd;
+  line-height: 1.7;
+}
+
+/* MOTION */
+
+@keyframes aigo-public-pulse {
+  0%, 100% { opacity: .45; transform: scale(.8); }
+  50% { opacity: 1; transform: scale(1.25); }
+}
+
+@keyframes aigo-public-spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes aigo-public-spin-reverse {
+  to { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+/* TABLET */
+
+@media (max-width: 1050px) {
+  .aigo-public-shell {
+    width: calc(100% - 48px);
+  }
+
+  .aigo-public-hero__grid,
+  .aigo-public-significance__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aigo-public-engine {
+    max-width: 760px;
+  }
+
+  .aigo-public-section-heading {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .aigo-public-agency {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .aigo-public-agency__item:nth-child(2) {
+    border-right: 0;
+  }
+
+  .aigo-public-model__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aigo-public-model article {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid #e0e8ef;
+  }
+
+  .aigo-public-model article:last-child {
+    border-bottom: 0;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  .aigo-public-shell {
+    width: calc(100% - 30px);
+  }
+
+  .aigo-public-hero {
+    min-height: auto;
+    padding: 54px 0 65px;
+  }
+
+  .aigo-public-hero__grid {
+    gap: 45px;
+  }
+
+  .aigo-public-hero__copy h1 {
+    font-size: clamp(44px, 13.5vw, 61px);
+  }
+
+  .aigo-public-hero__lead {
+    font-size: 15px;
+  }
+
+  .aigo-public-actions {
+    display: grid;
+  }
+
+  .aigo-public-button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .aigo-public-engine__stage {
+    min-height: 520px;
+    padding: 20px;
+  }
+
+  .aigo-public-engine__orbit--one {
+    width: 300px;
+    height: 300px;
+  }
+
+  .aigo-public-engine__orbit--two {
+    width: 230px;
+    height: 230px;
+  }
+
+  .aigo-public-engine__core {
+    width: 63%;
+    padding: 20px;
+  }
+
+  .aigo-public-engine__core strong {
+    font-size: 19px;
+  }
+
+  .aigo-public-engine__nodes {
+    inset: 13px;
+  }
+
+  .aigo-public-engine__node {
+    width: 96px;
+    padding: 7px;
+    font-size: 7px;
+  }
+
+  .aigo-public-engine__bottom {
+    padding: 0 14px;
+  }
+
+  .aigo-public-why,
+  .aigo-public-significance,
+  .aigo-public-model,
+  .aigo-public-usecases,
+  .aigo-public-difference,
+  .aigo-public-final {
+    padding: 75px 0;
+  }
+
+  .aigo-public-section-heading h2,
+  .aigo-public-significance h2 {
+    font-size: 41px;
+  }
+
+  .aigo-public-agency,
+  .aigo-public-usecases__grid,
+  .aigo-public-difference__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aigo-public-agency__item {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid #e1e9f0;
+  }
+
+  .aigo-public-agency__item:last-child {
+    border-bottom: 0;
+  }
+
+  .aigo-public-agency__item i {
+    display: none;
+  }
+
+  .aigo-public-thesis {
+    grid-template-columns: 1fr;
+  }
+
+  .aigo-public-significance__result > div {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .aigo-public-model > .aigo-public-shell > h2 {
+    font-size: 58px;
+  }
+
+  .aigo-public-final__inner {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aigo-public-engine__orbit,
+  .aigo-public-live i {
+    animation: none !important;
+  }
+
+  .aigo-public-button,
+  .aigo-public-usecases__grid a {
+    transition: none !important;
+  }
+}
+
+
+/* =========================================================
+   AIGO-OS STANDARD UI ICONS
+   No decorative Unicode characters
+   ========================================================= */
+
+.aigo-nav__chevron {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transform-origin: center;
+  transition: transform 160ms ease;
+}
+
+.aigo-nav__chevron--open {
+  transform: rotate(225deg) translate(-1px, -1px);
+}
+
+.aigo-ui-arrow {
+  position: relative;
+  width: 17px;
+  height: 12px;
+  display: inline-block;
+  flex: 0 0 auto;
+}
+
+.aigo-ui-arrow::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 14px;
+  height: 1.5px;
+  background: currentColor;
+  transform: translateY(-50%);
+}
+
+.aigo-ui-arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 7px;
+  height: 7px;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+
+
+
+/* =========================================================
+   AIGO-OS CAPABILITY STORY SYSTEM
+   ========================================================= */
+
+.capability-story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(48px, 8vw, 120px);
+  align-items: start;
+}
+
+.capability-story-grid h2 {
+  max-width: 720px;
+  margin: 16px 0 0;
+  font-size: clamp(34px, 4vw, 58px);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+.capability-story-copy {
+  display: grid;
+  gap: 22px;
+}
+
+.capability-story-copy p {
+  margin: 0;
+  max-width: 760px;
+  font-size: clamp(17px, 1.45vw, 21px);
+  line-height: 1.7;
+  color: var(--public-muted, #52606d);
+}
+
+.capability-context-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 56px;
+  border-top: 1px solid rgba(15, 32, 48, 0.14);
+  border-left: 1px solid rgba(15, 32, 48, 0.14);
+}
+
+.capability-context-grid article {
+  min-height: 230px;
+  padding: 30px;
+  border-right: 1px solid rgba(15, 32, 48, 0.14);
+  border-bottom: 1px solid rgba(15, 32, 48, 0.14);
+}
+
+.capability-context-grid article > span {
+  display: block;
+  margin-bottom: 36px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.capability-context-grid article p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--public-muted, #52606d);
+}
+
+.aigo-cap-demo__context-line {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.aigo-cap-demo__context-line span {
+  display: block;
+  font-size: 13px;
+  line-height: 1.5;
+  opacity: 0.72;
+}
+
+.aigo-cap-demo__context-line i {
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin-top: 16px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.1);
+  position: relative;
+}
+
+.aigo-cap-demo__context-line i::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 34%;
+  background: currentColor;
+  animation: aigo-context-scan 3.2s ease-in-out infinite;
+}
+
+.aigo-cap-demo__result-core {
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 50%;
+  aspect-ratio: 1;
+  margin: 28px auto;
+  max-width: 230px;
+  position: relative;
+}
+
+.aigo-cap-demo__result-core::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: inherit;
+  animation: aigo-result-pulse 3.4s ease-in-out infinite;
+}
+
+.aigo-cap-demo__result-core small {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 10px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  opacity: 0.58;
+}
+
+.aigo-cap-demo__result-core strong {
+  position: relative;
+  z-index: 1;
+  max-width: 150px;
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+@keyframes aigo-context-scan {
+  0% {
+    transform: translateX(-110%);
+  }
+
+  50% {
+    transform: translateX(190%);
+  }
+
+  100% {
+    transform: translateX(-110%);
+  }
+}
+
+@keyframes aigo-result-pulse {
+  0%,
+  100% {
+    transform: scale(0.96);
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .capability-story-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .capability-context-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .capability-context-grid article {
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .capability-context-grid {
+    grid-template-columns: 1fr;
+    margin-top: 34px;
+  }
+
+  .capability-context-grid article {
+    min-height: 0;
+    padding: 24px 20px;
+  }
+
+  .capability-context-grid article > span {
+    margin-bottom: 18px;
+  }
+
+  .capability-story-grid h2 {
+    font-size: clamp(32px, 10vw, 44px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aigo-cap-demo__context-line i::after,
+  .aigo-cap-demo__result-core::before {
+    animation: none !important;
+  }
+}
+
+
+/* =========================================================
+   AIGO-OS PLATFORM
+   ========================================================= */
+
+.aigo-platform {
+  overflow: hidden;
+}
+
+.aigo-platform__hero {
+  padding: 100px 0 110px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 78% 30%, rgba(40,148,231,.16), transparent 30%),
+    #051524;
+}
+
+.aigo-platform__hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(420px,.72fr);
+  gap: clamp(50px,8vw,120px);
+  align-items: center;
+}
+
+.aigo-platform__hero h1 {
+  max-width: 860px;
+  margin: 22px 0 0;
+  font-size: clamp(58px,7vw,96px);
+  line-height: .92;
+  letter-spacing: -.06em;
+}
+
+.aigo-platform__hero h1 span {
+  display: block;
+  color: #4eacf3;
+}
+
+.aigo-platform__hero p {
+  max-width: 760px;
+  margin: 28px 0 0;
+  color: #9ab0c5;
+  font-size: 17px;
+  line-height: 1.72;
+}
+
+.aigo-platform__position {
+  padding: 30px;
+  border: 1px solid rgba(91,165,221,.2);
+  border-radius: 20px;
+  background: #081f36;
+}
+
+.aigo-platform__position > span,
+.aigo-platform__significance-flow > div > span {
+  color: #57b1f5;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.aigo-platform__position > div {
+  margin-top: 25px;
+  display: grid;
+  gap: 8px;
+}
+
+.aigo-platform__position strong {
+  padding: 15px 17px;
+  border: 1px solid rgba(103,170,221,.13);
+  border-radius: 7px;
+  color: #dcebf8;
+  background: #061a2e;
+  font-size: 13px;
+}
+
+.aigo-platform__position p {
+  margin-top: 24px;
+  font-size: 13px;
+}
+
+.aigo-platform__problem,
+.aigo-platform__lifecycle,
+.aigo-platform__capabilities,
+.aigo-platform__boundary,
+.aigo-platform__execution {
+  padding: 110px 0;
+}
+
+.aigo-platform__problem {
+  background: #eef3f7;
+}
+
+.aigo-platform__statement {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: 1fr .72fr;
+  gap: 90px;
+}
+
+.aigo-platform__statement h2,
+.aigo-platform__execution h2 {
+  margin: 0;
+  max-width: 850px;
+  font-size: clamp(45px,5.5vw,74px);
+  line-height: .98;
+  letter-spacing: -.05em;
+}
+
+.aigo-platform__statement > div,
+.aigo-platform__execution-grid > div:last-child {
+  display: grid;
+  gap: 20px;
+}
+
+.aigo-platform__statement p,
+.aigo-platform__execution p {
+  margin: 0;
+  color: #62778b;
+  font-size: 17px;
+  line-height: 1.72;
+}
+
+.aigo-platform__lifecycle {
+  background: #f5f8fb;
+}
+
+.aigo-platform__lifecycle-grid {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  border-top: 1px solid #dbe5ed;
+  border-left: 1px solid #dbe5ed;
+}
+
+.aigo-platform__lifecycle-grid article {
+  min-height: 290px;
+  padding: 30px;
+  border-right: 1px solid #dbe5ed;
+  border-bottom: 1px solid #dbe5ed;
+  background: rgba(255,255,255,.65);
+}
+
+.aigo-platform__lifecycle-grid article > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.aigo-platform__lifecycle-grid article > div span {
+  color: #1b7edc;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.aigo-platform__lifecycle-grid article small {
+  color: #7c91a4;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.aigo-platform__lifecycle-grid h3 {
+  max-width: 520px;
+  margin: 55px 0 0;
+  font-size: 27px;
+  line-height: 1.12;
+}
+
+.aigo-platform__lifecycle-grid p {
+  max-width: 590px;
+  color: #6b8093;
+  line-height: 1.65;
+}
+
+.aigo-platform__significance {
+  padding: 120px 0;
+  color: #fff;
+  background: #061526;
+}
+
+.aigo-platform__significance-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.aigo-platform__significance h2 {
+  margin: 18px 0 0;
+  font-size: clamp(43px,5vw,68px);
+  line-height: .98;
+  letter-spacing: -.05em;
+}
+
+.aigo-platform__significance h2 span {
+  display: block;
+  color: #4caaf2;
+}
+
+.aigo-platform__significance p {
+  color: #8fa8bf;
+  line-height: 1.72;
+}
+
+.aigo-platform__significance-flow {
+  padding: 28px;
+  border: 1px solid rgba(99,163,216,.18);
+  border-radius: 18px;
+  background: #081d32;
+}
+
+.aigo-platform__significance-flow > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 19px;
+  border: 1px solid rgba(98,160,211,.12);
+  border-radius: 9px;
+  background: #06192b;
+}
+
+.aigo-platform__significance-flow > div > span {
+  width: 100%;
+  margin-bottom: 7px;
+}
+
+.aigo-platform__significance-flow strong {
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: #d4e4f2;
+  background: #0a2540;
+  font-size: 10px;
+}
+
+.aigo-platform__significance-flow > i {
+  width: 1px;
+  height: 34px;
+  display: block;
+  margin: 0 auto;
+  background: #2785ca;
+}
+
+.aigo-platform__capabilities {
+  background: #eef3f7;
+}
+
+.aigo-platform__capability-grid {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+}
+
+.aigo-platform__capability-grid a {
+  min-height: 320px;
+  padding: 30px;
+  border: 1px solid #dce6ee;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  text-decoration: none;
+  background: #f8fafc;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.aigo-platform__capability-grid a:hover {
+  transform: translateY(-4px);
+  border-color: #84bdec;
+}
+
+.aigo-platform__capability-grid a > span {
+  color: #1b7edb;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .11em;
+}
+
+.aigo-platform__capability-grid h3 {
+  margin: 35px 0 0;
+  font-size: 29px;
+}
+
+.aigo-platform__capability-grid p {
+  color: #687e92;
+  line-height: 1.65;
+}
+
+.aigo-platform__capability-grid a > strong {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.aigo-platform__boundary {
+  color: #fff;
+  background: #071827;
+}
+
+.aigo-platform__boundary .aigo-public-section-heading > p {
+  color: #8ca5bc;
+}
+
+.aigo-platform__boundary h2 span {
+  color: #4caaf2;
+}
+
+.aigo-platform__layers {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(5,minmax(0,1fr));
+  gap: 8px;
+}
+
+.aigo-platform__layers article {
+  min-height: 310px;
+  padding: 23px;
+  border: 1px solid rgba(101,161,212,.15);
+  border-radius: 11px;
+  background: #091e33;
+}
+
+.aigo-platform__layers article > span {
+  color: #7897b2;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.aigo-platform__layers h3 {
+  margin-top: 40px;
+  font-size: 19px;
+  line-height: 1.2;
+}
+
+.aigo-platform__layers p {
+  color: #839db5;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.aigo-platform__layers .aigo-platform__layers-aigo {
+  border-color: rgba(52,157,234,.55);
+  background: #0a2a48;
+}
+
+.aigo-platform__layers-aigo > span {
+  color: #56b3f6 !important;
+}
+
+.aigo-platform__execution {
+  background: #f4f7fa;
+}
+
+.aigo-platform__execution-grid {
+  display: grid;
+  grid-template-columns: 1fr .7fr;
+  gap: 90px;
+}
+
+.aigo-platform__final {
+  padding: 110px 0;
+  color: #fff;
+  background: #041321;
+}
+
+.aigo-platform__final-grid {
+  display: grid;
+  grid-template-columns: 1fr .6fr;
+  gap: 80px;
+  align-items: end;
+}
+
+.aigo-platform__final h2 {
+  margin: 17px 0 0;
+  max-width: 800px;
+  font-size: clamp(45px,5vw,68px);
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+.aigo-platform__final p {
+  color: #8da5ba;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   AIGO-OS DECISION DEMONSTRATION
+   ========================================================= */
+
+.aigo-decision-demo {
+  padding: 120px 0;
+  color: #fff;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(38,133,211,.10), transparent 35%),
+    #041321;
+}
+
+.aigo-decision-demo__heading {
+  display: grid;
+  grid-template-columns: 1fr .55fr;
+  gap: 70px;
+  align-items: end;
+}
+
+.aigo-decision-demo__heading > div > span {
+  color: #d6aa4f;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.aigo-decision-demo__heading h2 {
+  max-width: 800px;
+  margin: 15px 0 0;
+  font-size: clamp(42px,5vw,65px);
+  line-height: 1;
+  letter-spacing: -.045em;
+}
+
+.aigo-decision-demo__heading > p {
+  margin: 0;
+  color: #8fa8bf;
+  line-height: 1.7;
+}
+
+.aigo-decision-demo__workspace {
+  margin-top: 55px;
+  display: grid;
+  grid-template-columns: .55fr 1.1fr .75fr;
+  border: 1px solid rgba(94,161,214,.18);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #071a2d;
+}
+
+.aigo-decision-demo__rail,
+.aigo-decision-demo__focus,
+.aigo-decision-demo__result {
+  min-width: 0;
+  padding: 25px;
+}
+
+.aigo-decision-demo__rail {
+  border-right: 1px solid rgba(94,161,214,.14);
+  display: grid;
+  gap: 7px;
+}
+
+.aigo-decision-demo__stage {
+  min-height: 58px;
+  padding: 0 13px;
+  border: 1px solid rgba(100,158,207,.11);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #708ca6;
+  background: #06182a;
+  cursor: pointer;
+  text-align: left;
+}
+
+.aigo-decision-demo__stage span {
+  font-size: 8px;
+}
+
+.aigo-decision-demo__stage strong {
+  font-size: 10px;
+  letter-spacing: .07em;
+}
+
+.aigo-decision-demo__stage--active {
+  color: #fff;
+  border-color: rgba(58,165,239,.48);
+  background: #0a2946;
+}
+
+.aigo-decision-demo__focus {
+  border-right: 1px solid rgba(94,161,214,.14);
+}
+
+.aigo-decision-demo__focus-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.aigo-decision-demo__focus-top span {
+  color: #4eaff5;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.aigo-decision-demo__focus-top small {
+  color: #607e99;
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.aigo-decision-demo__focus-body {
+  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.aigo-decision-demo__number {
+  color: #315b7e;
+  font-size: 12px;
+}
+
+.aigo-decision-demo__focus h3 {
+  max-width: 520px;
+  margin: 15px 0;
+  font-size: clamp(28px,3vw,42px);
+  line-height: 1.05;
+}
+
+.aigo-decision-demo__focus p {
+  max-width: 570px;
+  color: #88a3ba;
+  line-height: 1.7;
+}
+
+.aigo-decision-demo__signal {
+  padding-top: 20px;
+  border-top: 1px solid rgba(98,159,210,.12);
+}
+
+.aigo-decision-demo__signal i {
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin-bottom: 13px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #319fea,
+      transparent
+    );
+  animation: aigo-decision-signal 2.6s ease-in-out infinite;
+}
+
+.aigo-decision-demo__signal span {
+  color: #6e8ba4;
+  font-size: 10px;
+}
+
+.aigo-decision-demo__result > span {
+  color: #d4aa52;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.aigo-decision-demo__outcomes {
+  margin-top: 22px;
+  display: grid;
+  gap: 7px;
+}
+
+.aigo-decision-demo__outcomes strong {
+  padding: 11px;
+  border: 1px solid rgba(92,157,211,.12);
+  border-radius: 6px;
+  color: #cbdceb;
+  background: #06182a;
+  font-size: 9px;
+}
+
+.aigo-decision-demo__evidence {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(94,159,211,.12);
+}
+
+.aigo-decision-demo__evidence small {
+  color: #63829e;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.aigo-decision-demo__evidence > div {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.aigo-decision-demo__evidence span {
+  padding: 6px 8px;
+  border-radius: 5px;
+  color: #7796b1;
+  background: #0a233b;
+  font-size: 8px;
+}
+
+@keyframes aigo-decision-signal {
+  0%,
+  100% {
+    transform: translateX(-25%);
+    opacity: .35;
+  }
+
+  50% {
+    transform: translateX(25%);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1050px) {
+  .aigo-platform__hero-grid,
+  .aigo-platform__significance-grid,
+  .aigo-platform__execution-grid,
+  .aigo-platform__final-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aigo-platform__layers {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+
+  .aigo-platform__layers-aigo {
+    grid-column: 1 / -1;
+  }
+
+  .aigo-decision-demo__workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .aigo-decision-demo__rail {
+    grid-template-columns: repeat(3,1fr);
+    border-right: 0;
+    border-bottom: 1px solid rgba(94,161,214,.14);
+  }
+
+  .aigo-decision-demo__focus {
+    border-right: 0;
+    border-bottom: 1px solid rgba(94,161,214,.14);
+  }
+}
+
+@media (max-width: 700px) {
+  .aigo-platform__problem,
+  .aigo-platform__lifecycle,
+  .aigo-platform__significance,
+  .aigo-platform__capabilities,
+  .aigo-platform__boundary,
+  .aigo-platform__execution,
+  .aigo-platform__final,
+  .aigo-decision-demo {
+    padding: 75px 0;
+  }
+
+  .aigo-platform__statement,
+  .aigo-decision-demo__heading {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .aigo-platform__lifecycle-grid,
+  .aigo-platform__capability-grid,
+  .aigo-platform__layers {
+    grid-template-columns: 1fr;
+  }
+
+  .aigo-platform__layers-aigo {
+    grid-column: auto;
+  }
+
+  .aigo-platform__lifecycle-grid article {
+    min-height: auto;
+  }
+
+  .aigo-decision-demo__rail {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .aigo-decision-demo__focus-body {
+    min-height: 270px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aigo-decision-demo__signal i {
+    animation: none !important;
+  }
+}
+
+
+/* =========================================================
+   AIGO-OS SOLUTIONS AND USE CASES
+   ========================================================= */
+
+.aigo-solutions,
+.aigo-use-case-page {
+  overflow: hidden;
+}
+
+.aigo-solutions__hero,
+.aigo-use-case-page__hero {
+  padding: 105px 0 115px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 82% 26%, rgba(42, 148, 230, 0.17), transparent 31%),
+    #051524;
+}
+
+.aigo-solutions__hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(390px, 0.68fr);
+  gap: clamp(50px, 8vw, 110px);
+  align-items: center;
+}
+
+.aigo-solutions__pill,
+.aigo-use-case-page__pill {
+  width: fit-content;
+  margin-top: 20px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  color: #b8cada;
+  background: rgba(255,255,255,.065);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.aigo-solutions__hero h1,
+.aigo-use-case-page__hero h1 {
+  max-width: 920px;
+  margin: 23px 0 0;
+  color: #fff;
+  font-size: clamp(55px, 6.6vw, 92px);
+  line-height: .94;
+  letter-spacing: -.058em;
+}
+
+.aigo-solutions__hero h1 span {
+  display: block;
+  color: #4eacf3;
+}
+
+.aigo-solutions__hero > div > div:first-child > p,
+.aigo-use-case-page__hero > div > p {
+  max-width: 760px;
+  margin: 28px 0 0;
+  color: #98aec3;
+  font-size: 17px;
+  line-height: 1.72;
+}
+
+.aigo-solutions__hero-question {
+  padding: 29px;
+  border: 1px solid rgba(95,165,219,.2);
+  border-radius: 18px;
+  background: #081f36;
+}
+
+.aigo-solutions__hero-question > span {
+  color: #55b0f3;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.aigo-solutions__hero-question > strong {
+  display: block;
+  margin-top: 28px;
+  color: #fff;
+  font-size: clamp(25px, 2.6vw, 36px);
+  line-height: 1.15;
+}
+
+.aigo-solutions__hero-question > div {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.aigo-solutions__hero-question small {
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: #83a2bd;
+  background: #06192c;
+  font-size: 9px;
+}
+
+.aigo-solutions__use-cases,
+.aigo-solutions__map-section,
+.aigo-solutions__distinction,
+.aigo-solutions__chain,
+.aigo-use-case-page__problem,
+.aigo-use-case-page__controls,
+.aigo-use-case-page__aigo,
+.aigo-use-case-page__business {
+  padding: 110px 0;
+}
+
+.aigo-solutions__use-cases {
+  background: #f5f8fb;
+}
+
+.aigo-solutions__cards {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.aigo-solutions__cards > a {
+  min-height: 410px;
+  padding: 30px;
+  border: 1px solid #dbe5ed;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  background: #fff;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease;
+}
+
+.aigo-solutions__cards > a:hover {
+  transform: translateY(-4px);
+  border-color: #83bceb;
+}
+
+.aigo-solutions__card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aigo-solutions__card-top span {
+  color: #1d7fdd;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.aigo-solutions__card-top small {
+  color: #8a9cac;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .11em;
+}
+
+.aigo-solutions__cards h3 {
+  max-width: 600px;
+  margin: 48px 0 0;
+  color: #112b44;
+  font-size: clamp(29px, 3vw, 40px);
+  line-height: 1.08;
+}
+
+.aigo-solutions__cards > a > p {
+  max-width: 620px;
+  color: #687e92;
+  line-height: 1.65;
+}
+
+.aigo-solutions__question {
+  margin-top: 25px;
+  padding: 18px;
+  border-radius: 9px;
+  background: #f4f7fa;
+}
+
+.aigo-solutions__question small {
+  display: block;
+  color: #7c91a3;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .11em;
+}
+
+.aigo-solutions__question strong {
+  display: block;
+  margin-top: 8px;
+  color: #263e54;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.aigo-solutions__card-link {
+  margin-top: auto;
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #193c5b;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.aigo-solutions__map-section {
+  color: #fff;
+  background: #061526;
+}
+
+.aigo-solutions__map-section .aigo-public-section-heading > p {
+  color: #8fa8bf;
+}
+
+.aigo-use-case-map {
+  margin-top: 58px;
+  border: 1px solid rgba(93,160,214,.18);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #071b2f;
+}
+
+.aigo-use-case-map__tabs {
+  padding: 12px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 7px;
+  border-bottom: 1px solid rgba(93,160,214,.14);
+}
+
+.aigo-use-case-map__tab {
+  min-height: 62px;
+  padding: 10px 12px;
+  border: 1px solid rgba(95,157,209,.11);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #7591aa;
+  background: #06182a;
+  cursor: pointer;
+  text-align: left;
+}
+
+.aigo-use-case-map__tab span {
+  font-size: 8px;
+}
+
+.aigo-use-case-map__tab strong {
+  font-size: 9px;
+  letter-spacing: .05em;
+}
+
+.aigo-use-case-map__tab--active {
+  color: #fff;
+  border-color: rgba(57,164,238,.5);
+  background: #0a2946;
+}
+
+.aigo-use-case-map__workspace {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: .75fr 54px 1.2fr 54px .8fr;
+  align-items: center;
+  gap: 0;
+}
+
+.aigo-use-case-map__problem,
+.aigo-use-case-map__context,
+.aigo-use-case-map__decision {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid rgba(97,159,211,.14);
+  border-radius: 11px;
+  background: #06192b;
+}
+
+.aigo-use-case-map__problem > span,
+.aigo-use-case-map__context > span,
+.aigo-use-case-map__decision > span {
+  color: #55aff2;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.aigo-use-case-map__problem > strong,
+.aigo-use-case-map__decision > strong {
+  display: block;
+  margin-top: 24px;
+  color: #e4f0fa;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.aigo-use-case-map__context > div {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+
+.aigo-use-case-map__context article {
+  padding: 13px;
+  border-radius: 7px;
+  background: #0a233b;
+}
+
+.aigo-use-case-map__context small {
+  display: block;
+  color: #6fa7d0;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.aigo-use-case-map__context strong {
+  display: block;
+  margin-top: 7px;
+  color: #bdd0df;
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+.aigo-use-case-map__connector {
+  display: grid;
+  place-items: center;
+}
+
+.aigo-use-case-map__connector i {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: rgba(55,147,213,.32);
+  overflow: hidden;
+}
+
+.aigo-use-case-map__connector i::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 1px;
+  background: #45aaf2;
+  animation: aigo-use-case-signal 2.4s ease-in-out infinite;
+}
+
+.aigo-use-case-map__decision > div {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.aigo-use-case-map__decision small {
+  padding: 6px 8px;
+  border-radius: 5px;
+  color: #7998b3;
+  background: #0a233b;
+  font-size: 7px;
+  font-weight: 850;
+}
+
+.aigo-solutions__distinction {
+  background: #eef3f7;
+}
+
+.aigo-solutions__distinction-grid {
+  margin-top: 55px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  border-top: 1px solid #dfe7ee;
+  border-left: 1px solid #dfe7ee;
+}
+
+.aigo-solutions__distinction-grid article {
+  min-height: 245px;
+  padding: 30px;
+  border-right: 1px solid #dfe7ee;
+  border-bottom: 1px solid #dfe7ee;
+}
+
+.aigo-solutions__distinction-grid h3 {
+  margin: 0;
+  color: #17334c;
+  font-size: 27px;
+}
+
+.aigo-solutions__distinction-grid p {
+  margin-top: 25px;
+  color: #697f92;
+  line-height: 1.7;
+}
+
+.aigo-solutions__chain {
+  color: #fff;
+  background: #071827;
+}
+
+.aigo-solutions__chain h2 {
+  max-width: 880px;
+  margin: 18px 0 0;
+  font-size: clamp(42px,5vw,68px);
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+.aigo-solutions__chain-flow {
+  margin-top: 55px;
+  display: grid;
+  grid-template-columns:
+    minmax(120px,1fr) 28px
+    minmax(120px,1fr) 28px
+    minmax(120px,1fr) 28px
+    minmax(120px,1fr) 28px
+    minmax(120px,1fr) 28px
+    minmax(120px,1fr);
+  align-items: center;
+}
+
+.aigo-solutions__chain-flow > div {
+  min-height: 170px;
+  padding: 20px;
+  border: 1px solid rgba(99,159,210,.15);
+  border-radius: 9px;
+  background: #091f35;
+}
+
+.aigo-solutions__chain-flow > div span {
+  color: #4daaf1;
+  font-size: 8px;
+}
+
+.aigo-solutions__chain-flow > div strong {
+  display: block;
+  margin-top: 25px;
+  font-size: 15px;
+}
+
+.aigo-solutions__chain-flow > div small {
+  display: block;
+  margin-top: 10px;
+  color: #7e99b0;
+  line-height: 1.45;
+}
+
+.aigo-solutions__chain-flow > i {
+  position: relative;
+  height: 1px;
+  background: #1e608f;
+}
+
+.aigo-solutions__chain-flow > i::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -3px;
+  width: 6px;
+  height: 6px;
+  border-top: 1px solid #4aa8ed;
+  border-right: 1px solid #4aa8ed;
+  transform: rotate(45deg);
+}
+
+.aigo-solutions__final,
+.aigo-use-case-page__final {
+  padding: 110px 0;
+  color: #fff;
+  background: #041321;
+}
+
+.aigo-solutions__final-grid,
+.aigo-use-case-page__final-grid {
+  display: grid;
+  grid-template-columns: 1fr .62fr;
+  gap: 80px;
+  align-items: end;
+}
+
+.aigo-solutions__final h2,
+.aigo-use-case-page__final h2 {
+  margin: 18px 0 0;
+  max-width: 850px;
+  font-size: clamp(43px,5vw,68px);
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+.aigo-solutions__final p,
+.aigo-use-case-page__final p {
+  color: #8da6bc;
+  line-height: 1.7;
+}
+
+/* INDIVIDUAL USE CASES */
+
+.aigo-use-case-page__eyebrow {
+  display: block;
+  margin-top: 33px;
+  color: #50acf1;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.aigo-use-case-page__problem {
+  background: #eef3f7;
+}
+
+.aigo-use-case-page__split {
+  display: grid;
+  grid-template-columns: 1fr .72fr;
+  gap: 90px;
+  align-items: start;
+}
+
+.aigo-use-case-page__split h2 {
+  margin: 18px 0 0;
+  max-width: 820px;
+  font-size: clamp(43px,5vw,68px);
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+.aigo-use-case-page__split > div:last-child p {
+  margin: 0;
+  color: #657b8f;
+  font-size: 18px;
+  line-height: 1.78;
+}
+
+.aigo-use-case-page__controls {
+  background: #f5f8fb;
+}
+
+.aigo-use-case-page__control-grid {
+  margin-top: 55px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  border-top: 1px solid #dce5ed;
+  border-left: 1px solid #dce5ed;
+}
+
+.aigo-use-case-page__control-grid article {
+  min-height: 265px;
+  padding: 28px;
+  border-right: 1px solid #dce5ed;
+  border-bottom: 1px solid #dce5ed;
+  background: rgba(255,255,255,.65);
+}
+
+.aigo-use-case-page__control-grid span {
+  color: #1d7fdb;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.aigo-use-case-page__control-grid p {
+  margin-top: 50px;
+  color: #687e92;
+  line-height: 1.7;
+}
+
+.aigo-use-case-page__aigo {
+  color: #fff;
+  background: #061526;
+}
+
+.aigo-use-case-page__aigo > div > h2 {
+  max-width: 900px;
+  margin: 18px 0 0;
+  font-size: clamp(43px,5vw,68px);
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+.aigo-use-case-page__aigo > div > h2 span {
+  display: block;
+  color: #4eaaf1;
+}
+
+.aigo-use-case-page__capability-flow {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  border-top: 1px solid rgba(99,159,210,.15);
+  border-left: 1px solid rgba(99,159,210,.15);
+}
+
+.aigo-use-case-page__capability-flow article {
+  min-height: 225px;
+  padding: 26px;
+  border-right: 1px solid rgba(99,159,210,.15);
+  border-bottom: 1px solid rgba(99,159,210,.15);
+  background: #081d32;
+}
+
+.aigo-use-case-page__capability-flow article > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.aigo-use-case-page__capability-flow span {
+  color: #4eacf2;
+  font-size: 8px;
+}
+
+.aigo-use-case-page__capability-flow small {
+  color: #8ea7bd;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.aigo-use-case-page__capability-flow p {
+  margin-top: 45px;
+  color: #9ab0c5;
+  line-height: 1.7;
+}
+
+.aigo-use-case-page__decision {
+  padding: 110px 0;
+  color: #fff;
+  background: #041321;
+}
+
+.aigo-use-case-page__decision-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.1fr;
+  gap: 70px;
+}
+
+.aigo-use-case-page__decision-grid h2 {
+  margin: 18px 0 0;
+  font-size: clamp(40px,4.5vw,62px);
+  line-height: 1;
+  letter-spacing: -.045em;
+}
+
+.aigo-use-case-page__decision-grid > div:first-child p {
+  color: #8ca5bb;
+  line-height: 1.7;
+}
+
+.aigo-use-case-page__decision-grid > div:nth-child(2) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.aigo-use-case-page__decision-grid > div:nth-child(2) > strong {
+  min-height: 94px;
+  padding: 17px;
+  border: 1px solid rgba(99,159,210,.14);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  color: #c9dcea;
+  background: #071c30;
+  font-size: 12px;
+}
+
+.aigo-use-case-page__outcomes {
+  grid-column: 1 / -1;
+  margin-top: 20px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(99,159,210,.14);
+}
+
+.aigo-use-case-page__outcomes > span {
+  color: #d6aa4e;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .11em;
+}
+
+.aigo-use-case-page__outcomes > div {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 7px;
+}
+
+.aigo-use-case-page__outcomes strong {
+  min-height: 55px;
+  border: 1px solid rgba(100,160,211,.13);
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  color: #c6d9e9;
+  background: #071c30;
+  font-size: 9px;
+}
+
+.aigo-use-case-page__business {
+  background: #eef3f7;
+}
+
+.aigo-use-case-page__business > div > h2 {
+  max-width: 820px;
+  margin: 18px 0 0;
+  font-size: clamp(42px,5vw,65px);
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+.aigo-use-case-page__business-grid {
+  margin-top: 55px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 10px;
+}
+
+.aigo-use-case-page__business-grid article {
+  min-height: 150px;
+  padding: 24px;
+  border: 1px solid #dde6ed;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 5px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.aigo-use-case-page__business-grid i {
+  width: 4px;
+  height: 34px;
+  border-radius: 999px;
+  background: #2588df;
+}
+
+.aigo-use-case-page__business-grid p {
+  margin: 0;
+  color: #5f768a;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+@keyframes aigo-use-case-signal {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  50% {
+    transform: translateX(210%);
+  }
+
+  100% {
+    transform: translateX(-120%);
+  }
+}
+
+@media (max-width: 1050px) {
+  .aigo-solutions__hero-grid,
+  .aigo-solutions__final-grid,
+  .aigo-use-case-page__final-grid,
+  .aigo-use-case-page__split,
+  .aigo-use-case-page__decision-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aigo-use-case-map__workspace {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .aigo-use-case-map__connector {
+    height: 35px;
+  }
+
+  .aigo-use-case-map__connector i {
+    width: 1px;
+    height: 100%;
+  }
+
+  .aigo-solutions__chain-flow {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .aigo-solutions__chain-flow > i {
+    width: 1px;
+    height: 22px;
+    margin: 0 auto;
+  }
+
+  .aigo-solutions__chain-flow > i::after {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .aigo-solutions__hero,
+  .aigo-solutions__use-cases,
+  .aigo-solutions__map-section,
+  .aigo-solutions__distinction,
+  .aigo-solutions__chain,
+  .aigo-solutions__final,
+  .aigo-use-case-page__hero,
+  .aigo-use-case-page__problem,
+  .aigo-use-case-page__controls,
+  .aigo-use-case-page__aigo,
+  .aigo-use-case-page__decision,
+  .aigo-use-case-page__business,
+  .aigo-use-case-page__final {
+    padding: 75px 0;
+  }
+
+  .aigo-solutions__cards,
+  .aigo-solutions__distinction-grid,
+  .aigo-use-case-page__control-grid,
+  .aigo-use-case-page__capability-flow,
+  .aigo-use-case-page__business-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aigo-use-case-map__tabs {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .aigo-use-case-map__workspace {
+    padding: 15px;
+  }
+
+  .aigo-use-case-map__context > div {
+    grid-template-columns: 1fr;
+  }
+
+  .aigo-use-case-page__decision-grid > div:nth-child(2) {
+    grid-template-columns: 1fr;
+  }
+
+  .aigo-use-case-page__outcomes > div {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .aigo-use-case-page__outcomes strong:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .aigo-solutions__cards > a {
+    min-height: 0;
+  }
+
+  .aigo-use-case-page__control-grid article,
+  .aigo-use-case-page__capability-flow article {
+    min-height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aigo-use-case-map__connector i::after {
+    animation: none !important;
+  }
+}
+
+
+/* =========================================================
+   AIGO-OS INTEGRATIONS
+   ========================================================= */
+
+.aigo-integrations {
+  overflow: hidden;
+}
+
+.aigo-integrations__hero {
+  padding: 105px 0 115px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 79% 25%, rgba(41,148,230,.17), transparent 31%),
+    #051524;
+}
+
+.aigo-integrations__hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(400px,.7fr);
+  gap: clamp(55px,8vw,115px);
+  align-items: center;
+}
+
+.aigo-integrations__hero h1 {
+  max-width: 900px;
+  margin: 22px 0 0;
+  font-size: clamp(57px,6.8vw,94px);
+  line-height: .93;
+  letter-spacing: -.06em;
+}
+
+.aigo-integrations__hero h1 span {
+  display: block;
+  color: #4eacf3;
+}
+
+.aigo-integrations__hero p {
+  max-width: 760px;
+  margin: 28px 0 0;
+  color: #98aec3;
+  font-size: 17px;
+  line-height: 1.72;
+}
+
+.aigo-integrations__hero-model {
+  padding: 28px;
+  border: 1px solid rgba(96,165,219,.2);
+  border-radius: 18px;
+  background: #081f36;
+}
+
+.aigo-integrations__hero-model > span {
+  color: #54aff3;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.aigo-integrations__hero-model > div {
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid rgba(98,159,210,.13);
+  border-radius: 8px;
+  background: #06192c;
+}
+
+.aigo-integrations__hero-model strong {
+  display: block;
+  color: #e3eef8;
+  font-size: 14px;
+}
+
+.aigo-integrations__hero-model small {
+  display: block;
+  margin-top: 7px;
+  color: #7692aa;
+  line-height: 1.4;
+}
+
+.aigo-integrations__hero-core {
+  border-color: rgba(57,164,238,.5) !important;
+  background: #0a2946 !important;
+}
+
+.aigo-integrations__hero-model > i {
+  width: 1px;
+  height: 25px;
+  display: block;
+  margin: 0 auto;
+  background: #2b86c7;
+}
+
+.aigo-integrations__principle,
+.aigo-integrations__architecture,
+.aigo-integrations__roles,
+.aigo-integrations__difference,
+.aigo-integrations__boundary {
+  padding: 110px 0;
+}
+
+.aigo-integrations__principle {
+  background: #eef3f7;
+}
+
+.aigo-integrations__principle-grid {
+  display: grid;
+  grid-template-columns: 1fr .72fr;
+  gap: 90px;
+}
+
+.aigo-integrations__principle h2,
+.aigo-integrations__boundary h2 {
+  max-width: 850px;
+  margin: 18px 0 0;
+  font-size: clamp(44px,5vw,69px);
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+.aigo-integrations__principle-grid > div:last-child {
+  display: grid;
+  gap: 20px;
+}
+
+.aigo-integrations__principle p {
+  margin: 0;
+  color: #62788c;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.aigo-integrations__architecture {
+  color: #fff;
+  background: #061526;
+}
+
+.aigo-integrations__architecture .aigo-public-section-heading > p {
+  color: #8da6bd;
+}
+
+.aigo-integrations__architecture h2 span {
+  color: #4dabf3;
+}
+
+.aigo-integration-architecture {
+  margin-top: 60px;
+  border: 1px solid rgba(95,161,214,.18);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #071b2f;
+}
+
+.aigo-integration-architecture__tabs {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(6,minmax(0,1fr));
+  gap: 6px;
+  border-bottom: 1px solid rgba(95,160,211,.14);
+}
+
+.aigo-integration-architecture__tab {
+  min-height: 59px;
+  padding: 9px;
+  border: 1px solid rgba(94,157,207,.1);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #708ca5;
+  background: #06182a;
+  cursor: pointer;
+  text-align: left;
+}
+
+.aigo-integration-architecture__tab span {
+  font-size: 7px;
+}
+
+.aigo-integration-architecture__tab strong {
+  font-size: 8px;
+  letter-spacing: .04em;
+}
+
+.aigo-integration-architecture__tab--active {
+  color: #fff;
+  border-color: rgba(56,163,238,.5);
+  background: #0a2946;
+}
+
+.aigo-integration-architecture__flow {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: .8fr 70px 1.15fr 70px .8fr;
+  align-items: center;
+}
+
+.aigo-integration-architecture__source,
+.aigo-integration-architecture__core,
+.aigo-integration-architecture__result {
+  min-height: 290px;
+  padding: 24px;
+  border: 1px solid rgba(98,159,210,.14);
+  border-radius: 10px;
+  background: #06192b;
+}
+
+.aigo-integration-architecture__source > span,
+.aigo-integration-architecture__core > span,
+.aigo-integration-architecture__result > span {
+  color: #54aff3;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.aigo-integration-architecture__source h3 {
+  margin-top: 40px;
+  color: #e3eef7;
+  font-size: 23px;
+  line-height: 1.15;
+}
+
+.aigo-integration-architecture__source p,
+.aigo-integration-architecture__result p,
+.aigo-integration-architecture__core p {
+  margin-top: 20px;
+  color: #819cb4;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.aigo-integration-architecture__core {
+  border-color: rgba(57,163,237,.42);
+  background: #092742;
+}
+
+.aigo-integration-architecture__core > strong {
+  display: block;
+  margin-top: 25px;
+  color: #fff;
+  font-size: 24px;
+}
+
+.aigo-integration-architecture__core > div {
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.aigo-integration-architecture__core small {
+  padding: 7px 8px;
+  border-radius: 5px;
+  color: #9bb6cb;
+  background: #06192c;
+  font-size: 8px;
+}
+
+.aigo-integration-architecture__signal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.aigo-integration-architecture__signal i {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  overflow: hidden;
+  background: rgba(52,138,200,.3);
+}
+
+.aigo-integration-architecture__signal i::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 38%;
+  background: #48aaf1;
+  animation: aigo-integration-signal 2.5s ease-in-out infinite;
+}
+
+.aigo-integration-architecture__signal small {
+  max-width: 65px;
+  color: #50718d;
+  font-size: 6px;
+  font-weight: 900;
+  text-align: center;
+  letter-spacing: .06em;
+}
+
+.aigo-integrations__roles {
+  background: #f5f8fb;
+}
+
+.aigo-integrations__roles > div > h2 {
+  margin: 18px 0 0;
+  max-width: 820px;
+  font-size: clamp(43px,5vw,67px);
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+.aigo-integrations__role-grid {
+  margin-top: 58px;
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  border-top: 1px solid #dce5ed;
+  border-left: 1px solid #dce5ed;
+}
+
+.aigo-integrations__role-grid > article {
+  min-height: 390px;
+  padding: 29px;
+  border-right: 1px solid #dce5ed;
+  border-bottom: 1px solid #dce5ed;
+  background: rgba(255,255,255,.7);
+}
+
+.aigo-integrations__role-grid > article > div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.aigo-integrations__role-grid > article > div:first-child span {
+  color: #1c7fdb;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.aigo-integrations__role-grid > article > div:first-child small {
+  color: #8095a7;
+  font-size: 8px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.aigo-integrations__role-grid h3 {
+  margin: 45px 0 30px;
+  color: #17334c;
+  font-size: 29px;
+}
+
+.aigo-integrations__role-context,
+.aigo-integrations__role-purpose {
+  padding: 17px 0;
+  border-top: 1px solid #e1e8ee;
+}
+
+.aigo-integrations__role-grid small {
+  color: #7b90a2;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .09em;
+}
+
+.aigo-integrations__role-grid p {
+  margin: 8px 0 0;
+  color: #667d91;
+  line-height: 1.6;
+}
+
+.aigo-integrations__difference {
+  color: #fff;
+  background: #071827;
+}
+
+.aigo-integrations__difference .aigo-public-section-heading > p {
+  color: #8ca5bc;
+}
+
+.aigo-integrations__difference h2 span {
+  color: #4caaf2;
+}
+
+.aigo-integrations__difference-grid {
+  margin-top: 58px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 8px;
+}
+
+.aigo-integrations__difference-grid article {
+  min-height: 310px;
+  padding: 24px;
+  border: 1px solid rgba(99,159,210,.14);
+  border-radius: 10px;
+  background: #091f35;
+}
+
+.aigo-integrations__difference-grid article > span {
+  color: #7896b0;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.aigo-integrations__difference-grid h3 {
+  margin-top: 42px;
+  font-size: 21px;
+  line-height: 1.2;
+}
+
+.aigo-integrations__difference-grid p {
+  color: #839db4;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.aigo-integrations__difference-aigo {
+  border-color: rgba(55,160,235,.52) !important;
+  background: #0a2946 !important;
+}
+
+.aigo-integrations__difference-aigo > span {
+  color: #54b0f4 !important;
+}
+
+.aigo-integrations__boundary {
+  background: #eef3f7;
+}
+
+.aigo-integrations__boundary-grid {
+  margin-top: 55px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 10px;
+}
+
+.aigo-integrations__boundary-grid article {
+  min-height: 245px;
+  padding: 27px;
+  border: 1px solid #dce6ee;
+  border-radius: 11px;
+  background: #f8fafc;
+}
+
+.aigo-integrations__boundary-grid article > span {
+  color: #1d7fdb;
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.aigo-integrations__boundary-grid h3 {
+  margin-top: 32px;
+  color: #17334c;
+  font-size: 25px;
+}
+
+.aigo-integrations__boundary-grid p {
+  color: #677e91;
+  line-height: 1.65;
+}
+
+.aigo-integrations__final {
+  padding: 110px 0;
+  color: #fff;
+  background: #041321;
+}
+
+.aigo-integrations__final-grid {
+  display: grid;
+  grid-template-columns: 1fr .62fr;
+  gap: 80px;
+  align-items: end;
+}
+
+.aigo-integrations__final h2 {
+  margin: 18px 0 0;
+  max-width: 830px;
+  font-size: clamp(43px,5vw,67px);
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+.aigo-integrations__final p {
+  color: #8da6bc;
+  line-height: 1.7;
+}
+
+@keyframes aigo-integration-signal {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  50% {
+    transform: translateX(220%);
+  }
+
+  100% {
+    transform: translateX(-120%);
+  }
+}
+
+@media (max-width: 1050px) {
+  .aigo-integrations__hero-grid,
+  .aigo-integrations__principle-grid,
+  .aigo-integrations__final-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aigo-integration-architecture__tabs {
+    grid-template-columns: repeat(3,1fr);
+  }
+
+  .aigo-integration-architecture__flow {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .aigo-integration-architecture__signal {
+    min-height: 35px;
+  }
+
+  .aigo-integration-architecture__signal i {
+    width: 1px;
+    height: 35px;
+  }
+
+  .aigo-integrations__difference-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .aigo-integrations__hero,
+  .aigo-integrations__principle,
+  .aigo-integrations__architecture,
+  .aigo-integrations__roles,
+  .aigo-integrations__difference,
+  .aigo-integrations__boundary,
+  .aigo-integrations__final {
+    padding: 75px 0;
+  }
+
+  .aigo-integration-architecture__tabs,
+  .aigo-integrations__role-grid,
+  .aigo-integrations__difference-grid,
+  .aigo-integrations__boundary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aigo-integration-architecture__flow {
+    padding: 15px;
+  }
+
+  .aigo-integration-architecture__source,
+  .aigo-integration-architecture__core,
+  .aigo-integration-architecture__result {
+    min-height: 0;
+  }
+
+  .aigo-integrations__role-grid > article,
+  .aigo-integrations__difference-grid article,
+  .aigo-integrations__boundary-grid article {
+    min-height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aigo-integration-architecture__signal i::after {
+    animation: none !important;
+  }
+}
+
+
+/* =========================================================
+   TRUST PAGE - ENTERPRISE EVALUATION
+   ========================================================= */
+
+.trust-page__principles-list small {
+  display: block;
+  margin-bottom: 8px;
+  color: #6f8baa;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.trust-page__evaluation {
+  display: grid;
+  border-top: 1px solid #dbe4ed;
+}
+
+.trust-page__evaluation article {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 18px;
+  align-items: start;
+  padding: 20px 0;
+  border-bottom: 1px solid #dbe4ed;
+}
+
+.trust-page__evaluation article > span {
+  color: #1769d2;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.trust-page__evaluation article p {
+  margin: 0;
+  color: #24384d;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.55;
+}
+
+.trust-page__assurance {
+  padding: 105px 0;
+  background: #f4f7fa;
+  border-top: 1px solid #dce5ed;
+}
+
+.trust-page__assurance-heading {
+  max-width: 760px;
+}
+
+.trust-page__assurance-heading h2 {
+  margin: 14px 0 18px;
+  color: #071426;
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+.trust-page__assurance-heading > p {
+  max-width: 680px;
+  margin: 0;
+  color: #5c6f83;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.trust-page__assurance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 55px;
+  border: 1px solid #d7e1ea;
+  background: #d7e1ea;
+}
+
+.trust-page__assurance-grid article {
+  min-height: 290px;
+  padding: 30px;
+  background: #ffffff;
+}
+
+.trust-page__assurance-grid article > span {
+  color: #1769d2;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.trust-page__assurance-grid h3 {
+  margin: 50px 0 13px;
+  color: #0a1b2d;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.trust-page__assurance-grid p {
+  margin: 0;
+  color: #617386;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.trust-page__assurance-grid a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 24px;
+  color: #1769d2;
+  font-size: 10px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .trust-page__assurance-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-page__assurance-grid article {
+    min-height: auto;
+  }
+
+  .trust-page__assurance-grid h3 {
+    margin-top: 28px;
+  }
+}
+
+@media (max-width: 700px) {
+  .trust-page__assurance {
+    padding: 75px 0;
+  }
+
+  .trust-page__evaluation article {
+    grid-template-columns: 32px 1fr;
+    gap: 12px;
+  }
+
+  .trust-page__assurance-grid {
+    margin-top: 38px;
+  }
+
+  .trust-page__assurance-grid article {
+    padding: 24px;
+  }
+}
+
+/* =========================================================
+   HEADER COMMERCIAL ENTRY
+   ========================================================= */
+
+.aigo-nav__desktop-action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.aigo-nav__get-started {
+  min-height: 42px;
+  padding: 0 17px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff !important;
+  background: #1676df;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.aigo-nav__get-started:hover {
+  background: #2585ed;
+  transform: translateY(-1px);
+}
+
+.aigo-mobile-nav__actions {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.aigo-mobile-nav__signin,
+.aigo-mobile-nav__get-started {
+  width: 100%;
+  min-height: 50px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.aigo-mobile-nav__signin {
+  border: 1px solid rgba(255,255,255,.18);
+  color: #ffffff;
+  background: rgba(255,255,255,.05);
+}
+
+.aigo-mobile-nav__get-started {
+  color: #ffffff;
+  background: #1676df;
+}
+
+@media (max-width: 900px) {
+  .aigo-nav__get-started {
+    display: none;
+  }
+}
+
+/* =========================================================
+   AIGO-OS CANONICAL PUBLIC SHELL
+   Restored dark production foundation
+   ========================================================= */
+
+:root {
+  --aigo-shell-dark: #06111f;
+  --aigo-shell-dark-deep: #051524;
+  --aigo-shell-dark-soft: #081522;
+  --aigo-shell-blue: #2f7cff;
+  --aigo-shell-blue-bright: #5aa0ff;
+  --aigo-shell-gold: #d5aa55;
+  --aigo-shell-text: #f5f8ff;
+  --aigo-shell-muted: #a9b8cf;
+}
+
+/* Global public canvas */
+.public-site {
+  min-height: 100vh;
+  color: var(--aigo-shell-text);
+  background:
+    radial-gradient(
+      circle at 18% 12%,
+      rgba(47, 124, 255, 0.16),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 82% 8%,
+      rgba(213, 170, 85, 0.08),
+      transparent 26%
+    ),
+    linear-gradient(
+      180deg,
+      #071321 0%,
+      #06111f 55%,
+      #081522 100%
+    ) !important;
+}
+
+.public-site__main {
+  width: 100%;
+  min-width: 0;
+  min-height: calc(100vh - 84px);
+  overflow-x: clip;
+  background: transparent !important;
+}
+
+/* Shared structural shells must never paint over content */
+.aigo-public-shell,
+.aigo-home-shell,
+.aigo-demo-page__shell,
+.trust-page__hero-shell,
+.company-page__hero-shell,
+.solutions-page__hero-shell {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  opacity: 1 !important;
+}
+
+/* Keep content above any decorative effects */
+.aigo-public-shell,
+.aigo-home-shell {
+  position: relative;
+  z-index: 1;
+}
+
+/* Homepage dark hero */
+.aigo-public-hero {
+  position: relative;
+  isolation: isolate;
+  color: #ffffff;
+  background:
+    radial-gradient(
+      circle at 75% 28%,
+      rgba(30, 132, 220, 0.15),
+      transparent 31%
+    ),
+    radial-gradient(
+      circle at 8% 90%,
+      rgba(20, 105, 195, 0.10),
+      transparent 28%
+    ),
+    #051524 !important;
+}
+
+/* Solutions + use-case dark heroes */
+.aigo-solutions__hero,
+.aigo-use-case-page__hero {
+  position: relative;
+  isolation: isolate;
+  color: #ffffff;
+  background:
+    radial-gradient(
+      circle at 82% 26%,
+      rgba(42, 148, 230, 0.17),
+      transparent 31%
+    ),
+    #051524 !important;
+}
+
+/* Product/platform hero */
+.aigo-platform__hero {
+  position: relative;
+  isolation: isolate;
+  color: #ffffff;
+  background:
+    radial-gradient(
+      circle at 78% 30%,
+      rgba(40, 148, 231, 0.16),
+      transparent 30%
+    ),
+    #051524 !important;
+}
+
+/* Integrations hero */
+.aigo-integrations__hero {
+  position: relative;
+  isolation: isolate;
+  color: #ffffff;
+  background:
+    radial-gradient(
+      circle at 79% 25%,
+      rgba(41, 148, 230, 0.17),
+      transparent 31%
+    ),
+    #051524 !important;
+}
+
+/* Prevent shell-level visual effects from washing over hero copy */
+.aigo-public-hero > .aigo-public-shell,
+.aigo-solutions__hero > .aigo-public-shell,
+.aigo-use-case-page__hero > .aigo-public-shell,
+.aigo-platform__hero > .aigo-public-shell,
+.aigo-integrations__hero > .aigo-public-shell {
+  background: transparent !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+
+/* Hero text always renders above visual layers */
+.aigo-public-hero h1,
+.aigo-public-hero p,
+.aigo-public-hero span,
+.aigo-solutions__hero h1,
+.aigo-solutions__hero p,
+.aigo-solutions__hero span,
+.aigo-use-case-page__hero h1,
+.aigo-use-case-page__hero p,
+.aigo-use-case-page__hero span,
+.aigo-platform__hero h1,
+.aigo-platform__hero p,
+.aigo-platform__hero span,
+.aigo-integrations__hero h1,
+.aigo-integrations__hero p,
+.aigo-integrations__hero span {
+  position: relative;
+  z-index: 2;
+}
+
+/* Header remains the only intentional backdrop blur */
+.public-header {
+  background: rgba(6, 17, 31, 0.78) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+
+/* =========================================================
+   AIGO-OS PUBLIC WEBSITE â€” FINAL ENTERPRISE THEME
+   ========================================================= */
+
+:root {
+  --aigo-shell-dark: #071827;
+  --aigo-shell-dark-deep: #041321;
+  --aigo-shell-dark-soft: #0B2238;
+
+  --aigo-light: #E7E3DA;
+  --aigo-light-alt: #DED9CE;
+  --aigo-light-card: #F2EFE8;
+
+  --aigo-light-text: #14283A;
+  --aigo-light-muted: #53687A;
+
+  --aigo-brand-blue: #2588DF;
+  --aigo-brand-blue-soft: #55AAFF;
+  --aigo-brand-gold: #D5AA55;
+
+  --aigo-dark-text: #F4F7FA;
+  --aigo-dark-muted: #A9B8C8;
+}
+
+/*
+ * Public light surfaces.
+ * Warm architectural stone instead of clinical white.
+ */
+
+.aigo-public-section--light,
+.aigo-public-problem,
+.aigo-public-context,
+.aigo-public-comparison,
+.aigo-public-evidence,
+.aigo-public-proof,
+.capability-story,
+.capability-context {
+  background: var(--aigo-light);
+  color: var(--aigo-light-text);
+}
+
+/*
+ * Make headings genuinely readable on light sections.
+ */
+
+.aigo-public-section--light h1,
+.aigo-public-section--light h2,
+.aigo-public-section--light h3,
+.aigo-public-problem h1,
+.aigo-public-problem h2,
+.aigo-public-problem h3,
+.aigo-public-context h1,
+.aigo-public-context h2,
+.aigo-public-context h3,
+.aigo-public-comparison h1,
+.aigo-public-comparison h2,
+.aigo-public-comparison h3,
+.capability-story h1,
+.capability-story h2,
+.capability-story h3,
+.capability-context h1,
+.capability-context h2,
+.capability-context h3 {
+  color: var(--aigo-light-text);
+  text-shadow: none;
+}
+
+/*
+ * Body copy on light surfaces.
+ */
+
+.aigo-public-section--light p,
+.aigo-public-problem p,
+.aigo-public-context p,
+.aigo-public-comparison p,
+.aigo-public-evidence p,
+.aigo-public-proof p,
+.capability-story p,
+.capability-context p,
+.capability-story-copy p,
+.capability-context-grid article p {
+  color: var(--aigo-light-muted);
+}
+
+/*
+ * Cards on light surfaces.
+ */
+
+.capability-context-grid article {
+  background: rgba(242, 239, 232, 0.58);
+  border-color: rgba(20, 40, 58, 0.13);
+}
+
+/*
+ * Preserve AIGO brand accents.
+ */
+
+.aigo-public-kicker,
+.capability-story-grid article > span,
+.capability-context-grid article > span {
+  color: var(--aigo-brand-gold);
+}
+
+/*
+ * Dark enterprise surfaces.
+ */
+
+.aigo-public-dark,
+.aigo-public-model,
+.aigo-public-engine,
+.aigo-public-final {
+  background-color: var(--aigo-shell-dark);
+  color: var(--aigo-dark-text);
+}
+
+
+/* =========================================================
+   AIGO LIGHT SURFACE â€” TYPOGRAPHY CONTRAST FIX
+   ========================================================= */
+
+/* LIGHT SECTIONS â€” headings */
+.aigo-public-section--light h1,
+.aigo-public-section--light h2,
+.aigo-public-section--light h3,
+.aigo-public-problem h1,
+.aigo-public-problem h2,
+.aigo-public-problem h3,
+.aigo-public-context h1,
+.aigo-public-context h2,
+.aigo-public-context h3,
+.aigo-public-comparison h1,
+.aigo-public-comparison h2,
+.aigo-public-comparison h3,
+.aigo-public-evidence h1,
+.aigo-public-evidence h2,
+.aigo-public-evidence h3,
+.aigo-public-proof h1,
+.aigo-public-proof h2,
+.aigo-public-proof h3,
+.capability-story h1,
+.capability-story h2,
+.capability-story h3,
+.capability-context h1,
+.capability-context h2,
+.capability-context h3,
+.aigo-use-case-page__problem h1,
+.aigo-use-case-page__problem h2,
+.aigo-use-case-page__problem h3,
+.aigo-use-case-page__business h1,
+.aigo-use-case-page__business h2,
+.aigo-use-case-page__business h3,
+.aigo-platform__problem h1,
+.aigo-platform__problem h2,
+.aigo-platform__problem h3,
+.aigo-platform__capabilities h1,
+.aigo-platform__capabilities h2,
+.aigo-platform__capabilities h3,
+.aigo-solutions__distinction h1,
+.aigo-solutions__distinction h2,
+.aigo-solutions__distinction h3,
+.aigo-integrations__principle h1,
+.aigo-integrations__principle h2,
+.aigo-integrations__principle h3,
+.aigo-integrations__boundary h1,
+.aigo-integrations__boundary h2,
+.aigo-integrations__boundary h3 {
+  color: #14283A !important;
+  -webkit-text-fill-color: #14283A !important;
+  text-shadow: none !important;
+}
+
+/* LIGHT SECTIONS â€” body text */
+.aigo-public-section--light p,
+.aigo-public-problem p,
+.aigo-public-context p,
+.aigo-public-comparison p,
+.aigo-public-evidence p,
+.aigo-public-proof p,
+.capability-story p,
+.capability-context p,
+.aigo-use-case-page__problem p,
+.aigo-use-case-page__business p,
+.aigo-platform__problem p,
+.aigo-platform__capabilities p,
+.aigo-solutions__distinction p,
+.aigo-integrations__principle p,
+.aigo-integrations__boundary p {
+  color: #53687A !important;
+  -webkit-text-fill-color: #53687A !important;
+}
+
+/* DARK SECTIONS â€” headings */
+.aigo-public-dark h1,
+.aigo-public-dark h2,
+.aigo-public-dark h3,
+.aigo-public-model h1,
+.aigo-public-model h2,
+.aigo-public-model h3,
+.aigo-public-engine h1,
+.aigo-public-engine h2,
+.aigo-public-engine h3,
+.aigo-public-final h1,
+.aigo-public-final h2,
+.aigo-public-final h3,
+.aigo-use-case-page__hero h1,
+.aigo-solutions__hero h1,
+.aigo-platform__hero h1,
+.aigo-integrations__hero h1 {
+  color: #F4F7FA !important;
+  -webkit-text-fill-color: #F4F7FA !important;
+}
+
+
+/* =========================================================
+   AIGO-OS PUBLIC WEBSITE
+   GLOBAL COLOR + CONTRAST SYSTEM
+   ========================================================= */
+
+:root {
+  /* DARK FOUNDATION */
+  --aigo-bg-deep: #041321;
+  --aigo-bg-primary: #061827;
+  --aigo-bg-secondary: #0B2238;
+  --aigo-bg-elevated: #102B45;
+
+  /* LIGHT FOUNDATION */
+  --aigo-surface-warm: #E7E2D6;
+  --aigo-surface-warm-alt: #DED8CC;
+  --aigo-surface-card: #F3F0E9;
+
+  /* TEXT ON LIGHT */
+  --aigo-text-light-heading: #10263A;
+  --aigo-text-light-body: #4F6476;
+  --aigo-text-light-muted: #708191;
+
+  /* TEXT ON DARK */
+  --aigo-text-dark-heading: #EFF7FF;
+  --aigo-text-dark-body: #A9B8C8;
+  --aigo-text-dark-muted: #8199B0;
+
+  /* BRAND */
+  --aigo-blue: #2796F2;
+  --aigo-blue-soft: #62B6F3;
+  --aigo-gold: #D5AA55;
+
+  --aigo-border-light: rgba(16, 38, 58, 0.14);
+  --aigo-border-dark: rgba(111, 174, 228, 0.18);
+}
+
+
+/* =========================================================
+   GLOBAL PUBLIC CANVAS
+   ========================================================= */
+
+.public-site {
+  color: var(--aigo-text-dark-heading);
+  background:
+    radial-gradient(
+      circle at 18% 12%,
+      rgba(39, 150, 242, 0.10),
+      transparent 32%
+    ),
+    linear-gradient(
+      180deg,
+      var(--aigo-bg-deep) 0%,
+      var(--aigo-bg-primary) 55%,
+      #081522 100%
+    ) !important;
+}
+
+.public-site__main {
+  background: transparent !important;
+}
+
+
+/* =========================================================
+   DARK SURFACES
+   ========================================================= */
+
+.aigo-public-hero,
+.aigo-platform__hero,
+.aigo-solutions__hero,
+.aigo-use-case-page__hero,
+.aigo-integrations__hero,
+.aigo-public-significance,
+.aigo-public-usecases,
+.aigo-public-final,
+.aigo-platform__significance,
+.aigo-platform__boundary,
+.aigo-platform__final,
+.aigo-decision-demo,
+.aigo-solutions__map-section,
+.aigo-solutions__chain,
+.aigo-solutions__final,
+.aigo-use-case-page__aigo,
+.aigo-use-case-page__decision,
+.aigo-use-case-page__final,
+.aigo-integrations__architecture,
+.aigo-integrations__difference,
+.aigo-integrations__final {
+  color: var(--aigo-text-dark-heading) !important;
+}
+
+/* DARK SURFACE HEADINGS */
+
+.aigo-public-hero :is(h1,h2,h3,h4,strong),
+.aigo-platform__hero :is(h1,h2,h3,h4,strong),
+.aigo-solutions__hero :is(h1,h2,h3,h4,strong),
+.aigo-use-case-page__hero :is(h1,h2,h3,h4,strong),
+.aigo-integrations__hero :is(h1,h2,h3,h4,strong),
+.aigo-public-significance :is(h1,h2,h3,h4,strong),
+.aigo-public-usecases :is(h1,h2,h3,h4,strong),
+.aigo-public-final :is(h1,h2,h3,h4,strong),
+.aigo-platform__significance :is(h1,h2,h3,h4,strong),
+.aigo-platform__boundary :is(h1,h2,h3,h4,strong),
+.aigo-platform__final :is(h1,h2,h3,h4,strong),
+.aigo-decision-demo :is(h1,h2,h3,h4,strong),
+.aigo-solutions__map-section :is(h1,h2,h3,h4,strong),
+.aigo-solutions__chain :is(h1,h2,h3,h4,strong),
+.aigo-solutions__final :is(h1,h2,h3,h4,strong),
+.aigo-use-case-page__aigo :is(h1,h2,h3,h4,strong),
+.aigo-use-case-page__decision :is(h1,h2,h3,h4,strong),
+.aigo-use-case-page__final :is(h1,h2,h3,h4,strong),
+.aigo-integrations__architecture :is(h1,h2,h3,h4,strong),
+.aigo-integrations__difference :is(h1,h2,h3,h4,strong),
+.aigo-integrations__final :is(h1,h2,h3,h4,strong) {
+  color: var(--aigo-text-dark-heading) !important;
+  -webkit-text-fill-color: var(--aigo-text-dark-heading) !important;
+  text-shadow: none !important;
+}
+
+/* DARK SURFACE BODY */
+
+.aigo-public-hero p,
+.aigo-platform__hero p,
+.aigo-solutions__hero p,
+.aigo-use-case-page__hero p,
+.aigo-integrations__hero p,
+.aigo-public-significance p,
+.aigo-public-usecases p,
+.aigo-public-final p,
+.aigo-platform__significance p,
+.aigo-platform__boundary p,
+.aigo-platform__final p,
+.aigo-decision-demo p,
+.aigo-solutions__map-section p,
+.aigo-solutions__chain p,
+.aigo-solutions__final p,
+.aigo-use-case-page__aigo p,
+.aigo-use-case-page__decision p,
+.aigo-use-case-page__final p,
+.aigo-integrations__architecture p,
+.aigo-integrations__difference p,
+.aigo-integrations__final p {
+  color: var(--aigo-text-dark-body) !important;
+  -webkit-text-fill-color: var(--aigo-text-dark-body) !important;
+}
+
+
+/* =========================================================
+   LIGHT / WARM SURFACES
+   ========================================================= */
+
+.aigo-public-why,
+.aigo-public-difference,
+.aigo-public-model,
+.aigo-platform__problem,
+.aigo-platform__capabilities,
+.aigo-solutions__distinction,
+.aigo-use-case-page__problem,
+.aigo-use-case-page__controls,
+.aigo-use-case-page__business,
+.aigo-integrations__principle,
+.aigo-integrations__roles,
+.aigo-integrations__boundary {
+  color: var(--aigo-text-light-heading) !important;
+  background: var(--aigo-surface-warm) !important;
+}
+
+
+/* Alternate light sections */
+
+.aigo-use-case-page__controls,
+.aigo-integrations__roles {
+  background: var(--aigo-surface-warm-alt) !important;
+}
+
+
+/* LIGHT SURFACE HEADINGS */
+
+.aigo-public-why :is(h1,h2,h3,h4,strong),
+.aigo-public-difference :is(h1,h2,h3,h4,strong),
+.aigo-public-model :is(h1,h2,h3,h4,strong),
+.aigo-platform__problem :is(h1,h2,h3,h4,strong),
+.aigo-platform__capabilities :is(h1,h2,h3,h4,strong),
+.aigo-solutions__distinction :is(h1,h2,h3,h4,strong),
+.aigo-use-case-page__problem :is(h1,h2,h3,h4,strong),
+.aigo-use-case-page__controls :is(h1,h2,h3,h4,strong),
+.aigo-use-case-page__business :is(h1,h2,h3,h4,strong),
+.aigo-integrations__principle :is(h1,h2,h3,h4,strong),
+.aigo-integrations__roles :is(h1,h2,h3,h4,strong),
+.aigo-integrations__boundary :is(h1,h2,h3,h4,strong) {
+  color: var(--aigo-text-light-heading) !important;
+  -webkit-text-fill-color: var(--aigo-text-light-heading) !important;
+  text-shadow: none !important;
+}
+
+
+/* LIGHT SURFACE BODY */
+
+.aigo-public-why p,
+.aigo-public-difference p,
+.aigo-public-model p,
+.aigo-platform__problem p,
+.aigo-platform__capabilities p,
+.aigo-solutions__distinction p,
+.aigo-use-case-page__problem p,
+.aigo-use-case-page__controls p,
+.aigo-use-case-page__business p,
+.aigo-integrations__principle p,
+.aigo-integrations__roles p,
+.aigo-integrations__boundary p {
+  color: var(--aigo-text-light-body) !important;
+  -webkit-text-fill-color: var(--aigo-text-light-body) !important;
+}
+
+
+/* =========================================================
+   LIGHT CARDS / GRID ITEMS
+   ========================================================= */
+
+.aigo-public-agency,
+.aigo-public-difference article,
+.aigo-platform__lifecycle-grid article,
+.aigo-platform__capability-grid article,
+.aigo-solutions__cards > a,
+.aigo-use-case-page__control-grid article,
+.aigo-integrations__role-grid > article,
+.capability-context-grid article {
+  background: var(--aigo-surface-card) !important;
+  color: var(--aigo-text-light-heading) !important;
+  border-color: var(--aigo-border-light) !important;
+}
+
+
+/* CARD HEADINGS */
+
+.aigo-public-agency :is(h2,h3,h4,strong),
+.aigo-public-difference article :is(h2,h3,h4,strong),
+.aigo-platform__lifecycle-grid article :is(h2,h3,h4,strong),
+.aigo-platform__capability-grid article :is(h2,h3,h4,strong),
+.aigo-solutions__cards > a :is(h2,h3,h4,strong),
+.aigo-use-case-page__control-grid article :is(h2,h3,h4,strong),
+.aigo-integrations__role-grid > article :is(h2,h3,h4,strong),
+.capability-context-grid article :is(h2,h3,h4,strong) {
+  color: var(--aigo-text-light-heading) !important;
+  -webkit-text-fill-color: var(--aigo-text-light-heading) !important;
+}
+
+
+/* CARD BODY */
+
+.aigo-public-agency p,
+.aigo-public-difference article p,
+.aigo-platform__lifecycle-grid article p,
+.aigo-platform__capability-grid article p,
+.aigo-solutions__cards > a p,
+.aigo-use-case-page__control-grid article p,
+.aigo-integrations__role-grid > article p,
+.capability-context-grid article p {
+  color: var(--aigo-text-light-body) !important;
+  -webkit-text-fill-color: var(--aigo-text-light-body) !important;
+}
+
+
+/* =========================================================
+   KICKERS / EYEBROWS / SMALL LABELS
+   ========================================================= */
+
+.aigo-public-kicker,
+.public-section-kicker,
+.aigo-use-case-page__eyebrow,
+.aigo-solutions__eyebrow,
+.aigo-platform__eyebrow,
+.aigo-integrations__eyebrow {
+  color: var(--aigo-gold) !important;
+  -webkit-text-fill-color: var(--aigo-gold) !important;
+}
+
+
+/* =========================================================
+   LINKS + ACTIONS
+   ========================================================= */
+
+.public-site__main a:not(.aigo-public-button) {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.aigo-public-button--primary,
+.aigo-nav__get-started,
+.aigo-mobile-nav__get-started {
+  background: var(--aigo-blue) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+
+/* =========================================================
+   HARD SAFETY RULES
+   Prevent known white-on-light failures
+   ========================================================= */
+
+.aigo-platform__problem h2,
+.aigo-platform__problem h3,
+.aigo-platform__capabilities h2,
+.aigo-platform__capabilities h3,
+.aigo-use-case-page__problem h2,
+.aigo-use-case-page__problem h3,
+.aigo-use-case-page__controls h2,
+.aigo-use-case-page__controls h3,
+.aigo-use-case-page__business h2,
+.aigo-use-case-page__business h3,
+.aigo-solutions__distinction h2,
+.aigo-solutions__distinction h3,
+.aigo-integrations__principle h2,
+.aigo-integrations__principle h3,
+.aigo-integrations__roles h2,
+.aigo-integrations__roles h3,
+.aigo-integrations__boundary h2,
+.aigo-integrations__boundary h3 {
+  color: var(--aigo-text-light-heading) !important;
+  -webkit-text-fill-color: var(--aigo-text-light-heading) !important;
+}
+
+
+/* Remove inherited gradient-text tricks on light surfaces */
+
+.aigo-platform__problem :is(h1,h2,h3),
+.aigo-platform__capabilities :is(h1,h2,h3),
+.aigo-use-case-page__problem :is(h1,h2,h3),
+.aigo-use-case-page__controls :is(h1,h2,h3),
+.aigo-use-case-page__business :is(h1,h2,h3),
+.aigo-solutions__distinction :is(h1,h2,h3),
+.aigo-integrations__principle :is(h1,h2,h3),
+.aigo-integrations__roles :is(h1,h2,h3),
+.aigo-integrations__boundary :is(h1,h2,h3) {
+  background-image: none !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+}
+
+
+/* =========================================================
+   END GLOBAL COLOR + CONTRAST SYSTEM
+   ========================================================= */
+
+
+
+/* === PAGE 04 MACHINE AUTHORITY FINAL VISUAL OVERRIDE === */
+
+/*
+   PAGE 04 VISUAL STANDARD
+   ---------------------------------------------------------
+   Light surfaces:
+     heading = deep navy
+     body    = slate blue
+     labels  = AIGO blue
+
+   Dark surfaces:
+     heading = white
+     body    = pale blue
+
+   IMPORTANT:
+   public-site.css contains global -webkit-text-fill-color
+   declarations. Therefore Page 04 must explicitly reset BOTH
+   color and -webkit-text-fill-color.
+*/
+
+
+/* ---------------------------------------------------------
+   1. PAGE 04 LIGHT SECTION TYPOGRAPHY
+   --------------------------------------------------------- */
+
+.aigo-public-problem :is(h1,h2,h3,h4,strong),
+.aigo-public-context :is(h1,h2,h3,h4,strong),
+.aigo-public-comparison :is(h1,h2,h3,h4,strong),
+.aigo-public-evidence :is(h1,h2,h3,h4,strong),
+.aigo-public-proof :is(h1,h2,h3,h4,strong),
+.aigo-public-model :is(h1,h2,h3,h4,strong),
+.capability-story :is(h1,h2,h3,h4,strong),
+.capability-context :is(h1,h2,h3,h4,strong) {
+    color: #102f4d !important;
+    -webkit-text-fill-color: #102f4d !important;
+    opacity: 1 !important;
+    filter: none !important;
+    background: none !important;
+    background-image: none !important;
+    -webkit-background-clip: border-box !important;
+    background-clip: border-box !important;
+}
+
+
+.aigo-public-problem :is(p,li,span),
+.aigo-public-context :is(p,li,span),
+.aigo-public-comparison :is(p,li,span),
+.aigo-public-evidence :is(p,li,span),
+.aigo-public-proof :is(p,li,span),
+.aigo-public-model :is(p,li,span),
+.capability-story :is(p,li,span),
+.capability-context :is(p,li,span) {
+    color: #526b82 !important;
+    -webkit-text-fill-color: #526b82 !important;
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   2. EYEBROWS / SMALL BLUE LABELS
+   --------------------------------------------------------- */
+
+.aigo-public-problem :is(.eyebrow,[class*="eyebrow"]),
+.aigo-public-context :is(.eyebrow,[class*="eyebrow"]),
+.aigo-public-comparison :is(.eyebrow,[class*="eyebrow"]),
+.aigo-public-evidence :is(.eyebrow,[class*="eyebrow"]),
+.aigo-public-proof :is(.eyebrow,[class*="eyebrow"]),
+.aigo-public-model :is(.eyebrow,[class*="eyebrow"]),
+.capability-story :is(.eyebrow,[class*="eyebrow"]),
+.capability-context :is(.eyebrow,[class*="eyebrow"]) {
+    color: #0877d9 !important;
+    -webkit-text-fill-color: #0877d9 !important;
+    opacity: 1 !important;
+}
+
+
+/* ---------------------------------------------------------
+   3. LIGHT CARDS — PAGE 03 STYLE 2.5D
+   --------------------------------------------------------- */
+
+.aigo-public-problem article,
+.aigo-public-context article,
+.aigo-public-comparison article,
+.aigo-public-evidence article,
+.aigo-public-proof article,
+.aigo-public-model article,
+.capability-story article,
+.capability-context article {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.99) 0%,
+            rgba(255,255,255,0.96) 58%,
+            rgba(246,242,233,0.98) 100%
+        ) !important;
+
+    border: 1px solid rgba(31, 95, 145, 0.20) !important;
+    border-radius: 22px !important;
+
+    box-shadow:
+        0 18px 34px rgba(16, 47, 77, 0.13),
+        0 5px 12px rgba(16, 47, 77, 0.08),
+        inset 0 1px 0 rgba(255,255,255,0.98),
+        inset 1px 0 0 rgba(255,255,255,0.72) !important;
+
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+
+/* Card headings must NEVER inherit pale text */
+
+.aigo-public-problem article :is(h1,h2,h3,h4,strong),
+.aigo-public-context article :is(h1,h2,h3,h4,strong),
+.aigo-public-comparison article :is(h1,h2,h3,h4,strong),
+.aigo-public-evidence article :is(h1,h2,h3,h4,strong),
+.aigo-public-proof article :is(h1,h2,h3,h4,strong),
+.aigo-public-model article :is(h1,h2,h3,h4,strong),
+.capability-story article :is(h1,h2,h3,h4,strong),
+.capability-context article :is(h1,h2,h3,h4,strong) {
+    color: #0d2d49 !important;
+    -webkit-text-fill-color: #0d2d49 !important;
+    opacity: 1 !important;
+    filter: none !important;
+    text-shadow: none !important;
+}
+
+
+/* Card descriptions */
+
+.aigo-public-problem article :is(p,li),
+.aigo-public-context article :is(p,li),
+.aigo-public-comparison article :is(p,li),
+.aigo-public-evidence article :is(p,li),
+.aigo-public-proof article :is(p,li),
+.aigo-public-model article :is(p,li),
+.capability-story article :is(p,li),
+.capability-context article :is(p,li) {
+    color: #526b82 !important;
+    -webkit-text-fill-color: #526b82 !important;
+    opacity: 1 !important;
+}
+
+
+/* ---------------------------------------------------------
+   4. INNER DATA ROWS
+   --------------------------------------------------------- */
+
+.aigo-public-problem article article,
+.aigo-public-context article article,
+.aigo-public-comparison article article,
+.aigo-public-evidence article article,
+.aigo-public-proof article article,
+.aigo-public-model article article,
+.capability-story article article,
+.capability-context article article {
+    background: #f5f8fa !important;
+
+    border: 1px solid rgba(36, 83, 118, 0.14) !important;
+
+    border-radius: 12px !important;
+
+    box-shadow:
+        0 2px 5px rgba(16,47,77,0.035),
+        inset 0 1px 0 rgba(255,255,255,0.95) !important;
+}
+
+
+/* ---------------------------------------------------------
+   5. ICON TILES
+   --------------------------------------------------------- */
+
+.aigo-public-problem article svg,
+.aigo-public-context article svg,
+.aigo-public-comparison article svg,
+.aigo-public-evidence article svg,
+.aigo-public-proof article svg,
+.aigo-public-model article svg,
+.capability-story article svg,
+.capability-context article svg {
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   6. DARK PAGE 04 SECTIONS
+   --------------------------------------------------------- */
+
+/*
+   Do NOT make dark sections navy.
+   These intentionally retain light typography.
+*/
+
+.aigo-public-dark :is(h1,h2,h3,h4,strong),
+.aigo-public-engine :is(h1,h2,h3,h4,strong),
+.aigo-public-final :is(h1,h2,h3,h4,strong) {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+
+.aigo-public-dark :is(p,li),
+.aigo-public-engine :is(p,li),
+.aigo-public-final :is(p,li) {
+    color: #c7d8e8 !important;
+    -webkit-text-fill-color: #c7d8e8 !important;
+    opacity: 1 !important;
+}
+
+
+/* ---------------------------------------------------------
+   7. HARD RESET FOR LIGHT-SECTIONS
+   Prevent transparent / gradient text from returning
+   --------------------------------------------------------- */
+
+.aigo-public-problem *,
+.aigo-public-context *,
+.aigo-public-comparison *,
+.aigo-public-evidence *,
+.aigo-public-proof *,
+.aigo-public-model *,
+.capability-story *,
+.capability-context * {
+    text-shadow: none;
+}
+
+
+/*
+   Headings get explicit solid rendering.
+   This defeats inherited background-clipped text.
+*/
+
+.aigo-public-problem :is(h1,h2,h3,h4),
+.aigo-public-context :is(h1,h2,h3,h4),
+.aigo-public-comparison :is(h1,h2,h3,h4),
+.aigo-public-evidence :is(h1,h2,h3,h4),
+.aigo-public-proof :is(h1,h2,h3,h4),
+.aigo-public-model :is(h1,h2,h3,h4),
+.capability-story :is(h1,h2,h3,h4),
+.capability-context :is(h1,h2,h3,h4) {
+    background-image: none !important;
+    background: none !important;
+
+    -webkit-background-clip: border-box !important;
+    background-clip: border-box !important;
+
+    color: #102f4d !important;
+    -webkit-text-fill-color: #102f4d !important;
+
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+
+/* === END PAGE 04 MACHINE AUTHORITY FINAL VISUAL OVERRIDE === */
+
+
+/* ==========================================================
+   AIGO-OS SOLUTIONS MENU V1
+   ========================================================== */
+
+.aigo-nav__mega--solutions {
+  width: min(900px, calc(100vw - 48px));
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.aigo-solutions-menu {
+  overflow: hidden;
+  border: 1px solid rgba(15, 39, 72, 0.1);
+  border-radius: 18px;
+  background:
+    radial-gradient(
+      circle at 88% 0%,
+      rgba(43, 126, 255, 0.08),
+      transparent 28%
+    ),
+    #ffffff;
+  box-shadow:
+    0 24px 60px rgba(7, 24, 48, 0.14),
+    0 6px 18px rgba(7, 24, 48, 0.06);
+}
+
+.aigo-solutions-menu__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(15, 39, 72, 0.08);
+  background: rgba(247, 250, 255, 0.82);
+}
+
+.aigo-solutions-menu__heading {
+  min-width: 0;
+}
+
+.aigo-solutions-menu__heading > span {
+  display: block;
+  margin-bottom: 5px;
+  color: #1260ff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.aigo-solutions-menu__heading p {
+  margin: 0;
+  color: #526276;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.aigo-solutions-menu__overview {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 9px;
+  color: #0b1f49;
+  font-size: 12px;
+  font-weight: 750;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.aigo-solutions-menu__overview:hover {
+  color: #1260ff;
+  transform: translateX(2px);
+}
+
+.aigo-solutions-menu__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 8px;
+}
+
+.aigo-solutions-menu__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) 18px;
+  gap: 12px;
+  min-height: 118px;
+  padding: 16px;
+  border: 1px solid transparent;
+  border-radius: 13px;
+  color: #0b1f49;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.aigo-solutions-menu__item:hover {
+  z-index: 2;
+  border-color: rgba(18, 96, 255, 0.13);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(247, 250, 255, 0.96),
+      rgba(239, 246, 255, 0.88)
+    );
+  box-shadow:
+    0 10px 24px rgba(7, 24, 48, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+}
+
+.aigo-solutions-menu__number {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid rgba(18, 96, 255, 0.13);
+  border-radius: 9px;
+  background: rgba(18, 96, 255, 0.055);
+  color: #1260ff;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.aigo-solutions-menu__copy {
+  min-width: 0;
+}
+
+.aigo-solutions-menu__copy > span {
+  display: block;
+  margin-bottom: 4px;
+  color: #6b7b8f;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.aigo-solutions-menu__copy strong {
+  display: block;
+  color: #0b1f49;
+  font-size: 13px;
+  font-weight: 760;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.aigo-solutions-menu__copy p {
+  max-width: 330px;
+  margin: 6px 0 0;
+  color: #637286;
+  font-size: 10.5px;
+  line-height: 1.48;
+}
+
+.aigo-solutions-menu__item > .aigo-ui-arrow {
+  align-self: center;
+  opacity: 0.38;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.aigo-solutions-menu__item:hover > .aigo-ui-arrow {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+@media (max-width: 1100px) {
+  .aigo-nav__mega--solutions {
+    width: min(820px, calc(100vw - 32px));
+  }
+
+  .aigo-solutions-menu__item {
+    min-height: 112px;
+    padding: 14px;
+  }
+
+  .aigo-solutions-menu__copy p {
+    font-size: 10px;
+  }
+}
+
+
+/* AIGO-OS SOLUTIONS MENU SIMPLIFICATION START */
+
+.aigo-solutions-menu__top {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 18px 24px;
+}
+
+.aigo-solutions-menu__heading {
+  display: flex;
+  align-items: center;
+}
+
+.aigo-solutions-menu__heading > span {
+  margin: 0;
+  color: #1260ff;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.aigo-solutions-menu__heading p,
+.aigo-solutions-menu__overview {
+  display: none !important;
+}
+
+/* AIGO-OS SOLUTIONS MENU SIMPLIFICATION END */
 

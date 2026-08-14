@@ -1,131 +1,79 @@
-import Link from "next/link";
-
-const trustLayers = [
+﻿const categories = [
   {
-    number: "01",
-    label: "Observe",
-    title: "Connect without becoming the system of record.",
-    description:
-      "AIGO-OS is designed to consume governance-relevant signals from the systems where AI already operates rather than requiring the enterprise to rebuild its environment around a new control plane.",
+    label: "OBSERVABILITY",
+    question: "What happened technically?",
+    contribution:
+      "Runtime behavior, traces, performance, events and operational signals.",
+    aigo:
+      "AIGO-OS can use relevant operational signals as governance context for understanding changing governance state and informing what should happen next.",
   },
   {
-    number: "02",
-    label: "Interpret",
-    title: "Separate governance context from raw operational data.",
-    description:
-      "Identity, authority, risk and relationships are correlated into governance context so decisions can be made without turning every source system into a governance engine.",
+    label: "IDENTITY AND ACCESS",
+    question: "Who or what can access a resource?",
+    contribution:
+      "Identity, authentication, permissions and access boundaries.",
+    aigo:
+      "AIGO-OS adds the authority question: what the governed AI actor may do, within which scope and under which conditions.",
   },
   {
-    number: "03",
-    label: "Decide",
-    title: "Apply policy at the point it matters.",
-    description:
-      "Governance decisions can evaluate actor identity, effective authority, risk and business context before consequential autonomous activity proceeds.",
+    label: "GRC",
+    question: "What policies, risks and obligations apply?",
+    contribution:
+      "Policies, controls, risks, assessments, attestations and compliance workflows.",
+    aigo:
+      "AIGO-OS connects relevant governance context to AI state, governance reasoning, supported actions and evidence.",
   },
   {
-    number: "04",
-    label: "Evidence",
-    title: "Preserve what governance knew and decided.",
-    description:
-      "Governance receipts provide a reconstructable record of the context, policy decision and resulting action for assurance and investigation.",
+    label: "AI INVENTORY",
+    question: "What AI exists?",
+    contribution:
+      "Records AI systems, models, applications and related assets.",
+    aigo:
+      "AIGO-OS establishes persistent governance identity, relationships, authority and changing governance state around enterprise AI.",
   },
 ];
 
 export function TrustArchitectureSection() {
   return (
-    <section className="trust-architecture">
-      <div className="trust-architecture__shell">
-        <div className="trust-architecture__heading">
+    <section className="aigo-public-difference">
+      <div className="aigo-public-shell">
+        <div className="aigo-public-section-heading">
           <div>
-            <span className="trust-architecture__kicker">
-              Built for enterprise trust
+            <span className="aigo-public-kicker">
+              WHERE AIGO-OS FITS
             </span>
 
             <h2>
-              Governance infrastructure has to be trusted before it can govern.
+              Not another dashboard.
+              <span>
+                A governance operating system for autonomous enterprise AI.
+              </span>
             </h2>
           </div>
 
-          <div>
-            <p>
-              AIGO-OS is being designed as an operating governance layer that
-              works with existing enterprise systems, keeps decision context
-              explicit and makes consequential governance actions traceable.
-            </p>
-
-            <Link href="/trust">
-              Visit the Trust Center
-              <span aria-hidden="true">&rarr;</span>
-            </Link>
-          </div>
+          <p>
+            Identity, observability, security and GRC remain important.
+            AIGO-OS is designed to work with that enterprise context rather
+            than replace it. Its role is to bring relevant context into the
+            continuous governance of enterprise AI.
+          </p>
         </div>
 
-        <div className="trust-architecture__system">
-          <div className="trust-architecture__boundary">
-            <span>Enterprise environment</span>
+        <div className="aigo-public-difference__grid">
+          {categories.map((category) => (
+            <article key={category.label}>
+              <span>{category.label}</span>
 
-            <div>
-              <strong>AI platforms</strong>
-              <strong>Identity</strong>
-              <strong>Security</strong>
-              <strong>Data</strong>
-              <strong>Business systems</strong>
-            </div>
-          </div>
+              <h3>{category.question}</h3>
 
-          <div className="trust-architecture__rail">
-            <i />
-            <i />
-            <i />
-            <span>Governance signals</span>
-          </div>
+              <p>{category.contribution}</p>
 
-          <div className="trust-architecture__core">
-            <div className="trust-architecture__core-head">
-              <span>AIGO-OS</span>
-              <strong>Governance operating layer</strong>
-            </div>
-
-            <div className="trust-architecture__core-grid">
-              <span>Identity</span>
-              <span>Authority</span>
-              <span>Risk</span>
-              <span>Policy</span>
-              <span>Decision</span>
-              <span>Evidence</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="trust-architecture__layers">
-          {trustLayers.map((layer) => (
-            <article key={layer.number}>
               <div>
-                <span>{layer.number}</span>
-                <small>{layer.label}</small>
+                <small>AIGO-OS ADDS</small>
+                <strong>{category.aigo}</strong>
               </div>
-
-              <h3>{layer.title}</h3>
-              <p>{layer.description}</p>
             </article>
           ))}
-        </div>
-
-        <div className="trust-architecture__links">
-          <Link href="/security">
-            Security architecture
-            <span aria-hidden="true">&rarr;</span>
-          </Link>
-
-          <Link href="/documentation">
-            Technical documentation
-            <span aria-hidden="true">&rarr;</span>
-          </Link>
-
-          <Link href="/responsible-disclosure">
-            Responsible disclosure
-            <span aria-hidden="true">&rarr;</span>
-          </Link>
         </div>
       </div>
     </section>

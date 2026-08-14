@@ -1,78 +1,76 @@
-const problems = [
+﻿const stages = [
   {
     number: "01",
-    title: "AI exists outside the inventory.",
-    body:
-      "Agents, models, AI applications and automations can appear across platforms and teams faster than traditional inventories can keep up.",
-    signal: "Visibility gap",
+    title: "Generate",
+    description:
+      "AI produces content, analysis and recommendations.",
   },
   {
     number: "02",
-    title: "Identity does not define authority.",
-    body:
-      "Knowing that an AI actor exists is not enough. Enterprises need to know what it can access, what it can change and where its authority ends.",
-    signal: "Authority gap",
+    title: "Reason",
+    description:
+      "AI interprets context and determines possible next steps.",
   },
   {
     number: "03",
-    title: "Risk changes with context.",
-    body:
-      "The same AI capability can represent very different risk depending on its data, dependencies, business significance and effective authority.",
-    signal: "Context gap",
+    title: "Use tools",
+    description:
+      "AI can call APIs, use applications and participate in enterprise workflows.",
   },
   {
     number: "04",
-    title: "Autonomous decisions need evidence.",
-    body:
-      "When machines act at runtime, governance needs a traceable record of what was known, what was allowed, what was decided and what happened.",
-    signal: "Evidence gap",
+    title: "Take action",
+    description:
+      "AI can increasingly influence or change real business operations.",
   },
 ];
 
 export function GovernanceProblemSection() {
   return (
-    <section className="governance-problem public-light">
-      <div className="public-section-shell">
-        <div className="governance-problem__heading">
+    <section className="aigo-public-why">
+      <div className="aigo-public-shell">
+        <div className="aigo-public-section-heading">
           <div>
-            <span className="public-section-kicker">
-              The governance gap
+            <span className="aigo-public-kicker">
+              WHY AIGO-OS NOW
             </span>
 
             <h2>
-              AI is becoming operational faster than governance can follow.
+              Enterprise AI has crossed the
+              <span> action boundary.</span>
             </h2>
           </div>
 
           <p>
-            Enterprise AI is no longer a static portfolio of approved
-            models. It is becoming a changing network of actors,
-            services, dependencies and machine actions. Governance has
-            to understand that operating environment continuously.
+            AI is moving beyond generating answers. It can participate in
+            workflows, use enterprise tools and interact with systems that
+            affect real operations. That changes the governance problem.
+            Technical access alone cannot determine whether an action is
+            appropriate in its current business context.
           </p>
         </div>
 
-        <div className="governance-problem__grid">
-          {problems.map((problem) => (
+        <div className="aigo-public-agency">
+          {stages.map((stage) => (
             <article
-              className="governance-problem__card"
-              key={problem.number}
+              className="aigo-public-agency__item"
+              key={stage.number}
             >
-              <div className="governance-problem__card-top">
-                <span>{problem.number}</span>
-                <small>{problem.signal}</small>
-              </div>
-
-              <h3>{problem.title}</h3>
-              <p>{problem.body}</p>
+              <span>{stage.number}</span>
+              <strong>{stage.title}</strong>
+              <p>{stage.description}</p>
             </article>
           ))}
         </div>
 
-        <div className="governance-problem__transition">
-          <span>Inventory tells you what was recorded.</span>
+        <div className="aigo-public-thesis">
+          <span>THE GOVERNANCE QUESTION</span>
+
           <strong>
-            AIGO-OS is designed to govern what is actually operating.
+            Access tells you what an AI system can reach.
+            <em>
+              AIGO-OS helps govern what it should be allowed to do.
+            </em>
           </strong>
         </div>
       </div>

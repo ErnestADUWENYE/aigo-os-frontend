@@ -1,104 +1,77 @@
-﻿import Link from "next/link";
+﻿import { AigoUseCasePage } from "@/components/aigo-use-case-page";
 
 export default function Page() {
   return (
-    <>
-      <section className="aigo-solution-hero">
-        <div className="aigo-home-shell">
-          <p className="aigo-home-eyebrow">
-            Enterprise use case
-          </p>
-
-          <h1>Apply Human Oversight Where It Matters</h1>
-
-          <p className="aigo-solution-hero__lead">
-            Allow low-risk autonomous work to proceed while directing consequential actions to the appropriate human authority.
-          </p>
-
-          <div className="aigo-home-actions">
-            <Link
-              className="aigo-home-button aigo-home-button--primary"
-              href="/contact?intent=demo"
-            >
-              Request a Demo
-            </Link>
-
-            <Link
-              className="aigo-home-button aigo-home-button--secondary"
-              href="/product"
-            >
-              Explore AIGO-OS
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="aigo-solution-body">
-        <div className="aigo-home-shell aigo-solution-body__grid">
-          <article>
-            <span>THE PROBLEM</span>
-
-            <h2>
-              Control has to extend beyond identity and access.
-            </h2>
-
-            <p>
-              Putting a human behind every AI action removes much of the value of autonomy. Allowing every action to proceed automatically creates unacceptable operational and governance risk.
-            </p>
-          </article>
-
-          <article>
-            <span>THE AIGO-OS CONTROL</span>
-
-            <h2>
-              Govern the action at the moment it matters.
-            </h2>
-
-            <p>
-              AIGO-OS applies contextual decision outcomes so routine autonomous work can continue while higher-risk or exceptional actions are reviewed, escalated, denied or suspended.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section className="aigo-solution-decision">
-        <div className="aigo-home-shell">
-          <p className="aigo-home-eyebrow aigo-home-eyebrow--dark">
-            Contextual decision
-          </p>
-
-          <h2>
-            Apply the appropriate response to each action.
-          </h2>
-
-          <div className="aigo-decision-grid">
-            <strong>ALLOW</strong>
-            <strong>DENY</strong>
-            <strong>REVIEW REQUIRED</strong>
-            <strong>ESCALATE</strong>
-            <strong>SUSPEND</strong>
-          </div>
-        </div>
-      </section>
-
-      <section className="aigo-page-conversion">
-        <div className="aigo-home-shell aigo-page-conversion__inner">
-          <div>
-            <span>See it in your environment</span>
-
-            <h2>
-              Evaluate this control problem with AIGO-OS.
-            </h2>
-          </div>
-
-          <Link
-            className="aigo-home-button aigo-home-button--primary"
-            href="/contact?intent=demo"
-          >
-            Request a Demo
-          </Link>
-        </div>
-      </section>
-    </>
+    <AigoUseCasePage
+      eyebrow="Human Oversight"
+      title="Keep people in authority without putting people in every loop."
+      lead="Autonomy loses its value if every routine action waits for manual approval. Governance loses credibility if consequential actions never reach human judgement. AIGO-OS is designed to distinguish between the two."
+      problemTitle="Human oversight should be deliberate, not universal or absent."
+      problemBody="Different AI activities carry different levels of authority, consequence, uncertainty and policy obligation. A governance system therefore needs to determine when autonomous operation remains appropriate and when a person must review, approve, resolve ambiguity or take responsibility."
+      existingControls={[
+        {
+          title: "Manual approval workflows",
+          body:
+            "Provide human checkpoints but can become operational bottlenecks when applied indiscriminately to routine activity.",
+        },
+        {
+          title: "Automation platforms",
+          body:
+            "Execute defined workflows efficiently but do not independently determine when governance context requires human authority.",
+        },
+        {
+          title: "Policy",
+          body:
+            "Can define circumstances requiring oversight. AIGO-OS helps connect those requirements to changing AI context and governance decisions.",
+        },
+      ]}
+      aigoCapabilities={[
+        {
+          title: "Actor Passport",
+          body:
+            "Establish which governed AI actor is involved and the context associated with it.",
+        },
+        {
+          title: "Machine Authority",
+          body:
+            "Define where autonomous authority ends and human authority begins.",
+        },
+        {
+          title: "Business Significance",
+          body:
+            "Help determine whether the activity is material enough to justify human attention.",
+        },
+        {
+          title: "Risk Intelligence",
+          body:
+            "Interpret risk and uncertainty in the context of the activity and its potential consequence.",
+        },
+        {
+          title: "Governance Decision",
+          body:
+            "Support outcomes such as allow, review required, escalate, deny or suspend.",
+        },
+        {
+          title: "Governance Receipt",
+          body:
+            "Preserve why human involvement was or was not required at decision time.",
+        },
+      ]}
+      decisionContext={[
+        "Is autonomous authority sufficient?",
+        "Is the activity materially significant?",
+        "Does policy require human judgement?",
+        "Is uncertainty acceptable?",
+        "Is escalation required?",
+        "Which authority should receive the exception?",
+      ]}
+      businessOutcomes={[
+        "Preserve autonomy for activity that remains within established governance boundaries.",
+        "Direct human attention toward consequential, ambiguous or policy-mandated exceptions.",
+        "Avoid using universal manual approval as a substitute for contextual governance.",
+        "Keep the reason for human involvement traceable.",
+      ]}
+      closingTitle="Use human judgement where it adds governance value."
+    />
   );
 }

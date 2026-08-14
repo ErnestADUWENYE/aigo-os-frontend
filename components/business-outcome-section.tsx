@@ -1,135 +1,98 @@
-import Link from "next/link";
-
-const outcomes = [
+﻿const significance = [
   {
-    number: "01",
-    signal: "Visibility",
-    title: "Know what AI is actually operating.",
+    title: "Materiality",
     description:
-      "Move beyond declared inventories. Establish a continuously updated view of AI actors, ownership, relationships and operating context.",
-    before: "Fragmented inventory",
-    after: "Governed AI estate",
+      "How consequential the change may be to the enterprise.",
   },
   {
-    number: "02",
-    signal: "Control",
-    title: "Know what every AI actor is allowed to do.",
+    title: "Urgency",
     description:
-      "Connect identity to effective authority so teams can understand access, actions, boundaries and where human approval is required.",
-    before: "Identity without authority",
-    after: "Explicit operating boundaries",
+      "How quickly governance attention may be required.",
   },
   {
-    number: "03",
-    signal: "Decision",
-    title: "Apply governance while machines are acting.",
+    title: "Business impact",
     description:
-      "Bring policy, risk and authority into the decision path so autonomous activity can be allowed, constrained, escalated or stopped in context.",
-    before: "Governance after the fact",
-    after: "Runtime governance",
+      "What business outcomes, exposure or operations may be affected.",
   },
   {
-    number: "04",
-    signal: "Evidence",
-    title: "Reconstruct consequential machine actions.",
+    title: "Stakeholders",
     description:
-      "Preserve the context behind governance decisions so security, risk, compliance and business teams can understand what happened and why.",
-    before: "Scattered logs",
-    after: "Governance receipts",
+      "Which accountable teams or decision-makers may be affected.",
+  },
+  {
+    title: "Capabilities",
+    description:
+      "Which business capabilities depend on the AI system.",
+  },
+  {
+    title: "Processes",
+    description:
+      "Which enterprise processes may be influenced or changed.",
   },
 ];
 
 export function BusinessOutcomeSection() {
   return (
-    <section className="business-outcomes public-light">
-      <div className="business-outcomes__shell">
-        <div className="business-outcomes__heading">
-          <div>
-            <span className="public-section-kicker">
-              What changes with AIGO-OS
-            </span>
+    <section className="aigo-public-significance">
+      <div className="aigo-public-shell aigo-public-significance__grid">
+        <div>
+          <span className="aigo-public-kicker">
+            BUSINESS SIGNIFICANCE
+          </span>
 
-            <h2>
-              Turn autonomous AI from an unknown operating risk into a governed system.
-            </h2>
-          </div>
+          <h2>
+            Technical change is not the same as
+            <span> business significance.</span>
+          </h2>
 
-          <div className="business-outcomes__heading-copy">
-            <p>
-              AIGO-OS gives enterprise teams a shared operating model for
-              understanding AI actors, bounding their authority, governing
-              consequential actions and preserving evidence.
-            </p>
-
-            <Link href="/solutions">
-              Explore enterprise solutions
-              <span aria-hidden="true">&rarr;</span>
-            </Link>
-          </div>
+          <p>
+            Enterprise systems generate signals continuously. AIGO-OS connects
+            relevant AI changes with business context so governance teams can
+            understand what may matter, who may be affected and where attention
+            should be directed.
+          </p>
         </div>
 
-        <div className="business-outcomes__grid">
-          {outcomes.map((outcome) => (
-            <article
-              className="business-outcome"
-              key={outcome.number}
-            >
-              <div className="business-outcome__top">
-                <span>{outcome.number}</span>
-                <small>{outcome.signal}</small>
-              </div>
+        <div className="aigo-public-significance__visual">
+          <div className="aigo-public-signal">
+            <span>CHANGING AI CONTEXT</span>
 
-              <h3>{outcome.title}</h3>
-              <p>{outcome.description}</p>
+            <strong>
+              Governance state changes as enterprise AI changes.
+            </strong>
 
-              <div className="business-outcome__shift">
-                <div>
-                  <span>Without operating governance</span>
-                  <strong>{outcome.before}</strong>
-                </div>
-
-                <i aria-hidden="true">&rarr;</i>
-
-                <div>
-                  <span>With AIGO-OS</span>
-                  <strong>{outcome.after}</strong>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <div className="business-outcomes__buyers">
-          <div>
-            <span className="public-section-kicker">
-              One governance model
-            </span>
-
-            <h3>
-              Different teams see the same AI actor through the context they need.
-            </h3>
+            <div>
+              <i>Identity</i>
+              <i>Relationships</i>
+              <i>Authority</i>
+              <i>Operational signals</i>
+              <i>Policy context</i>
+            </div>
           </div>
 
-          <div className="business-outcomes__buyer-grid">
-            <div>
-              <span>AI & Engineering</span>
-              <strong>What is operating?</strong>
-            </div>
+          <div className="aigo-public-flow-label">
+            <span>INTERPRETED IN BUSINESS CONTEXT</span>
+          </div>
+
+          <div className="aigo-public-significance__result">
+            <span>BUSINESS SIGNIFICANCE</span>
 
             <div>
-              <span>Security</span>
-              <strong>What can it access and change?</strong>
+              {significance.map((item) => (
+                <article key={item.title}>
+                  <strong>{item.title}</strong>
+                  <p>{item.description}</p>
+                </article>
+              ))}
             </div>
+          </div>
 
-            <div>
-              <span>Risk & Compliance</span>
-              <strong>Is it inside policy and risk boundaries?</strong>
-            </div>
+          <div className="aigo-public-flow-label">
+            <span>CONTRIBUTES TO GOVERNANCE REASONING</span>
+          </div>
 
-            <div>
-              <span>Business Owners</span>
-              <strong>Who owns the outcome?</strong>
-            </div>
+          <div className="aigo-public-significance__decision">
+            DECISION-READY GOVERNANCE CONTEXT
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 export default function Page() {
   return (
@@ -81,7 +81,7 @@ export default function Page() {
 
           <Link
             className="aigo-home-button aigo-home-button--primary"
-            href="/product"
+            href="/platform"
           >
             Explore the Platform
           </Link>
@@ -90,3 +90,4 @@ export default function Page() {
     </>
   );
 }
+

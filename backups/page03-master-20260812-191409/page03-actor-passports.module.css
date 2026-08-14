@@ -1,0 +1,2034 @@
+﻿.shell {
+  width: min(1380px, calc(100% - 96px));
+  margin-inline: auto;
+}
+
+.blueEyebrow,
+.goldEyebrow {
+  margin: 0;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.blueEyebrow {
+  color: #69adff;
+}
+
+.goldEyebrow {
+  color: #c79743;
+}
+
+.primaryButton,
+.secondaryButton {
+  min-height: 48px;
+  padding: 0 21px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 0.91rem;
+  font-weight: 720;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.primaryButton {
+  border: 1px solid #5b9cff;
+  background: #2f7cff;
+  color: #ffffff;
+  box-shadow: 0 14px 34px rgba(47, 124, 255, 0.22);
+}
+
+.secondaryButton {
+  border: 1px solid rgba(131, 177, 233, 0.24);
+  background: rgba(255, 255, 255, 0.05);
+  color: #eef6ff;
+}
+
+.primaryButton:hover,
+.secondaryButton:hover {
+  transform: translateY(-2px);
+}
+
+
+/* HERO */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 76px 0 92px;
+  background:
+    radial-gradient(
+      circle at 79% 21%,
+      rgba(47, 124, 255, 0.16),
+      transparent 31%
+    ),
+    #061727;
+  color: #f4f8fd;
+}
+
+.heroBackdrop {
+  position: absolute;
+  inset: 0;
+  opacity: 0.34;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px
+    );
+  background-size: 52px 52px;
+}
+
+.heroLayout {
+  min-height: 680px;
+  display: grid;
+  grid-template-columns:
+    minmax(0, 0.88fr)
+    minmax(560px, 1.12fr);
+  gap: clamp(54px, 7vw, 100px);
+  align-items: center;
+}
+
+.heroCopy {
+  max-width: 650px;
+}
+
+.heroCopy h1 {
+  margin: 20px 0 0;
+  max-width: 720px;
+  font-size: clamp(3.3rem, 5.15vw, 5.45rem);
+  line-height: 0.98;
+  letter-spacing: -0.052em;
+  font-weight: 660;
+}
+
+.heroCopy h1 span {
+  display: block;
+}
+
+.heroCopy h1 span + span {
+  margin-top: 8px;
+  color: #bdcbd9;
+  font-size: 0.73em;
+  line-height: 1.05;
+}
+
+.heroLead {
+  margin: 27px 0 0;
+  color: #eef5ff;
+  font-size: 1.13rem;
+  line-height: 1.66;
+}
+
+.heroSupporting {
+  margin: 12px 0 0;
+  color: #aebed0;
+  font-size: 0.97rem;
+  line-height: 1.72;
+}
+
+.heroActions {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+
+/* PASSPORT ASSEMBLY */
+
+.assemblyScene {
+  position: relative;
+  min-height: 620px;
+  perspective: 1400px;
+  isolation: isolate;
+}
+
+.sceneLabel {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 8;
+}
+
+.sceneLabel span {
+  display: block;
+  color: #6384a3;
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+}
+
+.sceneLabel strong {
+  display: block;
+  margin-top: 5px;
+  color: #b9cbe0;
+  font-size: 0.75rem;
+}
+
+.digitalPassport {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 52%;
+  width: min(445px, 66%);
+  min-height: 360px;
+  padding: 27px;
+  overflow: hidden;
+  transform:
+    translate(-50%, -50%)
+    rotateX(3deg)
+    rotateY(-5deg);
+  border: 1px solid rgba(103, 168, 246, 0.26);
+  border-radius: 28px;
+  background:
+    radial-gradient(
+      circle at 82% 10%,
+      rgba(73, 149, 242, 0.15),
+      transparent 31%
+    ),
+    linear-gradient(
+      145deg,
+      #103453,
+      #071e33
+    );
+  box-shadow:
+    28px 38px 75px rgba(0, 0, 0, 0.31),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.085);
+}
+
+.passportInnerBorder {
+  position: absolute;
+  inset: 9px;
+  border: 1px solid rgba(122, 179, 244, 0.1);
+  border-radius: 21px;
+}
+
+.passportHeader {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.passportHeader div span {
+  display: block;
+  color: #6aaeff;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.passportHeader div strong {
+  display: block;
+  margin-top: 4px;
+  color: #e8f2fc;
+  font-size: 0.79rem;
+}
+
+.activeStatus {
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: rgba(82, 185, 115, 0.11);
+  color: #8bd7a3;
+  font-size: 0.61rem;
+  font-weight: 800;
+}
+
+.actorIdentity {
+  position: relative;
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.actorSeal {
+  width: 72px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #285375,
+      #103753 53%,
+      #08243b 72%
+    );
+  box-shadow:
+    9px 12px 19px rgba(0, 0, 0, 0.26),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.08);
+}
+
+.actorSeal span {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #a7d4ff,
+      #2c7bc0 56%,
+      #133b59
+    );
+}
+
+.actorIdentity div strong {
+  display: block;
+  color: #f2f8ff;
+  font-size: 1.15rem;
+}
+
+.actorIdentity div span {
+  display: block;
+  margin-top: 5px;
+  color: #7594b0;
+  font-size: 0.62rem;
+  font-weight: 800;
+}
+
+.passportFields {
+  position: relative;
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.passportFields div {
+  padding: 11px 12px;
+  border: 1px solid rgba(112, 164, 222, 0.1);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.passportFields span {
+  display: block;
+  color: #708da7;
+  font-size: 0.59rem;
+}
+
+.passportFields strong {
+  display: block;
+  margin-top: 4px;
+  color: #dae6f2;
+  font-size: 0.72rem;
+}
+
+.authorityBand {
+  position: relative;
+  margin-top: 10px;
+  padding: 13px 14px;
+  border: 1px solid rgba(201, 157, 76, 0.18);
+  border-radius: 10px;
+  background: rgba(192, 143, 52, 0.055);
+}
+
+.authorityBand span {
+  display: block;
+  color: #c99e50;
+  font-size: 0.58rem;
+  font-weight: 800;
+}
+
+.authorityBand strong {
+  display: inline-block;
+  margin-top: 5px;
+  color: #f0e4ca;
+  font-size: 0.82rem;
+}
+
+.authorityBand small {
+  margin-left: 10px;
+  color: #8ea2b6;
+}
+
+.passportEstablished {
+  position: relative;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #a8bed2;
+  font-size: 0.69rem;
+}
+
+.passportEstablished span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #61c17f;
+}
+
+
+/* Incoming objects are ABOVE passport while moving */
+
+.flyingObject {
+  position: absolute;
+  z-index: 10;
+  width: 176px;
+  padding: 12px 14px;
+  border: 1px solid rgba(106, 171, 248, 0.21);
+  border-radius: 12px;
+  background:
+    linear-gradient(
+      145deg,
+      #123451,
+      #09233a
+    );
+  box-shadow:
+    12px 15px 29px rgba(0, 0, 0, 0.27),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.07);
+  opacity: 0;
+}
+
+.flyingObject span {
+  display: block;
+  color: #68afff;
+  font-size: 0.54rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.flyingObject strong {
+  display: block;
+  margin-top: 5px;
+  color: #e4eef8;
+  font-size: 0.67rem;
+  line-height: 1.35;
+}
+
+.flyIdentity {
+  left: 2%;
+  top: 14%;
+  animation: flyLeftOne 8s ease-in-out 1 forwards;
+}
+
+.flyPurpose {
+  right: 2%;
+  top: 14%;
+  animation: flyRightOne 8s ease-in-out 1 forwards;
+}
+
+.flyOwner {
+  left: 0;
+  top: 42%;
+  animation: flyLeftTwo 8s ease-in-out 1 forwards;
+}
+
+.flyProcess {
+  right: 0;
+  top: 41%;
+  animation: flyRightTwo 8s ease-in-out 1 forwards;
+}
+
+.flyAuthority {
+  left: 4%;
+  bottom: 10%;
+  animation: flyLeftThree 8s ease-in-out 1 forwards;
+}
+
+.flyPolicy {
+  right: 4%;
+  bottom: 10%;
+  animation: flyRightThree 8s ease-in-out 1 forwards;
+}
+
+
+/* INTERACTIVE PASSPORT */
+
+.passportInspector {
+  margin-top: 24px;
+  padding: 18px;
+  border: 1px solid rgba(104, 169, 245, 0.16);
+  border-radius: 20px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(14, 44, 72, 0.86),
+      rgba(7, 27, 46, 0.88)
+    );
+  box-shadow:
+    14px 19px 36px rgba(0, 0, 0, 0.2),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.interactionPrompt span {
+  display: block;
+  color: #69adff;
+  font-size: 0.57rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.interactionPrompt strong {
+  display: block;
+  margin-top: 5px;
+  color: #e9f3fc;
+  font-size: 0.83rem;
+}
+
+.passportTabs {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.passportTab,
+.passportTabActive {
+  min-height: 42px;
+  padding: 0 15px;
+  border-radius: 11px;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow:
+    4px 6px 12px rgba(0, 0, 0, 0.12),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.04);
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease;
+}
+
+.passportTab {
+  border: 1px solid rgba(115, 169, 231, 0.14);
+  background: #0c2a45;
+  color: #91a8bd;
+}
+
+.passportTabActive {
+  border: 1px solid rgba(102, 175, 255, 0.36);
+  background: #163d60;
+  color: #f0f7ff;
+  transform: translateY(-2px);
+}
+
+.inspectorResult {
+  margin-top: 13px;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 18px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.inspectorResult > div:first-child span {
+  display: block;
+  color: #6d89a4;
+  font-size: 0.56rem;
+  font-weight: 800;
+}
+
+.inspectorResult > div:first-child strong {
+  display: block;
+  margin-top: 6px;
+  color: #e6f0fa;
+  font-size: 0.85rem;
+}
+
+.inspectorTokens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.inspectorTokens span {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.045);
+  color: #a1b5c7;
+  font-size: 0.67rem;
+}
+
+
+/* SHARED SECTION SYSTEM */
+
+.splitHeading {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.45fr)
+    minmax(340px, 0.7fr);
+  gap: clamp(48px, 7vw, 105px);
+  align-items: center;
+}
+
+.darkHeadline,
+.lightHeadline {
+  margin: 20px 0 0;
+  max-width: 900px;
+  font-size: clamp(2.85rem, 4.7vw, 4.95rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-weight: 650;
+}
+
+.darkHeadline {
+  color: #102d46;
+}
+
+.lightHeadline {
+  color: #f1f7fd;
+}
+
+.darkHeadline span,
+.lightHeadline span {
+  display: block;
+}
+
+.darkBody,
+.lightBody {
+  max-width: 500px;
+}
+
+.darkBody p,
+.lightBody p {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.74;
+}
+
+.darkBody p {
+  color: #536b7e;
+}
+
+.lightBody p {
+  color: #aebfd0;
+}
+
+.darkBody p + p,
+.lightBody p + p {
+  margin-top: 13px;
+}
+
+.sectionIntro {
+  max-width: 920px;
+}
+
+.sectionIntro h2 {
+  margin: 17px 0 0;
+  color: #f2f7fd;
+  font-size: clamp(2.85rem, 4.7vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.sectionIntro h2 span {
+  display: block;
+}
+
+.sectionIntro > p:last-child {
+  max-width: 750px;
+  margin: 22px 0 0;
+  color: #aebed0;
+  font-size: 1.01rem;
+  line-height: 1.72;
+}
+
+.sectionAction {
+  margin-top: 28px;
+}
+
+
+/* IDENTITY */
+
+.identitySection {
+  padding: 100px 0;
+  background: #eee9dd;
+}
+
+.identityResolution {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 170px 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.identitySources {
+  display: grid;
+  gap: 9px;
+}
+
+.identitySources div {
+  padding: 15px 17px;
+  border: 1px solid rgba(37, 58, 77, 0.1);
+  border-radius: 12px;
+  background:
+    linear-gradient(
+      145deg,
+      #fbf9f4,
+      #e6e0d4
+    );
+  box-shadow:
+    6px 8px 16px rgba(69, 58, 38, 0.06),
+    -3px -3px 7px rgba(255, 255, 255, 0.75);
+}
+
+.identitySources span {
+  display: block;
+  color: #74889b;
+  font-size: 0.56rem;
+  font-weight: 800;
+}
+
+.identitySources strong {
+  display: block;
+  margin-top: 5px;
+  color: #263f54;
+  font-size: 0.76rem;
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Consolas,
+    monospace;
+}
+
+.resolveCore {
+  text-align: center;
+}
+
+.resolveCore > div {
+  width: 94px;
+  height: 94px;
+  margin: 0 auto 14px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #24587e,
+      #0e3552 62%
+    );
+  box-shadow:
+    8px 11px 19px rgba(34, 52, 69, 0.18),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.08);
+}
+
+.resolveCore > div span {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #6eb5ff;
+}
+
+.resolveCore small {
+  display: block;
+  color: #6e8397;
+  font-size: 0.55rem;
+  font-weight: 800;
+}
+
+.resolveCore strong {
+  display: block;
+  margin-top: 5px;
+  color: #183850;
+}
+
+.resolvedActor {
+  padding: 31px;
+  border: 1px solid rgba(96, 158, 232, 0.2);
+  border-radius: 22px;
+  background:
+    linear-gradient(
+      145deg,
+      #103250,
+      #082139
+    );
+  box-shadow:
+    15px 20px 37px rgba(0, 0, 0, 0.2),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.resolvedActor > span {
+  color: #66afff;
+  font-size: 0.6rem;
+  font-weight: 800;
+}
+
+.resolvedActor > strong {
+  display: block;
+  margin-top: 13px;
+  color: #eef6ff;
+  font-size: 1.42rem;
+}
+
+.resolvedActor small {
+  display: block;
+  margin-top: 7px;
+  color: #849db4;
+}
+
+.resolvedActor > div {
+  width: max-content;
+  margin-top: 21px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(74, 177, 107, 0.11);
+  color: #8fd4a4;
+  font-size: 0.67rem;
+  font-weight: 700;
+}
+
+
+/* INVENTORY */
+
+.inventorySection {
+  padding: 100px 0;
+  background: #081f34;
+}
+
+.comparison {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 160px 1fr;
+  gap: 22px;
+  align-items: center;
+}
+
+.comparisonCard,
+.passportComparisonCard {
+  min-height: 315px;
+  padding: 28px;
+  border-radius: 23px;
+}
+
+.comparisonCard {
+  border: 1px solid rgba(102, 159, 224, 0.13);
+  background: #0b2943;
+}
+
+.passportComparisonCard {
+  border: 1px solid rgba(103, 173, 255, 0.25);
+  background:
+    radial-gradient(
+      circle at 87% 10%,
+      rgba(67, 144, 235, 0.12),
+      transparent 27%
+    ),
+    #103453;
+  box-shadow:
+    13px 17px 32px rgba(0, 0, 0, 0.19),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.055);
+}
+
+.comparisonCard > span,
+.passportComparisonCard > span {
+  color: #6b8aa6;
+  font-size: 0.61rem;
+  font-weight: 800;
+}
+
+.passportComparisonCard > span {
+  color: #67afff;
+}
+
+.comparisonCard h3,
+.passportComparisonCard h3 {
+  margin: 18px 0 0;
+  color: #eef5fd;
+  font-size: 1.55rem;
+}
+
+.comparisonCard > div,
+.passportComparisonCard > div {
+  margin-top: 23px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.comparisonCard > div span,
+.passportComparisonCard > div span {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.045);
+  color: #98adc0;
+  font-size: 0.69rem;
+}
+
+.comparisonConnector {
+  text-align: center;
+}
+
+.comparisonConnector span {
+  width: 76px;
+  height: 2px;
+  display: block;
+  margin: 0 auto 11px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #68adff,
+    transparent
+  );
+}
+
+.comparisonConnector strong {
+  color: #7894ae;
+  font-size: 0.68rem;
+}
+
+.highlight {
+  margin: 36px 0 0;
+  padding: 21px 24px;
+  border-left: 3px solid #67afff;
+  background: rgba(255, 255, 255, 0.035);
+  color: #c3d2df;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+
+/* CONTEXT */
+
+.contextSection {
+  padding: 100px 0;
+  background: #071b2e;
+}
+
+.contextLayout {
+  margin-top: 55px;
+}
+
+.dimensionGrid {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.dimensionCard {
+  min-height: 260px;
+  padding: 23px;
+  border: 1px solid rgba(101, 163, 237, 0.15);
+  border-radius: 20px;
+  background:
+    linear-gradient(
+      145deg,
+      #0c2b46,
+      #071e32
+    );
+  box-shadow:
+    9px 12px 24px rgba(0, 0, 0, 0.17),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.045);
+}
+
+.dimensionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dimensionHeader > span {
+  color: #6d8ba8;
+  font-size: 0.6rem;
+  font-weight: 800;
+}
+
+.dimensionOrb {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #1e4e75,
+      #09263f 67%
+    );
+}
+
+.dimensionOrb span {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #67afff;
+}
+
+.dimensionCard h3 {
+  margin: 21px 0 0;
+  color: #edf5fd;
+  font-size: 1.32rem;
+}
+
+.dimensionTokens {
+  margin-top: 19px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.dimensionTokens span {
+  padding: 7px 9px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.045);
+  color: #91a8bd;
+  font-size: 0.66rem;
+}
+
+.integrationStrip {
+  margin-top: 18px;
+  padding: 15px;
+  display: grid;
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+  gap: 9px;
+  border: 1px solid rgba(100, 160, 226, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.integrationStrip div {
+  padding: 13px;
+  border-radius: 10px;
+  background: #0c2943;
+}
+
+.integrationStrip span {
+  display: block;
+  color: #6b88a3;
+  font-size: 0.54rem;
+  font-weight: 800;
+}
+
+.integrationStrip strong {
+  display: block;
+  margin-top: 5px;
+  color: #becddb;
+  font-size: 0.68rem;
+}
+
+
+/* RELATIONSHIPS */
+
+.relationshipSection {
+  padding: 100px 0;
+  background: #eee9dd;
+}
+
+.relationshipWorkspace {
+  margin-top: 55px;
+  display: grid;
+  grid-template-columns:
+    0.95fr
+    0.7fr
+    1fr;
+  gap: 18px;
+}
+
+.relationshipButtons {
+  display: grid;
+  gap: 8px;
+}
+
+.relationshipButton,
+.relationshipButtonActive {
+  padding: 14px 15px;
+  border-radius: 12px;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  box-shadow:
+    4px 6px 10px rgba(67, 57, 39, 0.055),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.relationshipButton {
+  border: 1px solid rgba(37, 57, 75, 0.1);
+  background: #f6f2e9;
+}
+
+.relationshipButtonActive {
+  border: 1px solid rgba(47, 124, 255, 0.28);
+  background: #e4eefc;
+  transform: translateX(3px);
+}
+
+.relationshipButton span,
+.relationshipButtonActive span {
+  display: block;
+  color: #71869a;
+  font-size: 0.59rem;
+  font-weight: 700;
+}
+
+.relationshipButton strong,
+.relationshipButtonActive strong {
+  display: block;
+  margin-top: 4px;
+  color: #1e3b52;
+  font-size: 0.77rem;
+}
+
+.actorHub,
+.relationshipDetail {
+  min-height: 330px;
+  padding: 25px;
+  border-radius: 22px;
+}
+
+.actorHub {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  border: 1px solid rgba(92, 155, 229, 0.18);
+  background:
+    linear-gradient(
+      145deg,
+      #0e304d,
+      #081f34
+    );
+  box-shadow:
+    12px 16px 30px rgba(0, 0, 0, 0.17),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.actorHubOrb {
+  width: 105px;
+  height: 105px;
+  margin: 0 auto 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #1b4b71,
+      #09263f 67%
+    );
+}
+
+.actorHubOrb span {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #67afff;
+}
+
+.actorHub > span {
+  color: #67afff;
+  font-size: 0.59rem;
+  font-weight: 800;
+}
+
+.actorHub > strong {
+  margin-top: 7px;
+  color: #eef6ff;
+}
+
+.relationshipDetail {
+  border: 1px solid rgba(37, 57, 75, 0.1);
+  background:
+    linear-gradient(
+      145deg,
+      #fbf9f4,
+      #e1dbcf
+    );
+  box-shadow:
+    12px 16px 30px rgba(72, 60, 40, 0.08),
+    -6px -6px 15px rgba(255, 255, 255, 0.75);
+}
+
+.relationshipDetail span {
+  color: #71869a;
+  font-size: 0.58rem;
+  font-weight: 800;
+}
+
+.relationshipDetail strong {
+  display: block;
+  margin-top: 16px;
+  color: #15334a;
+  font-size: 1.55rem;
+}
+
+.relationshipDetail p {
+  margin: 13px 0 0;
+  color: #556d80;
+  line-height: 1.7;
+}
+
+.authorityConnection {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns:
+    1fr
+    140px
+    1fr;
+  align-items: center;
+}
+
+.authorityConnection article {
+  min-height: 130px;
+  padding: 21px;
+  border-radius: 16px;
+  background:
+    linear-gradient(
+      145deg,
+      #0e2f4d,
+      #081f35
+    );
+  box-shadow:
+    10px 14px 26px rgba(0, 0, 0, 0.16);
+}
+
+.authorityConnection article span {
+  color: #66afff;
+  font-size: 0.6rem;
+  font-weight: 800;
+}
+
+.authorityConnection article strong {
+  display: block;
+  margin-top: 15px;
+  color: #eef6ff;
+  font-size: 1.12rem;
+}
+
+.authorityConnection > div span {
+  width: 100%;
+  height: 2px;
+  display: block;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #5fa8fb,
+    transparent
+  );
+}
+
+
+/* ACTION */
+
+.actionSection {
+  padding: 100px 0;
+  background: #081f34;
+}
+
+.actionFlow {
+  margin-top: 55px;
+  display: grid;
+  grid-template-columns:
+    1fr
+    150px
+    1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.incomingActivity,
+.resolvedActivity {
+  min-height: 340px;
+  padding: 27px;
+  border-radius: 22px;
+}
+
+.incomingActivity {
+  border: 1px solid rgba(104, 160, 225, 0.13);
+  background: #0b2943;
+}
+
+.resolvedActivity {
+  border: 1px solid rgba(101, 170, 250, 0.23);
+  background:
+    radial-gradient(
+      circle at 85% 10%,
+      rgba(68, 146, 237, 0.12),
+      transparent 28%
+    ),
+    #103453;
+}
+
+.incomingActivity > span,
+.resolvedActivity > span {
+  color: #6c8aa6;
+  font-size: 0.59rem;
+  font-weight: 800;
+}
+
+.resolvedActivity > span {
+  color: #67afff;
+}
+
+.incomingActivity > strong,
+.resolvedActivity > strong {
+  display: block;
+  margin-top: 17px;
+  color: #eef6ff;
+  font-size: 1.46rem;
+}
+
+.incomingActivity dl,
+.resolvedActivity dl {
+  margin: 24px 0 0;
+  display: grid;
+  gap: 8px;
+}
+
+.incomingActivity dl div,
+.resolvedActivity dl div {
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.incomingActivity dt,
+.resolvedActivity dt {
+  color: #738da5;
+  font-size: 0.59rem;
+}
+
+.incomingActivity dd,
+.resolvedActivity dd {
+  margin: 4px 0 0;
+  color: #d7e4f0;
+  font-size: 0.73rem;
+  font-weight: 700;
+}
+
+.resolveStep {
+  text-align: center;
+}
+
+.resolveStep > div {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 12px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #235b84,
+      #0c304b 67%
+    );
+}
+
+.resolveStep > div span {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #67afff;
+}
+
+.resolveStep strong {
+  color: #819cb5;
+  font-size: 0.68rem;
+}
+
+.contextEvolution {
+  margin-top: 20px;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 20px;
+  border: 1px solid rgba(102, 160, 226, 0.12);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.contextEvolution > div:first-child span {
+  display: block;
+  color: #6d8aa5;
+  font-size: 0.57rem;
+  font-weight: 800;
+}
+
+.contextEvolution > div:first-child strong {
+  display: block;
+  margin-top: 5px;
+  color: #e2edf7;
+}
+
+.evolutionStates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.evolutionStates span {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #0d2b46;
+  color: #9eb3c6;
+  font-size: 0.67rem;
+}
+
+
+/* SIGNIFICANCE */
+
+.significanceSection {
+  padding: 100px 0;
+  background: #071b2e;
+}
+
+.actorComparison {
+  margin-top: 55px;
+  display: grid;
+  grid-template-columns:
+    220px
+    1fr
+    1fr
+    1fr;
+  gap: 12px;
+}
+
+.actorControls {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.actorButton,
+.actorButtonActive {
+  min-height: 70px;
+  padding: 13px;
+  border-radius: 11px;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+
+.actorButton {
+  border: 1px solid rgba(101, 159, 225, 0.12);
+  background: #0b2943;
+  color: #9eb2c5;
+}
+
+.actorButtonActive {
+  border: 1px solid rgba(103, 176, 255, 0.31);
+  background: #153b5d;
+  color: #eef6ff;
+  box-shadow:
+    6px 9px 18px rgba(0, 0, 0, 0.18);
+}
+
+.sameAction,
+.actorContext,
+.assessmentResult {
+  min-height: 280px;
+  padding: 23px;
+  border-radius: 17px;
+}
+
+.sameAction,
+.actorContext {
+  border: 1px solid rgba(102, 161, 228, 0.14);
+  background: #0c2a45;
+}
+
+.assessmentResult {
+  border: 1px solid rgba(199, 152, 66, 0.2);
+  background: rgba(188, 139, 49, 0.07);
+}
+
+.sameAction span,
+.actorContext > span,
+.assessmentResult span {
+  color: #718ea8;
+  font-size: 0.58rem;
+  font-weight: 800;
+}
+
+.assessmentResult span {
+  color: #c89a48;
+}
+
+.sameAction strong,
+.actorContext > strong,
+.assessmentResult strong {
+  display: block;
+  margin-top: 15px;
+  color: #edf5fd;
+  font-size: 1.27rem;
+}
+
+.actorContext dl {
+  margin: 21px 0 0;
+  display: grid;
+  gap: 8px;
+}
+
+.actorContext dl div {
+  padding: 9px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.actorContext dt {
+  color: #728da6;
+  font-size: 0.57rem;
+}
+
+.actorContext dd {
+  margin: 4px 0 0;
+  color: #d9e5f0;
+  font-size: 0.71rem;
+  font-weight: 700;
+}
+
+.assessmentResult p {
+  margin: 11px 0 0;
+  color: #aebed0;
+  line-height: 1.63;
+}
+
+.traceabilityBar {
+  margin-top: 18px;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+  align-items: center;
+  border: 1px solid rgba(102, 162, 230, 0.13);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.028);
+}
+
+.traceabilityBar > div:first-child span {
+  display: block;
+  color: #67afff;
+  font-size: 0.58rem;
+  font-weight: 800;
+}
+
+.traceabilityBar > div:first-child strong {
+  display: block;
+  margin-top: 5px;
+  color: #e6f0fa;
+}
+
+.traceItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.traceItems span {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #0d2b46;
+  color: #9eb3c6;
+  font-size: 0.66rem;
+}
+
+.governanceModel {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns:
+    repeat(6, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.modelStage,
+.modelStageActive {
+  min-height: 125px;
+  padding: 17px;
+  border-radius: 14px;
+}
+
+.modelStage {
+  border: 1px solid rgba(99, 158, 225, 0.11);
+  background: #0b2943;
+}
+
+.modelStageActive {
+  border: 1px solid rgba(103, 176, 255, 0.32);
+  background: #143a5c;
+  box-shadow:
+    0 0 26px rgba(47, 124, 255, 0.08);
+}
+
+.modelStage span,
+.modelStageActive span {
+  color: #6f8ba5;
+  font-size: 0.58rem;
+  font-weight: 800;
+}
+
+.modelStageActive span {
+  color: #67afff;
+}
+
+.modelStage strong,
+.modelStageActive strong {
+  display: block;
+  margin-top: 25px;
+  color: #d9e5f0;
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
+.modelStageActive strong {
+  color: #f0f7ff;
+}
+
+
+/* FINAL CTA */
+
+.finalCta {
+  position: relative;
+  overflow: hidden;
+  padding: 105px 48px;
+  background: #061525;
+}
+
+.finalGlow {
+  position: absolute;
+  left: 50%;
+  top: -180px;
+  width: 720px;
+  height: 400px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: rgba(47, 124, 255, 0.12);
+  filter: blur(80px);
+}
+
+.finalInner {
+  position: relative;
+  z-index: 1;
+  max-width: 940px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.finalInner h2 {
+  margin: 18px 0 0;
+  color: #f2f7fd;
+  font-size: clamp(2.8rem, 4.8vw, 5.1rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.finalInner > p {
+  max-width: 740px;
+  margin: 24px auto 0;
+  color: #aebed0;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.finalInner .heroActions {
+  justify-content: center;
+}
+
+
+/* ONE TIME HERO MOTION */
+
+@keyframes flyLeftOne {
+  0%,
+  5% {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+
+  10%,
+  55% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  65% {
+    opacity: 1;
+    transform: translate(110px, 55px) scale(0.96);
+  }
+
+  73%,
+  100% {
+    opacity: 0;
+    transform: translate(180px, 90px) scale(0.72);
+  }
+}
+
+@keyframes flyRightOne {
+  0%,
+  13% {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+
+  18%,
+  55% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  65% {
+    opacity: 1;
+    transform: translate(-110px, 55px) scale(0.96);
+  }
+
+  73%,
+  100% {
+    opacity: 0;
+    transform: translate(-180px, 90px) scale(0.72);
+  }
+}
+
+@keyframes flyLeftTwo {
+  0%,
+  21% {
+    opacity: 0;
+  }
+
+  26%,
+  57% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  66% {
+    opacity: 1;
+    transform: translateX(120px) scale(0.95);
+  }
+
+  74%,
+  100% {
+    opacity: 0;
+    transform: translateX(190px) scale(0.72);
+  }
+}
+
+@keyframes flyRightTwo {
+  0%,
+  29% {
+    opacity: 0;
+  }
+
+  34%,
+  57% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  66% {
+    opacity: 1;
+    transform: translateX(-120px) scale(0.95);
+  }
+
+  74%,
+  100% {
+    opacity: 0;
+    transform: translateX(-190px) scale(0.72);
+  }
+}
+
+@keyframes flyLeftThree {
+  0%,
+  37% {
+    opacity: 0;
+  }
+
+  42%,
+  59% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  67% {
+    opacity: 1;
+    transform: translate(110px, -55px) scale(0.95);
+  }
+
+  75%,
+  100% {
+    opacity: 0;
+    transform: translate(175px, -90px) scale(0.72);
+  }
+}
+
+@keyframes flyRightThree {
+  0%,
+  45% {
+    opacity: 0;
+  }
+
+  50%,
+  59% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  67% {
+    opacity: 1;
+    transform: translate(-110px, -55px) scale(0.95);
+  }
+
+  75%,
+  100% {
+    opacity: 0;
+    transform: translate(-175px, -90px) scale(0.72);
+  }
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1180px) {
+  .shell {
+    width: min(100% - 64px, 1380px);
+  }
+
+  .heroLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .heroCopy {
+    max-width: 820px;
+  }
+
+  .assemblyScene {
+    width: min(850px, 100%);
+    margin: 0 auto;
+  }
+
+  .splitHeading {
+    grid-template-columns: 1fr;
+    gap: 27px;
+  }
+
+  .darkBody,
+  .lightBody {
+    max-width: 760px;
+  }
+
+  .dimensionGrid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .integrationStrip {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+  .actorComparison {
+    grid-template-columns:
+      220px
+      1fr
+      1fr;
+  }
+
+  .assessmentResult {
+    grid-column: 2 / 4;
+  }
+
+  .governanceModel {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  .shell {
+    width: calc(100% - 32px);
+  }
+
+  .hero {
+    padding: 58px 0 72px;
+  }
+
+  .heroLayout {
+    min-height: auto;
+  }
+
+  .heroCopy h1 {
+    font-size: clamp(2.7rem, 11vw, 4.2rem);
+  }
+
+  .heroCopy h1 span {
+    display: inline;
+  }
+
+  .heroCopy h1 span + span::before {
+    content: " ";
+  }
+
+  .assemblyScene {
+    min-height: auto;
+    padding-top: 30px;
+    display: grid;
+    gap: 9px;
+  }
+
+  .sceneLabel,
+  .digitalPassport,
+  .flyingObject {
+    position: relative;
+    inset: auto;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    width: 100%;
+    transform: none;
+    opacity: 1;
+    animation: none;
+  }
+
+  .sceneLabel {
+    transform: none;
+  }
+
+  .digitalPassport {
+    min-height: auto;
+  }
+
+  .passportInspector {
+    margin-top: 18px;
+  }
+
+  .inspectorResult {
+    grid-template-columns: 1fr;
+  }
+
+  .identitySection,
+  .inventorySection,
+  .contextSection,
+  .relationshipSection,
+  .actionSection,
+  .significanceSection {
+    padding: 74px 0;
+  }
+
+  .darkHeadline,
+  .lightHeadline,
+  .sectionIntro h2 {
+    font-size: clamp(2.45rem, 9.5vw, 3.8rem);
+  }
+
+  .darkHeadline span,
+  .lightHeadline span,
+  .sectionIntro h2 span {
+    display: inline;
+  }
+
+  .darkHeadline span + span::before,
+  .lightHeadline span + span::before,
+  .sectionIntro h2 span + span::before {
+    content: " ";
+  }
+
+  .identityResolution,
+  .comparison,
+  .relationshipWorkspace,
+  .authorityConnection,
+  .actionFlow {
+    grid-template-columns: 1fr;
+  }
+
+  .resolveCore,
+  .comparisonConnector,
+  .resolveStep {
+    padding: 15px 0;
+  }
+
+  .comparisonConnector span,
+  .authorityConnection > div span {
+    width: 2px;
+    height: 50px;
+    margin: 0 auto;
+  }
+
+  .dimensionGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .integrationStrip {
+    grid-template-columns: 1fr;
+  }
+
+  .actorComparison {
+    grid-template-columns: 1fr;
+  }
+
+  .assessmentResult {
+    grid-column: auto;
+  }
+
+  .traceabilityBar,
+  .contextEvolution {
+    grid-template-columns: 1fr;
+  }
+
+  .governanceModel {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .heroActions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .heroActions a {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .shell {
+    width: calc(100% - 28px);
+  }
+
+  .passportFields {
+    grid-template-columns: 1fr;
+  }
+
+  .passportTabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .passportTab,
+  .passportTabActive {
+    width: 100%;
+  }
+
+  .governanceModel {
+    grid-template-columns: 1fr;
+  }
+
+  .finalCta {
+    padding: 80px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flyingObject {
+    opacity: 1;
+    animation: none !important;
+  }
+
+  .primaryButton,
+  .secondaryButton,
+  .passportTab,
+  .passportTabActive {
+    transition: none !important;
+  }
+}

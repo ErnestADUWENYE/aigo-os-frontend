@@ -26,7 +26,7 @@ export default function Page() {
 
         <Link
           className="aigo-home-button aigo-home-button--primary"
-          href="/contact?intent=careers"
+          href="/contact"
         >
           Contact AIGO-OS
         </Link>

@@ -1,14 +1,14 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const groups = [
   {
     label: "Platform",
     items: [
-      { href: "/product", label: "Platform Overview" },
-      { href: "/product/actor-passports", label: "Actor Passports" },
-      { href: "/product/authority", label: "Authority" },
-      { href: "/product/risk-intelligence", label: "Risk Intelligence" },
-      { href: "/product/governance-receipts", label: "Governance Receipts" },
+      { href: "/platform", label: "Platform Overview" },
+      { href: "/platform/actor-passports", label: "Actor Passports" },
+      { href: "/platform/machine-authority", label: "Authority" },
+      { href: "/platform", label: "Risk Intelligence" },
+      { href: "/platform/governance-receipts", label: "Governance Receipts" },
     ],
   },
   {
@@ -27,7 +27,7 @@ const groups = [
       { href: "/integrations", label: "Integrations" },
       { href: "/resources", label: "Resources" },
       { href: "/company", label: "Company" },
-      { href: "/design-partners", label: "Design Partners" },
+      { href: "/get-started", label: "Get Started" },
       { href: "/contact", label: "Contact" },
     ],
   },
@@ -51,8 +51,8 @@ export function PublicMegaMenu() {
           traceable evidence.
         </p>
 
-        <Link href="/product">
-          Explore the platform <span aria-hidden="true">→</span>
+        <Link href="/platform">
+          Explore the platform <span aria-hidden="true">Ã¢â€ â€™</span>
         </Link>
       </div>
 

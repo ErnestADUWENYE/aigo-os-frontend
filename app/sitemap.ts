@@ -1,16 +1,22 @@
-import type { MetadataRoute } from "next";
+﻿import type { MetadataRoute } from "next";
 
 const routes = [
   "",
-  "/product",
-  "/product/actor-passports",
-  "/product/authority",
-  "/product/risk-intelligence",
-  "/product/governance-receipts",
-  "/solutions",
-  "/solutions/ai-agents",
-  "/solutions/enterprise-ai",
-  "/solutions/governed-autonomy",
+  "/platform",
+  "/platform/actor-passports",
+  "/platform/machine-authority",
+  "/platform/business-significance",
+  "/platform/governance-decisioning",
+  "/platform/human-authority",
+  "/platform/governance-receipts",
+
+  "/solutions/accountable-ai-identity",
+  "/solutions/excessive-agency",
+  "/solutions/ai-authority-privilege",
+  "/solutions/human-oversight",
+  "/solutions/prioritise-ai-governance",
+  "/solutions/ai-governance-evidence",
+
   "/integrations",
   "/security",
   "/resources",
@@ -27,8 +33,7 @@ const routes = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const protocol = "https:";
-  const baseUrl = protocol + String.fromCharCode(47, 47) + "aigo-os.com";
+  const baseUrl = "https://aigo-os.com";
 
   return routes.map((route) => ({
     url: `${baseUrl}${route}`,
@@ -37,9 +42,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority:
       route === ""
         ? 1
-        : route === "/product" ||
-            route === "/solutions" ||
-            route === "/design-partners"
+        : route === "/platform" ||
+            route.startsWith("/solutions/")
           ? 0.9
           : 0.7,
   }));

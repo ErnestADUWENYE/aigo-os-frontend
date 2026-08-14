@@ -5,11 +5,11 @@ const footerColumns = [
   {
     title: "Platform",
     links: [
-      ["Platform Overview", "/product"],
-      ["Actor Passports", "/product/actor-passports"],
-      ["Machine Authority", "/product/authority"],
-      ["Risk Intelligence", "/product/risk-intelligence"],
-      ["Governance Receipts", "/product/governance-receipts"],
+      ["Platform Overview", "/platform"],
+      ["Actor Passports", "/platform/actor-passports"],
+      ["Machine Authority", "/platform/machine-authority"],
+      ["Risk Intelligence", "/platform"],
+      ["Governance Receipts", "/platform/governance-receipts"],
       ["Integrations", "/integrations"],
     ],
   },
@@ -50,7 +50,7 @@ const footerColumns = [
       ["Our Approach", "/our-approach"],
       ["Careers", "/careers"],
       ["Newsroom", "/newsroom"],
-      ["Design Partners", "/design-partners"],
+      ["Get Started", "/get-started"],
       ["Contact", "/contact"],
     ],
   },
@@ -74,10 +74,10 @@ export function PublicFooter() {
           <div className="public-footer__conversion-actions">
             <Link href="/contact?intent=demo">
               Request a Demo
-              <span aria-hidden="true">→</span>
+              <span aria-hidden="true">â†’</span>
             </Link>
 
-            <Link href="/product">
+            <Link href="/platform">
               Explore AIGO-OS
             </Link>
           </div>
@@ -132,7 +132,7 @@ export function PublicFooter() {
 
         <div className="public-footer__bottom">
           <span>
-            © {new Date().getFullYear()} AIGO-OS. All rights reserved.
+            Â© {new Date().getFullYear()} AIGO-OS. All rights reserved.
           </span>
 
           <div>
@@ -146,3 +146,4 @@ export function PublicFooter() {
     </footer>
   );
 }
+

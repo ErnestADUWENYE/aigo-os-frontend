@@ -1,0 +1,1747 @@
+﻿.page {
+  --navy: #08243b;
+  --navy-2: #0b3150;
+  --ink: #102f4d;
+  --body: #58738c;
+  --blue: #147fd8;
+  --blue-soft: #eaf5fd;
+  --gold: #c58d23;
+  --cream: #f2ede3;
+  --line: #cfdae3;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  color: var(--ink);
+}
+
+
+.shell {
+  width: min(1180px, calc(100% - 48px));
+
+  margin: 0 auto;
+}
+
+
+.blueEyebrow,
+.goldEyebrow {
+  margin: 0;
+
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 850;
+
+  letter-spacing: 0.13em;
+}
+
+
+.blueEyebrow {
+  color: #5fb1f2;
+}
+
+
+.goldEyebrow {
+  color: var(--gold);
+}
+
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero {
+  position: relative;
+
+  min-height: 690px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 96px 0 82px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 72% 46%,
+      rgba(25, 112, 177, 0.16),
+      transparent 31%
+    ),
+    linear-gradient(
+      135deg,
+      #061b2e 0%,
+      #082a45 56%,
+      #061d31 100%
+    );
+}
+
+
+.heroGrid {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.08;
+
+  background-image:
+    linear-gradient(
+      rgba(110, 180, 235, 0.16) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(110, 180, 235, 0.16) 1px,
+      transparent 1px
+    );
+
+  background-size: 48px 48px;
+}
+
+
+.heroGlow {
+  position: absolute;
+
+  width: 520px;
+  height: 520px;
+
+  right: 2%;
+  top: 16%;
+
+  border-radius: 50%;
+
+  background:
+    rgba(34, 135, 214, 0.10);
+
+  filter: blur(90px);
+}
+
+
+.heroLayout {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.1fr)
+    minmax(390px, 0.9fr);
+
+  align-items: center;
+
+  gap: 78px;
+}
+
+
+.heroCopy {
+  max-width: 720px;
+}
+
+
+.heroCopy h1 {
+  max-width: 720px;
+
+  margin: 18px 0 0;
+
+  color: #ffffff;
+
+  font-size: clamp(46px, 5vw, 68px);
+  line-height: 1.02;
+  font-weight: 820;
+
+  letter-spacing: -0.052em;
+
+  text-wrap: balance;
+}
+
+
+.heroLead {
+  max-width: 650px;
+
+  margin: 24px 0 0;
+
+  color: #d6e5f1;
+
+  font-size: 18px;
+  line-height: 1.62;
+}
+
+
+.heroSupporting {
+  max-width: 660px;
+
+  margin: 15px 0 0;
+
+  color: #9fb8cc;
+
+  font-size: 14px;
+  line-height: 1.72;
+}
+
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+
+.primaryButton,
+.secondaryButton {
+  min-height: 46px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  padding: 0 18px;
+
+  border-radius: 8px;
+
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+
+.primaryButton {
+  background: #ffffff;
+
+  color: #123a5c;
+}
+
+
+.secondaryButton {
+  border:
+    1px solid rgba(139, 192, 235, 0.34);
+
+  background:
+    rgba(255,255,255,0.035);
+
+  color: #e6f1f9;
+}
+
+
+.heroVisual {
+  width: 92%;
+
+  justify-self: end;
+}
+
+
+.authorityProfile {
+  padding: 28px;
+
+  border:
+    1px solid rgba(99, 173, 230, 0.28);
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #103957,
+      #092a45 58%,
+      #071f35
+    );
+
+  box-shadow:
+    0 32px 60px rgba(0, 8, 20, 0.34),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+
+.profileTop {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+}
+
+
+.profileIcon {
+  width: 52px;
+  height: 52px;
+
+  flex: 0 0 52px;
+
+  display: grid;
+  place-items: center;
+
+  border:
+    1px solid rgba(103, 178, 236, 0.26);
+
+  border-radius: 14px;
+
+  background:
+    rgba(48, 138, 210, 0.10);
+
+  color: #6eb8f2;
+}
+
+
+.profileTop span,
+.profileQuestion span,
+.profileOutput span {
+  display: block;
+
+  color: #73b8ef;
+
+  font-size: 8px;
+  line-height: 1.2;
+  font-weight: 850;
+
+  letter-spacing: 0.10em;
+}
+
+
+.profileTop strong {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #ffffff;
+
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+
+.profileTop small {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #91abc1;
+
+  font-size: 10px;
+}
+
+
+.profileDivider {
+  height: 1px;
+
+  margin: 25px 0;
+
+  background:
+    rgba(117, 172, 215, 0.15);
+}
+
+
+.profileQuestion {
+  padding: 18px;
+
+  border:
+    1px solid rgba(111, 176, 226, 0.16);
+
+  border-radius: 12px;
+
+  background:
+    rgba(255,255,255,0.035);
+}
+
+
+.profileQuestion strong {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #dceaf5;
+
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+
+.profileOutput {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 14px;
+
+  padding: 17px 18px;
+
+  border:
+    1px solid rgba(73, 180, 126, 0.25);
+
+  border-radius: 12px;
+
+  background:
+    rgba(43, 156, 101, 0.08);
+
+  color: #62c992;
+}
+
+
+.profileOutput strong {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #e8f8ef;
+
+  font-size: 15px;
+}
+
+
+/* ==========================================================
+   SHARED SECTION INTRO
+========================================================== */
+
+.sectionIntro,
+.sectionIntroCentered {
+  margin-bottom: 48px;
+}
+
+
+.sectionIntro {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(300px, 0.85fr);
+
+  gap: 72px;
+
+  align-items: end;
+}
+
+
+.sectionIntro h2,
+.sectionIntroCentered h2 {
+  margin: 12px 0 0;
+
+  color: var(--ink);
+
+  font-size: clamp(36px, 4vw, 52px);
+  line-height: 1.05;
+  font-weight: 810;
+
+  letter-spacing: -0.045em;
+
+  text-wrap: balance;
+}
+
+
+.sectionIntro > p,
+.sectionIntroCentered > p:last-child {
+  margin: 0;
+
+  color: var(--body);
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+.sectionIntroCentered {
+  max-width: 900px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+
+.sectionIntroCentered > p:last-child {
+  max-width: 720px;
+
+  margin: 20px auto 0;
+}
+
+
+/* ==========================================================
+   CORE DISTINCTION
+========================================================== */
+
+.coreSection {
+  padding: 96px 0 104px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f3eee4,
+      #ece5d9
+    );
+}
+
+
+.distinctionGrid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    110px
+    minmax(0, 1fr);
+
+  align-items: stretch;
+
+  gap: 18px;
+}
+
+
+.distinctionCard {
+  padding: 30px;
+
+  border: 1px solid #cdd9e2;
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffefa,
+      #f7f4ed
+    );
+
+  box-shadow:
+    0 25px 45px rgba(31, 56, 75, 0.13),
+    0 7px 16px rgba(31, 56, 75, 0.05),
+    inset 0 1px 0 #ffffff;
+}
+
+
+.delegatedCard {
+  border-color: #9fcceb;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #edf7fe
+    );
+
+  box-shadow:
+    0 28px 50px rgba(31, 104, 160, 0.17),
+    0 8px 18px rgba(31, 56, 75, 0.06),
+    inset 0 1px 0 #ffffff;
+}
+
+
+.distinctionIcon {
+  width: 50px;
+  height: 50px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 26px;
+
+  border: 1px solid #bedaf0;
+  border-radius: 14px;
+
+  background: #edf7ff;
+
+  color: #1680d9;
+}
+
+
+.distinctionCard > span {
+  color: #147fd8;
+
+  font-size: 9px;
+  font-weight: 850;
+
+  letter-spacing: 0.10em;
+}
+
+
+.distinctionCard h3 {
+  margin: 9px 0 0;
+
+  color: var(--ink);
+
+  font-size: 27px;
+  line-height: 1.15;
+  font-weight: 790;
+
+  letter-spacing: -0.03em;
+}
+
+
+.distinctionCard > p {
+  margin: 15px 0 0;
+
+  color: var(--body);
+
+  font-size: 14px;
+  line-height: 1.68;
+}
+
+
+.distinctionExample {
+  margin-top: 24px;
+
+  padding: 16px;
+
+  border: 1px solid #d7e0e6;
+  border-radius: 11px;
+
+  background: rgba(255,255,255,0.62);
+}
+
+
+.distinctionExample small {
+  display: block;
+
+  color: #7b94a8;
+
+  font-size: 8px;
+  font-weight: 850;
+
+  letter-spacing: 0.09em;
+}
+
+
+.distinctionExample strong {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #21445f;
+
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+
+.notEqual {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  color: #8aa0b1;
+
+  text-align: center;
+}
+
+
+.notEqual span {
+  font-size: 8px;
+  line-height: 1.35;
+  font-weight: 850;
+
+  letter-spacing: 0.08em;
+}
+
+
+.coreNote,
+.sourceExplanation,
+.finalNote {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 13px;
+
+  margin-top: 34px;
+
+  padding: 18px 20px;
+
+  border: 1px solid #c8dbe9;
+  border-radius: 13px;
+
+  background: #f9fcfe;
+
+  color: #187ecf;
+}
+
+
+.coreNote p,
+.sourceExplanation p,
+.finalNote p {
+  margin: 0;
+
+  color: #4f6d84;
+
+  font-size: 13px;
+  line-height: 1.62;
+}
+
+
+/* ==========================================================
+   SOURCES
+========================================================== */
+
+.sourcesSection {
+  padding: 100px 0;
+
+  background: #ffffff;
+}
+
+
+.sourceGrid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+
+.sourceCard {
+  padding: 28px;
+
+  border: 1px solid #d2dde5;
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f5f8fa
+    );
+
+  box-shadow:
+    0 22px 40px rgba(31, 56, 75, 0.11),
+    0 6px 14px rgba(31, 56, 75, 0.04),
+    inset 0 1px 0 #ffffff;
+}
+
+
+.sourceIcon {
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 24px;
+
+  border: 1px solid #c5def0;
+  border-radius: 13px;
+
+  background: #edf7ff;
+
+  color: #167fd7;
+}
+
+
+.sourceCard > span {
+  color: #167fd7;
+
+  font-size: 8px;
+  font-weight: 850;
+
+  letter-spacing: 0.10em;
+}
+
+
+.sourceCard h3 {
+  margin: 9px 0 0;
+
+  color: var(--ink);
+
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 780;
+
+  letter-spacing: -0.025em;
+}
+
+
+.sourceCard p {
+  margin: 14px 0 0;
+
+  color: var(--body);
+
+  font-size: 13px;
+  line-height: 1.68;
+}
+
+
+.sourceExplanation strong,
+.finalNote strong {
+  display: block;
+
+  color: #17486d;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+.sourceExplanation p,
+.finalNote p {
+  margin-top: 4px;
+}
+
+
+/* ==========================================================
+   AUTHORITY BOUNDARY
+========================================================== */
+
+.boundarySection {
+  padding: 100px 0 106px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f1ece2,
+      #e9e2d6
+    );
+}
+
+
+.boundaryGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 17px;
+}
+
+
+.boundaryCard {
+  min-height: 220px;
+
+  padding: 25px;
+
+  border: 1px solid #cad8e2;
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f5f8f9
+    );
+
+  box-shadow:
+    0 22px 40px rgba(31, 56, 75, 0.12),
+    0 6px 14px rgba(31, 56, 75, 0.04),
+    inset 0 1px 0 #ffffff;
+}
+
+
+.boundaryTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+
+  color: #167fd7;
+}
+
+
+.boundaryNumber {
+  font-size: 10px;
+  font-weight: 850;
+}
+
+
+.boundaryLabel {
+  color: #167fd7;
+
+  font-size: 8px;
+  font-weight: 850;
+
+  letter-spacing: 0.09em;
+}
+
+
+.boundaryCard h3 {
+  margin: 8px 0 0;
+
+  color: var(--ink);
+
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 780;
+
+  letter-spacing: -0.025em;
+}
+
+
+.boundaryCard p {
+  margin: 12px 0 0;
+
+  color: var(--body);
+
+  font-size: 13px;
+  line-height: 1.62;
+}
+
+
+/* ==========================================================
+   EXAMPLE
+========================================================== */
+
+.exampleSection {
+  padding: 100px 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #071e33,
+      #0a2d49 58%,
+      #071f35
+    );
+}
+
+
+.exampleSection .sectionIntro h2 {
+  color: #ffffff;
+}
+
+
+.exampleSection .sectionIntro > p {
+  color: #a7bfd2;
+}
+
+
+.exampleLayout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.8fr)
+    80px
+    minmax(0, 1.2fr);
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+
+.exampleActor,
+.exampleBoundary {
+  border:
+    1px solid rgba(102, 173, 228, 0.25);
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #103956,
+      #092944
+    );
+
+  box-shadow:
+    0 28px 50px rgba(0, 8, 20, 0.28),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+
+.exampleActor {
+  padding: 26px;
+}
+
+
+.exampleActorTop {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  color: #70b7ef;
+}
+
+
+.exampleActorTop span,
+.exampleActorQuestion span,
+.exampleBoundaryTop span {
+  display: block;
+
+  color: #70b7ef;
+
+  font-size: 8px;
+  font-weight: 850;
+
+  letter-spacing: 0.09em;
+}
+
+
+.exampleActorTop strong {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #ffffff;
+
+  font-size: 16px;
+}
+
+
+.exampleActorTop small {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #8fa9be;
+
+  font-size: 9px;
+}
+
+
+.exampleActorQuestion {
+  margin-top: 24px;
+
+  padding-top: 20px;
+
+  border-top:
+    1px solid rgba(114, 174, 220, 0.14);
+}
+
+
+.exampleActorQuestion strong {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #dceaf5;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+.exampleArrow {
+  display: grid;
+  place-items: center;
+
+  color: #68b4ee;
+}
+
+
+.exampleBoundary {
+  padding: 25px;
+}
+
+
+.exampleBoundaryTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-bottom: 18px;
+
+  color: #6fc795;
+}
+
+
+.exampleBoundaryTop h3 {
+  margin: 6px 0 0;
+
+  color: #ffffff;
+
+  font-size: 23px;
+}
+
+
+.authorityState {
+  display: grid;
+
+  grid-template-columns: 190px minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 13px 0;
+
+  border-top:
+    1px solid rgba(119, 174, 216, 0.13);
+}
+
+
+.authorityState span {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+
+  font-size: 8px;
+  font-weight: 850;
+
+  letter-spacing: 0.06em;
+}
+
+
+.authorityState strong {
+  color: #dce9f3;
+
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+
+.allowed {
+  color: #67cc94;
+}
+
+
+.limited {
+  color: #e1b552;
+}
+
+
+.humanRequired {
+  color: #75baf1;
+}
+
+
+.notAuthorised {
+  color: #dd8585;
+}
+
+
+/* ==========================================================
+   HANDOFF
+========================================================== */
+
+.handoffSection {
+  padding: 100px 0 108px;
+
+  background: #ffffff;
+}
+
+
+.handoffFlow {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    90px
+    minmax(0, 1fr);
+
+  align-items: stretch;
+
+  gap: 18px;
+}
+
+
+.handoffCard {
+  padding: 28px;
+
+  border: 1px solid #cddbe5;
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f5f9fb
+    );
+
+  box-shadow:
+    0 22px 42px rgba(31, 56, 75, 0.11),
+    inset 0 1px 0 #ffffff;
+}
+
+
+.nextCard {
+  border-color: #a7d0ee;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #edf7fe
+    );
+}
+
+
+.handoffCard > span {
+  color: #167fd7;
+
+  font-size: 9px;
+  font-weight: 850;
+
+  letter-spacing: 0.09em;
+}
+
+
+.handoffCard > strong {
+  display: block;
+
+  margin-top: 10px;
+
+  color: var(--ink);
+
+  font-size: 21px;
+  line-height: 1.3;
+}
+
+
+.handoffCard small {
+  display: block;
+
+  margin-top: 24px;
+
+  color: #839aab;
+
+  font-size: 8px;
+  font-weight: 850;
+
+  letter-spacing: 0.08em;
+}
+
+
+.handoffCard p {
+  margin: 6px 0 0;
+
+  color: #315a78;
+
+  font-size: 13px;
+  font-weight: 760;
+}
+
+
+.handoffArrow {
+  display: grid;
+  place-items: center;
+
+  color: #2186d9;
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 1050px) {
+  .heroLayout,
+  .sectionIntro,
+  .distinctionGrid,
+  .exampleLayout,
+  .handoffFlow {
+    grid-template-columns: 1fr;
+  }
+
+  .heroVisual {
+    width: min(100%, 680px);
+
+    justify-self: center;
+  }
+
+  .notEqual,
+  .exampleArrow,
+  .handoffArrow {
+    min-height: 60px;
+  }
+
+  .exampleArrow svg,
+  .handoffArrow svg {
+    transform: rotate(90deg);
+  }
+
+  .sourceGrid,
+  .boundaryGrid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+@media (max-width: 720px) {
+  .shell {
+    width: min(100% - 30px, 1180px);
+  }
+
+  .hero,
+  .coreSection,
+  .sourcesSection,
+  .boundarySection,
+  .exampleSection,
+  .handoffSection {
+    padding-top: 72px;
+    padding-bottom: 76px;
+  }
+
+  .heroCopy h1 {
+    font-size: 44px;
+  }
+
+  .sourceGrid,
+  .boundaryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .authorityState {
+    grid-template-columns: 1fr;
+
+    gap: 7px;
+  }
+}
+
+/* === PAGE 04 LIGHT SECTION CONTRAST FIX === */
+
+/*
+  GLOBAL RULE FOR PAGE 04 LIGHT SECTIONS
+
+  Headings: dark navy
+  Body copy: dark slate
+  Eyebrows/labels: blue or muted slate
+  Cards: dark readable text
+
+  These rules intentionally override inherited/global
+  white text, opacity, text-fill and clipping effects.
+*/
+
+
+.coreSection,
+.sourcesSection,
+.boundarySection,
+.handoffSection {
+  color: #102f4d !important;
+}
+
+
+.coreSection *,
+.sourcesSection *,
+.boundarySection *,
+.handoffSection * {
+  opacity: 1 !important;
+  filter: none !important;
+  -webkit-text-fill-color: currentColor !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+}
+
+
+/* ==========================================================
+   SECTION HEADINGS
+========================================================== */
+
+.coreSection h1,
+.coreSection h2,
+.coreSection h3,
+.sourcesSection h1,
+.sourcesSection h2,
+.sourcesSection h3,
+.boundarySection h1,
+.boundarySection h2,
+.boundarySection h3,
+.handoffSection h1,
+.handoffSection h2,
+.handoffSection h3 {
+  color: #102f4d !important;
+  -webkit-text-fill-color: #102f4d !important;
+  text-shadow: none !important;
+}
+
+
+/* ==========================================================
+   BODY COPY
+========================================================== */
+
+.coreSection p,
+.sourcesSection p,
+.boundarySection p,
+.handoffSection p {
+  color: #526f87 !important;
+  -webkit-text-fill-color: #526f87 !important;
+}
+
+
+/* ==========================================================
+   EYEBROWS AND LABELS
+========================================================== */
+
+.coreSection .blueEyebrow,
+.sourcesSection .blueEyebrow,
+.boundarySection .blueEyebrow,
+.handoffSection .blueEyebrow {
+  color: #147fd8 !important;
+  -webkit-text-fill-color: #147fd8 !important;
+}
+
+
+.coreSection .goldEyebrow,
+.sourcesSection .goldEyebrow,
+.boundarySection .goldEyebrow,
+.handoffSection .goldEyebrow {
+  color: #b47c12 !important;
+  -webkit-text-fill-color: #b47c12 !important;
+}
+
+
+/* ==========================================================
+   CORE DISTINCTION CARDS
+========================================================== */
+
+.distinctionCard,
+.delegatedCard {
+  color: #102f4d !important;
+}
+
+
+.distinctionCard > span,
+.delegatedCard > span {
+  color: #147fd8 !important;
+  -webkit-text-fill-color: #147fd8 !important;
+}
+
+
+.distinctionCard h3,
+.delegatedCard h3 {
+  color: #102f4d !important;
+  -webkit-text-fill-color: #102f4d !important;
+}
+
+
+.distinctionCard > p,
+.delegatedCard > p {
+  color: #526f87 !important;
+  -webkit-text-fill-color: #526f87 !important;
+}
+
+
+.distinctionExample small {
+  color: #6b8296 !important;
+  -webkit-text-fill-color: #6b8296 !important;
+}
+
+
+.distinctionExample strong {
+  color: #153c5b !important;
+  -webkit-text-fill-color: #153c5b !important;
+}
+
+
+.notEqual {
+  color: #6d879b !important;
+  -webkit-text-fill-color: #6d879b !important;
+}
+
+
+/* ==========================================================
+   AUTHORITY EVIDENCE CARDS
+========================================================== */
+
+.sourceCard {
+  color: #102f4d !important;
+}
+
+
+.sourceCard > span {
+  color: #147fd8 !important;
+  -webkit-text-fill-color: #147fd8 !important;
+}
+
+
+.sourceCard h3 {
+  color: #102f4d !important;
+  -webkit-text-fill-color: #102f4d !important;
+}
+
+
+.sourceCard p {
+  color: #526f87 !important;
+  -webkit-text-fill-color: #526f87 !important;
+}
+
+
+/* ==========================================================
+   AI AUTHORITY BOUNDARY SECTION
+========================================================== */
+
+.boundaryNumber,
+.boundaryLabel {
+  color: #147fd8 !important;
+  -webkit-text-fill-color: #147fd8 !important;
+}
+
+
+.boundaryCard {
+  color: #102f4d !important;
+}
+
+
+.boundaryCard h3 {
+  color: #102f4d !important;
+  -webkit-text-fill-color: #102f4d !important;
+}
+
+
+.boundaryCard p {
+  color: #526f87 !important;
+  -webkit-text-fill-color: #526f87 !important;
+}
+
+
+/* ==========================================================
+   HANDOFF SECTION
+========================================================== */
+
+.handoffCard {
+  color: #102f4d !important;
+}
+
+
+.handoffCard > span {
+  color: #147fd8 !important;
+  -webkit-text-fill-color: #147fd8 !important;
+}
+
+
+.handoffCard > strong {
+  color: #102f4d !important;
+  -webkit-text-fill-color: #102f4d !important;
+}
+
+
+.handoffCard small {
+  color: #688398 !important;
+  -webkit-text-fill-color: #688398 !important;
+}
+
+
+.handoffCard p {
+  color: #315a78 !important;
+  -webkit-text-fill-color: #315a78 !important;
+}
+
+
+/* ==========================================================
+   INFO NOTES
+========================================================== */
+
+.coreNote,
+.sourceExplanation,
+.finalNote {
+  color: #17486d !important;
+}
+
+
+.coreNote strong,
+.sourceExplanation strong,
+.finalNote strong {
+  color: #153c5b !important;
+  -webkit-text-fill-color: #153c5b !important;
+}
+
+
+.coreNote p,
+.sourceExplanation p,
+.finalNote p {
+  color: #526f87 !important;
+  -webkit-text-fill-color: #526f87 !important;
+}
+
+
+/* ==========================================================
+   EXTRA PROTECTION AGAINST GLOBAL WHITE TEXT RULES
+========================================================== */
+
+.coreSection strong,
+.sourcesSection strong,
+.boundarySection strong,
+.handoffSection strong {
+  -webkit-text-fill-color: currentColor !important;
+}
+
+
+.coreSection span:not(.goldEyebrow):not(.blueEyebrow),
+.sourcesSection span:not(.goldEyebrow):not(.blueEyebrow),
+.boundarySection span:not(.goldEyebrow):not(.blueEyebrow),
+.handoffSection span:not(.goldEyebrow):not(.blueEyebrow) {
+  text-shadow: none !important;
+}
+
+
+/* === END PAGE 04 LIGHT SECTION CONTRAST FIX === */
+
+
+/* === PAGE 04 FINAL LOCK OVERRIDES === */
+
+/*
+   Final editorial structure:
+   Hero
+   Permission vs delegated authority
+   Authority evidence
+   AI Authority Boundary
+   One example
+   Business Significance handoff
+*/
+
+
+.hero {
+  min-height: 620px;
+
+  padding-top: 80px;
+  padding-bottom: 72px;
+}
+
+
+.coreSection {
+  padding-top: 82px;
+  padding-bottom: 88px;
+}
+
+
+.sourcesSection {
+  padding-top: 84px;
+  padding-bottom: 88px;
+}
+
+
+.boundarySection {
+  padding-top: 84px;
+  padding-bottom: 90px;
+}
+
+
+.exampleSection {
+  padding-top: 86px;
+  padding-bottom: 90px;
+}
+
+
+.handoffSection {
+  padding-top: 84px;
+  padding-bottom: 90px;
+}
+
+
+/* The six dimensions should be informative without creating
+   presentation-sized cards. */
+
+.boundaryCard {
+  min-height: 195px;
+}
+
+
+/* Compact handoff CTA */
+
+.handoffActions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 34px;
+}
+
+
+.handoffPrimary,
+.handoffSecondary {
+  min-height: 46px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 0 18px;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  text-decoration: none;
+}
+
+
+.handoffPrimary {
+  background: #147fd8;
+
+  color: #ffffff !important;
+
+  -webkit-text-fill-color:
+    #ffffff !important;
+}
+
+
+.handoffSecondary {
+  border: 1px solid #c7d8e5;
+
+  background: #ffffff;
+
+  color: #17486d !important;
+
+  -webkit-text-fill-color:
+    #17486d !important;
+}
+
+
+/* Maintain dark readable text on all light sections */
+
+.coreSection,
+.sourcesSection,
+.boundarySection,
+.handoffSection {
+  color: #102f4d !important;
+}
+
+
+.coreSection h1,
+.coreSection h2,
+.coreSection h3,
+.sourcesSection h1,
+.sourcesSection h2,
+.sourcesSection h3,
+.boundarySection h1,
+.boundarySection h2,
+.boundarySection h3,
+.handoffSection h1,
+.handoffSection h2,
+.handoffSection h3 {
+  color: #102f4d !important;
+
+  -webkit-text-fill-color:
+    #102f4d !important;
+}
+
+
+.coreSection p,
+.sourcesSection p,
+.boundarySection p,
+.handoffSection p {
+  color: #526f87 !important;
+
+  -webkit-text-fill-color:
+    #526f87 !important;
+}
+
+
+@media (max-width: 1050px) {
+
+  .hero {
+    min-height: auto;
+  }
+
+  .boundaryCard {
+    min-height: 190px;
+  }
+}
+
+
+@media (max-width: 720px) {
+
+  .hero,
+  .coreSection,
+  .sourcesSection,
+  .boundarySection,
+  .exampleSection,
+  .handoffSection {
+    padding-top: 68px;
+    padding-bottom: 72px;
+  }
+
+  .boundaryCard {
+    min-height: 0;
+  }
+}
+
+/* === END PAGE 04 FINAL LOCK OVERRIDES === */
+

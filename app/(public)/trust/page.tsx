@@ -1,83 +1,100 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 const trustDomains = [
   {
     number: "01",
-    title: "Security by architecture",
+    title: "Bounded platform authority",
     body:
-      "AIGO-OS is being designed so governance infrastructure can operate with explicit boundaries, controlled access and clear separation of responsibilities.",
-    href: "/security",
-    link: "Explore security",
+      "AIGO-OS is a governance decision layer, not an unrestricted operator. Governance authority should be explicitly scoped so the platform can evaluate, constrain, escalate or record decisions without silently expanding its own permissions.",
   },
   {
     number: "02",
-    title: "Traceable governance",
+    title: "Controlled integration boundaries",
     body:
-      "Governance decisions should not disappear into an opaque control plane. AIGO-OS preserves the context needed to understand what was evaluated, what decision was made and why.",
-    href: "/product/governance-receipts",
-    link: "Explore governance receipts",
+      "Enterprise integrations should expose only the identity, authority, policy, risk and operational context required for a defined governance purpose. AIGO-OS should not require unnecessary access simply because the underlying system can provide it.",
   },
   {
     number: "03",
-    title: "Responsible operation",
+    title: "Reconstructable decisions",
     body:
-      "Security concerns need a clear path to the people responsible for the platform. Our disclosure process establishes that path as AIGO-OS develops.",
-    href: "/responsible-disclosure",
-    link: "Responsible disclosure",
+      "A consequential governance decision should be explainable after it happens. AIGO-OS is structured to preserve the context of the decision, including the governed actor, evaluated authority, relevant risk and the resulting governance outcome.",
+  },
+  {
+    number: "04",
+    title: "Accountable escalation",
+    body:
+      "Governed autonomy does not remove human accountability. Where authority, policy or risk requires human judgment, the governance path should make that escalation explicit rather than allowing uncertainty to disappear inside an automated workflow.",
   },
 ];
 
-const principles = [
+const controlModel = [
   {
-    label: "Least necessary access",
+    label: "Identity",
+    title: "Know what is acting.",
     text:
-      "Governance integrations should request only the access required for their defined purpose.",
+      "Governance starts by establishing the identity and governance context of the AI agent, model, application, automation or other governed actor.",
   },
   {
-    label: "Explicit authority",
+    label: "Authority",
+    title: "Know what it is allowed to do.",
     text:
-      "Machine authority should be understandable, bounded and evaluated in context.",
+      "Permissions alone do not express business authority. AIGO-OS evaluates whether an action sits within the authority assigned to the governed actor.",
   },
   {
-    label: "Evidence preservation",
+    label: "Context",
+    title: "Understand the decision in context.",
     text:
-      "Material governance decisions should leave evidence that can be reconstructed later.",
+      "Business significance, policy conditions, risk signals and available enterprise context can change how the same action should be governed.",
   },
   {
-    label: "Human accountability",
+    label: "Decision",
+    title: "Apply the required governance outcome.",
     text:
-      "Autonomous governance should preserve clear paths for escalation, review and accountable human judgment.",
+      "The governance layer can determine whether an action is permitted, constrained, escalated or otherwise subject to a defined governance path.",
   },
+  {
+    label: "Evidence",
+    title: "Preserve what happened.",
+    text:
+      "Governance evidence provides a reconstructable record of material decisions so organizations can investigate, review and demonstrate how autonomy was governed.",
+  },
+];
+
+const buyerQuestions = [
+  "What systems and governance context does AIGO-OS need access to?",
+  "What authority can the governance layer exercise?",
+  "How are identities, policies and authority boundaries represented?",
+  "What happens when governance context is incomplete or uncertain?",
+  "Which decisions require escalation or accountable human review?",
+  "What evidence is retained for later investigation and assurance?",
 ];
 
 export default function TrustPage() {
   return (
-    <div className="trust-page">
+    <main className="trust-page">
       <section className="trust-page__hero">
         <div className="trust-page__hero-shell">
-          <span className="trust-page__eyebrow">
-            Trust center
-          </span>
+          <span className="trust-page__eyebrow">Trust and assurance</span>
 
           <h1>
-            Governance infrastructure has to earn the authority it holds.
+            A governance system must be governed too.
           </h1>
 
           <p>
-            AIGO-OS operates in a consequential position in the
-            enterprise stack. That requires disciplined security,
-            bounded access, reconstructable decisions and transparent
-            operating principles.
+            AIGO-OS sits between enterprise AI autonomy and consequential
+            action. That position requires explicit authority boundaries,
+            controlled integrations, accountable decision paths and evidence
+            that organizations can reconstruct when a decision matters.
           </p>
 
           <div className="trust-page__actions">
             <Link href="/security">
-              Security architecture
-              <span aria-hidden="true">â†’</span>
+              Review security architecture
+              <span aria-hidden="true" className="aigo-ui-arrow" />
             </Link>
 
             <Link href="/responsible-disclosure">
-              Report a security concern
+              Responsible disclosure
             </Link>
           </div>
         </div>
@@ -88,19 +105,21 @@ export default function TrustPage() {
           <div className="trust-page__position-heading">
             <div>
               <span className="public-section-kicker">
-                Our position
+                Trust model
               </span>
 
               <h2>
-                Trust is part of the product architecture.
+                The governance layer should never become an invisible source
+                of uncontrolled authority.
               </h2>
             </div>
 
             <p>
-              An AI governance system may observe sensitive operating
-              context and influence consequential decisions. Security
-              and accountability therefore cannot be treated as
-              documentation added after the platform is built.
+              AIGO-OS is designed around a simple principle: the system that
+              governs autonomous AI must itself operate within understandable
+              boundaries. Enterprises should be able to determine what the
+              platform can access, what decisions it can influence, when
+              humans remain accountable and what evidence is produced.
             </p>
           </div>
 
@@ -110,11 +129,6 @@ export default function TrustPage() {
                 <span>{domain.number}</span>
                 <h3>{domain.title}</h3>
                 <p>{domain.body}</p>
-
-                <Link href={domain.href}>
-                  {domain.link}
-                  <span aria-hidden="true">â†’</span>
-                </Link>
               </article>
             ))}
           </div>
@@ -124,29 +138,31 @@ export default function TrustPage() {
       <section className="trust-page__principles">
         <div className="trust-page__principles-shell">
           <div className="trust-page__principles-copy">
-            <span>Operating principles</span>
+            <span>Governance control model</span>
 
             <h2>
-              Control the governance layer itself.
+              Trust follows the decision path.
             </h2>
 
             <p>
-              AIGO-OS is intended to govern autonomy without becoming
-              an uncontrolled source of authority. The governance layer
-              must itself remain bounded, observable and accountable.
+              AIGO-OS does not treat trust as a badge beside the product.
+              Trust has to exist throughout the governance path: from knowing
+              what is acting, to evaluating its authority and context, to
+              determining the governance outcome and preserving evidence.
             </p>
           </div>
 
           <div className="trust-page__principles-list">
-            {principles.map((principle, index) => (
-              <article key={principle.label}>
+            {controlModel.map((item, index) => (
+              <article key={item.label}>
                 <span>
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
                 <div>
-                  <h3>{principle.label}</h3>
-                  <p>{principle.text}</p>
+                  <small>{item.label}</small>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
                 </div>
               </article>
             ))}
@@ -159,56 +175,115 @@ export default function TrustPage() {
           <div className="trust-page__disclosure-grid">
             <div>
               <span className="public-section-kicker">
-                Transparency
+                Enterprise evaluation
               </span>
 
               <h2>
-                Be precise about what exists today.
+                Ask the questions that determine whether a governance platform
+                can be trusted.
               </h2>
+
+              <p>
+                Trust should be evaluated through architecture, authority,
+                integration boundaries, decision behavior and evidence, not
+                through broad claims.
+              </p>
             </div>
 
-            <div>
+            <div className="trust-page__evaluation">
+              {buyerQuestions.map((question, index) => (
+                <article key={question}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <p>{question}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="trust-page__assurance">
+        <div className="public-section-shell">
+          <div className="trust-page__assurance-heading">
+            <span className="public-section-kicker">
+              Assurance position
+            </span>
+
+            <h2>
+              Evidence before claims.
+            </h2>
+
+            <p>
+              AIGO-OS will not present planned certifications, controls,
+              independent assessments or compliance outcomes as completed
+              assurance. Public trust claims should remain tied to evidence
+              that can actually be substantiated.
+            </p>
+          </div>
+
+          <div className="trust-page__assurance-grid">
+            <article>
+              <span>Architecture</span>
+              <h3>Explain the boundary.</h3>
               <p>
-                AIGO-OS is an emerging platform. We will not represent
-                planned controls, certifications or assurance programs
-                as completed before they are completed.
+                Document how AIGO-OS connects to enterprise systems, what
+                information crosses the boundary and where governance
+                decisions are made.
+              </p>
+            </article>
+
+            <article>
+              <span>Security</span>
+              <h3>Protect the governance plane.</h3>
+              <p>
+                Security controls must protect the identities, policies,
+                authority definitions, decision context and evidence used by
+                the governance layer.
               </p>
 
-              <p>
-                As security documentation, independent assurance and
-                formal compliance artifacts become available, this
-                trust center should become the authoritative public
-                location for them.
-              </p>
-
-              <Link href="/contact">
-                Ask a trust or security question
-                <span aria-hidden="true">â†’</span>
+              <Link href="/security">
+                Security architecture
+                <span aria-hidden="true" className="aigo-ui-arrow" />
               </Link>
-            </div>
+            </article>
+
+            <article>
+              <span>Disclosure</span>
+              <h3>Provide a responsible path.</h3>
+              <p>
+                Security researchers and enterprise stakeholders need a clear
+                route for raising security concerns about the platform.
+              </p>
+
+              <Link href="/responsible-disclosure">
+                Responsible disclosure
+                <span aria-hidden="true" className="aigo-ui-arrow" />
+              </Link>
+            </article>
           </div>
         </div>
       </section>
 
       <section className="trust-page__cta">
         <div className="trust-page__cta-shell">
-          <span>Enterprise evaluation</span>
+          <span>Trust review</span>
 
           <h2>
-            Evaluating AIGO-OS for a sensitive environment?
+            Evaluating AIGO-OS for an enterprise environment?
           </h2>
 
           <p>
-            Talk with us about your architecture, governance boundaries
-            and security requirements.
+            Discuss your architecture, AI operating model, authority
+            boundaries, integration requirements and assurance questions with
+            us directly.
           </p>
 
-          <Link href="/contact">
-            Start a security conversation
-            <span aria-hidden="true">â†’</span>
+          <Link href="/contact?intent=demo">
+            Request a Demo
+            <span aria-hidden="true" className="aigo-ui-arrow" />
           </Link>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

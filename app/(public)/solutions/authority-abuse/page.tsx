@@ -1,117 +1,77 @@
-import Link from "next/link";
+﻿import { AigoUseCasePage } from "@/components/aigo-use-case-page";
 
 export default function Page() {
   return (
-    <>
-      <section className="aigo-solution-hero">
-        <div className="aigo-home-shell">
-          <p className="aigo-home-eyebrow">
-            Enterprise use case
-          </p>
-
-          <h1>
-            Control Privilege and Authority Abuse
-          </h1>
-
-          <p className="aigo-solution-hero__lead">
-            Govern how recognized AI actors exercise
-            permissions and delegated authority across
-            enterprise systems, tools and workflows.
-          </p>
-
-          <div className="aigo-home-actions">
-            <Link
-              className="aigo-home-button aigo-home-button--primary"
-              href="/contact?intent=demo"
-            >
-              Request a Demo
-            </Link>
-
-            <Link
-              className="aigo-home-button aigo-home-button--secondary"
-              href="/product"
-            >
-              Explore AIGO-OS
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="aigo-solution-body">
-        <div className="aigo-home-shell aigo-solution-body__grid">
-          <article>
-            <span>THE PROBLEM</span>
-
-            <h2>
-              A valid identity does not make every exercise
-              of authority valid.
-            </h2>
-
-            <p>
-              An AI actor may have an approved identity,
-              assigned permissions and legitimate access
-              while still attempting an action outside its
-              delegated purpose, organizational scope or
-              current operating conditions.
-            </p>
-          </article>
-
-          <article>
-            <span>THE AIGO-OS CONTROL</span>
-
-            <h2>
-              Evaluate authority at the moment of action.
-            </h2>
-
-            <p>
-              AIGO-OS evaluates who or what is acting, the
-              authority under which the actor is operating,
-              the intended purpose, relevant conditions and
-              contextual risk before consequential actions
-              proceed.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section className="aigo-solution-decision">
-        <div className="aigo-home-shell">
-          <p className="aigo-home-eyebrow aigo-home-eyebrow--dark">
-            Contextual authority
-          </p>
-
-          <h2>
-            Permission is not the same as authority.
-          </h2>
-
-          <div className="aigo-decision-grid">
-            <strong>ALLOW</strong>
-            <strong>DENY</strong>
-            <strong>REVIEW REQUIRED</strong>
-            <strong>ESCALATE</strong>
-            <strong>SUSPEND</strong>
-          </div>
-        </div>
-      </section>
-
-      <section className="aigo-page-conversion">
-        <div className="aigo-home-shell aigo-page-conversion__inner">
-          <div>
-            <span>See it in your environment</span>
-
-            <h2>
-              Evaluate delegated authority with AIGO-OS.
-            </h2>
-          </div>
-
-          <Link
-            className="aigo-home-button aigo-home-button--primary"
-            href="/contact?intent=demo"
-          >
-            Request a Demo
-          </Link>
-        </div>
-      </section>
-    </>
+    <AigoUseCasePage
+      eyebrow="Prevent Authority Abuse"
+      title="Recognized identity does not make every exercise of authority legitimate."
+      lead="An AI actor can be known, authenticated and intentionally deployed while still attempting to exercise authority outside its intended scope, conditions or purpose. AIGO-OS keeps authority connected to governance context."
+      problemTitle="Authority can be valid in one context and inappropriate in another."
+      problemBody="Machine authority is not simply a permanent permission flag. Scope, purpose, operating conditions, lifecycle state, relationships and human approval requirements can change whether an action remains within the authority the enterprise intended to delegate."
+      existingControls={[
+        {
+          title: "Authentication",
+          body:
+            "Confirms identity but does not establish that every action performed by that identity remains inside delegated business authority.",
+        },
+        {
+          title: "Permissions",
+          body:
+            "Define technical access but often lack the contextual boundaries required to govern autonomous enterprise action.",
+        },
+        {
+          title: "Audit logs",
+          body:
+            "Record activity after or during execution. Governance requires the authority context behind the decision as well.",
+        },
+      ]}
+      aigoCapabilities={[
+        {
+          title: "Actor Passport",
+          body:
+            "Resolve the governed identity, purpose, ownership, lifecycle and relationships of the actor.",
+        },
+        {
+          title: "Machine Authority",
+          body:
+            "Represent the scope, actions, resources, conditions and human boundaries attached to delegated authority.",
+        },
+        {
+          title: "Business Significance",
+          body:
+            "Determine how important the affected business capability, process or stakeholder context may be.",
+        },
+        {
+          title: "Risk Intelligence",
+          body:
+            "Interpret authority gaps and changing conditions in the broader governance context.",
+        },
+        {
+          title: "Governance Decision",
+          body:
+            "Determine the appropriate response when effective authority does not support the intended activity.",
+        },
+        {
+          title: "Evidence",
+          body:
+            "Preserve which authority was evaluated and why the resulting governance outcome followed.",
+        },
+      ]}
+      decisionContext={[
+        "Which authority is currently effective?",
+        "Is the requested action inside its scope?",
+        "Are required conditions still true?",
+        "Has the actor or environment changed?",
+        "Does policy require additional authority?",
+        "Should the activity proceed or stop?",
+      ]}
+      businessOutcomes={[
+        "Keep recognized AI identities from being treated as unrestricted sources of authority.",
+        "Make changing authority conditions visible to governance reasoning.",
+        "Respond when autonomous activity moves outside delegated scope or purpose.",
+        "Preserve evidence of the authority basis used for consequential decisions.",
+      ]}
+      closingTitle="Make delegated machine authority explicit, contextual and reviewable."
+    />
   );
 }

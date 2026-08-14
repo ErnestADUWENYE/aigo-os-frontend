@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 type PublicPageCtaProps = {
   eyebrow?: string;
@@ -10,7 +10,7 @@ export function PublicPageCta({
   eyebrow = "Govern what comes next",
   title = "Bring autonomous AI under continuous governance.",
   description =
-    "Explore how AIGO-OS can support real enterprise AI environments through the Design Partner Program.",
+    "Explore how AIGO-OS governs enterprise AI across identity, authority, business significance, risk, decisions and evidence.",
 }: PublicPageCtaProps) {
   return (
     <section className="public-page-cta">
@@ -24,7 +24,7 @@ export function PublicPageCta({
         <div className="public-page-cta__actions">
           <Link href="/contact?intent=demo">
             Request a Demo
-            <span aria-hidden="true">â†’</span>
+            <span aria-hidden="true" className="aigo-ui-arrow" />
           </Link>
 
           <Link href="/contact">

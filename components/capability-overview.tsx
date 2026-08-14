@@ -1,84 +1,93 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
-const capabilities = [
+const useCases = [
   {
     number: "01",
-    title: "Discover the AI estate",
+    title: "Establish Accountable AI Identity",
+    href: "/solutions/accountable-ai-identity",
     description:
-      "Continuously identify AI agents, models, applications, automations and governed services operating across the enterprise.",
-    href: "/resources/ai-governance",
+      "Resolve fragmented AI identities and technical representations into accountable organisational context.",
   },
   {
     number: "02",
-    title: "Establish actor identity",
+    title: "Assess Excessive Agency",
+    href: "/solutions/excessive-agency",
     description:
-      "Build canonical Actor Passports that connect ownership, provenance, lifecycle state, relationships and governance context.",
-    href: "/resources/actor-passports",
+      "Assess where AI authority, functionality or autonomy extends beyond its intended purpose or operating conditions.",
   },
   {
     number: "03",
-    title: "Define machine authority",
+    title: "Assess AI Authority & Privilege",
+    href: "/solutions/ai-authority-privilege",
     description:
-      "Express what an AI actor may do, where it may act, which resources it may access and when human approval is required.",
-    href: "/resources/authority",
+      "Understand the permissions, access and delegated authority available to an AI Actor in enterprise context.",
   },
   {
     number: "04",
-    title: "Interpret contextual risk",
+    title: "Establish Human Oversight",
+    href: "/solutions/human-oversight",
     description:
-      "Evaluate risk using technical signals, business significance, dependencies, authority and the operating context of each actor.",
-    href: "/product/risk-intelligence",
+      "Bring accountable human judgment into AI activity when governance, consequence or authority requires it.",
   },
   {
     number: "05",
-    title: "Govern decisions",
+    title: "Prioritise AI Governance",
+    href: "/solutions/prioritise-ai-governance",
     description:
-      "Apply policy and governance context at decision time so autonomous activity remains inside defined operating boundaries.",
-    href: "/product",
+      "Focus governance attention where AI authority and activity carry the greatest business significance.",
   },
   {
     number: "06",
-    title: "Preserve traceability",
+    title: "Build AI Governance Evidence",
+    href: "/solutions/ai-governance-evidence",
     description:
-      "Generate governance evidence that records what was known, what was decided, why it was decided and what happened next.",
-    href: "/product/governance-receipts",
+      "Preserve AI context, authority and governance decisions for traceability, assurance and audit.",
   },
 ];
 
 export function CapabilityOverview() {
   return (
-    <section className="public-light">
-      <div className="public-section-shell">
-        <div className="public-section-heading">
-          <span className="public-section-kicker">
-            Continuous governance
-          </span>
+    <section className="aigo-public-usecases">
+      <div className="aigo-public-shell">
+        <div className="aigo-public-section-heading">
+          <div>
+            <span className="aigo-public-kicker">
+              SOLUTIONS
+            </span>
 
-          <h2>
-            Governance that moves with the AI.
-          </h2>
+            <div className="aigo-public-pill">
+              BY USE CASE
+            </div>
 
-          <p className="public-section-intro">
-            AIGO-OS connects discovery, identity, authority, risk,
-            decisions and evidence into one continuous governance
-            operating model.
+            <h2>
+              Govern the problems that emerge
+              <span> when AI begins to act.</span>
+            </h2>
+          </div>
+
+          <p>
+            Address recognised enterprise AI governance challenges with connected organisational context.
+            AIGO-OS brings identity, authority, business significance, risk,
+            policy, decisioning and evidence together around each one.
           </p>
         </div>
 
-        <div className="public-capability-grid">
-          {capabilities.map((capability) => (
-            <Link
-              className="public-capability-card"
-              href={capability.href}
-              key={capability.number}
-            >
-              <span className="public-capability-card__number">
-                {capability.number}
-              </span>
+        <div className="aigo-public-usecases__grid">
+          {useCases.map((item) => (
+            <Link href={item.href} key={item.href}>
+              <span>{item.number}</span>
 
-              <h3>{capability.title}</h3>
+              <h3>{item.title}</h3>
 
-              <p>{capability.description}</p>
+              <p>{item.description}</p>
+
+              <strong>
+                Explore use case
+                <i
+                  aria-hidden="true"
+                  className="aigo-ui-arrow"
+                />
+              </strong>
             </Link>
           ))}
         </div>
@@ -86,3 +95,4 @@ export function CapabilityOverview() {
     </section>
   );
 }
+

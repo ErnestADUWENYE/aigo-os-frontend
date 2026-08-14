@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 export default function Page() {
   return (
@@ -64,9 +64,9 @@ export default function Page() {
               See how this concept becomes an operating capability.
             </strong>
 
-            <Link href="/product">
+            <Link href="/platform">
               Explore the platform
-              <span aria-hidden="true">→</span>
+              <span aria-hidden="true">â†’</span>
             </Link>
           </div>
         </div>

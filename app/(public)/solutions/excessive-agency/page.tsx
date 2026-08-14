@@ -1,104 +1,77 @@
-﻿import Link from "next/link";
+﻿import { AigoUseCasePage } from "@/components/aigo-use-case-page";
 
 export default function Page() {
   return (
-    <>
-      <section className="aigo-solution-hero">
-        <div className="aigo-home-shell">
-          <p className="aigo-home-eyebrow">
-            Enterprise use case
-          </p>
-
-          <h1>Control Excessive Agency</h1>
-
-          <p className="aigo-solution-hero__lead">
-            Prevent autonomous AI systems from taking actions beyond the authority, purpose or operating conditions they were given.
-          </p>
-
-          <div className="aigo-home-actions">
-            <Link
-              className="aigo-home-button aigo-home-button--primary"
-              href="/contact?intent=demo"
-            >
-              Request a Demo
-            </Link>
-
-            <Link
-              className="aigo-home-button aigo-home-button--secondary"
-              href="/product"
-            >
-              Explore AIGO-OS
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="aigo-solution-body">
-        <div className="aigo-home-shell aigo-solution-body__grid">
-          <article>
-            <span>THE PROBLEM</span>
-
-            <h2>
-              Control has to extend beyond identity and access.
-            </h2>
-
-            <p>
-              An AI actor can have valid access and legitimate tools while still having more operational freedom than the organization intended. Excessive functionality, permissions or autonomy can turn a mistake or manipulated instruction into a consequential action.
-            </p>
-          </article>
-
-          <article>
-            <span>THE AIGO-OS CONTROL</span>
-
-            <h2>
-              Govern the action at the moment it matters.
-            </h2>
-
-            <p>
-              AIGO-OS evaluates the proposed action against delegated authority, purpose, operating conditions, contextual risk and required human oversight before the action proceeds.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section className="aigo-solution-decision">
-        <div className="aigo-home-shell">
-          <p className="aigo-home-eyebrow aigo-home-eyebrow--dark">
-            Contextual decision
-          </p>
-
-          <h2>
-            Apply the appropriate response to each action.
-          </h2>
-
-          <div className="aigo-decision-grid">
-            <strong>ALLOW</strong>
-            <strong>DENY</strong>
-            <strong>REVIEW REQUIRED</strong>
-            <strong>ESCALATE</strong>
-            <strong>SUSPEND</strong>
-          </div>
-        </div>
-      </section>
-
-      <section className="aigo-page-conversion">
-        <div className="aigo-home-shell aigo-page-conversion__inner">
-          <div>
-            <span>See it in your environment</span>
-
-            <h2>
-              Evaluate this control problem with AIGO-OS.
-            </h2>
-          </div>
-
-          <Link
-            className="aigo-home-button aigo-home-button--primary"
-            href="/contact?intent=demo"
-          >
-            Request a Demo
-          </Link>
-        </div>
-      </section>
-    </>
+    <AigoUseCasePage
+      eyebrow="Control Excessive Agency"
+      title="Keep autonomous AI inside the authority the enterprise intended."
+      lead="AI can remain correctly authenticated and technically permitted while still exercising more functionality, freedom or autonomy than the organization intended. AIGO-OS helps make that operating boundary governable."
+      problemTitle="Capability can expand faster than accountability."
+      problemBody="As AI systems gain tools, permissions, integrations and the ability to act across workflows, the important question is no longer only whether the system has access. The enterprise must also determine whether the action fits the actor's delegated authority, intended purpose, current conditions and required level of oversight."
+      existingControls={[
+        {
+          title: "Identity and access",
+          body:
+            "Establish who or what is authenticated and which resources can be reached. They do not alone determine whether every technically possible action is appropriate.",
+        },
+        {
+          title: "Observability",
+          body:
+            "Shows runtime activity and technical behavior. It can reveal what occurred without independently establishing the actor's business authority.",
+        },
+        {
+          title: "Policy and GRC",
+          body:
+            "Define organizational requirements and controls. The remaining challenge is carrying that context into the governance of changing machine activity.",
+        },
+      ]}
+      aigoCapabilities={[
+        {
+          title: "Actor Passport",
+          body:
+            "Establish the governed identity, ownership, purpose, relationships and lifecycle context of the AI actor.",
+        },
+        {
+          title: "Machine Authority",
+          body:
+            "Represent the actions, resources, scope, conditions and human boundaries that define delegated authority.",
+        },
+        {
+          title: "Business Significance",
+          body:
+            "Determine how consequential the activity may be to business capabilities, processes and stakeholders.",
+        },
+        {
+          title: "Risk Intelligence",
+          body:
+            "Interpret relevant risk signals in the context of the actor's authority, dependencies and current operating conditions.",
+        },
+        {
+          title: "Governance Decision",
+          body:
+            "Bring the available context together to determine the appropriate governance response.",
+        },
+        {
+          title: "Governance Receipt",
+          body:
+            "Preserve the context, governance basis, decision and outcome for later reconstruction.",
+        },
+      ]}
+      decisionContext={[
+        "Who or what is acting?",
+        "What authority applies?",
+        "What is the intended purpose?",
+        "Which resources are affected?",
+        "What conditions are currently true?",
+        "How significant could the action be?",
+      ]}
+      businessOutcomes={[
+        "Preserve useful autonomy without treating every technically possible action as automatically acceptable.",
+        "Reduce the gap between machine capability and the authority the enterprise intended to delegate.",
+        "Apply human involvement where authority, policy or consequence requires judgement.",
+        "Keep evidence connected to consequential governance decisions.",
+      ]}
+      closingTitle="Govern autonomy without giving up control of enterprise authority."
+    />
   );
 }

@@ -1,73 +1,56 @@
 ﻿import Link from "next/link";
 
-import { GovernanceEngineVisual } from "@/components/governance-engine-visual";
+import { Page01HeroVisual } from "@/components/page01-hero-visual";
+import styles from "@/styles/page01-home.module.css";
 
 export function PublicHero() {
   return (
-    <section className="public-hero">
-      <div className="public-hero__atmosphere" aria-hidden="true">
-        <div className="public-hero__glow public-hero__glow--blue" />
-        <div className="public-hero__glow public-hero__glow--gold" />
-        <div className="public-hero__grid" />
-      </div>
+    <section className={styles.hero}>
+      <div className={styles.heroBackdrop} aria-hidden="true" />
 
-      <div className="public-hero__inner">
-        <div className="public-hero__content">
-          <div className="public-hero__eyebrow">
-            <span className="public-hero__eyebrow-dot" />
-            Autonomy-first AI governance
-          </div>
+      <div className={styles.heroShell}>
+        <div className={styles.heroCopy}>
+          <p className={styles.eyebrow}>
+            AI GOVERNANCE OPERATING SYSTEM
+          </p>
 
-          <h1 className="public-hero__title">
-            Govern AI at the
-            <span className="public-hero__title-accent">
-              {" "}speed of autonomy.
+          <h1 className={styles.heroTitle}>
+            <span>
+              Know what AI activity means to your business.
+            </span>
+
+            <span>
+              Know what governance should apply, as it happens.
             </span>
           </h1>
 
-          <p className="public-hero__description">
-            AIGO-OS discovers, understands and continuously governs
-            enterprise AI, establishing identity, authority, risk and
-            traceability across autonomous systems.
+          <p className={styles.heroLead}>
+            AIGO-OS connects the systems that operate, observe and
+            govern enterprise AI. It brings together AI activity,
+            identity, authority, risk, policy and business context
+            to determine Business Significance and the governance
+            appropriate to it.
           </p>
 
-          <div className="public-hero__actions">
-            <Link
-              className="public-hero__primary"
-              href="/contact?intent=demo"
-            >
+          <div className={styles.heroActions}>
+            <Link className={styles.primaryButton} href="/demo">
               Request a Demo
-              <span aria-hidden="true">&rarr;</span>
             </Link>
 
-            <Link
-              className="public-hero__secondary"
-              href="/product"
-            >
+            <Link className={styles.secondaryButton} href="/platform">
               Explore AIGO-OS
             </Link>
           </div>
 
-          <div className="public-hero__principle">
-            <span>Machine first.</span>
-            <span>Human by exception.</span>
-            <span>Traceability always.</span>
+          <div className={styles.heroCapabilities}>
+            <span>Business Significance</span>
+            <span>Machine Authority</span>
+            <span>Governance Decisioning</span>
+            <span>Governance Receipts</span>
           </div>
         </div>
 
-        <GovernanceEngineVisual />
-      </div>
-
-      <div className="public-hero__continuum">
-        <span>Discover</span>
-        <i />
-        <span>Understand</span>
-        <i />
-        <span>Govern</span>
-        <i />
-        <span>Assure</span>
-        <i />
-        <span>Monitor</span>
+        <Page01HeroVisual />
       </div>
     </section>
   );

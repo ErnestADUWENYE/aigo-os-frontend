@@ -8,137 +8,138 @@ type CapabilityDemoProps = {
   mode: CapabilityMode;
 };
 
-const demos = {
+const capabilities = {
   passport: {
     kicker: "ACTOR PASSPORT",
-    title: "Procurement Agent 07",
-    status: "ACTIVE",
-    scoreLabel: "Identity confidence",
-    score: "98%",
-    fields: [
-      ["Actor type", "Autonomous agent"],
-      ["Owner", "Procurement Operations"],
-      ["Environment", "Production"],
-      ["Purpose", "Supplier settlement"],
-      ["Lifecycle", "Active"],
-      ["Authority profile", "PROC-PAY-02"],
+    title: "Establish persistent governance identity",
+    statement:
+      "AIGO-OS brings fragmented observations of an AI system into a governed identity that other governance services can use consistently.",
+    inputs: [
+      ["Discovery signals", "Observed AI systems and services"],
+      ["Identity context", "Technical identifiers and attributes"],
+      ["Ownership", "Accountable organizational context"],
+      ["Provenance", "Where the actor and its context came from"],
+      ["Relationships", "Dependencies and connected systems"],
+      ["Lifecycle", "Current governance state"],
     ],
-    flow: [
-      "Observe actor",
-      "Correlate identity",
-      "Resolve ownership",
-      "Create passport",
+    stages: [
+      "Observe",
+      "Correlate",
+      "Resolve",
+      "Establish passport",
     ],
-    outcome:
-      "A canonical governance identity is available to authority, risk and decision services.",
+    resultTitle: "Governance identity established",
+    result:
+      "Identity, ownership, provenance, relationships and lifecycle context become connected governance context for the AI actor.",
+    feeds: ["Authority", "Risk", "Decisions", "Evidence"],
   },
 
   authority: {
     kicker: "MACHINE AUTHORITY",
-    title: "PROC-PAY-02",
-    status: "ENFORCED",
-    scoreLabel: "Authority utilization",
-    score: "64%",
-    fields: [
-      ["Action", "Issue payment"],
-      ["Resource", "Approved suppliers"],
-      ["Autonomous limit", "$25,000"],
-      ["Environment", "Production"],
-      ["Expiry", "2026-12-31"],
-      ["Human threshold", "> $25,000"],
+    title: "Turn permission into explicit operating authority",
+    statement:
+      "AIGO-OS represents what an AI actor may do, where it may operate and which conditions determine whether autonomous action can continue.",
+    inputs: [
+      ["Actor", "Governed identity and operating context"],
+      ["Action", "The capability being exercised"],
+      ["Resource", "The system or resource affected"],
+      ["Scope", "Permitted operating boundary"],
+      ["Conditions", "Context that constrains authority"],
+      ["Human boundary", "Where judgement or approval is required"],
     ],
-    flow: [
-      "Identify actor",
+    stages: [
+      "Resolve actor",
       "Resolve authority",
       "Evaluate conditions",
-      "Enforce boundary",
+      "Determine boundary",
     ],
-    outcome:
-      "The actor can act automatically inside the defined authority envelope and escalates outside it.",
+    resultTitle: "Effective authority determined",
+    result:
+      "The governance decision can distinguish what the actor can technically access from what it is authorized to do in the current context.",
+    feeds: ["Decision", "Enforcement", "Escalation", "Evidence"],
   },
 
   risk: {
     kicker: "RISK INTELLIGENCE",
-    title: "Contextual Risk Evaluation",
-    status: "ELEVATED",
-    scoreLabel: "Risk score",
-    score: "78 / 100",
-    fields: [
-      ["Actor risk", "Low"],
-      ["Action risk", "Medium"],
-      ["Transaction", "$48,200"],
-      ["Authority gap", "$23,200"],
-      ["Environment", "Production"],
-      ["Business impact", "Material"],
+    title: "Interpret risk through business and governance context",
+    statement:
+      "AIGO-OS connects technical signals with authority, dependencies, business significance and operating context so risk reflects potential enterprise consequence.",
+    inputs: [
+      ["Actor context", "Identity, purpose and lifecycle"],
+      ["Authority", "Effective operating boundary"],
+      ["Technical signals", "Relevant observed conditions"],
+      ["Dependencies", "Systems and relationships affected"],
+      ["Business significance", "Why the activity matters"],
+      ["Operating context", "Conditions surrounding the action"],
     ],
-    flow: [
-      "Collect signals",
-      "Interpret context",
-      "Calculate exposure",
-      "Update decision state",
+    stages: [
+      "Collect context",
+      "Interpret significance",
+      "Evaluate exposure",
+      "Inform decision",
     ],
-    outcome:
-      "Risk rises because the requested action exceeds the autonomous authority threshold in a production context.",
+    resultTitle: "Governance-relevant risk established",
+    result:
+      "Risk becomes decision context rather than an isolated technical score, allowing governance to respond to the significance of the activity.",
+    feeds: ["Decision", "Review", "Reassessment", "Evidence"],
   },
 
   receipt: {
-    kicker: "GOVERNANCE RECEIPT",
-    title: "GR-2026-0811-48200",
-    status: "SEALED",
-    scoreLabel: "Evidence completeness",
-    score: "100%",
-    fields: [
-      ["Actor", "Procurement Agent 07"],
-      ["Action", "Issue supplier payment"],
-      ["Authority", "PROC-PAY-02"],
-      ["Risk", "Elevated"],
-      ["Decision", "Review required"],
-      ["Human policy", "Finance approval"],
+    kicker: "GOVERNANCE RECEIPTS",
+    title: "Preserve the evidence behind governed autonomy",
+    statement:
+      "AIGO-OS retains the governance context associated with a decision so the enterprise can later reconstruct why an outcome occurred.",
+    inputs: [
+      ["Actor", "Governed identity at decision time"],
+      ["Authority", "Effective authority evaluated"],
+      ["Risk", "Relevant risk context"],
+      ["Policy", "Governance basis used"],
+      ["Decision", "Outcome of governance evaluation"],
+      ["Action outcome", "What followed the decision"],
     ],
-    flow: [
+    stages: [
       "Capture context",
-      "Record evaluation",
+      "Link evaluation",
       "Record outcome",
       "Preserve evidence",
     ],
-    outcome:
-      "The enterprise retains a reconstructable record of what was requested, evaluated, decided and enforced.",
+    resultTitle: "Governance record preserved",
+    result:
+      "The enterprise retains connected evidence of what was known, what governance basis applied, what was decided and what followed.",
+    feeds: ["Audit", "Assurance", "Investigation", "Accountability"],
   },
 } as const;
 
 export function AigoCapabilityDemo({
   mode,
 }: CapabilityDemoProps) {
-  const demo = demos[mode];
+  const capability = capabilities[mode];
 
   return (
     <section className={`aigo-cap-demo aigo-cap-demo--${mode}`}>
       <div className="public-section-shell">
         <div className="aigo-cap-demo__heading">
           <div>
-            <span>{demo.kicker}</span>
-            <h2>See the capability operating.</h2>
+            <span>{capability.kicker}</span>
+            <h2>{capability.title}</h2>
           </div>
 
-          <p>
-            Illustrative enterprise scenario showing how AIGO-OS
-            turns governance context into operational control.
-          </p>
+          <p>{capability.statement}</p>
         </div>
 
         <div className="aigo-cap-demo__scene">
           <div className="aigo-cap-demo__primary">
             <div className="aigo-cap-demo__primary-head">
               <div>
-                <span>{demo.kicker}</span>
-                <strong>{demo.title}</strong>
+                <span>GOVERNANCE CONTEXT</span>
+                <strong>Inputs AIGO-OS connects</strong>
               </div>
 
-              <small>{demo.status}</small>
+              <small>CONNECTED</small>
             </div>
 
             <div className="aigo-cap-demo__field-grid">
-              {demo.fields.map(([label, value], index) => (
+              {capability.inputs.map(([label, value], index) => (
                 <div
                   className="aigo-cap-demo__field"
                   key={label}
@@ -152,24 +153,18 @@ export function AigoCapabilityDemo({
               ))}
             </div>
 
-            <div className="aigo-cap-demo__score">
-              <div>
-                <span>{demo.scoreLabel}</span>
-                <strong>{demo.score}</strong>
-              </div>
-
-              <div className="aigo-cap-demo__score-track">
-                <i />
-              </div>
+            <div className="aigo-cap-demo__context-line">
+              <span>Context remains connected across the governance lifecycle.</span>
+              <i aria-hidden="true" />
             </div>
           </div>
 
           <div className="aigo-cap-demo__flow">
             <span className="aigo-cap-demo__flow-label">
-              AIGO-OS PROCESS
+              GOVERNANCE OPERATION
             </span>
 
-            {demo.flow.map((stage, index) => (
+            {capability.stages.map((stage, index) => (
               <div
                 className="aigo-cap-demo__flow-stage"
                 key={stage}
@@ -183,28 +178,25 @@ export function AigoCapabilityDemo({
 
                 <strong>{stage}</strong>
 
-                <i />
+                <i aria-hidden="true" />
               </div>
             ))}
           </div>
 
           <div className="aigo-cap-demo__outcome">
-            <span>OPERATING OUTCOME</span>
+            <span>GOVERNANCE RESULT</span>
 
-            <div className="aigo-cap-demo__outcome-orb">
-              <div>
-                <small>AIGO-OS</small>
-                <strong>{demo.status}</strong>
-              </div>
+            <div className="aigo-cap-demo__result-core">
+              <small>AIGO-OS</small>
+              <strong>{capability.resultTitle}</strong>
             </div>
 
-            <p>{demo.outcome}</p>
+            <p>{capability.result}</p>
 
             <div className="aigo-cap-demo__evidence">
-              <span>Context</span>
-              <span>Policy</span>
-              <span>Decision</span>
-              <span>Evidence</span>
+              {capability.feeds.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
             </div>
           </div>
         </div>

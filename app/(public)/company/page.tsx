@@ -58,7 +58,7 @@ export default function CompanyPage() {
           </p>
 
           <div className="company-page__hero-actions">
-            <Link href="/product">
+            <Link href="/platform">
               Explore AIGO-OS
               <span aria-hidden="true">â†’</span>
             </Link>
@@ -193,3 +193,4 @@ export default function CompanyPage() {
     </div>
   );
 }
+

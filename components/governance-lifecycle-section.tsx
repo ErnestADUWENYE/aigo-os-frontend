@@ -1,133 +1,79 @@
-const stages = [
+﻿const pillars = [
   {
-    number: "01",
-    title: "Discover",
-    detail: "Detect AI actors across the enterprise environment.",
+    label: "GOVERN",
+    title:
+      "Establish the governance context for autonomous operation.",
+    items: [
+      "Discovery",
+      "Actor identity",
+      "Relationships",
+      "Authority",
+      "Business Significance",
+      "Risk",
+      "Policy",
+      "Governance decisions",
+    ],
   },
   {
-    number: "02",
-    title: "Correlate",
-    detail: "Resolve fragmented signals into canonical actors.",
+    label: "OPERATE",
+    title:
+      "Keep governance connected to a changing enterprise environment.",
+    items: [
+      "Integrations",
+      "Continuous signals",
+      "Monitoring",
+      "Supported execution paths",
+      "Human exception workflows",
+      "Reassessment",
+    ],
   },
   {
-    number: "03",
-    title: "Passport",
-    detail: "Establish identity, ownership, provenance and context.",
-  },
-  {
-    number: "04",
-    title: "Authority",
-    detail: "Determine effective machine operating boundaries.",
-  },
-  {
-    number: "05",
-    title: "Risk",
-    detail: "Interpret exposure using technical and business context.",
-  },
-  {
-    number: "06",
-    title: "Decide",
-    detail: "Evaluate policy and governance requirements at decision time.",
-  },
-  {
-    number: "07",
-    title: "Act",
-    detail: "Allow, constrain, escalate or intervene when required.",
-  },
-  {
-    number: "08",
-    title: "Receipt",
-    detail: "Preserve evidence of the decision, action and outcome.",
+    label: "PROVE",
+    title:
+      "Preserve enough context to reconstruct governance decisions.",
+    items: [
+      "Decision reasoning",
+      "Evidence",
+      "Governance Receipts",
+      "Audit trail",
+      "Assurance",
+      "Reporting",
+    ],
   },
 ];
 
 export function GovernanceLifecycleSection() {
   return (
-    <section className="governance-lifecycle">
-      <div className="governance-lifecycle__shell">
-        <div className="governance-lifecycle__heading">
-          <div>
-            <span className="governance-lifecycle__kicker">
-              The AIGO-OS operating model
-            </span>
+    <section className="aigo-public-model">
+      <div className="aigo-public-shell">
+        <span className="aigo-public-kicker">
+          THE AIGO-OS OPERATING MODEL
+        </span>
 
-            <h2>
-              From unknown AI to governed operation.
-            </h2>
-          </div>
+        <h2>
+          Govern.
+          <span>Operate.</span>
+          Prove.
+        </h2>
 
-          <p>
-            AIGO-OS turns fragmented enterprise AI signals into a
-            continuously governed operating state. Each stage adds the
-            context required for the next governance decision.
-          </p>
-        </div>
+        <div className="aigo-public-model__grid">
+          {pillars.map((pillar, index) => (
+            <article key={pillar.label}>
+              <div className="aigo-public-model__number">
+                0{index + 1}
+              </div>
 
-        <div className="governance-lifecycle__actor">
-          <div className="governance-lifecycle__actor-head">
-            <div>
-              <span>Live actor</span>
-              <strong>Claims Assistant</strong>
-            </div>
+              <span>{pillar.label}</span>
 
-            <div className="governance-lifecycle__live">
-              <i />
-              Governance active
-            </div>
-          </div>
+              <h3>{pillar.title}</h3>
 
-          <div className="governance-lifecycle__pipeline">
-            {stages.map((stage) => (
-              <article
-                className="governance-lifecycle__stage"
-                key={stage.number}
-              >
-                <span className="governance-lifecycle__number">
-                  {stage.number}
-                </span>
-
-                <div className="governance-lifecycle__stage-signal">
-                  <i />
-                  <span />
-                </div>
-
-                <h3>{stage.title}</h3>
-                <p>{stage.detail}</p>
-              </article>
-            ))}
-          </div>
-
-          <div className="governance-lifecycle__state">
-            <div>
-              <span>Identity</span>
-              <strong>Verified</strong>
-            </div>
-
-            <div>
-              <span>Owner</span>
-              <strong>Claims Operations</strong>
-            </div>
-
-            <div>
-              <span>Authority</span>
-              <strong>Defined</strong>
-            </div>
-
-            <div>
-              <span>Risk</span>
-              <strong>Within boundary</strong>
-            </div>
-
-            <div>
-              <span>Decision</span>
-              <strong>Allow</strong>
-            </div>
-
-            <div>
-              <span>Evidence</span>
-              <strong>Receipt generated</strong>
-            </div>
-          </div>
+              <div>
+                {pillar.items.map((item) => (
+                  <small key={item}>{item}</small>
+                ))}
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

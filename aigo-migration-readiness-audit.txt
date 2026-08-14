@@ -1,0 +1,1787 @@
+﻿
+============================================================
+FILE: app\(public)\page.tsx
+============================================================
+
+import { PublicHero } from "@/components/public-hero";
+import { Page01BusinessContext } from "@/components/page01-business-context";
+import { Page01CoreSections } from "@/components/page01-core-sections";
+
+export default function HomePage() {
+  return (
+    <>
+      <PublicHero />
+      <Page01BusinessContext />
+      <Page01CoreSections />
+    </>
+  );
+}
+
+============================================================
+FILE: app\(public)\product\page.tsx
+============================================================
+
+import { Page02PlatformOverview } from "@/components/page02-platform-overview";
+
+export default function ProductPage() {
+  return <Page02PlatformOverview />;
+}
+
+============================================================
+FILE: app\(public)\product\actor-passports\page.tsx
+============================================================
+
+import { Page03ActorPassports } from "@/components/page03-actor-passports";
+
+export default function ActorPassportsPage() {
+  return <Page03ActorPassports />;
+}
+
+============================================================
+FILE: app\(public)\product\authority\page.tsx
+============================================================
+
+import { Page04MachineAuthority } from "@/components/page04-machine-authority";
+
+export default function MachineAuthorityPage() {
+  return <Page04MachineAuthority />;
+}
+
+============================================================
+FILE: app\(public)\product\business-significance\page.tsx
+============================================================
+
+import { Page05BusinessSignificance } from "@/components/page05-business-significance";
+
+export default function BusinessSignificancePage() {
+  return <Page05BusinessSignificance />;
+}
+
+============================================================
+FILE: app\(public)\product\governance-decisioning\page.tsx
+============================================================
+
+import { Page06GovernanceDecisioning } from "@/components/page06-governance-decisioning";
+
+export default function GovernanceDecisioningPage() {
+  return <Page06GovernanceDecisioning />;
+}
+
+============================================================
+FILE: app\(public)\product\human-authority\page.tsx
+============================================================
+
+import { Page07HumanAuthority } from "@/components/page07-human-authority";
+
+export default function HumanAuthorityPage() {
+  return <Page07HumanAuthority />;
+}
+
+============================================================
+FILE: app\(public)\product\governance-receipts\page.tsx
+============================================================
+
+import { Page08GovernanceReceipts } from "@/components/page08-governance-receipts";
+
+export default function GovernanceReceiptsPage() {
+  return <Page08GovernanceReceipts />;
+}
+
+============================================================
+FILE: app\(public)\product\risk-intelligence\page.tsx
+============================================================
+
+import Link from "next/link";
+
+import { AigoCapabilityDemo } from "@/components/aigo-capability-demo";
+
+const riskContext = [
+  {
+    title: "Actor context",
+    body:
+      "Who or what is acting, its purpose, lifecycle state and governance identity.",
+  },
+  {
+    title: "Effective authority",
+    body:
+      "Whether the intended activity sits inside or outside the actor's delegated operating boundary.",
+  },
+  {
+    title: "Technical signals",
+    body:
+      "Relevant conditions observed from the systems in which the actor operates.",
+  },
+  {
+    title: "Dependencies",
+    body:
+      "The connected systems and relationships through which consequences may propagate.",
+  },
+  {
+    title: "Business significance",
+    body:
+      "The enterprise importance of the activity, resource, process or outcome being affected.",
+  },
+  {
+    title: "Operating context",
+    body:
+      "The surrounding conditions that can make the same capability more or less consequential.",
+  },
+];
+
+export default function Page() {
+  return (
+    <div className="capability-detail">
+      <section className="capability-detail__hero">
+        <div className="capability-detail__hero-shell">
+          <span className="capability-detail__kicker">
+            Risk Intelligence
+          </span>
+
+          <h1>
+            A risk signal means little without the context of what AI can affect.
+          </h1>
+
+          <p>
+            AIGO-OS interprets AI risk through identity, authority,
+            dependencies, business significance and operating context so
+            governance can respond to consequence, not just technical signal.
+          </p>
+
+          <div className="capability-detail__actions">
+            <Link href="/contact?intent=demo">
+              Request a Demo
+            </Link>
+
+            <Link href="/product">
+              Explore the Platform
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="public-section public-light">
+        <div className="public-section-shell">
+          <div className="capability-story-grid">
+            <div>
+              <span className="public-section-kicker">
+                Contextual risk
+              </span>
+
+              <h2>
+                Move from isolated signals to governance-relevant exposure.
+              </h2>
+            </div>
+
+            <div className="capability-story-copy">
+              <p>
+                The significance of AI activity depends on more than the
+                presence of a technical finding. The same signal can carry very
+                different consequences depending on the actor involved, its
+                authority, the systems affected and the business activity at
+                stake.
+              </p>
+
+              <p>
+                AIGO-OS connects those dimensions so risk can inform decisions,
+                escalation and reassessment as operating context changes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="public-section">
+        <div className="public-section-shell">
+          <span className="public-section-kicker">
+            Decision context
+          </span>
+
+          <h2 className="public-section__title">
+            Understand why an autonomous action matters before deciding what happens next.
+          </h2>
+
+          <div className="capability-context-grid">
+            {riskContext.map((item) => (
+              <article key={item.title}>
+                <span>{item.title}</span>
+                <p>{item.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <AigoCapabilityDemo mode="risk" />
+
+      <section className="capability-detail__conversion">
+        <div>
+          <span>Put risk in context</span>
+          <h2>
+            Connect technical signals to the authority and business significance behind AI activity.
+          </h2>
+        </div>
+
+        <Link href="/contact?intent=demo">
+          Request a Demo
+        </Link>
+      </section>
+    </div>
+  );
+}
+
+============================================================
+FILE: app\(public)\solutions\page.tsx
+============================================================
+
+import Link from "next/link";
+
+import { AigoUseCaseMap } from "@/components/aigo-use-case-map";
+
+const useCases = [
+  {
+    number: "01",
+    title: "Control Excessive Agency",
+    href: "/solutions/excessive-agency",
+    statement:
+      "Keep autonomous AI inside the authority, purpose and operating conditions the enterprise intended.",
+    question:
+      "Is the AI doing more than the organization actually authorized it to do?",
+  },
+  {
+    number: "02",
+    title: "Prevent Inappropriate Tool Use",
+    href: "/solutions/agent-tool-misuse",
+    statement:
+      "Govern whether an AI actor should use an enterprise tool, API or resource in the current context.",
+    question:
+      "Technical access exists. Should this use of the capability be allowed?",
+  },
+  {
+    number: "03",
+    title: "Apply Human Oversight Where It Matters",
+    href: "/solutions/human-oversight",
+    statement:
+      "Keep routine autonomous work moving while directing consequential or exceptional activity to human authority.",
+    question:
+      "Can this proceed autonomously, or does the current context require human judgement?",
+  },
+  {
+    number: "04",
+    title: "Prevent Authority Abuse",
+    href: "/solutions/authority-abuse",
+    statement:
+      "Govern activity that conflicts with delegated scope, conditions, purpose or changing authority.",
+    question:
+      "The actor is recognized. Is this exercise of authority still legitimate?",
+  },
+];
+
+const distinction = [
+  {
+    title: "Identity is necessary.",
+    body:
+      "AIGO-OS still needs to know who or what is acting. But recognized identity alone does not establish business authority.",
+  },
+  {
+    title: "Permissions are necessary.",
+    body:
+      "Technical access defines what a system can reach. Governance still has to determine whether the intended action is appropriate.",
+  },
+  {
+    title: "Observability is necessary.",
+    body:
+      "Runtime signals help explain what is happening. AIGO-OS uses relevant signals as governance context rather than becoming another telemetry platform.",
+  },
+  {
+    title: "Policy is necessary.",
+    body:
+      "Enterprise policy defines expectations and constraints. AIGO-OS connects relevant governance context to AI state, decisions and evidence.",
+  },
+];
+
+export default function SolutionsPage() {
+  return (
+    <div className="aigo-solutions">
+      <section className="aigo-solutions__hero">
+        <div className="aigo-public-shell aigo-solutions__hero-grid">
+          <div>
+            <span className="aigo-public-kicker">
+              SOLUTIONS
+            </span>
+
+            <div className="aigo-solutions__pill">
+              BY USE CASE
+            </div>
+
+            <h1>
+              Govern the problems that appear
+              <span> when AI starts to act.</span>
+            </h1>
+
+            <p>
+              AIGO-OS use cases are built around enterprise governance
+              problems created by increasing AI agency. The platform brings
+              identity, authority, Business Significance, risk, policy,
+              decisioning and evidence together around the activity being
+              governed.
+            </p>
+
+            <div className="aigo-public-actions">
+              <Link
+                className="aigo-public-button aigo-public-button--primary"
+                href="/contact?intent=demo"
+              >
+                Request a Demo
+                <span
+                  aria-hidden="true"
+                  className="aigo-ui-arrow"
+                />
+              </Link>
+
+              <Link
+                className="aigo-public-button aigo-public-button--secondary"
+                href="/product"
+              >
+                Explore the Platform
+              </Link>
+            </div>
+          </div>
+
+          <div className="aigo-solutions__hero-question">
+            <span>THE QUESTION AIGO-OS HELPS GOVERN</span>
+
+            <strong>
+              Should this AI perform this action, under these conditions,
+              with this level of autonomy?
+            </strong>
+
+            <div>
+              <small>Identity</small>
+              <small>Authority</small>
+              <small>Purpose</small>
+              <small>Business Significance</small>
+              <small>Risk</small>
+              <small>Policy</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="aigo-solutions__use-cases">
+        <div className="aigo-public-shell">
+          <div className="aigo-public-section-heading">
+            <div>
+              <span className="aigo-public-kicker">
+                FOUR ENTERPRISE USE CASES
+              </span>
+
+              <h2>
+                Different governance failures.
+                <span>A connected AIGO-OS response.</span>
+              </h2>
+            </div>
+
+            <p>
+              The same platform capabilities combine differently depending
+              on the governance problem the enterprise is trying to solve.
+            </p>
+          </div>
+
+          <div className="aigo-solutions__cards">
+            {useCases.map((item) => (
+              <Link href={item.href} key={item.href}>
+                <div className="aigo-solutions__card-top">
+                  <span>{item.number}</span>
+                  <small>USE CASE</small>
+                </div>
+
+                <h3>{item.title}</h3>
+
+                <p>{item.statement}</p>
+
+                <div className="aigo-solutions__question">
+                  <small>GOVERNANCE QUESTION</small>
+                  <strong>{item.question}</strong>
+                </div>
+
+                <div className="aigo-solutions__card-link">
+                  <span>Explore use case</span>
+                  <i
+                    aria-hidden="true"
+                    className="aigo-ui-arrow"
+                  />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="aigo-solutions__map-section">
+        <div className="aigo-public-shell">
+          <div className="aigo-public-section-heading">
+            <div>
+              <span className="aigo-public-kicker">
+                FROM PROBLEM TO GOVERNANCE RESPONSE
+              </span>
+
+              <h2>
+                AIGO-OS does not treat every AI action the same.
+              </h2>
+            </div>
+
+            <p>
+              The governance response depends on who or what is acting,
+              effective authority, business significance, risk, policy and
+              current operating conditions.
+            </p>
+          </div>
+
+          <AigoUseCaseMap />
+        </div>
+      </section>
+
+      <section className="aigo-solutions__distinction">
+        <div className="aigo-public-shell">
+          <div className="aigo-public-section-heading">
+            <div>
+              <span className="aigo-public-kicker">
+                WHY AIGO-OS IS NOT JUST ANOTHER CONTROL DASHBOARD
+              </span>
+
+              <h2>
+                Existing controls answer part of the problem.
+                <span>AIGO-OS connects the governance decision.</span>
+              </h2>
+            </div>
+
+            <p>
+              AIGO-OS is designed to complement the enterprise stack rather
+              than recreate identity, observability, security or GRC inside
+              another dashboard.
+            </p>
+          </div>
+
+          <div className="aigo-solutions__distinction-grid">
+            {distinction.map((item) => (
+              <article key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="aigo-solutions__chain">
+        <div className="aigo-public-shell">
+          <span className="aigo-public-kicker">
+            THE AIGO-OS GOVERNANCE CHAIN
+          </span>
+
+          <h2>
+            Governance does not stop at identification or assessment.
+          </h2>
+
+          <div className="aigo-solutions__chain-flow">
+            <div>
+              <span>01</span>
+              <strong>Actor</strong>
+              <small>Who or what is operating?</small>
+            </div>
+
+            <i />
+
+            <div>
+              <span>02</span>
+              <strong>Authority</strong>
+              <small>What is it governed to do?</small>
+            </div>
+
+            <i />
+
+            <div>
+              <span>03</span>
+              <strong>Business Significance</strong>
+              <small>Why does the activity matter?</small>
+            </div>
+
+            <i />
+
+            <div>
+              <span>04</span>
+              <strong>Risk</strong>
+              <small>What exposure does the context create?</small>
+            </div>
+
+            <i />
+
+            <div>
+              <span>05</span>
+              <strong>Decision</strong>
+              <small>What should happen next?</small>
+            </div>
+
+            <i />
+
+            <div>
+              <span>06</span>
+              <strong>Evidence</strong>
+              <small>Can the governance outcome be reconstructed?</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="aigo-solutions__final">
+        <div className="aigo-public-shell aigo-solutions__final-grid">
+          <div>
+            <span className="aigo-public-kicker">
+              GOVERN AI IN YOUR ENVIRONMENT
+            </span>
+
+            <h2>
+              Start with the governance problem your enterprise needs to solve.
+            </h2>
+          </div>
+
+          <div>
+            <p>
+              See how AIGO-OS applies identity, authority, Business
+              Significance, risk, governance decisions and evidence to the
+              AI operating across your environment.
+            </p>
+
+            <Link
+              className="aigo-public-button aigo-public-button--primary"
+              href="/contact?intent=demo"
+            >
+              Request a Demo
+              <span
+                aria-hidden="true"
+                className="aigo-ui-arrow"
+              />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+============================================================
+FILE: app\(public)\solutions\agent-tool-misuse\page.tsx
+============================================================
+
+import { AigoUseCasePage } from "@/components/aigo-use-case-page";
+
+export default function Page() {
+  return (
+    <AigoUseCasePage
+      eyebrow="Prevent Inappropriate Tool Use"
+      title="A tool being available does not mean every use of it is appropriate."
+      lead="AI systems increasingly operate through enterprise tools, APIs and workflows. AIGO-OS helps govern whether a particular actor should exercise a particular capability in the current context."
+      problemTitle="Tool access creates capability. It does not establish business authority."
+      problemBody="Authentication and permission can establish that an AI actor can reach a tool or API. Governance must answer a different question: whether this actor should use that capability for this purpose, against this resource, under these conditions and with this level of autonomy."
+      existingControls={[
+        {
+          title: "API and application permissions",
+          body:
+            "Determine whether the actor can technically call a tool or service. They do not fully express the business conditions surrounding each use.",
+        },
+        {
+          title: "Security controls",
+          body:
+            "Protect credentials, resources and execution paths. Governance still needs context about purpose, authority and consequence.",
+        },
+        {
+          title: "Runtime monitoring",
+          body:
+            "Provides evidence about tool calls and behavior. AIGO-OS uses relevant signals as governance context rather than duplicating the telemetry platform.",
+        },
+      ]}
+      aigoCapabilities={[
+        {
+          title: "Actor Passport",
+          body:
+            "Resolve the governed actor and the purpose, ownership and relationships attached to it.",
+        },
+        {
+          title: "Machine Authority",
+          body:
+            "Determine whether the requested tool capability sits inside the actor's defined authority.",
+        },
+        {
+          title: "Business Significance",
+          body:
+            "Connect tool use to the business processes, stakeholders and consequences it may affect.",
+        },
+        {
+          title: "Risk Intelligence",
+          body:
+            "Evaluate relevant operating and governance signals in the context of the proposed activity.",
+        },
+        {
+          title: "Governance Decision",
+          body:
+            "Determine whether the activity may proceed, requires review, should be denied or needs escalation.",
+        },
+        {
+          title: "Evidence",
+          body:
+            "Keep the basis for the governance decision connected to the resulting outcome.",
+        },
+      ]}
+      decisionContext={[
+        "Which actor is calling the tool?",
+        "What capability is being exercised?",
+        "Which resource is affected?",
+        "Does authority cover this use?",
+        "What business context applies?",
+        "What governance conditions must hold?",
+      ]}
+      businessOutcomes={[
+        "Keep access control and business authority from being treated as the same thing.",
+        "Govern the use of enterprise capabilities without removing the value of useful machine autonomy.",
+        "Apply contextual review to consequential or exceptional tool use.",
+        "Preserve decision evidence around governed tool activity.",
+      ]}
+      closingTitle="Put governance between available capability and autonomous use."
+    />
+  );
+}
+
+============================================================
+FILE: app\(public)\solutions\authority-abuse\page.tsx
+============================================================
+
+import { AigoUseCasePage } from "@/components/aigo-use-case-page";
+
+export default function Page() {
+  return (
+    <AigoUseCasePage
+      eyebrow="Prevent Authority Abuse"
+      title="Recognized identity does not make every exercise of authority legitimate."
+      lead="An AI actor can be known, authenticated and intentionally deployed while still attempting to exercise authority outside its intended scope, conditions or purpose. AIGO-OS keeps authority connected to governance context."
+      problemTitle="Authority can be valid in one context and inappropriate in another."
+      problemBody="Machine authority is not simply a permanent permission flag. Scope, purpose, operating conditions, lifecycle state, relationships and human approval requirements can change whether an action remains within the authority the enterprise intended to delegate."
+      existingControls={[
+        {
+          title: "Authentication",
+          body:
+            "Confirms identity but does not establish that every action performed by that identity remains inside delegated business authority.",
+        },
+        {
+          title: "Permissions",
+          body:
+            "Define technical access but often lack the contextual boundaries required to govern autonomous enterprise action.",
+        },
+        {
+          title: "Audit logs",
+          body:
+            "Record activity after or during execution. Governance requires the authority context behind the decision as well.",
+        },
+      ]}
+      aigoCapabilities={[
+        {
+          title: "Actor Passport",
+          body:
+            "Resolve the governed identity, purpose, ownership, lifecycle and relationships of the actor.",
+        },
+        {
+          title: "Machine Authority",
+          body:
+            "Represent the scope, actions, resources, conditions and human boundaries attached to delegated authority.",
+        },
+        {
+          title: "Business Significance",
+          body:
+            "Determine how important the affected business capability, process or stakeholder context may be.",
+        },
+        {
+          title: "Risk Intelligence",
+          body:
+            "Interpret authority gaps and changing conditions in the broader governance context.",
+        },
+        {
+          title: "Governance Decision",
+          body:
+            "Determine the appropriate response when effective authority does not support the intended activity.",
+        },
+        {
+          title: "Evidence",
+          body:
+            "Preserve which authority was evaluated and why the resulting governance outcome followed.",
+        },
+      ]}
+      decisionContext={[
+        "Which authority is currently effective?",
+        "Is the requested action inside its scope?",
+        "Are required conditions still true?",
+        "Has the actor or environment changed?",
+        "Does policy require additional authority?",
+        "Should the activity proceed or stop?",
+      ]}
+      businessOutcomes={[
+        "Keep recognized AI identities from being treated as unrestricted sources of authority.",
+        "Make changing authority conditions visible to governance reasoning.",
+        "Respond when autonomous activity moves outside delegated scope or purpose.",
+        "Preserve evidence of the authority basis used for consequential decisions.",
+      ]}
+      closingTitle="Make delegated machine authority explicit, contextual and reviewable."
+    />
+  );
+}
+
+============================================================
+FILE: app\(public)\solutions\excessive-agency\page.tsx
+============================================================
+
+import { AigoUseCasePage } from "@/components/aigo-use-case-page";
+
+export default function Page() {
+  return (
+    <AigoUseCasePage
+      eyebrow="Control Excessive Agency"
+      title="Keep autonomous AI inside the authority the enterprise intended."
+      lead="AI can remain correctly authenticated and technically permitted while still exercising more functionality, freedom or autonomy than the organization intended. AIGO-OS helps make that operating boundary governable."
+      problemTitle="Capability can expand faster than accountability."
+      problemBody="As AI systems gain tools, permissions, integrations and the ability to act across workflows, the important question is no longer only whether the system has access. The enterprise must also determine whether the action fits the actor's delegated authority, intended purpose, current conditions and required level of oversight."
+      existingControls={[
+        {
+          title: "Identity and access",
+          body:
+            "Establish who or what is authenticated and which resources can be reached. They do not alone determine whether every technically possible action is appropriate.",
+        },
+        {
+          title: "Observability",
+          body:
+            "Shows runtime activity and technical behavior. It can reveal what occurred without independently establishing the actor's business authority.",
+        },
+        {
+          title: "Policy and GRC",
+          body:
+            "Define organizational requirements and controls. The remaining challenge is carrying that context into the governance of changing machine activity.",
+        },
+      ]}
+      aigoCapabilities={[
+        {
+          title: "Actor Passport",
+          body:
+            "Establish the governed identity, ownership, purpose, relationships and lifecycle context of the AI actor.",
+        },
+        {
+          title: "Machine Authority",
+          body:
+            "Represent the actions, resources, scope, conditions and human boundaries that define delegated authority.",
+        },
+        {
+          title: "Business Significance",
+          body:
+            "Determine how consequential the activity may be to business capabilities, processes and stakeholders.",
+        },
+        {
+          title: "Risk Intelligence",
+          body:
+            "Interpret relevant risk signals in the context of the actor's authority, dependencies and current operating conditions.",
+        },
+        {
+          title: "Governance Decision",
+          body:
+            "Bring the available context together to determine the appropriate governance response.",
+        },
+        {
+          title: "Governance Receipt",
+          body:
+            "Preserve the context, governance basis, decision and outcome for later reconstruction.",
+        },
+      ]}
+      decisionContext={[
+        "Who or what is acting?",
+        "What authority applies?",
+        "What is the intended purpose?",
+        "Which resources are affected?",
+        "What conditions are currently true?",
+        "How significant could the action be?",
+      ]}
+      businessOutcomes={[
+        "Preserve useful autonomy without treating every technically possible action as automatically acceptable.",
+        "Reduce the gap between machine capability and the authority the enterprise intended to delegate.",
+        "Apply human involvement where authority, policy or consequence requires judgement.",
+        "Keep evidence connected to consequential governance decisions.",
+      ]}
+      closingTitle="Govern autonomy without giving up control of enterprise authority."
+    />
+  );
+}
+
+============================================================
+FILE: app\(public)\solutions\human-oversight\page.tsx
+============================================================
+
+import { AigoUseCasePage } from "@/components/aigo-use-case-page";
+
+export default function Page() {
+  return (
+    <AigoUseCasePage
+      eyebrow="Human Oversight"
+      title="Keep people in authority without putting people in every loop."
+      lead="Autonomy loses its value if every routine action waits for manual approval. Governance loses credibility if consequential actions never reach human judgement. AIGO-OS is designed to distinguish between the two."
+      problemTitle="Human oversight should be deliberate, not universal or absent."
+      problemBody="Different AI activities carry different levels of authority, consequence, uncertainty and policy obligation. A governance system therefore needs to determine when autonomous operation remains appropriate and when a person must review, approve, resolve ambiguity or take responsibility."
+      existingControls={[
+        {
+          title: "Manual approval workflows",
+          body:
+            "Provide human checkpoints but can become operational bottlenecks when applied indiscriminately to routine activity.",
+        },
+        {
+          title: "Automation platforms",
+          body:
+            "Execute defined workflows efficiently but do not independently determine when governance context requires human authority.",
+        },
+        {
+          title: "Policy",
+          body:
+            "Can define circumstances requiring oversight. AIGO-OS helps connect those requirements to changing AI context and governance decisions.",
+        },
+      ]}
+      aigoCapabilities={[
+        {
+          title: "Actor Passport",
+          body:
+            "Establish which governed AI actor is involved and the context associated with it.",
+        },
+        {
+          title: "Machine Authority",
+          body:
+            "Define where autonomous authority ends and human authority begins.",
+        },
+        {
+          title: "Business Significance",
+          body:
+            "Help determine whether the activity is material enough to justify human attention.",
+        },
+        {
+          title: "Risk Intelligence",
+          body:
+            "Interpret risk and uncertainty in the context of the activity and its potential consequence.",
+        },
+        {
+          title: "Governance Decision",
+          body:
+            "Support outcomes such as allow, review required, escalate, deny or suspend.",
+        },
+        {
+          title: "Governance Receipt",
+          body:
+            "Preserve why human involvement was or was not required at decision time.",
+        },
+      ]}
+      decisionContext={[
+        "Is autonomous authority sufficient?",
+        "Is the activity materially significant?",
+        "Does policy require human judgement?",
+        "Is uncertainty acceptable?",
+        "Is escalation required?",
+        "Which authority should receive the exception?",
+      ]}
+      businessOutcomes={[
+        "Preserve autonomy for activity that remains within established governance boundaries.",
+        "Direct human attention toward consequential, ambiguous or policy-mandated exceptions.",
+        "Avoid using universal manual approval as a substitute for contextual governance.",
+        "Keep the reason for human involvement traceable.",
+      ]}
+      closingTitle="Use human judgement where it adds governance value."
+    />
+  );
+}
+
+============================================================
+FILE: app\solutions\accountable-ai-identity\page.tsx
+============================================================
+
+import type { Metadata } from "next";
+import { Page09AccountableAIIdentity } from "@/components/page09-accountable-ai-identity";
+
+export const metadata: Metadata = {
+  title: "Establish Accountable AI Identity | AIGO-OS",
+  description:
+    "Connect AI identity, delegated authority and organisational context so AI activity can be attributed and governed consistently.",
+};
+
+export default function AccountableAIIdentityPage() {
+  return <Page09AccountableAIIdentity />;
+}
+
+============================================================
+FILE: app\solutions\excessive-agency\page.tsx
+============================================================
+
+import type { Metadata } from "next";
+import { Page10ExcessiveAgency } from "@/components/page10-excessive-agency";
+
+export const metadata: Metadata = {
+  title: "Assess Excessive Agency | AIGO-OS",
+  description:
+    "Assess where AI functionality, authority or autonomy extends beyond an AI Actor's intended purpose and operating context.",
+};
+
+export default function ExcessiveAgencyPage() {
+  return <Page10ExcessiveAgency />;
+}
+
+============================================================
+FILE: app\solutions\ai-authority-privilege\page.tsx
+============================================================
+
+import type { Metadata } from "next";
+import { Page11AIAuthorityPrivilege } from "@/components/page11-ai-authority-privilege";
+
+export const metadata: Metadata = {
+  title: "Assess AI Authority & Privilege | AIGO-OS",
+  description:
+    "Understand how technical access, privilege and delegated authority translate into the authority available to an AI Actor.",
+};
+
+export default function AIAuthorityPrivilegePage() {
+  return <Page11AIAuthorityPrivilege />;
+}
+
+============================================================
+FILE: app\solutions\human-oversight\page.tsx
+============================================================
+
+import type { Metadata } from "next";
+import { Page12HumanOversight } from "@/components/page12-human-oversight";
+
+export const metadata: Metadata = {
+  title: "Establish Human Oversight | AIGO-OS",
+  description:
+    "Determine when AI activity requires accountable human judgement, route the decision with context and preserve the outcome.",
+};
+
+export default function HumanOversightPage() {
+  return <Page12HumanOversight />;
+}
+
+============================================================
+FILE: app\solutions\prioritise-ai-governance\page.tsx
+============================================================
+
+import type { Metadata } from "next";
+import { Page13PrioritiseAIGovernance } from "@/components/page13-prioritise-ai-governance";
+
+export const metadata: Metadata = {
+  title: "Prioritise AI Governance | AIGO-OS",
+  description:
+    "Focus governance attention where AI authority and activity carry the greatest business significance.",
+};
+
+export default function PrioritiseAIGovernancePage() {
+  return <Page13PrioritiseAIGovernance />;
+}
+
+============================================================
+FILE: app\solutions\ai-governance-evidence\page.tsx
+============================================================
+
+import type { Metadata } from "next";
+import { Page14AIGovernanceEvidence } from "@/components/page14-ai-governance-evidence";
+
+export const metadata: Metadata = {
+  title: "Build AI Governance Evidence | AIGO-OS",
+  description:
+    "Preserve AI identity, authority, business context and governance decisions in a durable evidence record.",
+};
+
+export default function AIGovernanceEvidencePage() {
+  return <Page14AIGovernanceEvidence />;
+}
+
+============================================================
+FILE: components\public-header.tsx
+============================================================
+
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+
+type NavigationChild = {
+  href: string;
+  label: string;
+  description: string;
+  eyebrow?: string;
+};
+
+type NavigationItem = {
+  label: string;
+  href: string;
+  description?: string;
+  children?: NavigationChild[];
+};
+
+const navigation: NavigationItem[] = [
+  {
+    label: "Platform",
+    href: "/product",
+    description:
+      "The operating layer for governing consequential AI activity across enterprise systems.",
+    children: [
+      {
+        eyebrow: "OVERVIEW",
+        href: "/product",
+        label: "Platform Overview",
+        description:
+          "See the AIGO-OS governance operating system as one connected platform.",
+      },
+      {
+        eyebrow: "AI ACTOR CONTEXT",
+        href: "/product/actor-passports",
+        label: "AI Actor Passports",
+        description:
+          "Connect technical AI identity to persistent enterprise governance context.",
+      },
+      {
+        eyebrow: "AUTHORITY",
+        href: "/product/authority",
+        label: "Machine Authority",
+        description:
+          "Define and evaluate what autonomy has been delegated to an AI actor.",
+      },
+      {
+        eyebrow: "BUSINESS CONTEXT",
+        href: "/product/business-significance",
+        label: "Business Significance",
+        description:
+          "Determine what AI activity means in its current enterprise context.",
+      },
+      {
+        eyebrow: "GOVERNANCE",
+        href: "/product/governance-decisioning",
+        label: "Governance Decisioning",
+        description:
+          "Determine what governance should apply to AI activity as it happens.",
+      },
+      {
+        eyebrow: "HUMAN AUTHORITY",
+        href: "/product/human-authority",
+        label: "Human Authority & Intervention",
+        description:
+          "Bring accountable human judgment into consequential AI decisions when required.",
+      },
+      {
+        eyebrow: "EVIDENCE",
+        href: "/product/governance-receipts",
+        label: "Governance Receipts",
+        description:
+          "Preserve evidence of what was understood, decided and done.",
+      },
+    ],
+  },
+    {
+    label: "Solutions",
+    href: "/solutions",
+    description:
+      "Use cases for establishing accountable AI identity, evaluating authority and agency, applying human oversight, prioritising governance and preserving evidence.",
+    children: [
+      {
+        eyebrow: "AI IDENTITY & ACCOUNTABILITY",
+        href: "/solutions/accountable-ai-identity",
+        label: "Establish Accountable AI Identity",
+        description:
+          "Resolve fragmented AI identities and technical representations into accountable organisational context.",
+      },
+      {
+        eyebrow: "EXCESSIVE AGENCY",
+        href: "/solutions/excessive-agency",
+        label: "Assess Excessive Agency",
+        description:
+          "Assess where AI authority, functionality or autonomy extends beyond its intended purpose or operating conditions.",
+      },
+      {
+        eyebrow: "AUTHORITY & PRIVILEGE",
+        href: "/solutions/ai-authority-privilege",
+        label: "Assess AI Authority & Privilege",
+        description:
+          "Understand the permissions, access and delegated authority available to an AI Actor in enterprise context.",
+      },
+      {
+        eyebrow: "HUMAN OVERSIGHT",
+        href: "/solutions/human-oversight",
+        label: "Establish Human Oversight",
+        description:
+          "Bring accountable human judgment into AI activity when governance, consequence or authority requires it.",
+      },
+      {
+        eyebrow: "GOVERNANCE PRIORITISATION",
+        href: "/solutions/prioritise-ai-governance",
+        label: "Prioritise AI Governance",
+        description:
+          "Focus governance attention where AI authority and activity carry the greatest business significance.",
+      },
+      {
+        eyebrow: "EVIDENCE & TRACEABILITY",
+        href: "/solutions/ai-governance-evidence",
+        label: "Build AI Governance Evidence",
+        description:
+          "Preserve the context, authority, decisions and human judgment needed for traceability, assurance and audit.",
+      },
+    ],
+  },
+  {
+    label: "Integrations",
+    href: "/integrations",
+  },
+  {
+    label: "Trust",
+    href: "/trust",
+    description:
+      "Security, architecture and assurance for enterprise AI governance infrastructure.",
+    children: [
+      {
+        eyebrow: "TRUST CENTER",
+        href: "/trust",
+        label: "Trust Center",
+        description:
+          "Understand the AIGO-OS approach to trust, architecture and enterprise assurance.",
+      },
+      {
+        eyebrow: "SECURITY",
+        href: "/security",
+        label: "Security",
+        description:
+          "Review the security principles behind the AIGO-OS governance operating layer.",
+      },
+      {
+        eyebrow: "DISCLOSURE",
+        href: "/responsible-disclosure",
+        label: "Responsible Disclosure",
+        description:
+          "Report potential security issues through the appropriate AIGO-OS channel.",
+      },
+    ],
+  },
+  {
+    label: "Resources",
+    href: "/resources",
+    description:
+      "Technical and operational foundations for governed autonomous AI.",
+    children: [
+      {
+        eyebrow: "FOUNDATIONS",
+        href: "/resources/ai-governance",
+        label: "AI Governance",
+        description:
+          "From governance documentation to operational control.",
+      },
+      {
+        eyebrow: "OPERATING MODEL",
+        href: "/resources/governed-autonomy",
+        label: "Governed Autonomy",
+        description:
+          "Combine useful machine autonomy with explicit authority and accountability.",
+      },
+      {
+        eyebrow: "ACTOR CONTEXT",
+        href: "/resources/actor-passports",
+        label: "Actor Passports",
+        description:
+          "Understand persistent governance context for autonomous actors.",
+      },
+      {
+        eyebrow: "AUTHORITY",
+        href: "/resources/authority",
+        label: "Machine Authority",
+        description:
+          "Understand why permission alone cannot determine whether an action should proceed.",
+      },
+      {
+        eyebrow: "TECHNICAL",
+        href: "/documentation",
+        label: "Documentation",
+        description:
+          "Explore AIGO-OS concepts, architecture and implementation surfaces.",
+      },
+    ],
+  },
+  {
+    label: "Company",
+    href: "/company",
+    description:
+      "The company building operational control infrastructure for autonomous enterprise AI.",
+    children: [
+      {
+        eyebrow: "APPROACH",
+        href: "/our-approach",
+        label: "Our Approach",
+        description:
+          "Why governance must control consequential AI action rather than only document policy.",
+      },
+      {
+        eyebrow: "COMPANY",
+        href: "/company",
+        label: "About AIGO-OS",
+        description:
+          "The company behind the governance operating layer for autonomous AI.",
+      },
+      {
+        eyebrow: "CAREERS",
+        href: "/careers",
+        label: "Careers",
+        description:
+          "Opportunities to build enterprise control infrastructure for autonomous AI.",
+      },
+      {
+        eyebrow: "NEWSROOM",
+        href: "/newsroom",
+        label: "Newsroom",
+        description:
+          "Product releases, company announcements and official communications.",
+      },
+
+      {
+        eyebrow: "CONTACT",
+        href: "/contact",
+        label: "Contact",
+        description:
+          "Start a conversation about your AI environment and governance requirements.",
+      },
+    ],
+  },
+];
+
+function isActive(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
+export function PublicHeader() {
+  const pathname = usePathname();
+
+  const [desktopMenu, setDesktopMenu] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileSection, setMobileSection] = useState<string | null>(null);
+
+  const headerRef = useRef<HTMLElement>(null);
+
+  function closeNavigation() {
+    setDesktopMenu(null);
+    setMobileOpen(false);
+    setMobileSection(null);
+  }
+useEffect(() => {
+    function handlePointerDown(event: MouseEvent) {
+      if (
+        desktopMenu &&
+        headerRef.current &&
+        !headerRef.current.contains(event.target as Node)
+      ) {
+        setDesktopMenu(null);
+      }
+    }
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        closeNavigation();
+      }
+    }
+
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [desktopMenu]);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  return (
+    <header className="aigo-nav" ref={headerRef}>
+      <div className="aigo-nav__bar">
+        <Link
+          aria-label="AIGO-OS home"
+          className="aigo-nav__brand"
+          href="/"
+          onClick={closeNavigation}
+        >
+          <Image
+            alt="AIGO-OS"
+            className="aigo-nav__logo"
+            height={58}
+            priority
+            src="/branding/aigo-os-logo-dark.png"
+            width={130}
+          />
+        </Link>
+
+        <nav className="aigo-nav__desktop" aria-label="Primary navigation">
+          {navigation.map((item) => {
+            const expanded = desktopMenu === item.label;
+
+            return (
+              <div className="aigo-nav__item" key={item.label} onMouseEnter={() => item.children ? setDesktopMenu(item.label) : setDesktopMenu(null)} onMouseLeave={() => setDesktopMenu(null)}>
+                {item.children ? (
+                  <button
+                    aria-expanded={expanded}
+                    className={`aigo-nav__trigger ${
+                      isActive(pathname, item.href)
+                        ? "aigo-nav__trigger--active"
+                        : ""
+                    }`}
+                    onClick={() =>
+                      setDesktopMenu((current) =>
+                        current === item.label ? null : item.label
+                      )
+                    }
+                    type="button"
+                  >
+                    {item.label}
+                    <span
+                      aria-hidden="true"
+                      className={
+                        expanded
+                          ? "aigo-nav__chevron aigo-nav__chevron--open"
+                          : "aigo-nav__chevron"
+                      }
+                    />
+                  </button>
+                ) : (
+                  <Link
+                    className={`aigo-nav__trigger ${
+                      isActive(pathname, item.href)
+                        ? "aigo-nav__trigger--active"
+                        : ""
+                    }`}
+                    href={item.href}
+                    onClick={closeNavigation}
+                  >
+                    {item.label}
+                  </Link>
+                )}
+
+                {item.children && expanded ? (
+                  item.label === "Platform" ? (
+                    <div className="aigo-nav__mega aigo-nav__mega--platform">
+                      <div className="aigo-platform-menu">
+
+                        <Link
+                          className="aigo-platform-menu__overview"
+                          href={item.href}
+                          onClick={closeNavigation}
+                        >
+                          <span>Platform overview</span>
+                          <i
+                            aria-hidden="true"
+                            className="aigo-ui-arrow"
+                          />
+                        </Link>
+
+                        <div className="aigo-platform-menu__heading">
+                          <span>PLATFORM CAPABILITIES</span>
+                          <p>
+                            Six connected capabilities for understanding and governing enterprise AI activity.
+                          </p>
+                        </div>
+
+                        <div className="aigo-platform-menu__grid">
+                          {item.children
+                            .filter((child) => child.href !== item.href)
+                            .map((child) => (
+                            <Link
+                              className="aigo-platform-menu__capability"
+                              href={child.href}
+                              key={child.href}
+                              onClick={closeNavigation}
+                            >
+                              <span>{child.eyebrow}</span>
+
+                              <strong>{child.label}</strong>
+
+                              <p>{child.description}</p>
+
+                              <i
+                                aria-hidden="true"
+                                className="aigo-ui-arrow"
+                              />
+                            </Link>
+                          ))}
+                        </div>
+
+                      </div>
+                    </div>
+                  ) : item.label === "Solutions" ? (
+                    <div className="aigo-nav__mega aigo-nav__mega--solutions">
+                      <div className="aigo-solutions-menu">
+
+                        <div className="aigo-solutions-menu__top">
+                          <div className="aigo-solutions-menu__heading">
+                            <span>USE CASES</span>
+                          </div>
+                        </div>
+
+                        <div className="aigo-solutions-menu__grid">
+                          {item.children.map((child, index) => (
+                            <Link
+                              className="aigo-solutions-menu__item"
+                              href={child.href}
+                              key={child.href}
+                              onClick={closeNavigation}
+                            >
+                              <div className="aigo-solutions-menu__number">
+                                {String(index + 1).padStart(2, "0")}
+                              </div>
+
+                              <div className="aigo-solutions-menu__copy">
+                                <span>{child.eyebrow}</span>
+                                <strong>{child.label}</strong>
+                                <p>{child.description}</p>
+                              </div>
+
+                              <i
+                                aria-hidden="true"
+                                className="aigo-ui-arrow"
+                              />
+                            </Link>
+                          ))}
+                        </div>
+
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="aigo-nav__mega">
+                      <div className="aigo-nav__mega-inner">
+                        <div className="aigo-nav__mega-intro">
+                          <span>{item.label}</span>
+
+                          <h2>{item.description}</h2>
+
+                          <Link href={item.href} onClick={closeNavigation}>
+                            Explore {item.label}
+                            <span
+                              aria-hidden="true"
+                              className="aigo-ui-arrow"
+                            />
+                          </Link>
+                        </div>
+
+                        <div className="aigo-nav__mega-links">
+                          {item.children
+                            .filter((child) => child.href !== item.href)
+                            .map((child) => (
+                            <Link
+                              className="aigo-nav__mega-link"
+                              href={child.href}
+                              key={child.href}
+                              onClick={closeNavigation}
+                            >
+                              <span>{child.eyebrow}</span>
+                              <strong>{child.label}</strong>
+                              <p>{child.description}</p>
+                              <i
+                                aria-hidden="true"
+                                className="aigo-ui-arrow"
+                              />
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )
+                ) : null}
+              </div>
+            );
+          })}
+        </nav>
+
+        <div className="aigo-nav__desktop-action">
+          <Link href="/sign-in" onClick={closeNavigation}>
+            Sign in
+          </Link>
+
+          <Link
+            className="aigo-nav__get-started"
+            href="/get-started"
+            onClick={closeNavigation}
+          >
+            Get Started
+          </Link>
+        </div>
+
+        <button
+          aria-expanded={mobileOpen}
+          aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
+          className={`aigo-nav__toggle ${
+            mobileOpen ? "aigo-nav__toggle--open" : ""
+          }`}
+          onClick={() => {
+            setMobileOpen((current) => !current);
+            setMobileSection(null);
+          }}
+          type="button"
+        >
+          <span />
+          <span />
+        </button>
+      </div>
+
+      {mobileOpen ? (
+        <div className="aigo-mobile-nav">
+          <div className="aigo-mobile-nav__scroll">
+            <nav aria-label="Mobile navigation">
+              {navigation.map((item) => {
+                const expanded = mobileSection === item.label;
+
+                return (
+                  <div className="aigo-mobile-nav__section" key={item.label}>
+                    <div className="aigo-mobile-nav__row">
+                      <Link href={item.href} onClick={closeNavigation}>
+                        {item.label}
+                      </Link>
+
+                      {item.children ? (
+                        <button
+                          aria-expanded={expanded}
+                          aria-label={`${expanded ? "Hide" : "Show"} ${
+                            item.label
+                          } links`}
+                          onClick={() =>
+                            setMobileSection((current) =>
+                              current === item.label ? null : item.label
+                            )
+                          }
+                          type="button"
+                        >
+                          <span
+  aria-hidden="true"
+  className={
+    expanded
+      ? "aigo-mobile-nav__chevron aigo-mobile-nav__chevron--open"
+      : "aigo-mobile-nav__chevron"
+  }
+/>
+                        </button>
+                      ) : null}
+                    </div>
+
+                    {item.children && expanded ? (
+                      <div className="aigo-mobile-nav__children">
+                        {item.children.map((child) => (
+                          <Link
+                            href={child.href}
+                            key={child.href}
+                            onClick={closeNavigation}
+                          >
+                            <span>{child.eyebrow}</span>
+                            <strong>{child.label}</strong>
+                            <p>{child.description}</p>
+                          </Link>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                );
+              })}
+            </nav>
+
+            <div className="aigo-mobile-nav__actions">
+              <div className="aigo-mobile-nav__actions">
+                <Link
+                  className="aigo-mobile-nav__signin"
+                  href="/sign-in"
+                  onClick={closeNavigation}
+                >
+                  Sign in
+                </Link>
+
+                <Link
+                  className="aigo-mobile-nav__get-started"
+                  href="/get-started"
+                  onClick={closeNavigation}
+                >
+                  Get Started
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
+    </header>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+============================================================
+FILE: app\sitemap.ts
+============================================================
+
+import type { MetadataRoute } from "next";
+
+const routes = [
+  "",
+  "/product",
+  "/product/actor-passports",
+  "/product/authority",
+  "/product/risk-intelligence",
+  "/product/governance-receipts",
+  "/solutions",
+  "/solutions/ai-agents",
+  "/solutions/enterprise-ai",
+  "/solutions/governed-autonomy",
+  "/integrations",
+  "/security",
+  "/resources",
+  "/resources/ai-governance",
+  "/resources/governed-autonomy",
+  "/resources/actor-passports",
+  "/resources/authority",
+  "/company",
+  "/design-partners",
+  "/contact",
+  "/privacy",
+  "/terms",
+  "/responsible-disclosure",
+];
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const protocol = "https:";
+  const baseUrl = protocol + String.fromCharCode(47, 47) + "aigo-os.com";
+
+  return routes.map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: route === "" ? "weekly" : "monthly",
+    priority:
+      route === ""
+        ? 1
+        : route === "/product" ||
+            route === "/solutions" ||
+            route === "/design-partners"
+          ? 0.9
+          : 0.7,
+  }));
+}
+
+============================================================
+ALL /product AND /solutions REFERENCES
+============================================================
+
+app\(public)\company\page.tsx : 61 : <Link href="/product">
+app\(public)\documentation\page.tsx : 8 : href: "/product/actor-passports",
+app\(public)\documentation\page.tsx : 15 : href: "/product/authority",
+app\(public)\documentation\page.tsx : 22 : href: "/product/risk-intelligence",
+app\(public)\documentation\page.tsx : 29 : href: "/product/governance-receipts",
+app\(public)\documentation\page.tsx : 241 : href="/product"
+app\(public)\integrations\page.tsx : 121 : href="/product"
+app\(public)\our-approach\page.tsx : 84 : href="/product"
+app\(public)\product\risk-intelligence\page.tsx : 62 : <Link href="/product">
+app\(public)\resources\actor-passports\page.tsx : 67 : <Link href="/product">
+app\(public)\resources\ai-governance\page.tsx : 67 : <Link href="/product">
+app\(public)\resources\authority\page.tsx : 67 : <Link href="/product">
+app\(public)\resources\governed-autonomy\page.tsx : 67 : <Link href="/product">
+app\(public)\resources\page.tsx : 32 : href: "/product/risk-intelligence",
+app\(public)\resources\page.tsx : 38 : href: "/product/governance-receipts",
+app\(public)\solutions\page.tsx : 9 : href: "/solutions/excessive-agency",
+app\(public)\solutions\page.tsx : 18 : href: "/solutions/agent-tool-misuse",
+app\(public)\solutions\page.tsx : 27 : href: "/solutions/human-oversight",
+app\(public)\solutions\page.tsx : 36 : href: "/solutions/authority-abuse",
+app\(public)\solutions\page.tsx : 108 : href="/product"
+app\not-found.tsx : 42 : href="/product"
+app\sitemap.ts : 5 : "/product",
+app\sitemap.ts : 6 : "/product/actor-passports",
+app\sitemap.ts : 7 : "/product/authority",
+app\sitemap.ts : 8 : "/product/risk-intelligence",
+app\sitemap.ts : 9 : "/product/governance-receipts",
+app\sitemap.ts : 10 : "/solutions",
+app\sitemap.ts : 11 : "/solutions/ai-agents",
+app\sitemap.ts : 12 : "/solutions/enterprise-ai",
+app\sitemap.ts : 13 : "/solutions/governed-autonomy",
+app\sitemap.ts : 40 : : route === "/product" ||
+app\sitemap.ts : 41 : route === "/solutions" ||
+components\aigo-use-case-page.tsx : 67 : href="/product"
+components\capability-overview.tsx : 7 : href: "/solutions/accountable-ai-identity",
+components\capability-overview.tsx : 14 : href: "/solutions/excessive-agency",
+components\capability-overview.tsx : 21 : href: "/solutions/ai-authority-privilege",
+components\capability-overview.tsx : 28 : href: "/solutions/human-oversight",
+components\capability-overview.tsx : 35 : href: "/solutions/prioritise-ai-governance",
+components\capability-overview.tsx : 42 : href: "/solutions/ai-governance-evidence",
+components\page01-core-sections.tsx : 477 : <Link href="/solutions" className={styles.lightActionButton}>
+components\page02-platform-overview.tsx : 130 : href: "/product/actor-passports",
+components\page02-platform-overview.tsx : 143 : href: "/product/authority",
+components\page02-platform-overview.tsx : 156 : href: "/product/business-significance",
+components\page02-platform-overview.tsx : 169 : href: "/product/governance-decisioning",
+components\page02-platform-overview.tsx : 182 : href: "/product/human-authority",
+components\page02-platform-overview.tsx : 195 : href: "/product/governance-receipts",
+components\page03-actor-passports.tsx : 777 : href="/product/authority"
+components\page04-machine-authority.tsx : 729 : href="/product/business-significance"
+components\page05-business-significance.tsx : 624 : href="/product/governance-decisioning"
+components\page07-human-authority.tsx : 790 : href="/product/governance-receipts"
+components\page09-accountable-ai-identity.tsx : 194 : href="/product/actor-passports"
+components\page09-accountable-ai-identity.tsx : 477 : href="/product/actor-passports"
+components\page10-excessive-agency.tsx : 251 : href="/product/authority"
+components\page10-excessive-agency.tsx : 649 : href="/product/authority"
+components\page11-ai-authority-privilege.tsx : 252 : href="/product/authority"
+components\page11-ai-authority-privilege.tsx : 701 : href="/product/authority"
+components\page12-human-oversight.tsx : 238 : href="/product/human-authority"
+components\page12-human-oversight.tsx : 665 : href="/product/human-authority"
+components\page13-prioritise-ai-governance.tsx : 237 : href="/product/business-significance"
+components\page13-prioritise-ai-governance.tsx : 733 : href="/product/business-significance"
+components\page14-ai-governance-evidence.tsx : 268 : href="/product/governance-receipts"
+components\page14-ai-governance-evidence.tsx : 759 : href="/product/governance-receipts"
+components\public-footer.tsx : 8 : ["Platform Overview", "/product"],
+components\public-footer.tsx : 9 : ["Actor Passports", "/product/actor-passports"],
+components\public-footer.tsx : 10 : ["Machine Authority", "/product/authority"],
+components\public-footer.tsx : 11 : ["Risk Intelligence", "/product/risk-intelligence"],
+components\public-footer.tsx : 12 : ["Governance Receipts", "/product/governance-receipts"],
+components\public-footer.tsx : 19 : ["Solutions Overview", "/solutions"],
+components\public-footer.tsx : 20 : ["Excessive Agency", "/solutions/excessive-agency"],
+components\public-footer.tsx : 21 : ["Agent Tool Misuse", "/solutions/agent-tool-misuse"],
+components\public-footer.tsx : 22 : ["Human Oversight", "/solutions/human-oversight"],
+components\public-footer.tsx : 23 : ["Authority Abuse", "/solutions/authority-abuse"],
+components\public-footer.tsx : 80 : <Link href="/product">
+components\public-header.tsx : 25 : href: "/product",
+components\public-header.tsx : 31 : href: "/product",
+components\public-header.tsx : 38 : href: "/product/actor-passports",
+components\public-header.tsx : 45 : href: "/product/authority",
+components\public-header.tsx : 52 : href: "/product/business-significance",
+components\public-header.tsx : 59 : href: "/product/governance-decisioning",
+components\public-header.tsx : 66 : href: "/product/human-authority",
+components\public-header.tsx : 73 : href: "/product/governance-receipts",
+components\public-header.tsx : 82 : href: "/solutions",
+components\public-header.tsx : 88 : href: "/solutions/accountable-ai-identity",
+components\public-header.tsx : 95 : href: "/solutions/excessive-agency",
+components\public-header.tsx : 102 : href: "/solutions/ai-authority-privilege",
+components\public-header.tsx : 109 : href: "/solutions/human-oversight",
+components\public-header.tsx : 116 : href: "/solutions/prioritise-ai-governance",
+components\public-header.tsx : 123 : href: "/solutions/ai-governance-evidence",
+components\public-mega-menu.tsx : 7 : { href: "/product", label: "Platform Overview" },
+components\public-mega-menu.tsx : 8 : { href: "/product/actor-passports", label: "Actor Passports" },
+components\public-mega-menu.tsx : 9 : { href: "/product/authority", label: "Authority" },
+components\public-mega-menu.tsx : 10 : { href: "/product/risk-intelligence", label: "Risk Intelligence" },
+components\public-mega-menu.tsx : 11 : { href: "/product/governance-receipts", label: "Governance Receipts" },
+components\public-mega-menu.tsx : 17 : { href: "/solutions", label: "Solutions Overview" },
+components\public-mega-menu.tsx : 18 : { href: "/solutions/ai-agents", label: "AI Agents" },
+components\public-mega-menu.tsx : 19 : { href: "/solutions/enterprise-ai", label: "Enterprise AI" },
+components\public-mega-menu.tsx : 20 : { href: "/solutions/governed-autonomy", label: "Governed Autonomy" },
+components\public-mega-menu.tsx : 54 : <Link href="/product">

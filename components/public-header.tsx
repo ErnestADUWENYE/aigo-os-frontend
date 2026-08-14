@@ -22,80 +22,108 @@ type NavigationItem = {
 const navigation: NavigationItem[] = [
   {
     label: "Platform",
-    href: "/product",
+    href: "/platform",
     description:
-      "The operating layer for governing consequential AI action across enterprise systems.",
+      "The operating layer for governing consequential AI activity across enterprise systems.",
     children: [
       {
         eyebrow: "OVERVIEW",
-        href: "/product",
-        label: "AIGO-OS Platform",
+        href: "/platform",
+        label: "Platform Overview",
         description:
-          "See identity, authority, risk, decisions and evidence operate as one governance system.",
+          "See the AIGO-OS governance operating system as one connected platform.",
       },
       {
-        eyebrow: "ACTOR CONTEXT",
-        href: "/product/actor-passports",
-        label: "Actor Passports",
+        eyebrow: "AI ACTOR CONTEXT",
+        href: "/platform/actor-passports",
+        label: "AI Actor Passports",
         description:
-          "Persistent governance identity and operating context for autonomous actors.",
+          "Connect technical AI identity to persistent enterprise governance context.",
       },
       {
         eyebrow: "AUTHORITY",
-        href: "/product/authority",
+        href: "/platform/machine-authority",
         label: "Machine Authority",
         description:
-          "Define and evaluate what an autonomous actor is authorized to do.",
+          "Define and evaluate what autonomy has been delegated to an AI actor.",
       },
       {
-        eyebrow: "DECISION INTELLIGENCE",
-        href: "/product/risk-intelligence",
-        label: "Risk Intelligence",
+        eyebrow: "BUSINESS CONTEXT",
+        href: "/platform/business-significance",
+        label: "Business Significance",
         description:
-          "Evaluate actions using actor, authority, purpose, risk and business context.",
+          "Determine what AI activity means in its current enterprise context.",
+      },
+      {
+        eyebrow: "GOVERNANCE",
+        href: "/platform/governance-decisioning",
+        label: "Governance Decisioning",
+        description:
+          "Determine what governance should apply to AI activity as it happens.",
+      },
+      {
+        eyebrow: "HUMAN AUTHORITY",
+        href: "/platform/human-authority",
+        label: "Human Authority & Intervention",
+        description:
+          "Bring accountable human judgment into consequential AI decisions when required.",
       },
       {
         eyebrow: "EVIDENCE",
-        href: "/product/governance-receipts",
+        href: "/platform/governance-receipts",
         label: "Governance Receipts",
         description:
-          "Preserve reconstructable evidence behind consequential autonomous decisions.",
+          "Preserve evidence of what was understood, decided and done.",
       },
     ],
   },
-  {
+    {
     label: "Solutions",
     href: "/solutions",
     description:
-      "Control the enterprise risks that appear when AI moves from assistance into action.",
+      "Use cases for establishing accountable AI identity, evaluating authority and agency, applying human oversight, prioritising governance and preserving evidence.",
     children: [
+      {
+        eyebrow: "AI IDENTITY & ACCOUNTABILITY",
+        href: "/solutions/accountable-ai-identity",
+        label: "Establish Accountable AI Identity",
+        description:
+          "Resolve fragmented AI identities and technical representations into accountable organisational context.",
+      },
       {
         eyebrow: "EXCESSIVE AGENCY",
         href: "/solutions/excessive-agency",
-        label: "Control Excessive Agency",
+        label: "Assess Excessive Agency",
         description:
-          "Prevent AI actors from acting beyond delegated authority, purpose or conditions.",
+          "Assess where AI authority, functionality or autonomy extends beyond its intended purpose or operating conditions.",
       },
       {
-        eyebrow: "TOOL USE",
-        href: "/solutions/agent-tool-misuse",
-        label: "Prevent Agent Tool Misuse",
+        eyebrow: "AUTHORITY & PRIVILEGE",
+        href: "/solutions/ai-authority-privilege",
+        label: "Assess AI Authority & Privilege",
         description:
-          "Control when and how AI actors may use enterprise tools, APIs and systems.",
+          "Understand the permissions, access and delegated authority available to an AI Actor in enterprise context.",
       },
       {
         eyebrow: "HUMAN OVERSIGHT",
         href: "/solutions/human-oversight",
-        label: "Govern Consequential Actions",
+        label: "Establish Human Oversight",
         description:
-          "Determine what can proceed autonomously and what requires human intervention.",
+          "Bring accountable human judgment into AI activity when governance, consequence or authority requires it.",
       },
       {
-        eyebrow: "AUTHORITY",
-        href: "/solutions/authority-abuse",
-        label: "Control Authority Abuse",
+        eyebrow: "GOVERNANCE PRIORITISATION",
+        href: "/solutions/prioritise-ai-governance",
+        label: "Prioritise AI Governance",
         description:
-          "Prevent recognized actors from exercising authority outside its intended scope.",
+          "Focus governance attention where AI authority and activity carry the greatest business significance.",
+      },
+      {
+        eyebrow: "EVIDENCE & TRACEABILITY",
+        href: "/solutions/ai-governance-evidence",
+        label: "Build AI Governance Evidence",
+        description:
+          "Preserve the context, authority, decisions and human judgment needed for traceability, assurance and audit.",
       },
     ],
   },
@@ -209,13 +237,7 @@ const navigation: NavigationItem[] = [
         description:
           "Product releases, company announcements and official communications.",
       },
-      {
-        eyebrow: "COMMERCIAL",
-        href: "/pricing",
-        label: "Commercial Model",
-        description:
-          "How AIGO-OS is structured for enterprise deployment.",
-      },
+
       {
         eyebrow: "CONTACT",
         href: "/contact",
@@ -321,7 +343,14 @@ useEffect(() => {
                     type="button"
                   >
                     {item.label}
-                    <span aria-hidden="true">{expanded ? "↑" : "↓"}</span>
+                    <span
+                      aria-hidden="true"
+                      className={
+                        expanded
+                          ? "aigo-nav__chevron aigo-nav__chevron--open"
+                          : "aigo-nav__chevron"
+                      }
+                    />
                   </button>
                 ) : (
                   <Link
@@ -338,36 +367,133 @@ useEffect(() => {
                 )}
 
                 {item.children && expanded ? (
-                  <div className="aigo-nav__mega">
-                    <div className="aigo-nav__mega-inner">
-                      <div className="aigo-nav__mega-intro">
-                        <span>{item.label}</span>
+                  item.label === "Platform" ? (
+                    <div className="aigo-nav__mega aigo-nav__mega--platform">
+                      <div className="aigo-platform-menu">
 
-                        <h2>{item.description}</h2>
-
-                        <Link href={item.href} onClick={closeNavigation}>
-                          Explore {item.label}
-                          <span aria-hidden="true">→</span>
+                        <Link
+                          className="aigo-platform-menu__overview"
+                          href={item.href}
+                          onClick={closeNavigation}
+                        >
+                          <span>Platform overview</span>
+                          <i
+                            aria-hidden="true"
+                            className="aigo-ui-arrow"
+                          />
                         </Link>
-                      </div>
 
-                      <div className="aigo-nav__mega-links">
-                        {item.children.map((child) => (
-                          <Link
-                            className="aigo-nav__mega-link"
-                            href={child.href}
-                            key={child.href}
-                            onClick={closeNavigation}
-                          >
-                            <span>{child.eyebrow}</span>
-                            <strong>{child.label}</strong>
-                            <p>{child.description}</p>
-                            <i aria-hidden="true">→</i>
-                          </Link>
-                        ))}
+                        <div className="aigo-platform-menu__heading">
+                          <span>PLATFORM CAPABILITIES</span>
+                          <p>
+                            Six connected capabilities for understanding and governing enterprise AI activity.
+                          </p>
+                        </div>
+
+                        <div className="aigo-platform-menu__grid">
+                          {item.children
+                            .filter((child) => child.href !== item.href)
+                            .map((child) => (
+                            <Link
+                              className="aigo-platform-menu__capability"
+                              href={child.href}
+                              key={child.href}
+                              onClick={closeNavigation}
+                            >
+                              <span>{child.eyebrow}</span>
+
+                              <strong>{child.label}</strong>
+
+                              <p>{child.description}</p>
+
+                              <i
+                                aria-hidden="true"
+                                className="aigo-ui-arrow"
+                              />
+                            </Link>
+                          ))}
+                        </div>
+
                       </div>
                     </div>
-                  </div>
+                  ) : item.label === "Solutions" ? (
+                    <div className="aigo-nav__mega aigo-nav__mega--solutions">
+                      <div className="aigo-solutions-menu">
+
+                        <div className="aigo-solutions-menu__top">
+                          <div className="aigo-solutions-menu__heading">
+                            <span>USE CASES</span>
+                          </div>
+                        </div>
+
+                        <div className="aigo-solutions-menu__grid">
+                          {item.children.map((child, index) => (
+                            <Link
+                              className="aigo-solutions-menu__item"
+                              href={child.href}
+                              key={child.href}
+                              onClick={closeNavigation}
+                            >
+                              <div className="aigo-solutions-menu__number">
+                                {String(index + 1).padStart(2, "0")}
+                              </div>
+
+                              <div className="aigo-solutions-menu__copy">
+                                <span>{child.eyebrow}</span>
+                                <strong>{child.label}</strong>
+                                <p>{child.description}</p>
+                              </div>
+
+                              <i
+                                aria-hidden="true"
+                                className="aigo-ui-arrow"
+                              />
+                            </Link>
+                          ))}
+                        </div>
+
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="aigo-nav__mega">
+                      <div className="aigo-nav__mega-inner">
+                        <div className="aigo-nav__mega-intro">
+                          <span>{item.label}</span>
+
+                          <h2>{item.description}</h2>
+
+                          <Link href={item.href} onClick={closeNavigation}>
+                            Explore {item.label}
+                            <span
+                              aria-hidden="true"
+                              className="aigo-ui-arrow"
+                            />
+                          </Link>
+                        </div>
+
+                        <div className="aigo-nav__mega-links">
+                          {item.children
+                            .filter((child) => child.href !== item.href)
+                            .map((child) => (
+                            <Link
+                              className="aigo-nav__mega-link"
+                              href={child.href}
+                              key={child.href}
+                              onClick={closeNavigation}
+                            >
+                              <span>{child.eyebrow}</span>
+                              <strong>{child.label}</strong>
+                              <p>{child.description}</p>
+                              <i
+                                aria-hidden="true"
+                                className="aigo-ui-arrow"
+                              />
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )
                 ) : null}
               </div>
             );
@@ -377,6 +503,14 @@ useEffect(() => {
         <div className="aigo-nav__desktop-action">
           <Link href="/sign-in" onClick={closeNavigation}>
             Sign in
+          </Link>
+
+          <Link
+            className="aigo-nav__get-started"
+            href="/get-started"
+            onClick={closeNavigation}
+          >
+            Get Started
           </Link>
         </div>
 
@@ -424,7 +558,14 @@ useEffect(() => {
                           }
                           type="button"
                         >
-                          {expanded ? "−" : "+"}
+                          <span
+  aria-hidden="true"
+  className={
+    expanded
+      ? "aigo-mobile-nav__chevron aigo-mobile-nav__chevron--open"
+      : "aigo-mobile-nav__chevron"
+  }
+/>
                         </button>
                       ) : null}
                     </div>
@@ -450,13 +591,23 @@ useEffect(() => {
             </nav>
 
             <div className="aigo-mobile-nav__actions">
-              <Link
-                className="aigo-mobile-nav__demo"
-                href="/sign-in"
-                onClick={closeNavigation}
-              >
-                Sign in
-              </Link>
+              <div className="aigo-mobile-nav__actions">
+                <Link
+                  className="aigo-mobile-nav__signin"
+                  href="/sign-in"
+                  onClick={closeNavigation}
+                >
+                  Sign in
+                </Link>
+
+                <Link
+                  className="aigo-mobile-nav__get-started"
+                  href="/get-started"
+                  onClick={closeNavigation}
+                >
+                  Get Started
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -464,5 +615,15 @@ useEffect(() => {
     </header>
   );
 }
+
+
+
+
+
+
+
+
+
+
 
 

@@ -1,0 +1,1599 @@
+﻿"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+
+import styles from "@/styles/page06-governance-decisioning.module.css";
+
+type DecisionScenarioKey =
+  | "routine"
+  | "controlled"
+  | "human"
+  | "blocked";
+
+type TimelineKey =
+  | "0900"
+  | "0906"
+  | "0907"
+  | "0912";
+
+const decisionScenarios: Record<
+  DecisionScenarioKey,
+  {
+    label: string;
+    payment: string;
+    supplier: string;
+    verification: string;
+    authority: string;
+    significance: string;
+    decision: string;
+    explanation: string;
+    tone: "continue" | "control" | "human" | "blocked";
+  }
+> = {
+  routine: {
+    label: "Scenario A",
+    payment: "GBP 8,500",
+    supplier: "Established",
+    verification: "Complete",
+    authority: "Within limit",
+    significance: "Routine",
+    decision: "CONTINUE AUTONOMOUSLY",
+    explanation:
+      "The activity remains inside delegated authority and applicable governance conditions.",
+    tone: "continue",
+  },
+
+  controlled: {
+    label: "Scenario B",
+    payment: "GBP 42,000",
+    supplier: "New",
+    verification: "Complete",
+    authority: "Within limit",
+    significance: "Elevated",
+    decision: "CONTINUE WITH ADDITIONAL CONTROL",
+    explanation:
+      "The activity may proceed, but the supplier context requires an additional governance control.",
+    tone: "control",
+  },
+
+  human: {
+    label: "Scenario C",
+    payment: "GBP 87,500",
+    supplier: "Established",
+    verification: "Complete",
+    authority: "Exceeded",
+    significance: "Consequential",
+    decision: "HUMAN AUTHORITY REQUIRED",
+    explanation:
+      "The amount exceeds authority delegated to the AI actor and requires accountable approval.",
+    tone: "human",
+  },
+
+  blocked: {
+    label: "Scenario D",
+    payment: "GBP 87,500",
+    supplier: "New",
+    verification: "Incomplete",
+    authority: "Exceeded",
+    significance: "High",
+    decision: "DO NOT PROCEED UNDER CURRENT CONDITIONS",
+    explanation:
+      "Delegated authority is exceeded and required supplier verification is incomplete.",
+    tone: "blocked",
+  },
+};
+
+const decisionInputs = [
+  {
+    number: "01",
+    title: "Actor Passport",
+    question: "Who or what is acting?",
+    value: "Procurement Agent 07",
+  },
+  {
+    number: "02",
+    title: "Machine Authority",
+    question: "What autonomy has been delegated?",
+    value: "GBP 50,000 autonomous limit",
+  },
+  {
+    number: "03",
+    title: "Business Significance",
+    question: "What does the activity mean now?",
+    value: "High",
+  },
+  {
+    number: "04",
+    title: "Policy",
+    question: "Which organizational requirements apply?",
+    value: "New Supplier Payment Control",
+  },
+  {
+    number: "05",
+    title: "Controls",
+    question: "Which controls must be satisfied?",
+    value: "Supplier verification",
+  },
+  {
+    number: "06",
+    title: "Risk Context",
+    question: "Which risk conditions affect the situation?",
+    value: "New supplier",
+  },
+  {
+    number: "07",
+    title: "Obligations",
+    question: "Which requirements are relevant?",
+    value: "Human approval above threshold",
+  },
+  {
+    number: "08",
+    title: "Governance History",
+    question: "What previous decisions matter?",
+    value: "No active exception",
+  },
+  {
+    number: "09",
+    title: "Human Authority",
+    question: "Who holds accountable authority?",
+    value: "Procurement Director",
+  },
+];
+
+const outcomes = [
+  {
+    title: "Continue",
+    description:
+      "Activity remains inside Machine Authority and applicable governance conditions.",
+  },
+  {
+    title: "Continue With Control",
+    description:
+      "Activity may continue after an additional governance condition is applied.",
+  },
+  {
+    title: "Constrain",
+    description:
+      "The actor may continue within a narrower operating boundary.",
+  },
+  {
+    title: "Require Human Authority",
+    description:
+      "Accountable judgment, approval or responsibility is required.",
+  },
+  {
+    title: "Do Not Proceed",
+    description:
+      "Activity should not proceed under the current governance conditions.",
+  },
+  {
+    title: "Reassess",
+    description:
+      "Material context changed and the governance decision requires evaluation again.",
+  },
+];
+
+const timeline: Record<
+  TimelineKey,
+  {
+    time: string;
+    payment: string;
+    supplier: string;
+    context: string;
+    significance: string;
+    decision: string;
+    tone: "continue" | "reassess" | "control" | "blocked";
+  }
+> = {
+  "0900": {
+    time: "09:00",
+    payment: "GBP 18,000",
+    supplier: "Approved",
+    context: "No material exception",
+    significance: "Routine",
+    decision: "CONTINUE",
+    tone: "continue",
+  },
+
+  "0906": {
+    time: "09:06",
+    payment: "GBP 18,000",
+    supplier: "Risk state changed",
+    context: "Material supplier context changed",
+    significance: "Elevated",
+    decision: "REASSESS",
+    tone: "reassess",
+  },
+
+  "0907": {
+    time: "09:07",
+    payment: "GBP 18,000",
+    supplier: "Additional verification required",
+    context: "Relevant control activated",
+    significance: "Elevated",
+    decision: "CONTINUE WITH CONTROL",
+    tone: "control",
+  },
+
+  "0912": {
+    time: "09:12",
+    payment: "GBP 18,000",
+    supplier: "Verification failed",
+    context: "Required control not satisfied",
+    significance: "High",
+    decision: "DO NOT PROCEED",
+    tone: "blocked",
+  },
+};
+
+const integrationActions = [
+  "Create approval request",
+  "Pause workflow",
+  "Create governance case",
+  "Request additional evidence",
+  "Apply temporary constraint",
+  "Notify accountable owner",
+];
+
+const humanTriggers = [
+  "Machine Authority exceeded",
+  "Policy requires approval",
+  "Material consequence",
+  "Significant uncertainty",
+  "Authority ambiguity",
+  "Control exception",
+  "Conflicting requirements",
+  "Exceptional circumstances",
+];
+
+const platformStages = [
+  "Actor Passports",
+  "Machine Authority",
+  "Business Significance",
+  "Governance Decisioning",
+  "Human Authority",
+  "Governance Receipts",
+];
+
+export function Page06GovernanceDecisioning() {
+  const [scenario, setScenario] =
+    useState<DecisionScenarioKey>("blocked");
+
+  const [timelineState, setTimelineState] =
+    useState<TimelineKey>("0900");
+
+  const activeScenario = decisionScenarios[scenario];
+  const activeTimeline = timeline[timelineState];
+
+  return (
+    <div className={styles.page}>
+      <section className={styles.hero}>
+        <div className={styles.heroGrid} aria-hidden="true" />
+        <div className={styles.heroGlow} aria-hidden="true" />
+
+        <div className={styles.shell}>
+          <div className={styles.heroLayout}>
+            <div className={styles.heroCopy}>
+              <p className={styles.blueEyebrow}>
+                GOVERNANCE DECISIONING
+              </p>
+
+              <h1 className={styles.heroTitle}>
+                <span className={styles.keepLine}>
+                  Determine what governance
+                </span>
+                <span className={styles.keepLine}>
+                  should apply now.
+                </span>
+              </h1>
+
+              <p className={styles.heroLead}>
+                AI governance cannot depend only on static
+                policy, periodic review or controls applied
+                without regard to the situation.
+              </p>
+
+              <p className={styles.heroSupporting}>
+                AIGO-OS evaluates Business Significance
+                together with Machine Authority, applicable
+                policy, controls and relevant governance
+                context to determine the appropriate
+                governance response.
+              </p>
+
+              <div className={styles.heroActions}>
+                <Link
+                  href="/demo"
+                  className={styles.primaryButton}
+                >
+                  Request a Demo
+                </Link>
+
+                <Link
+                  href="/product/human-authority"
+                  className={styles.secondaryButton}
+                >
+                  Explore Human Authority
+                </Link>
+              </div>
+            </div>
+
+
+            <div className={styles.heroDecisionVisual}>
+              <div className={styles.visualLabel}>
+                <span>CONTEXTUAL GOVERNANCE</span>
+                <strong>
+                  Current supplier payment scenario
+                </strong>
+              </div>
+
+
+              <div className={styles.inputCluster}>
+                <article className={styles.heroActor}>
+                  <span>ACTOR</span>
+                  <strong>Procurement Agent 07</strong>
+                </article>
+
+                <article className={styles.heroActivity}>
+                  <span>ACTIVITY</span>
+                  <strong>Initiate supplier payment</strong>
+                </article>
+
+                <article className={styles.heroAuthority}>
+                  <span>MACHINE AUTHORITY</span>
+                  <strong>GBP 50,000 limit</strong>
+                </article>
+
+                <article className={styles.heroSignificance}>
+                  <span>BUSINESS SIGNIFICANCE</span>
+                  <strong>HIGH</strong>
+                </article>
+
+                <article className={styles.heroPayment}>
+                  <span>PAYMENT</span>
+                  <strong>GBP 87,500</strong>
+                </article>
+
+                <article className={styles.heroSupplier}>
+                  <span>SUPPLIER</span>
+                  <strong>New</strong>
+                </article>
+
+                <article className={styles.heroVerification}>
+                  <span>VERIFICATION</span>
+                  <strong>Incomplete</strong>
+                </article>
+
+                <article className={styles.heroControl}>
+                  <span>CONTROL</span>
+                  <strong>
+                    New Supplier Payment Control
+                  </strong>
+                </article>
+              </div>
+
+
+              <div className={styles.decisionCore}>
+                <span>GOVERNANCE DECISION</span>
+
+                <strong>
+                  HUMAN AUTHORITY REQUIRED
+                </strong>
+
+                <p>
+                  Payment exceeds delegated Machine Authority
+                  and required supplier verification is
+                  incomplete.
+                </p>
+
+                <div className={styles.decisionRoute}>
+                  <span>NEXT STATE</span>
+                  <b>
+                    ROUTE TO ACCOUNTABLE AUTHORITY
+                  </b>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div className={styles.heroStatement}>
+            <div>
+              <span>UNDERSTAND</span>
+              <strong>What the situation means</strong>
+            </div>
+
+            <div className={styles.statementPath}>
+              <span />
+            </div>
+
+            <div>
+              <span>DETERMINE</span>
+              <strong>What governance applies</strong>
+            </div>
+
+            <div className={styles.statementPath}>
+              <span />
+            </div>
+
+            <div>
+              <span>APPLY</span>
+              <strong>The appropriate response</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section className={styles.contextSection}>
+        <div className={styles.shell}>
+          <div className={styles.editorialGrid}>
+            <div>
+              <p className={styles.goldEyebrow}>
+                CONTEXTUAL GOVERNANCE
+              </p>
+
+              <h2 className={styles.darkHeadline}>
+                <span className={styles.keepLine}>
+                  The appropriate governance response
+                </span>
+                <span className={styles.keepLine}>
+                  depends on the situation.
+                </span>
+              </h2>
+            </div>
+
+            <div className={styles.darkCopy}>
+              <p>
+                The same AI capability should not necessarily
+                receive the same governance response every
+                time it operates.
+              </p>
+
+              <p>
+                Routine activity can remain autonomous.
+                Consequential activity can receive controls.
+                Exceptional activity can require accountable
+                human authority.
+              </p>
+            </div>
+          </div>
+
+
+          <div className={styles.scenarioWorkspace}>
+            <div className={styles.scenarioControls}>
+              {(
+                Object.keys(
+                  decisionScenarios,
+                ) as DecisionScenarioKey[]
+              ).map((key) => (
+                <button
+                  key={key}
+                  type="button"
+                  onClick={() => setScenario(key)}
+                  className={
+                    scenario === key
+                      ? styles.scenarioButtonActive
+                      : styles.scenarioButton
+                  }
+                >
+                  <span>
+                    {decisionScenarios[key].label}
+                  </span>
+
+                  <strong>
+                    {decisionScenarios[key].significance}
+                  </strong>
+                </button>
+              ))}
+            </div>
+
+
+            <article className={styles.constantContext}>
+              <span>CONSTANT</span>
+
+              <strong>Procurement Agent 07</strong>
+
+              <small>
+                Action: Initiate supplier payment
+              </small>
+            </article>
+
+
+            <article className={styles.variableContext}>
+              <span>CURRENT SITUATION</span>
+
+              <dl>
+                <div>
+                  <dt>Payment</dt>
+                  <dd>{activeScenario.payment}</dd>
+                </div>
+
+                <div>
+                  <dt>Supplier</dt>
+                  <dd>{activeScenario.supplier}</dd>
+                </div>
+
+                <div>
+                  <dt>Verification</dt>
+                  <dd>{activeScenario.verification}</dd>
+                </div>
+
+                <div>
+                  <dt>Machine Authority</dt>
+                  <dd>{activeScenario.authority}</dd>
+                </div>
+
+                <div>
+                  <dt>Business Significance</dt>
+                  <dd>{activeScenario.significance}</dd>
+                </div>
+              </dl>
+            </article>
+
+
+            <article
+              className={`${styles.scenarioDecision} ${
+                activeScenario.tone === "continue"
+                  ? styles.decisionContinue
+                  : activeScenario.tone === "control"
+                    ? styles.decisionControl
+                    : activeScenario.tone === "human"
+                      ? styles.decisionHuman
+                      : styles.decisionBlocked
+              }`}
+            >
+              <span>GOVERNANCE DECISION</span>
+
+              <strong>
+                {activeScenario.decision}
+              </strong>
+
+              <p>
+                {activeScenario.explanation}
+              </p>
+            </article>
+          </div>
+
+
+          <p className={styles.lightStatement}>
+            The action is the same. The governance response
+            changes with the context.
+          </p>
+        </div>
+      </section>
+
+
+      <section className={styles.inputsSection}>
+        <div className={styles.shell}>
+          <div className={styles.sectionIntro}>
+            <p className={styles.blueEyebrow}>
+              DECISION CONTEXT
+            </p>
+
+            <h2>
+              <span className={styles.keepLine}>
+                Make governance decisions from
+              </span>
+              <span className={styles.keepLine}>
+                connected enterprise context.
+              </span>
+            </h2>
+
+            <p>
+              Governance Decisioning does not operate from an
+              isolated event. It uses context already
+              established across AIGO-OS and relevant
+              connected enterprise systems.
+            </p>
+          </div>
+
+
+          <div className={styles.inputGrid}>
+            {decisionInputs.map((input) => (
+              <article
+                key={input.number}
+                className={styles.inputCard}
+              >
+                <div className={styles.inputCardTop}>
+                  <span>{input.number}</span>
+
+                  <div>
+                    <span />
+                  </div>
+                </div>
+
+                <h3>{input.title}</h3>
+                <p>{input.question}</p>
+                <strong>{input.value}</strong>
+              </article>
+            ))}
+          </div>
+
+
+          <div className={styles.inputDecisionTarget}>
+            <span>CONVERGES INTO</span>
+
+            <strong>GOVERNANCE DECISIONING</strong>
+
+            <small>
+              Appropriate governance response
+            </small>
+          </div>
+        </div>
+      </section>
+
+
+      <section className={styles.outcomesSection}>
+        <div className={styles.shell}>
+          <div className={styles.editorialGrid}>
+            <div>
+              <p className={styles.goldEyebrow}>
+                GOVERNANCE OUTCOMES
+              </p>
+
+              <h2 className={styles.darkHeadline}>
+                <span className={styles.keepLine}>
+                  Preserve autonomy, constrain it
+                </span>
+                <span className={styles.keepLine}>
+                  or require human authority.
+                </span>
+              </h2>
+            </div>
+
+            <div className={styles.darkCopy}>
+              <p>
+                Effective governance should not treat every
+                AI activity as an exception.
+              </p>
+
+              <p>
+                The objective is to apply governance
+                proportional to the situation while
+                authorized routine activity continues.
+              </p>
+            </div>
+          </div>
+
+
+          <div className={styles.outcomeGrid}>
+            {outcomes.map((outcome, index) => (
+              <article
+                key={outcome.title}
+                className={
+                  index === 3
+                    ? styles.outcomeCardHuman
+                    : index === 4
+                      ? styles.outcomeCardBlocked
+                      : styles.outcomeCard
+                }
+              >
+                <span>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <h3>{outcome.title}</h3>
+
+                <p>{outcome.description}</p>
+              </article>
+            ))}
+          </div>
+
+
+          <p className={styles.lightStatement}>
+            Governance should be proportional to
+            significance.
+          </p>
+        </div>
+      </section>
+
+
+      <section className={styles.policySection}>
+        <div className={styles.shell}>
+          <div className={styles.editorialGrid}>
+            <div>
+              <p className={styles.blueEyebrow}>
+                POLICY IN CONTEXT
+              </p>
+
+              <h2 className={styles.lightHeadline}>
+                <span className={styles.keepLine}>
+                  Connect documented policy to
+                </span>
+                <span className={styles.keepLine}>
+                  the AI activity it governs.
+                </span>
+              </h2>
+            </div>
+
+            <div className={styles.lightCopy}>
+              <p>
+                Organizations already have policies,
+                controls, approval requirements and operating
+                procedures.
+              </p>
+
+              <p>
+                The governance challenge is determining when
+                those requirements apply to actual AI
+                activity.
+              </p>
+            </div>
+          </div>
+
+
+          <div className={styles.policyWorkspace}>
+            <article className={styles.policyObject}>
+              <span>POLICY</span>
+
+              <h3>
+                New Supplier Payment Control
+              </h3>
+
+              <p>
+                First payments to new suppliers above
+                GBP 25,000 require human approval and
+                completed supplier verification.
+              </p>
+            </article>
+
+
+            <article className={styles.policyActivity}>
+              <span>CURRENT ACTIVITY</span>
+
+              <dl>
+                <div>
+                  <dt>Actor</dt>
+                  <dd>Procurement Agent 07</dd>
+                </div>
+
+                <div>
+                  <dt>Supplier</dt>
+                  <dd>New</dd>
+                </div>
+
+                <div>
+                  <dt>Payment</dt>
+                  <dd>GBP 87,500</dd>
+                </div>
+
+                <div>
+                  <dt>Verification</dt>
+                  <dd>Incomplete</dd>
+                </div>
+
+                <div>
+                  <dt>Machine Authority</dt>
+                  <dd>GBP 50,000</dd>
+                </div>
+
+                <div>
+                  <dt>Business Significance</dt>
+                  <dd>High</dd>
+                </div>
+              </dl>
+            </article>
+
+
+            <article className={styles.policyDecision}>
+              <span>GOVERNANCE DECISION</span>
+
+              <strong>
+                DO NOT PROCEED UNDER CURRENT CONDITIONS
+              </strong>
+
+              <div>
+                <small>REQUIRED CONDITION</small>
+                <b>
+                  Supplier verification must be completed
+                </b>
+              </div>
+
+              <div>
+                <small>REQUIRED AUTHORITY</small>
+                <b>
+                  Accountable human approval
+                </b>
+              </div>
+            </article>
+          </div>
+
+
+          <p className={styles.darkRuntimeStatement}>
+            Policy becomes operational when the enterprise
+            can determine where, when and why it applies.
+          </p>
+        </div>
+      </section>
+
+
+      <section className={styles.rulesSection}>
+        <div className={styles.shell}>
+          <div className={styles.editorialGrid}>
+            <div>
+              <p className={styles.goldEyebrow}>
+                CONTEXT BEFORE RULES
+              </p>
+
+              <h2 className={styles.darkHeadline}>
+                <span className={styles.keepLine}>
+                  Rules alone do not understand
+                </span>
+                <span className={styles.keepLine}>
+                  the situation.
+                </span>
+              </h2>
+            </div>
+
+            <div className={styles.darkCopy}>
+              <p>
+                Rules remain important, but they can only
+                operate on the context available to them.
+              </p>
+
+              <p>
+                AIGO-OS establishes actor identity,
+                Machine Authority and Business Significance
+                before determining the governance response.
+              </p>
+            </div>
+          </div>
+
+
+          <div className={styles.rulesComparison}>
+            <article>
+              <span>GENERIC RULE EXECUTION</span>
+              <h3>Defined inputs and configured outputs</h3>
+
+              <div>
+                <span>Receives defined inputs</span>
+                <span>Evaluates conditions</span>
+                <span>Produces configured output</span>
+              </div>
+            </article>
+
+
+            <div className={styles.rulesBridge}>
+              <span />
+              <strong>Richer context</strong>
+            </div>
+
+
+            <article className={styles.aigoDecisioning}>
+              <span>AIGO-OS GOVERNANCE DECISIONING</span>
+              <h3>Contextual governance orchestration</h3>
+
+              <div>
+                <span>Resolves the AI actor</span>
+                <span>Retrieves Machine Authority</span>
+                <span>Uses Business Significance</span>
+                <span>Connects governance requirements</span>
+                <span>Determines the response</span>
+                <span>Preserves the decision basis</span>
+              </div>
+            </article>
+          </div>
+
+
+          <p className={styles.lightStatement}>
+            Governance Decisioning is contextual governance
+            orchestration, not isolated rule execution.
+          </p>
+        </div>
+      </section>
+
+
+      <section className={styles.deterministicSection}>
+        <div className={styles.shell}>
+          <div className={styles.editorialGrid}>
+            <div>
+              <p className={styles.blueEyebrow}>
+                CONTROLLED DECISIONING
+              </p>
+
+              <h2 className={styles.lightHeadline}>
+                <span className={styles.keepLine}>
+                  Critical governance should not depend
+                </span>
+                <span className={styles.keepLine}>
+                  on unexplained model judgment.
+                </span>
+              </h2>
+            </div>
+
+            <div className={styles.lightCopy}>
+              <p>
+                Explicit enterprise authority, policy and
+                control boundaries can produce deterministic
+                governance outcomes where predictability is
+                required.
+              </p>
+
+              <p>
+                AI-assisted reasoning can support
+                interpretation without becoming the source
+                of organizational authority.
+              </p>
+            </div>
+          </div>
+
+
+          <div className={styles.deterministicFlow}>
+            <article>
+              <span>MACHINE AUTHORITY</span>
+              <strong>Maximum autonomous payment</strong>
+              <b>GBP 50,000</b>
+            </article>
+
+            <article>
+              <span>CURRENT ACTIVITY</span>
+              <strong>Supplier payment</strong>
+              <b>GBP 87,500</b>
+            </article>
+
+            <article>
+              <span>AUTHORITY RESULT</span>
+              <strong>Delegated limit</strong>
+              <b>EXCEEDED</b>
+            </article>
+
+            <article>
+              <span>GOVERNANCE REQUIREMENT</span>
+              <strong>
+                Activity outside Machine Authority
+              </strong>
+              <b>HUMAN APPROVAL</b>
+            </article>
+
+            <article className={styles.deterministicDecision}>
+              <span>GOVERNANCE DECISION</span>
+              <strong>
+                HUMAN AUTHORITY REQUIRED
+              </strong>
+            </article>
+          </div>
+
+
+          <p className={styles.darkRuntimeStatement}>
+            AI can assist governance without becoming the
+            source of organizational authority.
+          </p>
+        </div>
+      </section>
+
+
+      <section className={styles.explanationSection}>
+        <div className={styles.shell}>
+          <div className={styles.editorialGrid}>
+            <div>
+              <p className={styles.goldEyebrow}>
+                DECISION BASIS
+              </p>
+
+              <h2 className={styles.darkHeadline}>
+                <span className={styles.keepLine}>
+                  Every consequential governance decision
+                </span>
+                <span className={styles.keepLine}>
+                  should have a reason.
+                </span>
+              </h2>
+            </div>
+
+            <div className={styles.darkCopy}>
+              <p>
+                A governance outcome without its basis is
+                difficult to trust, review or assure.
+              </p>
+
+              <p>
+                AIGO-OS carries forward the context that
+                produced the governance decision.
+              </p>
+            </div>
+          </div>
+
+
+          <div className={styles.explanationWorkspace}>
+            <article className={styles.explanationDecision}>
+              <span>GOVERNANCE DECISION</span>
+
+              <strong>
+                HUMAN AUTHORITY REQUIRED
+              </strong>
+
+              <small>
+                Decision basis preserved
+              </small>
+            </article>
+
+
+            <div className={styles.explanationReasons}>
+              <article>
+                <span>ACTOR</span>
+                <strong>Procurement Agent 07</strong>
+              </article>
+
+              <article>
+                <span>ACTIVITY</span>
+                <strong>
+                  Initiate supplier payment
+                </strong>
+              </article>
+
+              <article>
+                <span>BUSINESS SIGNIFICANCE</span>
+                <strong>High</strong>
+              </article>
+
+              <article>
+                <span>MACHINE AUTHORITY</span>
+                <strong>GBP 50,000 limit</strong>
+              </article>
+
+              <article>
+                <span>CURRENT PAYMENT</span>
+                <strong>GBP 87,500</strong>
+              </article>
+
+              <article>
+                <span>SUPPLIER</span>
+                <strong>New</strong>
+              </article>
+
+              <article>
+                <span>VERIFICATION</span>
+                <strong>Incomplete</strong>
+              </article>
+
+              <article>
+                <span>APPLICABLE CONTROL</span>
+                <strong>
+                  New Supplier Payment Control
+                </strong>
+              </article>
+            </div>
+
+
+            <article className={styles.requiredResponse}>
+              <span>REQUIRED RESPONSE</span>
+
+              <strong>
+                Complete supplier verification
+              </strong>
+
+              <strong>
+                Route to accountable human authority
+              </strong>
+            </article>
+          </div>
+
+
+          <p className={styles.lightStatement}>
+            A governance decision should be reviewable from
+            the context that produced it.
+          </p>
+        </div>
+      </section>
+
+
+      <section className={styles.momentsSection}>
+        <div className={styles.shell}>
+          <div className={styles.sectionIntro}>
+            <p className={styles.blueEyebrow}>
+              GOVERNANCE MOMENTS
+            </p>
+
+            <h2>
+              <span className={styles.keepLine}>
+                Apply governance before, during or after
+              </span>
+              <span className={styles.keepLine}>
+                  AI activity where integration supports it.
+              </span>
+            </h2>
+
+            <p>
+              AIGO-OS can determine governance at different
+              points in an AI-enabled process depending on
+              the information and control interfaces exposed
+              by connected systems.
+            </p>
+          </div>
+
+
+          <div className={styles.momentGrid}>
+            <article>
+              <span>01</span>
+              <h3>Before Action</h3>
+              <p>
+                Determine whether proposed activity may
+                proceed under current governance conditions.
+              </p>
+            </article>
+
+            <article>
+              <span>02</span>
+              <h3>During Workflow</h3>
+              <p>
+                Reassess governance when relevant context
+                changes during an AI-enabled process.
+              </p>
+            </article>
+
+            <article>
+              <span>03</span>
+              <h3>After Activity</h3>
+              <p>
+                Evaluate completed activity, preserve
+                evidence and surface exceptions for review.
+              </p>
+            </article>
+          </div>
+
+
+          <div className={styles.integrationBoundary}>
+            <span>IMPORTANT IMPLEMENTATION BOUNDARY</span>
+
+            <strong>
+              AIGO-OS determines the governance response.
+              Connected systems determine which technical
+              enforcement actions are available.
+            </strong>
+          </div>
+        </div>
+      </section>
+
+
+      <section className={styles.controlledActionSection}>
+        <div className={styles.shell}>
+          <div className={styles.editorialGrid}>
+            <div>
+              <p className={styles.goldEyebrow}>
+                CONTROLLED ACTION
+              </p>
+
+              <h2 className={styles.darkHeadline}>
+                <span className={styles.keepLine}>
+                  Turn governance decisions into actions
+                </span>
+                <span className={styles.keepLine}>
+                  through connected systems.
+                </span>
+              </h2>
+            </div>
+
+            <div className={styles.darkCopy}>
+              <p>
+                A governance decision becomes operational
+                when the appropriate response can be
+                coordinated through available integrations.
+              </p>
+            </div>
+          </div>
+
+
+          <div className={styles.actionWorkspace}>
+            <article className={styles.actionDecision}>
+              <span>GOVERNANCE DECISION</span>
+
+              <strong>
+                HUMAN AUTHORITY REQUIRED
+              </strong>
+            </article>
+
+
+            <div className={styles.integrationActions}>
+              {integrationActions.map((action) => (
+                <span key={action}>
+                  {action}
+                </span>
+              ))}
+            </div>
+
+
+            <article className={styles.connectedSystem}>
+              <span>CONNECTED ENTERPRISE SYSTEM</span>
+
+              <strong>
+                Executes the available technical action
+              </strong>
+
+              <p>
+                The actual enforcement or workflow change
+                occurs through the relevant integrated
+                platform.
+              </p>
+            </article>
+          </div>
+
+
+          <p className={styles.lightStatement}>
+            AIGO-OS orchestrates governance through
+            integrations. It does not replace the enterprise
+            systems that execute the underlying business
+            process.
+          </p>
+        </div>
+      </section>
+
+
+      <section className={styles.humanSection}>
+        <div className={styles.shell}>
+          <div className={styles.editorialGrid}>
+            <div>
+              <p className={styles.blueEyebrow}>
+                HUMAN AUTHORITY
+              </p>
+
+              <h2 className={styles.lightHeadline}>
+                <span className={styles.keepLine}>
+                  Know when machine autonomy should
+                </span>
+                <span className={styles.keepLine}>
+                  give way to accountable judgment.
+                </span>
+              </h2>
+            </div>
+
+            <div className={styles.lightCopy}>
+              <p>
+                Human oversight should not mean manually
+                reviewing everything an AI system does.
+              </p>
+
+              <p>
+                It should become meaningful when the
+                situation requires authority, judgment or
+                accountability that has not been delegated
+                to the machine.
+              </p>
+            </div>
+          </div>
+
+
+          <div className={styles.humanTransition}>
+            <article>
+              <span>01</span>
+              <strong>AUTONOMOUS OPERATION</strong>
+            </article>
+
+            <div><span /></div>
+
+            <article>
+              <span>02</span>
+              <strong>
+                BUSINESS SIGNIFICANCE CHANGES
+              </strong>
+            </article>
+
+            <div><span /></div>
+
+            <article>
+              <span>03</span>
+              <strong>GOVERNANCE DECISION</strong>
+            </article>
+
+            <div><span /></div>
+
+            <article className={styles.humanRequired}>
+              <span>04</span>
+              <strong>
+                HUMAN AUTHORITY REQUIRED
+              </strong>
+            </article>
+
+
+            <div className={styles.accountableRole}>
+              <span>ACCOUNTABLE ROLE</span>
+              <strong>PROCUREMENT DIRECTOR</strong>
+              <small>
+                Human decision intentionally unresolved on
+                this page
+              </small>
+            </div>
+          </div>
+
+
+          <div className={styles.triggerGrid}>
+            {humanTriggers.map((trigger) => (
+              <span key={trigger}>
+                {trigger}
+              </span>
+            ))}
+          </div>
+
+
+          <div className={styles.sectionAction}>
+            <Link
+              href="/product/human-authority"
+              className={styles.secondaryButton}
+            >
+              Explore Human Authority
+            </Link>
+          </div>
+        </div>
+      </section>
+
+
+      <section className={styles.reassessmentSection}>
+        <div className={styles.shell}>
+          <div className={styles.editorialGrid}>
+            <div>
+              <p className={styles.goldEyebrow}>
+                CONTINUOUS REASSESSMENT
+              </p>
+
+              <h2 className={styles.darkHeadline}>
+                <span className={styles.keepLine}>
+                  A governance decision is valid for
+                </span>
+                <span className={styles.keepLine}>
+                  the context that produced it.
+                </span>
+              </h2>
+            </div>
+
+            <div className={styles.darkCopy}>
+              <p>
+                Enterprise context changes. Authority,
+                supplier status, policy, risk and available
+                evidence can change with it.
+              </p>
+
+              <p>
+                When material context changes, AIGO-OS can
+                reassess the situation using the updated
+                information available through integrations.
+              </p>
+            </div>
+          </div>
+
+
+          <div className={styles.timelineWorkspace}>
+            <div className={styles.timelineControls}>
+              {(
+                Object.keys(
+                  timeline,
+                ) as TimelineKey[]
+              ).map((key) => (
+                <button
+                  key={key}
+                  type="button"
+                  onClick={() =>
+                    setTimelineState(key)
+                  }
+                  className={
+                    timelineState === key
+                      ? styles.timelineButtonActive
+                      : styles.timelineButton
+                  }
+                >
+                  <span>{timeline[key].time}</span>
+                  <strong>
+                    {timeline[key].decision}
+                  </strong>
+                </button>
+              ))}
+            </div>
+
+
+            <article className={styles.timelineContext}>
+              <span>
+                CONTEXT AT {activeTimeline.time}
+              </span>
+
+              <dl>
+                <div>
+                  <dt>Payment</dt>
+                  <dd>{activeTimeline.payment}</dd>
+                </div>
+
+                <div>
+                  <dt>Supplier state</dt>
+                  <dd>{activeTimeline.supplier}</dd>
+                </div>
+
+                <div>
+                  <dt>Context change</dt>
+                  <dd>{activeTimeline.context}</dd>
+                </div>
+
+                <div>
+                  <dt>Business Significance</dt>
+                  <dd>{activeTimeline.significance}</dd>
+                </div>
+              </dl>
+            </article>
+
+
+            <article
+              className={`${styles.timelineDecision} ${
+                activeTimeline.tone === "continue"
+                  ? styles.timelineContinue
+                  : activeTimeline.tone === "reassess"
+                    ? styles.timelineReassess
+                    : activeTimeline.tone === "control"
+                      ? styles.timelineControl
+                      : styles.timelineBlocked
+              }`}
+            >
+              <span>GOVERNANCE DECISION</span>
+
+              <strong>
+                {activeTimeline.decision}
+              </strong>
+            </article>
+          </div>
+
+
+          <p className={styles.lightStatement}>
+            Continuous governance requires the ability to
+            reconsider decisions when material context
+            changes.
+          </p>
+        </div>
+      </section>
+
+
+      <section className={styles.evidenceSection}>
+        <div className={styles.shell}>
+          <div className={styles.sectionIntro}>
+            <p className={styles.blueEyebrow}>
+              DECISION HISTORY
+            </p>
+
+            <h2>
+              <span className={styles.keepLine}>
+                Preserve the basis of governance
+              </span>
+              <span className={styles.keepLine}>
+                decisions as evidence.
+              </span>
+            </h2>
+
+            <p>
+              Governance does not end when a decision is
+              made. AIGO-OS carries the decision context
+              forward toward Governance Receipts.
+            </p>
+          </div>
+
+
+          <div className={styles.evidenceFlow}>
+            <article>
+              <span>ACTOR PASSPORT</span>
+              <strong>Procurement Agent 07</strong>
+            </article>
+
+            <article>
+              <span>MACHINE AUTHORITY</span>
+              <strong>MA-2041</strong>
+            </article>
+
+            <article>
+              <span>BUSINESS SIGNIFICANCE</span>
+              <strong>High</strong>
+            </article>
+
+            <article>
+              <span>GOVERNANCE DECISION</span>
+              <strong>
+                Human Authority Required
+              </strong>
+            </article>
+
+            <article className={styles.futureEvidence}>
+              <span>HUMAN DECISION</span>
+              <strong>Approved with condition</strong>
+            </article>
+
+            <article className={styles.receiptPreview}>
+              <span>GOVERNANCE RECEIPT</span>
+              <strong>GR-84291</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+
+      <section className={styles.roleSection}>
+        <div className={styles.shell}>
+          <div className={styles.sectionIntro}>
+            <p className={styles.goldEyebrow}>
+              THE AIGO-OS GOVERNANCE MODEL
+            </p>
+
+            <h2 className={styles.darkRoleTitle}>
+              <span className={styles.keepLine}>
+                Turn understanding into an
+              </span>
+              <span className={styles.keepLine}>
+                operational governance response.
+              </span>
+            </h2>
+          </div>
+
+
+          <div className={styles.platformRail}>
+            {platformStages.map((stage, index) => (
+              <div
+                key={stage}
+                className={
+                  index === 3
+                    ? styles.platformStageActive
+                    : index < 3
+                      ? styles.platformStageComplete
+                      : styles.platformStage
+                }
+              >
+                <span>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <strong>{stage}</strong>
+
+                {index < 3 && (
+                  <small>Established context</small>
+                )}
+
+                {index === 3 && (
+                  <small>Current capability</small>
+                )}
+
+                {index === 4 && (
+                  <small>Next capability</small>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      <section className={styles.finalCta}>
+        <div className={styles.finalGlow} />
+
+        <div className={styles.finalInner}>
+          <p className={styles.blueEyebrow}>
+            GOVERNANCE DECISIONING
+          </p>
+
+          <h2>
+            <span className={styles.keepLine}>
+              Apply the governance the situation
+            </span>
+            <span className={styles.keepLine}>
+              actually requires.
+            </span>
+          </h2>
+
+          <p>
+            Use persistent actor identity, delegated Machine
+            Authority, Business Significance and applicable
+            enterprise requirements to determine the
+            appropriate governance response to AI activity.
+          </p>
+
+          <div className={styles.heroActions}>
+            <Link
+              href="/demo"
+              className={styles.primaryButton}
+            >
+              Request a Demo
+            </Link>
+
+            <Link
+              href="/product/human-authority"
+              className={styles.secondaryButton}
+            >
+              Explore Human Authority
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

@@ -5,28 +5,28 @@ const foundations = [
     number: "01",
     title: "AI actor model",
     text: "Understand how AIGO-OS represents agents, models, AI applications and automations as governed actors with identity, ownership and lifecycle context.",
-    href: "/product/actor-passports",
+    href: "/platform/actor-passports",
     link: "Explore actor passports",
   },
   {
     number: "02",
     title: "Authority model",
     text: "Define what an AI actor may do, where it may operate, which resources it may access and which conditions require human approval.",
-    href: "/product/authority",
+    href: "/platform/machine-authority",
     link: "Explore authority",
   },
   {
     number: "03",
     title: "Risk intelligence",
     text: "Interpret technical signals together with business context, authority, dependencies and operational significance.",
-    href: "/product/risk-intelligence",
+    href: "/platform",
     link: "Explore risk intelligence",
   },
   {
     number: "04",
     title: "Governance receipts",
     text: "Preserve the evidence behind governance decisions so actions can be reconstructed, reviewed and explained.",
-    href: "/product/governance-receipts",
+    href: "/platform/governance-receipts",
     link: "Explore governance receipts",
   },
 ];
@@ -238,7 +238,7 @@ export default function DocumentationPage() {
 
             <Link
               className="docs-button docs-button--secondary"
-              href="/product"
+              href="/platform"
             >
               Explore AIGO-OS
             </Link>
@@ -248,3 +248,4 @@ export default function DocumentationPage() {
     </main>
   );
 }
+

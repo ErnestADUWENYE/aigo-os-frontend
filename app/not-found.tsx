@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 export default function NotFound() {
   return (
@@ -34,12 +34,12 @@ export default function NotFound() {
             href="/"
           >
             Return home
-            <span aria-hidden="true">→</span>
+            <span aria-hidden="true">â†’</span>
           </Link>
 
           <Link
             className="public-not-found__secondary"
-            href="/product"
+            href="/platform"
           >
             Explore AIGO-OS
           </Link>
