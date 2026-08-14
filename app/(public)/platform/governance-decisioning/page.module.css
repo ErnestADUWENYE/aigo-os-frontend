@@ -1,0 +1,2509 @@
+﻿.page {
+  --navy: #071f34;
+  --navy2: #0a304e;
+  --ink: #102f4d;
+  --body: #536f87;
+  --blue: #147fd8;
+  --gold: #b47c12;
+  --cream: #f2ede3;
+  --line: #cedae3;
+
+  overflow: hidden;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.shell {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.blueEyebrow,
+.blueDarkEyebrow,
+.goldEyebrow {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+}
+
+.blueEyebrow {
+  color: #70baf1;
+}
+
+.blueDarkEyebrow {
+  color: var(--blue);
+}
+
+.goldEyebrow {
+  color: var(--gold);
+}
+
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero {
+  position: relative;
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  padding: 94px 0 84px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 76% 42%,
+      rgba(36, 135, 209, 0.17),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #061b2e,
+      #082b47 58%,
+      #071f35
+    );
+}
+
+.heroGrid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.07;
+
+  background-image:
+    linear-gradient(
+      rgba(103, 177, 232, 0.18) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(103, 177, 232, 0.18) 1px,
+      transparent 1px
+    );
+
+  background-size: 48px 48px;
+}
+
+.heroLayout {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.08fr)
+    minmax(380px, 0.92fr);
+
+  gap: 76px;
+  align-items: center;
+}
+
+.heroCopy h1 {
+  max-width: 740px;
+  margin: 18px 0 0;
+
+  color: #ffffff;
+
+  font-size: clamp(46px, 5vw, 68px);
+  line-height: 1.02;
+  font-weight: 820;
+  letter-spacing: -0.052em;
+
+  text-wrap: balance;
+}
+
+.heroLead {
+  max-width: 660px;
+  margin: 24px 0 0;
+
+  color: #d7e6f1;
+
+  font-size: 18px;
+  line-height: 1.62;
+}
+
+.heroSupporting {
+  max-width: 670px;
+  margin: 15px 0 0;
+
+  color: #9fb9cc;
+
+  font-size: 14px;
+  line-height: 1.72;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+.primaryButton,
+.secondaryButton {
+  min-height: 46px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  padding: 0 18px;
+  border-radius: 8px;
+
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.primaryButton {
+  background: #ffffff;
+  color: #123a5c;
+}
+
+.secondaryButton {
+  border: 1px solid rgba(139, 192, 235, 0.34);
+  background: rgba(255,255,255,0.035);
+  color: #e6f1f9;
+}
+
+.heroVisual {
+  width: 91%;
+  justify-self: end;
+}
+
+.decisionPanel {
+  padding: 28px;
+
+  border: 1px solid rgba(99, 173, 230, 0.27);
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #103957,
+      #092a45 58%,
+      #071f35
+    );
+
+  box-shadow:
+    0 32px 60px rgba(0, 8, 20, 0.34),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.panelTop {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.panelIcon {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(103,178,236,0.26);
+  border-radius: 14px;
+
+  background: rgba(48,138,210,0.10);
+  color: #6eb8f2;
+}
+
+.panelTop span,
+.heroInputs span,
+.heroDecision span {
+  display: block;
+
+  color: #73b8ef;
+
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: 0.10em;
+}
+
+.panelTop strong {
+  display: block;
+  margin-top: 6px;
+
+  color: #ffffff;
+
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+.heroInputs {
+  display: grid;
+  gap: 8px;
+
+  margin-top: 24px;
+}
+
+.heroInputs > div {
+  padding: 13px 15px;
+
+  border: 1px solid rgba(111,176,226,0.14);
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.025);
+}
+
+.heroInputs strong {
+  display: block;
+  margin-top: 5px;
+
+  color: #dce9f3;
+
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.heroDecision {
+  margin-top: 15px;
+  padding: 18px;
+
+  border: 1px solid rgba(83,180,228,0.29);
+  border-radius: 12px;
+
+  background: rgba(45,134,190,0.10);
+}
+
+.heroDecision strong {
+  display: block;
+  margin-top: 6px;
+
+  color: #ffffff;
+
+  font-size: 16px;
+}
+
+.heroDecision small {
+  display: inline-block;
+
+  margin-top: 12px;
+  padding: 7px 10px;
+
+  border: 1px solid rgba(111,190,240,0.25);
+  border-radius: 7px;
+
+  background: rgba(84,164,220,0.09);
+
+  color: #a9d8f8;
+
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.07em;
+}
+
+
+/* ==========================================================
+   SECTION INTRO
+========================================================== */
+
+.sectionIntro,
+.sectionIntroDark {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(300px, 0.85fr);
+
+  gap: 72px;
+  align-items: end;
+
+  margin-bottom: 48px;
+}
+
+.sectionIntro h2,
+.sectionIntroCentered h2,
+.sectionIntroDark h2 {
+  margin: 12px 0 0;
+
+  font-size: clamp(36px, 4vw, 52px);
+  line-height: 1.05;
+  font-weight: 810;
+  letter-spacing: -0.045em;
+
+  text-wrap: balance;
+}
+
+.sectionIntro h2,
+.sectionIntroCentered h2 {
+  color: var(--ink);
+}
+
+.sectionIntro > p,
+.sectionIntroCentered > p:last-child {
+  margin: 0;
+
+  color: var(--body);
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.sectionIntroCentered {
+  max-width: 900px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.sectionIntroCentered > p:last-child {
+  max-width: 720px;
+  margin: 20px auto 0;
+}
+
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+.inputsSection {
+  padding: 98px 0 104px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f3eee4,
+      #ece5d9
+    );
+}
+
+.inputFlow {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    30px
+    minmax(0, 1fr)
+    30px
+    minmax(0, 1fr)
+    30px
+    minmax(0, 1fr)
+    30px
+    minmax(0, 1fr);
+
+  align-items: stretch;
+}
+
+.inputCard {
+  min-height: 225px;
+  padding: 23px;
+
+  border: 1px solid #cedae3;
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f7f5ef
+    );
+
+  box-shadow:
+    0 23px 42px rgba(31,56,75,0.11),
+    0 5px 12px rgba(31,56,75,0.04),
+    inset 0 1px 0 #ffffff;
+
+  color: #147fd8;
+}
+
+.inputCard > span {
+  display: block;
+  margin-top: 22px;
+
+  color: #147fd8;
+
+  font-size: 9px;
+  font-weight: 850;
+}
+
+.inputCard h3 {
+  margin: 9px 0 0;
+
+  color: #102f4d;
+
+  font-size: 19px;
+  line-height: 1.22;
+}
+
+.inputCard p {
+  margin: 12px 0 0;
+
+  color: #526f87;
+
+  font-size: 12px;
+  line-height: 1.62;
+}
+
+.flowPlus {
+  display: grid;
+  place-items: center;
+
+  color: #428bc4;
+
+  font-size: 22px;
+  font-weight: 500;
+}
+
+
+/* ==========================================================
+   GOVERNANCE ORIGIN
+========================================================== */
+
+.originSection {
+  padding: 100px 0 106px;
+  background: #ffffff;
+}
+
+.originGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.originCard {
+  min-height: 215px;
+  padding: 25px;
+
+  border: 1px solid #d1dce4;
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f6f9fb
+    );
+
+  box-shadow:
+    0 21px 39px rgba(31,56,75,0.10),
+    0 5px 12px rgba(31,56,75,0.04),
+    inset 0 1px 0 #ffffff;
+}
+
+.originIcon {
+  width: 46px;
+  height: 46px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #c3ddf0;
+  border-radius: 12px;
+
+  background: #edf7ff;
+
+  color: #167fd7;
+}
+
+.originCard h3 {
+  margin: 21px 0 0;
+
+  color: #102f4d;
+
+  font-size: 20px;
+  line-height: 1.22;
+}
+
+.originCard p {
+  margin: 11px 0 0;
+
+  color: #526f87;
+
+  font-size: 13px;
+  line-height: 1.62;
+}
+
+.originFlow {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    52px
+    minmax(0, 1fr)
+    52px
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  margin-top: 34px;
+
+  color: #2186d9;
+}
+
+.originFlowCard {
+  min-height: 116px;
+  padding: 21px;
+
+  border: 1px solid #ccdbe5;
+  border-radius: 15px;
+
+  background: #f8fbfd;
+
+  box-shadow:
+    0 16px 30px rgba(31,56,75,0.08);
+}
+
+.originFlowCard span {
+  color: #147fd8;
+
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: 0.09em;
+}
+
+.originFlowCard strong {
+  display: block;
+  margin-top: 9px;
+
+  color: #153c5b;
+
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.originOutput {
+  border-color: #a8d0ed;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #edf7fe
+    );
+}
+
+
+/* ==========================================================
+   OUTCOMES
+========================================================== */
+
+.outcomesSection {
+  padding: 100px 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #071e33,
+      #0a2d49 58%,
+      #071f35
+    );
+}
+
+.sectionIntroDark h2 {
+  color: #ffffff;
+}
+
+.sectionIntroDark > p {
+  margin: 0;
+
+  color: #a7bfd2;
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.outcomeGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.outcomeCard {
+  min-height: 230px;
+  padding: 21px;
+
+  border: 1px solid rgba(102,173,228,0.23);
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #103956,
+      #092944
+    );
+
+  box-shadow:
+    0 26px 48px rgba(0,8,20,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.outcomeTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.outcomeIcon {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(104,180,235,0.23);
+  border-radius: 11px;
+
+  background: rgba(66,149,209,0.08);
+
+  color: #72b8ef;
+}
+
+.outcomeTop span {
+  color: #72b8ef;
+
+  font-size: 9px;
+  font-weight: 850;
+}
+
+.outcomeCard h3 {
+  margin: 22px 0 0;
+
+  color: #ffffff;
+
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.outcomeCard p {
+  margin: 12px 0 0;
+
+  color: #adc3d3;
+
+  font-size: 12px;
+  line-height: 1.62;
+}
+
+.noKillSwitch {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+
+  margin-top: 30px;
+  padding: 19px 21px;
+
+  border: 1px solid rgba(104,180,235,0.22);
+  border-radius: 13px;
+
+  background: rgba(255,255,255,0.035);
+
+  color: #72b8ef;
+}
+
+.noKillSwitch strong {
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 13px;
+}
+
+.noKillSwitch p {
+  margin: 5px 0 0;
+
+  color: #afc4d4;
+
+  font-size: 13px;
+  line-height: 1.62;
+}
+
+
+/* ==========================================================
+   EXAMPLE
+========================================================== */
+
+.exampleSection {
+  padding: 100px 0 106px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f3eee4,
+      #ebe4d8
+    );
+}
+
+.exampleGrid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 0.8fr)
+    minmax(0, 0.9fr);
+
+  gap: 18px;
+  align-items: stretch;
+}
+
+.exampleContext,
+.exampleGovernance,
+.exampleDecision {
+  padding: 25px;
+
+  border: 1px solid #cedae3;
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f7f9fa
+    );
+
+  box-shadow:
+    0 24px 44px rgba(31,56,75,0.11),
+    0 6px 14px rgba(31,56,75,0.04),
+    inset 0 1px 0 #ffffff;
+}
+
+.exampleDecision {
+  border-color: #a9d1ed;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #edf7fe
+    );
+}
+
+.exampleRow {
+  padding: 13px 0;
+
+  border-bottom: 1px solid #e0e8ed;
+}
+
+.exampleRow:first-child {
+  padding-top: 0;
+}
+
+.exampleRow span,
+.exampleGovernanceTop span,
+.exampleDecision > span {
+  color: #147fd8;
+
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.exampleRow strong {
+  display: block;
+  margin-top: 5px;
+
+  color: #153c5b;
+
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.exampleGovernanceTop {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  color: #147fd8;
+}
+
+.exampleGovernance p {
+  margin: 22px 0 0;
+
+  color: #315a78;
+
+  font-size: 16px;
+  line-height: 1.55;
+  font-weight: 720;
+}
+
+.exampleDecision h3 {
+  margin: 12px 0 0;
+
+  color: #102f4d;
+
+  font-size: 25px;
+  line-height: 1.2;
+}
+
+.exampleDecision p {
+  margin: 14px 0 0;
+
+  color: #526f87;
+
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+
+/* ==========================================================
+   VISIBILITY + HANDOFF
+========================================================== */
+
+.visibilitySection {
+  padding: 100px 0 108px;
+  background: #ffffff;
+}
+
+.visibilityGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.visibilityCard {
+  min-height: 230px;
+  padding: 28px;
+
+  border: 1px solid #cfdbe4;
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f5f8fa
+    );
+
+  box-shadow:
+    0 23px 42px rgba(31,56,75,0.11),
+    0 6px 13px rgba(31,56,75,0.04),
+    inset 0 1px 0 #ffffff;
+
+  color: #147fd8;
+}
+
+.visibilityCard > span {
+  display: block;
+  margin-top: 21px;
+
+  color: #147fd8;
+
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.visibilityCard h3 {
+  margin: 9px 0 0;
+
+  color: #102f4d;
+
+  font-size: 23px;
+  line-height: 1.2;
+}
+
+.visibilityCard p {
+  margin: 13px 0 0;
+
+  color: #526f87;
+
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.handoff {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    90px
+    minmax(0, 1fr);
+
+  align-items: stretch;
+  gap: 18px;
+
+  margin-top: 34px;
+}
+
+.handoffCard {
+  padding: 27px;
+
+  border: 1px solid #cddbe5;
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f5f9fb
+    );
+
+  box-shadow:
+    0 22px 42px rgba(31,56,75,0.11),
+    inset 0 1px 0 #ffffff;
+}
+
+.handoffNext {
+  border-color: #a7d0ee;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #edf7fe
+    );
+}
+
+.handoffCard > span {
+  color: #147fd8;
+
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.handoffCard > strong {
+  display: block;
+  margin-top: 10px;
+
+  color: #102f4d;
+
+  font-size: 21px;
+  line-height: 1.3;
+}
+
+.handoffCard small {
+  display: block;
+  margin-top: 23px;
+
+  color: #6d879b;
+
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.handoffCard p {
+  margin: 6px 0 0;
+
+  color: #315a78;
+
+  font-size: 13px;
+  line-height: 1.55;
+  font-weight: 700;
+}
+
+.handoffArrow {
+  display: grid;
+  place-items: center;
+
+  color: #2186d9;
+}
+
+
+/* ==========================================================
+   LIGHT SECTION CONTRAST PROTECTION
+
+   This is intentional. Page 03/04 showed why light text
+   must never inherit into these sections.
+========================================================== */
+
+.inputsSection,
+.originSection,
+.exampleSection,
+.visibilitySection {
+  color: #102f4d !important;
+}
+
+.inputsSection *,
+.originSection *,
+.exampleSection *,
+.visibilitySection * {
+  opacity: 1 !important;
+  filter: none !important;
+
+  -webkit-text-fill-color: currentColor !important;
+}
+
+.inputsSection h1,
+.inputsSection h2,
+.inputsSection h3,
+.originSection h1,
+.originSection h2,
+.originSection h3,
+.exampleSection h1,
+.exampleSection h2,
+.exampleSection h3,
+.visibilitySection h1,
+.visibilitySection h2,
+.visibilitySection h3 {
+  color: #102f4d !important;
+  -webkit-text-fill-color: #102f4d !important;
+  text-shadow: none !important;
+}
+
+.inputsSection p,
+.originSection p,
+.exampleSection p,
+.visibilitySection p {
+  color: #526f87 !important;
+  -webkit-text-fill-color: #526f87 !important;
+}
+
+.inputsSection .goldEyebrow,
+.exampleSection .goldEyebrow,
+.visibilitySection .goldEyebrow {
+  color: #b47c12 !important;
+  -webkit-text-fill-color: #b47c12 !important;
+}
+
+.originSection .blueDarkEyebrow {
+  color: #147fd8 !important;
+  -webkit-text-fill-color: #147fd8 !important;
+}
+
+.inputCard > span,
+.originFlowCard span,
+.exampleRow span,
+.exampleGovernanceTop span,
+.exampleDecision > span,
+.visibilityCard > span,
+.handoffCard > span {
+  color: #147fd8 !important;
+  -webkit-text-fill-color: #147fd8 !important;
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 1100px) {
+
+  .heroLayout,
+  .sectionIntro,
+  .sectionIntroDark {
+    grid-template-columns: 1fr;
+  }
+
+  .heroVisual {
+    width: min(100%, 680px);
+    justify-self: center;
+  }
+
+  .inputFlow {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .flowPlus {
+    min-height: 30px;
+  }
+
+  .originGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .outcomeGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .originFlow,
+  .exampleGrid,
+  .handoff {
+    grid-template-columns: 1fr;
+  }
+
+  .originFlow > svg,
+  .handoffArrow svg {
+    transform: rotate(90deg);
+  }
+
+  .originFlow > svg {
+    justify-self: center;
+  }
+
+  .handoffArrow {
+    min-height: 50px;
+  }
+}
+
+
+@media (max-width: 720px) {
+
+  .shell {
+    width: min(100% - 30px, 1180px);
+  }
+
+  .hero,
+  .inputsSection,
+  .originSection,
+  .outcomesSection,
+  .exampleSection,
+  .visibilitySection {
+    padding-top: 72px;
+    padding-bottom: 76px;
+  }
+
+  .heroCopy h1 {
+    font-size: 44px;
+  }
+
+  .originGrid,
+  .outcomeGrid,
+  .visibilityGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* === PAGE 06 FINAL LOCK OVERRIDES === */
+
+/*
+   Final editorial structure:
+   Hero
+   Decision context
+   Applicable governance
+   AI Governance Decisions
+   One example
+   Human Authority handoff
+*/
+
+
+.hero {
+  min-height: 620px;
+
+  padding-top: 80px;
+  padding-bottom: 72px;
+}
+
+
+.inputsSection {
+  padding-top: 82px;
+  padding-bottom: 88px;
+}
+
+
+.originSection {
+  padding-top: 84px;
+  padding-bottom: 88px;
+}
+
+
+.outcomesSection {
+  padding-top: 86px;
+  padding-bottom: 90px;
+}
+
+
+.exampleSection {
+  padding-top: 84px;
+  padding-bottom: 90px;
+}
+
+
+.visibilitySection {
+  padding-top: 84px;
+  padding-bottom: 90px;
+}
+
+
+/* Five decision outcomes remain useful, but the cards
+   should not create unnecessary page height. */
+
+.outcomeCard {
+  min-height: 205px;
+}
+
+
+/* Remove spacing associated with deleted structures */
+
+.originFlow,
+.noKillSwitch,
+.visibilityGrid {
+  display: none !important;
+}
+
+
+/* Final handoff action */
+
+.handoffActions {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 34px;
+}
+
+
+.handoffPrimary {
+  min-height: 46px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 0 18px;
+
+  border-radius: 8px;
+
+  background: #147fd8;
+
+  color: #ffffff !important;
+
+  -webkit-text-fill-color:
+    #ffffff !important;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  text-decoration: none;
+}
+
+
+/* Ensure light-surface sections remain readable */
+
+.inputsSection,
+.originSection,
+.exampleSection,
+.visibilitySection {
+  color: #102f4d !important;
+}
+
+
+.inputsSection h1,
+.inputsSection h2,
+.inputsSection h3,
+.originSection h1,
+.originSection h2,
+.originSection h3,
+.exampleSection h1,
+.exampleSection h2,
+.exampleSection h3,
+.visibilitySection h1,
+.visibilitySection h2,
+.visibilitySection h3 {
+  color: #102f4d !important;
+
+  -webkit-text-fill-color:
+    #102f4d !important;
+}
+
+
+.inputsSection p,
+.originSection p,
+.exampleSection p,
+.visibilitySection p {
+  color: #526f87 !important;
+
+  -webkit-text-fill-color:
+    #526f87 !important;
+}
+
+
+@media (max-width: 1100px) {
+
+  .hero {
+    min-height: auto;
+  }
+
+  .outcomeGrid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+@media (max-width: 720px) {
+
+  .hero,
+  .inputsSection,
+  .originSection,
+  .outcomesSection,
+  .exampleSection,
+  .visibilitySection {
+    padding-top: 68px;
+    padding-bottom: 72px;
+  }
+
+  .outcomeGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .outcomeCard {
+    min-height: 0;
+  }
+}
+
+/* === END PAGE 06 FINAL LOCK OVERRIDES === */
+
+
+/* === PAGE 06 MOTION + 2.5D START === */
+
+
+/* ============================================================
+   MOTION TOKENS
+   ============================================================ */
+
+.page {
+  --p06-motion-fast: 160ms;
+  --p06-motion-base: 280ms;
+  --p06-motion-slow: 620ms;
+
+  --p06-ease-out:
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    );
+
+  --p06-depth-soft:
+    0 12px 28px
+    rgba(6, 31, 55, 0.08);
+
+  --p06-depth-medium:
+    0 24px 48px
+    rgba(6, 31, 55, 0.14);
+
+  --p06-depth-dark:
+    0 28px 58px
+    rgba(0, 10, 24, 0.26);
+}
+
+
+/* ============================================================
+   HERO — AMBIENT DEPTH
+   ============================================================ */
+
+.heroVisual {
+  position: relative;
+
+  transform-style: preserve-3d;
+
+  animation:
+    page06HeroFloat
+    8s
+    ease-in-out
+    infinite;
+}
+
+
+@keyframes page06HeroFloat {
+
+  0%,
+  100% {
+    transform:
+      perspective(1300px)
+      translateY(0)
+      rotateX(0deg)
+      rotateY(0deg);
+  }
+
+  50% {
+    transform:
+      perspective(1300px)
+      translateY(-7px)
+      rotateX(0.7deg)
+      rotateY(-0.8deg);
+  }
+
+}
+
+
+/* ============================================================
+   HERO DECISION PANEL
+   ============================================================ */
+
+.decisionPanel {
+  position: relative;
+
+  overflow: hidden;
+
+  transform:
+    perspective(1200px)
+    translateZ(0)
+    rotateX(0.4deg)
+    rotateY(-0.5deg);
+
+  transform-style: preserve-3d;
+
+  transition:
+    transform
+      var(--p06-motion-base)
+      var(--p06-ease-out),
+    border-color
+      var(--p06-motion-base)
+      var(--p06-ease-out),
+    box-shadow
+      var(--p06-motion-base)
+      var(--p06-ease-out);
+}
+
+
+.decisionPanel:hover {
+  transform:
+    perspective(1200px)
+    translateY(-5px)
+    translateZ(18px)
+    rotateX(0.8deg)
+    rotateY(-0.8deg);
+
+  box-shadow:
+    0 34px 68px
+    rgba(0, 9, 23, 0.34);
+}
+
+
+/* soft travelling highlight */
+
+.decisionPanel::after {
+  content: "";
+
+  position: absolute;
+
+  width: 42%;
+  height: 140%;
+
+  left: -55%;
+  top: -20%;
+
+  pointer-events: none;
+
+  transform: rotate(10deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(111, 187, 247, 0.08),
+      rgba(255, 255, 255, 0.10),
+      rgba(111, 187, 247, 0.05),
+      transparent
+    );
+
+  animation:
+    page06DecisionSheen
+    7s
+    ease-in-out
+    infinite;
+}
+
+
+@keyframes page06DecisionSheen {
+
+  0%,
+  25% {
+    left: -55%;
+    opacity: 0;
+  }
+
+  38% {
+    opacity: 0.85;
+  }
+
+  65% {
+    left: 120%;
+    opacity: 0.55;
+  }
+
+  75%,
+  100% {
+    left: 120%;
+    opacity: 0;
+  }
+
+}
+
+
+/* ============================================================
+   HERO TOP ICON
+   ============================================================ */
+
+.panelIcon {
+  transform:
+    translateZ(10px);
+
+  transition:
+    transform
+      var(--p06-motion-base)
+      var(--p06-ease-out),
+    box-shadow
+      var(--p06-motion-base)
+      var(--p06-ease-out);
+}
+
+
+.decisionPanel:hover
+.panelIcon {
+  transform:
+    translateZ(24px)
+    translateY(-2px)
+    scale(1.06);
+
+  box-shadow:
+    0 10px 24px
+    rgba(40, 135, 220, 0.18);
+}
+
+
+/* ============================================================
+   HERO INPUTS
+   ============================================================ */
+
+.heroInputs > div {
+  position: relative;
+
+  transform:
+    translateZ(0);
+
+  transition:
+    transform
+      var(--p06-motion-base)
+      var(--p06-ease-out),
+    border-color
+      var(--p06-motion-base)
+      var(--p06-ease-out),
+    background
+      var(--p06-motion-base)
+      var(--p06-ease-out);
+}
+
+
+.heroInputs > div:hover {
+  transform:
+    translateY(-3px)
+    translateZ(14px);
+
+  border-color:
+    rgba(100, 177, 241, 0.34);
+
+  background:
+    rgba(255,255,255,0.055);
+}
+
+
+/* input sequence pulse */
+
+.heroInputs > div:nth-child(1) {
+  animation:
+    page06InputPulse
+    6s
+    ease-in-out
+    infinite;
+}
+
+.heroInputs > div:nth-child(2) {
+  animation:
+    page06InputPulse
+    6s
+    ease-in-out
+    0.6s
+    infinite;
+}
+
+.heroInputs > div:nth-child(3) {
+  animation:
+    page06InputPulse
+    6s
+    ease-in-out
+    1.2s
+    infinite;
+}
+
+
+@keyframes page06InputPulse {
+
+  0%,
+  76%,
+  100% {
+    box-shadow:
+      none;
+  }
+
+  84% {
+    box-shadow:
+      0 0 0 1px
+      rgba(77, 165, 243, 0.18),
+      0 0 22px
+      rgba(63, 151, 232, 0.12);
+  }
+
+}
+
+
+/* ============================================================
+   HERO OUTPUT — AI GOVERNANCE DECISION
+   ============================================================ */
+
+.heroDecision {
+  position: relative;
+
+  overflow: hidden;
+
+  transform:
+    translateZ(12px);
+
+  transition:
+    transform
+      var(--p06-motion-base)
+      var(--p06-ease-out),
+    box-shadow
+      var(--p06-motion-base)
+      var(--p06-ease-out);
+}
+
+
+.heroDecision:hover {
+  transform:
+    translateY(-3px)
+    translateZ(25px);
+
+  box-shadow:
+    0 18px 36px
+    rgba(15, 78, 126, 0.18);
+}
+
+
+.heroDecision::before {
+  content: "";
+
+  position: absolute;
+
+  width: 70%;
+  height: 2px;
+
+  left: 15%;
+  bottom: 0;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #69baff,
+      transparent
+    );
+
+  animation:
+    page06OutputEdge
+    2.5s
+    ease-in-out
+    infinite;
+}
+
+
+@keyframes page06OutputEdge {
+
+  0%,
+  100% {
+    opacity: 0.35;
+
+    transform:
+      scaleX(0.55);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      scaleX(1);
+  }
+
+}
+
+
+/* ============================================================
+   DECISION CONTEXT CARDS
+   ============================================================ */
+
+.inputCard {
+  position: relative;
+
+  overflow: hidden;
+
+  transform:
+    perspective(1000px)
+    translateZ(0);
+
+  transform-style: preserve-3d;
+
+  box-shadow:
+    var(--p06-depth-soft);
+
+  transition:
+    transform
+      var(--p06-motion-base)
+      var(--p06-ease-out),
+    border-color
+      var(--p06-motion-base)
+      var(--p06-ease-out),
+    box-shadow
+      var(--p06-motion-base)
+      var(--p06-ease-out);
+}
+
+
+.inputCard::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      130deg,
+      rgba(255,255,255,0.45),
+      transparent 34%,
+      transparent 70%,
+      rgba(37,132,216,0.035)
+    );
+
+  opacity: 0;
+
+  transition:
+    opacity
+      var(--p06-motion-base)
+      ease;
+}
+
+
+.inputCard:hover {
+  transform:
+    perspective(1000px)
+    translateY(-6px)
+    translateZ(17px)
+    rotateX(0.9deg);
+
+  border-color:
+    rgba(41, 135, 218, 0.28);
+
+  box-shadow:
+    var(--p06-depth-medium);
+}
+
+
+.inputCard:hover::after {
+  opacity: 1;
+}
+
+
+.inputCard svg {
+  transition:
+    transform
+      var(--p06-motion-base)
+      var(--p06-ease-out);
+}
+
+
+.inputCard:hover svg {
+  transform:
+    translateZ(15px)
+    scale(1.08);
+}
+
+
+/* ============================================================
+   + SYMBOLS — CONNECTED CONTEXT RHYTHM
+   ============================================================ */
+
+.flowPlus {
+  animation:
+    page06PlusPulse
+    2.4s
+    ease-in-out
+    infinite;
+}
+
+
+@keyframes page06PlusPulse {
+
+  0%,
+  100% {
+    opacity: 0.42;
+
+    transform:
+      scale(0.92);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      scale(1.08);
+  }
+
+}
+
+
+/* stagger visual timing */
+
+.flowPlus:nth-of-type(2) {
+  animation-delay: 0.25s;
+}
+
+.flowPlus:nth-of-type(4) {
+  animation-delay: 0.5s;
+}
+
+.flowPlus:nth-of-type(6) {
+  animation-delay: 0.75s;
+}
+
+.flowPlus:nth-of-type(8) {
+  animation-delay: 1s;
+}
+
+
+/* ============================================================
+   APPLICABLE GOVERNANCE CARDS
+   ============================================================ */
+
+.originCard {
+  position: relative;
+
+  overflow: hidden;
+
+  transform:
+    perspective(1050px)
+    translateZ(0);
+
+  transform-style: preserve-3d;
+
+  transition:
+    transform
+      var(--p06-motion-base)
+      var(--p06-ease-out),
+    border-color
+      var(--p06-motion-base)
+      var(--p06-ease-out),
+    box-shadow
+      var(--p06-motion-base)
+      var(--p06-ease-out);
+}
+
+
+.originCard:hover {
+  transform:
+    perspective(1050px)
+    translateY(-6px)
+    translateZ(17px)
+    rotateX(0.8deg)
+    rotateY(-0.4deg);
+
+  border-color:
+    rgba(39, 132, 216, 0.30);
+
+  box-shadow:
+    var(--p06-depth-medium);
+}
+
+
+.originIcon {
+  transition:
+    transform
+      var(--p06-motion-base)
+      var(--p06-ease-out),
+    box-shadow
+      var(--p06-motion-base)
+      var(--p06-ease-out);
+}
+
+
+.originCard:hover
+.originIcon {
+  transform:
+    translateY(-2px)
+    translateZ(18px)
+    scale(1.07);
+
+  box-shadow:
+    0 10px 24px
+    rgba(38, 126, 207, 0.13);
+}
+
+
+/* ============================================================
+   AI GOVERNANCE DECISION OUTCOMES
+   ============================================================ */
+
+.outcomeCard {
+  position: relative;
+
+  overflow: hidden;
+
+  transform:
+    perspective(1050px)
+    translateZ(0);
+
+  transform-style: preserve-3d;
+
+  transition:
+    transform
+      var(--p06-motion-base)
+      var(--p06-ease-out),
+    border-color
+      var(--p06-motion-base)
+      var(--p06-ease-out),
+    background
+      var(--p06-motion-base)
+      var(--p06-ease-out),
+    box-shadow
+      var(--p06-motion-base)
+      var(--p06-ease-out);
+}
+
+
+.outcomeCard::before {
+  content: "";
+
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  top: -95px;
+  right: -80px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(67, 157, 238, 0.18),
+      transparent 70%
+    );
+
+  opacity: 0;
+
+  transition:
+    opacity
+      var(--p06-motion-base)
+      ease,
+    transform
+      var(--p06-motion-slow)
+      var(--p06-ease-out);
+}
+
+
+.outcomeCard:hover {
+  transform:
+    perspective(1050px)
+    translateY(-7px)
+    translateZ(20px)
+    rotateX(0.8deg);
+
+  border-color:
+    rgba(92, 173, 247, 0.44);
+
+  box-shadow:
+    var(--p06-depth-dark);
+}
+
+
+.outcomeCard:hover::before {
+  opacity: 1;
+
+  transform:
+    scale(1.35);
+}
+
+
+.outcomeIcon {
+  transition:
+    transform
+      var(--p06-motion-base)
+      var(--p06-ease-out);
+}
+
+
+.outcomeCard:hover
+.outcomeIcon {
+  transform:
+    translateZ(18px)
+    translateY(-2px)
+    scale(1.07);
+}
+
+
+/* ------------------------------------------------------------
+   SPECIAL EMPHASIS:
+   Human Authority Required = outcome 03
+   ------------------------------------------------------------ */
+
+.outcomeCard:nth-child(3) {
+  border-color:
+    rgba(81, 170, 247, 0.30);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(30, 92, 143, 0.30),
+      rgba(255,255,255,0.035)
+    );
+
+  box-shadow:
+    0 0 0 1px
+    rgba(60, 151, 233, 0.07),
+    0 0 30px
+    rgba(44, 132, 214, 0.08);
+}
+
+
+.outcomeCard:nth-child(3)::after {
+  content: "";
+
+  position: absolute;
+
+  left: 12%;
+  bottom: 0;
+
+  width: 76%;
+  height: 2px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #6dbbff,
+      transparent
+    );
+
+  animation:
+    page06HumanDecisionGlow
+    2.6s
+    ease-in-out
+    infinite;
+}
+
+
+@keyframes page06HumanDecisionGlow {
+
+  0%,
+  100% {
+    opacity: 0.30;
+
+    transform:
+      scaleX(0.55);
+  }
+
+  50% {
+    opacity: 0.95;
+
+    transform:
+      scaleX(1);
+  }
+
+}
+
+
+/* ============================================================
+   EXAMPLE — CONNECTED DECISION FLOW
+   ============================================================ */
+
+.exampleGrid {
+  perspective: 1300px;
+}
+
+
+.exampleContext,
+.exampleGovernance,
+.exampleDecision {
+  transform:
+    translateZ(0);
+
+  transform-style: preserve-3d;
+
+  transition:
+    transform
+      var(--p06-motion-base)
+      var(--p06-ease-out),
+    border-color
+      var(--p06-motion-base)
+      var(--p06-ease-out),
+    box-shadow
+      var(--p06-motion-base)
+      var(--p06-ease-out);
+}
+
+
+.exampleContext:hover,
+.exampleGovernance:hover {
+  transform:
+    translateY(-5px)
+    translateZ(16px);
+
+  box-shadow:
+    var(--p06-depth-medium);
+}
+
+
+.exampleDecision {
+  position: relative;
+
+  overflow: hidden;
+
+  transform:
+    translateZ(12px);
+
+  animation:
+    page06FinalDecisionBreath
+    5s
+    ease-in-out
+    infinite;
+}
+
+
+@keyframes page06FinalDecisionBreath {
+
+  0%,
+  100% {
+    transform:
+      translateZ(10px)
+      translateY(0);
+
+    box-shadow:
+      0 18px 40px
+      rgba(21, 93, 151, 0.12);
+  }
+
+  50% {
+    transform:
+      translateZ(20px)
+      translateY(-4px);
+
+    box-shadow:
+      0 26px 50px
+      rgba(21, 104, 171, 0.20);
+  }
+
+}
+
+
+.exampleDecision::after {
+  content: "";
+
+  position: absolute;
+
+  left: -45%;
+  top: 0;
+
+  width: 35%;
+  height: 100%;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(72, 165, 246, 0.10),
+      transparent
+    );
+
+  animation:
+    page06DecisionSweep
+    4.8s
+    ease-in-out
+    infinite;
+}
+
+
+@keyframes page06DecisionSweep {
+
+  0%,
+  30% {
+    left: -45%;
+  }
+
+  65% {
+    left: 115%;
+  }
+
+  100% {
+    left: 115%;
+  }
+
+}
+
+
+/* individual example rows */
+
+.exampleRow {
+  transition:
+    transform
+      var(--p06-motion-fast)
+      var(--p06-ease-out),
+    background
+      var(--p06-motion-fast)
+      ease;
+}
+
+
+.exampleRow:hover {
+  transform:
+    translateX(4px)
+    translateZ(8px);
+}
+
+
+/* ============================================================
+   HANDOFF — DECISION TO HUMAN AUTHORITY
+   ============================================================ */
+
+.handoff {
+  perspective: 1200px;
+}
+
+
+.handoffCard {
+  position: relative;
+
+  overflow: hidden;
+
+  transform:
+    translateZ(0);
+
+  transform-style: preserve-3d;
+
+  transition:
+    transform
+      var(--p06-motion-base)
+      var(--p06-ease-out),
+    border-color
+      var(--p06-motion-base)
+      var(--p06-ease-out),
+    box-shadow
+      var(--p06-motion-base)
+      var(--p06-ease-out);
+}
+
+
+.handoffCard:hover {
+  transform:
+    translateY(-5px)
+    translateZ(16px);
+
+  box-shadow:
+    var(--p06-depth-medium);
+}
+
+
+/* next capability comes slightly forward */
+
+.handoffNext {
+  transform:
+    translateZ(10px);
+
+  border-color:
+    rgba(52, 145, 224, 0.30);
+}
+
+
+.handoffNext:hover {
+  transform:
+    translateY(-6px)
+    translateZ(22px);
+}
+
+
+/* moving arrow between capabilities */
+
+.handoffArrow {
+  animation:
+    page06HandoffArrow
+    1.8s
+    ease-in-out
+    infinite;
+}
+
+
+@keyframes page06HandoffArrow {
+
+  0%,
+  100% {
+    transform:
+      translateX(0);
+
+    opacity: 0.65;
+  }
+
+  50% {
+    transform:
+      translateX(7px);
+
+    opacity: 1;
+  }
+
+}
+
+
+/* ============================================================
+   BUTTON DEPTH
+   ============================================================ */
+
+.primaryButton,
+.secondaryButton,
+.handoffPrimary {
+  transform:
+    translateZ(0);
+
+  transition:
+    transform
+      var(--p06-motion-fast)
+      var(--p06-ease-out),
+    box-shadow
+      var(--p06-motion-fast)
+      var(--p06-ease-out),
+    border-color
+      var(--p06-motion-fast)
+      var(--p06-ease-out);
+}
+
+
+.primaryButton:hover,
+.secondaryButton:hover,
+.handoffPrimary:hover {
+  transform:
+    translateY(-3px)
+    translateZ(9px);
+}
+
+
+.primaryButton svg,
+.secondaryButton svg,
+.handoffPrimary svg {
+  transition:
+    transform
+      var(--p06-motion-fast)
+      var(--p06-ease-out);
+}
+
+
+.primaryButton:hover svg,
+.secondaryButton:hover svg,
+.handoffPrimary:hover svg {
+  transform:
+    translateX(5px);
+}
+
+
+/* ============================================================
+   SECTION INTRO — SUBTLE DEPTH ONLY
+   ============================================================ */
+
+.sectionIntro,
+.sectionIntroCentered,
+.sectionIntroDark {
+  position: relative;
+}
+
+
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .heroVisual,
+  .decisionPanel::after,
+  .heroInputs > div,
+  .heroDecision::before,
+  .flowPlus,
+  .outcomeCard:nth-child(3)::after,
+  .exampleDecision,
+  .exampleDecision::after,
+  .handoffArrow {
+    animation: none !important;
+  }
+
+
+  .decisionPanel,
+  .panelIcon,
+  .heroInputs > div,
+  .heroDecision,
+  .inputCard,
+  .originCard,
+  .originIcon,
+  .outcomeCard,
+  .outcomeIcon,
+  .exampleContext,
+  .exampleGovernance,
+  .exampleDecision,
+  .exampleRow,
+  .handoffCard,
+  .primaryButton,
+  .secondaryButton,
+  .handoffPrimary {
+    transform: none !important;
+
+    transition-duration:
+      0.01ms !important;
+  }
+
+}
+
+
+/* ============================================================
+   MOBILE — KEEP MOTION LIGHT
+   ============================================================ */
+
+@media (max-width: 720px) {
+
+  .heroVisual {
+    animation:
+      page06MobileFloat
+      8s
+      ease-in-out
+      infinite;
+  }
+
+
+  @keyframes page06MobileFloat {
+
+    0%,
+    100% {
+      transform:
+        translateY(0);
+    }
+
+    50% {
+      transform:
+        translateY(-4px);
+    }
+
+  }
+
+
+  .decisionPanel:hover,
+  .inputCard:hover,
+  .originCard:hover,
+  .outcomeCard:hover,
+  .exampleContext:hover,
+  .exampleGovernance:hover,
+  .handoffCard:hover,
+  .handoffNext:hover {
+    transform:
+      translateY(-3px);
+  }
+
+
+  .exampleDecision {
+    animation:
+      none;
+  }
+
+
+  .exampleDecision {
+    transform:
+      none;
+  }
+
+}
+
+
+/* === PAGE 06 MOTION + 2.5D END === */
+
