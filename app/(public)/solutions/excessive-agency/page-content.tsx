@@ -1,5 +1,5 @@
 ﻿import Link from "next/link";
-import styles from "@/styles/page10-excessive-agency.module.css";
+import styles from "./page.module.css";
 
 function ArrowRight() {
   return (
@@ -756,4 +756,5 @@ export function Page10ExcessiveAgency() {
     </main>
   );
 }
+
 

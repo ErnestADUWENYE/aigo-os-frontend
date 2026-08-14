@@ -1,5 +1,5 @@
 ﻿import Link from "next/link";
-import styles from "@/styles/page14-ai-governance-evidence.module.css";
+import styles from "./page.module.css";
 
 
 function ArrowRight() {
@@ -837,4 +837,5 @@ export function Page14AIGovernanceEvidence() {
     </main>
   );
 }
+
 

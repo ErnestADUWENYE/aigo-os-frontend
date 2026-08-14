@@ -1,0 +1,605 @@
+﻿============================================================
+AIGO-OS SOLUTION LOCAL RECOVERY AUDIT
+============================================================
+
+============================================================
+CURRENT MIGRATED SOLUTION FILES
+============================================================
+
+PAGE 09 — accountable-ai-identity
+
+app\(public)\solutions\accountable-ai-identity\page.module.css | 16612 bytes | 08/14/2026 23:53:53
+app\(public)\solutions\accountable-ai-identity\page.tsx | 449 bytes | 08/15/2026 00:06:16
+app\(public)\solutions\accountable-ai-identity\page-content.tsx | 14924 bytes | 08/15/2026 00:06:57
+
+PAGE 10 — excessive-agency
+
+app\(public)\solutions\excessive-agency\page.module.css | 25614 bytes | 08/14/2026 23:53:53
+app\(public)\solutions\excessive-agency\page.tsx | 415 bytes | 08/15/2026 00:06:16
+app\(public)\solutions\excessive-agency\page-content.tsx | 20028 bytes | 08/15/2026 00:06:57
+
+PAGE 11 — ai-authority-privilege
+
+app\(public)\solutions\ai-authority-privilege\page.module.css | 26034 bytes | 08/14/2026 23:53:53
+app\(public)\solutions\ai-authority-privilege\page.tsx | 438 bytes | 08/15/2026 00:06:17
+app\(public)\solutions\ai-authority-privilege\page-content.tsx | 20863 bytes | 08/15/2026 00:06:57
+
+PAGE 12 — human-oversight
+
+app\(public)\solutions\human-oversight\page.module.css | 24549 bytes | 08/14/2026 23:53:53
+app\(public)\solutions\human-oversight\page.tsx | 415 bytes | 08/15/2026 00:06:18
+app\(public)\solutions\human-oversight\page-content.tsx | 19896 bytes | 08/15/2026 00:06:57
+
+PAGE 13 — prioritise-ai-governance
+
+app\(public)\solutions\prioritise-ai-governance\page.module.css | 24466 bytes | 08/14/2026 23:53:53
+app\(public)\solutions\prioritise-ai-governance\page.tsx | 416 bytes | 08/15/2026 00:06:19
+app\(public)\solutions\prioritise-ai-governance\page-content.tsx | 22272 bytes | 08/15/2026 00:06:57
+
+PAGE 14 — ai-governance-evidence
+
+app\(public)\solutions\ai-governance-evidence\page.module.css | 23347 bytes | 08/14/2026 23:53:53
+app\(public)\solutions\ai-governance-evidence\page.tsx | 418 bytes | 08/15/2026 00:06:19
+app\(public)\solutions\ai-governance-evidence\page-content.tsx | 22596 bytes | 08/15/2026 00:06:57
+
+============================================================
+ALL PAGE09–PAGE14 FILES ANYWHERE IN REPOSITORY
+============================================================
+
+
+============================================================
+POSSIBLE BACKUPS / TEMP FILES
+============================================================
+
+
+============================================================
+ARCHIVE-LIKE DIRECTORIES
+============================================================
+
+.clerk\.tmp
+.open-next\cloudflare-templates
+.wrangler\tmp
+backups
+node_modules\@babel\template
+node_modules\@opennextjs\cloudflare\dist\cli\templates
+node_modules\@opennextjs\cloudflare\templates
+node_modules\@swc\helpers\_\_tagged_template_literal
+node_modules\@swc\helpers\_\_tagged_template_literal_loose
+node_modules\cloudflare\resources\api-gateway\expression-template
+node_modules\cloudflare\resources\pages\projects\deployments\history
+node_modules\cloudflare\resources\zaraz\history
+node_modules\cloudflare\src\resources\api-gateway\expression-template
+node_modules\cloudflare\src\resources\pages\projects\deployments\history
+node_modules\cloudflare\src\resources\zaraz\history
+node_modules\next\dist\build\templates
+node_modules\next\dist\esm\build\templates
+node_modules\next\dist\next-devtools\dev-overlay\components\copy-button
+node_modules\node-domexception\.history
+node_modules\wrangler\templates
+node_modules\youch\build\src\templates
+
+============================================================
+CURRENT SOLUTION CSS IMPORTS
+============================================================
+
+PAGE 09
+Line 2: import styles from "./page.module.css";
+
+PAGE 10
+Line 2: import styles from "./page.module.css";
+
+PAGE 11
+Line 2: import styles from "./page.module.css";
+
+PAGE 12
+Line 2: import styles from "./page.module.css";
+
+PAGE 13
+Line 2: import styles from "./page.module.css";
+
+PAGE 14
+Line 2: import styles from "./page.module.css";
+
+
+============================================================
+CURRENT CSS FIRST 80 LINES
+============================================================
+
+
+PAGE 09 — accountable-ai-identity
+----------------------------------------
+.page {
+  --navy: #071b31;
+  --navy-2: #0a2a49;
+  --ink: #0c3154;
+  --text: #516d88;
+  --blue: #168cf0;
+  --blue-2: #42adff;
+  --line: #d9e6f1;
+  --paper: #f6f2e8;
+  --white: #ffffff;
+
+  overflow: hidden;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.shell {
+  width: min(100% - 64px, 1540px);
+  margin: 0 auto;
+}
+
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 82px 0 92px;
+  background:
+    radial-gradient(
+      circle at 86% 14%,
+      rgba(30, 142, 239, 0.15),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 20% 90%,
+      rgba(30, 142, 239, 0.08),
+      transparent 28%
+    ),
+    linear-gradient(
+      140deg,
+      #06192c 0%,
+      #07243f 57%,
+      #08365c 100%
+    );
+  color: #fff;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.14;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      rgba(100, 190, 255, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(100, 190, 255, 0.08) 1px,
+      transparent 1px
+    );
+  background-size: 52px 52px;
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent,
+      black 22%,
+      black 78%,
+      transparent
+    );
+}
+
+.heroGrid {
+  position: relative;
+  z-index: 2;
+
+PAGE 10 — excessive-agency
+----------------------------------------
+.page {
+  --navy: #06192d;
+  --navy-2: #082f50;
+  --ink: #0c3154;
+  --text: #536f89;
+  --blue: #138cf0;
+  --blue-2: #62c2ff;
+  --paper: #f5f1e7;
+  --line: #d8e5ef;
+  --white: #ffffff;
+
+  overflow: hidden;
+  background: #fff;
+  color: var(--ink);
+}
+
+.shell {
+  width: min(100% - 64px, 1540px);
+  margin: 0 auto;
+}
+
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 82px 0 94px;
+  background:
+    radial-gradient(
+      circle at 83% 12%,
+      rgba(38, 159, 245, 0.18),
+      transparent 29%
+    ),
+    radial-gradient(
+      circle at 14% 100%,
+      rgba(28, 117, 190, 0.12),
+      transparent 31%
+    ),
+    linear-gradient(
+      140deg,
+      #06192d 0%,
+      #07243e 55%,
+      #08395f 100%
+    );
+  color: #fff;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(
+      rgba(91, 183, 247, 0.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(91, 183, 247, 0.07) 1px,
+      transparent 1px
+    );
+  background-size: 54px 54px;
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent,
+      black 15%,
+      black 82%,
+      transparent
+    );
+}
+
+.heroGrid {
+  position: relative;
+  z-index: 2;
+
+PAGE 11 — ai-authority-privilege
+----------------------------------------
+.page {
+  --navy: #06192d;
+  --navy-2: #082f50;
+  --ink: #0c3154;
+  --text: #536f89;
+  --blue: #138cf0;
+  --blue-2: #63c4ff;
+  --paper: #f5f1e7;
+  --line: #d8e5ef;
+
+  overflow: hidden;
+  background: #fff;
+  color: var(--ink);
+}
+
+.shell {
+  width: min(100% - 64px, 1540px);
+  margin: 0 auto;
+}
+
+
+/* ============================================================
+   SHARED TYPOGRAPHY
+   ============================================================ */
+
+.kicker,
+.sectionKicker,
+.ctaKicker {
+  display: block;
+  color: var(--blue-2);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 82px 0 94px;
+  color: #fff;
+  background:
+    radial-gradient(
+      circle at 84% 14%,
+      rgba(43, 162, 245, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 16% 100%,
+      rgba(35, 127, 201, 0.11),
+      transparent 32%
+    ),
+    linear-gradient(
+      140deg,
+      #06192d 0%,
+      #07243f 55%,
+      #083a60 100%
+    );
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.17;
+  background-image:
+    linear-gradient(
+      rgba(100, 190, 255, 0.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(100, 190, 255, 0.07) 1px,
+      transparent 1px
+
+PAGE 12 — human-oversight
+----------------------------------------
+.page {
+  --navy: #06192d;
+  --ink: #0c3154;
+  --text: #536f89;
+  --blue: #138cf0;
+  --blue-2: #63c4ff;
+  --paper: #f5f1e7;
+  --line: #d8e5ef;
+
+  overflow: hidden;
+  background: #fff;
+  color: var(--ink);
+}
+
+.shell {
+  width: min(100% - 64px, 1540px);
+  margin: 0 auto;
+}
+
+.kicker,
+.sectionKicker,
+.ctaKicker {
+  display: block;
+  color: var(--blue-2);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 82px 0 94px;
+  color: #fff;
+  background:
+    radial-gradient(
+      circle at 84% 13%,
+      rgba(42, 162, 245, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 12% 100%,
+      rgba(32, 125, 201, 0.11),
+      transparent 32%
+    ),
+    linear-gradient(
+      140deg,
+      #06192d 0%,
+      #07243f 55%,
+      #083a60 100%
+    );
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(
+      rgba(100,190,255,0.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(100,190,255,0.07) 1px,
+      transparent 1px
+    );
+  background-size: 54px 54px;
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent,
+
+PAGE 13 — prioritise-ai-governance
+----------------------------------------
+.page {
+  --navy: #06192d;
+  --ink: #0c3154;
+  --text: #536f89;
+  --blue: #138cf0;
+  --blue-2: #63c4ff;
+  --paper: #f5f1e7;
+  --line: #d8e5ef;
+  --warm: #d4972e;
+
+  overflow: hidden;
+  background: #fff;
+  color: var(--ink);
+}
+
+.shell {
+  width: min(100% - 64px, 1540px);
+  margin: 0 auto;
+}
+
+.kicker,
+.sectionKicker,
+.ctaKicker {
+  display: block;
+  color: var(--blue-2);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 82px 0 94px;
+  color: #fff;
+  background:
+    radial-gradient(
+      circle at 84% 13%,
+      rgba(42,162,245,0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 12% 100%,
+      rgba(32,125,201,0.11),
+      transparent 32%
+    ),
+    linear-gradient(
+      140deg,
+      #06192d 0%,
+      #07243f 55%,
+      #083a60 100%
+    );
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(
+      rgba(100,190,255,0.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(100,190,255,0.07) 1px,
+      transparent 1px
+    );
+  background-size: 54px 54px;
+  mask-image:
+    linear-gradient(
+      to bottom,
+
+PAGE 14 — ai-governance-evidence
+----------------------------------------
+.page {
+  --navy: #06192d;
+  --ink: #0c3154;
+  --text: #536f89;
+  --blue: #138cf0;
+  --blue-2: #63c4ff;
+  --paper: #f5f1e7;
+
+  overflow: hidden;
+  background: #fff;
+  color: var(--ink);
+}
+
+.shell {
+  width: min(100% - 64px, 1540px);
+  margin: 0 auto;
+}
+
+.kicker,
+.sectionKicker,
+.ctaKicker {
+  display: block;
+  color: var(--blue-2);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 82px 0 94px;
+  color: #fff;
+  background:
+    radial-gradient(
+      circle at 84% 13%,
+      rgba(42,162,245,0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 12% 100%,
+      rgba(32,125,201,0.11),
+      transparent 32%
+    ),
+    linear-gradient(
+      140deg,
+      #06192d 0%,
+      #07243f 55%,
+      #083a60 100%
+    );
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(
+      rgba(100,190,255,0.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(100,190,255,0.07) 1px,
+      transparent 1px
+    );
+  background-size: 54px 54px;
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent,
+      black 16%,

@@ -1,5 +1,5 @@
 ﻿import Link from "next/link";
-import styles from "@/styles/page09-accountable-ai-identity.module.css";
+import styles from "./page.module.css";
 
 function ArrowRight() {
   return (
@@ -547,4 +547,5 @@ export function Page09AccountableAIIdentity() {
     </main>
   );
 }
+
 

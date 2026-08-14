@@ -1,5 +1,5 @@
 ﻿import Link from "next/link";
-import styles from "@/styles/page11-ai-authority-privilege.module.css";
+import styles from "./page.module.css";
 
 
 function ArrowRight() {
@@ -829,4 +829,5 @@ export function Page11AIAuthorityPrivilege() {
     </main>
   );
 }
+
 

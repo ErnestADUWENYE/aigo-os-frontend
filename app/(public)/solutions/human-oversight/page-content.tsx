@@ -1,5 +1,5 @@
 ﻿import Link from "next/link";
-import styles from "@/styles/page12-human-oversight.module.css";
+import styles from "./page.module.css";
 
 
 function ArrowRight() {
@@ -737,4 +737,5 @@ export function Page12HumanOversight() {
     </main>
   );
 }
+
 
