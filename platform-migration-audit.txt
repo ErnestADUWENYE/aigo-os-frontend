@@ -1,0 +1,665 @@
+﻿
+============================================================
+FILE: app\(public)\platform\page.tsx
+============================================================
+
+import { Page02PlatformOverview } from "@/components/page02-platform-overview";
+
+export default function ProductPage() {
+  return <Page02PlatformOverview />;
+}
+
+============================================================
+FILE: app\(public)\platform\actor-passports\page.tsx
+============================================================
+
+import { Page03ActorPassports } from "@/components/page03-actor-passports";
+
+export default function ActorPassportsPage() {
+  return <Page03ActorPassports />;
+}
+
+============================================================
+FILE: app\(public)\platform\machine-authority\page.tsx
+============================================================
+
+import { Page04MachineAuthority } from "@/components/page04-machine-authority";
+
+export default function MachineAuthorityPage() {
+  return <Page04MachineAuthority />;
+}
+
+============================================================
+FILE: app\(public)\platform\business-significance\page.tsx
+============================================================
+
+import { Page05BusinessSignificance } from "@/components/page05-business-significance";
+
+export default function BusinessSignificancePage() {
+  return <Page05BusinessSignificance />;
+}
+
+============================================================
+FILE: app\(public)\platform\governance-decisioning\page.tsx
+============================================================
+
+import { Page06GovernanceDecisioning } from "@/components/page06-governance-decisioning";
+
+export default function GovernanceDecisioningPage() {
+  return <Page06GovernanceDecisioning />;
+}
+
+============================================================
+FILE: app\(public)\platform\human-authority\page.tsx
+============================================================
+
+import { Page07HumanAuthority } from "@/components/page07-human-authority";
+
+export default function HumanAuthorityPage() {
+  return <Page07HumanAuthority />;
+}
+
+============================================================
+FILE: app\(public)\platform\governance-receipts\page.tsx
+============================================================
+
+import { Page08GovernanceReceipts } from "@/components/page08-governance-receipts";
+
+export default function GovernanceReceiptsPage() {
+  return <Page08GovernanceReceipts />;
+}
+
+============================================================
+FILE: components\page02-platform-overview.tsx
+============================================================
+
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+
+import {
+  ArrowRight,
+  Blocks,
+  Bot,
+  BrainCircuit,
+  Building2,
+  CircleUserRound,
+  FileCheck2,
+  Fingerprint,
+  Network,
+  Scale,
+  ShieldCheck,
+} from "lucide-react";
+
+import styles from "@/styles/page02-platform-overview.module.css";
+
+
+type CapabilityKey =
+  | "passport"
+  | "authority"
+  | "significance"
+  | "decisioning"
+  | "human"
+  | "receipts";
+
+
+const capabilityOrder: CapabilityKey[] = [
+  "passport",
+  "authority",
+  "significance",
+  "decisioning",
+  "human",
+  "receipts",
+];
+
+
+const architectureCapabilities = {
+  passport: {
+    label: "AI Actor Passports",
+    caption: "Identify the AI Actor",
+    icon: Fingerprint,
+    uses: [
+      "Technical identities",
+      "Platform relationships",
+    ],
+    output: "AI Actor Passport",
+  },
+
+  authority: {
+    label: "Machine Authority",
+    caption: "Establish delegated authority",
+    icon: ShieldCheck,
+    uses: [
+      "Access & permissions",
+      "Organisational delegation",
+    ],
+    output: "AI Authority Boundary",
+  },
+
+  significance: {
+    label: "Business Significance",
+    caption: "Interpret business meaning",
+    icon: BrainCircuit,
+    uses: [
+      "Current AI activity",
+      "Affected business context",
+    ],
+    output: "AI Business Significance Assessment",
+  },
+
+  decisioning: {
+    label: "Governance Decisioning",
+    caption: "Determine what governance applies",
+    icon: Scale,
+    uses: [
+
+============================================================
+FILE: components\page03-actor-passports.tsx
+============================================================
+
+"use client";
+
+import { useEffect, useState } from "react";
+import Link from "next/link";
+
+import {
+  ArrowRight,
+  Bot,
+  Boxes,
+  BrainCircuit,
+  Building2,
+  Fingerprint,
+  Network,
+  ServerCog,
+  ShieldCheck,
+} from "lucide-react";
+
+import styles from "@/styles/page03-actor-passports.module.css";
+
+
+type PassportFieldKey =
+  | "purpose"
+  | "owner"
+  | "relationships";
+
+
+const passportFields = [
+  {
+    key: "purpose" as PassportFieldKey,
+    label: "DECLARED PURPOSE",
+    value: "Production operations support",
+    icon: BrainCircuit,
+    tone: "gold",
+  },
+  {
+    key: "owner" as PassportFieldKey,
+    label: "ACCOUNTABLE OWNER",
+    value: "Platform Operations",
+    icon: Building2,
+    tone: "green",
+  },
+  {
+    key: "relationships" as PassportFieldKey,
+    label: "OPERATING RELATIONSHIPS",
+    value: "Observability, ITSM and cloud",
+    icon: Network,
+    tone: "violet",
+  },
+];
+
+
+const representations = [
+  {
+    label: "AGENT RUNTIME",
+    value: "ops-agent-17",
+    icon: Bot,
+  },
+  {
+    label: "SERVICE IDENTITY",
+    value: "svc-platform-ops-ai",
+    icon: ServerCog,
+  },
+  {
+    label: "APPLICATION",
+    value: "Operations Copilot",
+    icon: Boxes,
+  },
+  {
+    label: "MODEL DEPLOYMENT",
+    value: "reasoning-runtime-v4",
+    icon: BrainCircuit,
+  },
+];
+
+
+const passportContents = [
+  {
+    number: "01",
+    title: "AI Actor identity",
+    description:
+
+============================================================
+FILE: components\page04-machine-authority.tsx
+============================================================
+
+"use client";
+
+import Link from "next/link";
+
+import {
+  ArrowRight,
+  Bot,
+  Braces,
+  Check,
+  CircleSlash2,
+  Fingerprint,
+  Gauge,
+  KeyRound,
+  Network,
+  ShieldCheck,
+  UserCheck,
+} from "lucide-react";
+
+import styles from "@/styles/page04-machine-authority.module.css";
+
+
+const authoritySources = [
+  {
+    icon: KeyRound,
+    label: "ACCESS & PERMISSIONS",
+    title: "What technology permits",
+    text:
+      "Roles, service identities, API permissions and tool access show what the AI Actor can technically access or execute.",
+  },
+  {
+    icon: Braces,
+    label: "CONFIGURATION",
+    title: "How the AI Actor is configured",
+    text:
+      "Agent, application, workflow and environment configuration show where the AI Actor operates and which actions have been enabled.",
+  },
+  {
+    icon: UserCheck,
+    label: "ORGANISATIONAL DELEGATION",
+    title: "What the organisation has authorised",
+    text:
+      "Defined responsibilities, approval requirements and business rules establish what authority has actually been delegated to the AI Actor.",
+  },
+];
+
+
+const boundaryDimensions = [
+  {
+    number: "01",
+    label: "ACTIONS",
+    title: "What it may do",
+    text:
+      "The actions the AI Actor has been authorised to perform.",
+  },
+  {
+    number: "02",
+    label: "RESOURCES",
+    title: "What it may act on",
+    text:
+      "The systems, services, data or other resources covered by that authority.",
+  },
+  {
+    number: "03",
+    label: "LIMITS",
+    title: "How far it may go",
+    text:
+      "The thresholds and limits that restrict the AI Actor's delegated authority.",
+  },
+  {
+    number: "04",
+    label: "CONDITIONS",
+    title: "When the authority applies",
+    text:
+      "The environments, situations or conditions under which the authority is valid.",
+  },
+  {
+    number: "05",
+    label: "AUTONOMY",
+    title: "What it may do independently",
+    text:
+
+============================================================
+FILE: components\page05-business-significance.tsx
+============================================================
+
+"use client";
+
+import Link from "next/link";
+
+import {
+  Activity,
+  ArrowRight,
+  BarChart3,
+  Bot,
+  Building2,
+  Database,
+  Layers3,
+  Network,
+  ShieldCheck,
+} from "lucide-react";
+
+import styles from "@/styles/page05-business-significance.module.css";
+
+
+const businessContext = [
+  {
+    icon: Building2,
+    label: "BUSINESS SERVICE",
+    title: "What business service is affected?",
+    text:
+      "Connect the AI activity to the business service, process or function that depends on the affected technology.",
+  },
+  {
+    icon: Layers3,
+    label: "OPERATING CONTEXT",
+    title: "Where is the activity happening?",
+    text:
+      "Identify whether the activity affects development, internal operations, production or another operating environment.",
+  },
+  {
+    icon: Database,
+    label: "BUSINESS ASSETS",
+    title: "What business assets are involved?",
+    text:
+      "Use available information about applications, data, infrastructure, ownership and business importance.",
+  },
+  {
+    icon: ShieldCheck,
+    label: "BUSINESS IMPACT",
+    title: "What could the activity affect?",
+    text:
+      "Consider customer impact, financial relevance, service criticality, sensitive information and regulatory obligations where they apply.",
+  },
+];
+
+
+export function Page05BusinessSignificance() {
+  return (
+    <main className={styles.page}>
+
+      {/* =====================================================
+          HERO
+      ====================================================== */}
+
+      <section className={styles.hero}>
+        <div
+          className={styles.heroGrid}
+          aria-hidden="true"
+        />
+
+        <div className={styles.shell}>
+          <div className={styles.heroLayout}>
+
+            <div className={styles.heroCopy}>
+              <p className={styles.blueEyebrow}>
+                BUSINESS SIGNIFICANCE
+              </p>
+
+              <h1>
+                Understand what AI activity means to the business.
+              </h1>
+
+              <p className={styles.heroLead}>
+                Business Significance connects a specific AI
+                activity to the business service, process or
+
+============================================================
+FILE: components\page06-governance-decisioning.tsx
+============================================================
+
+"use client";
+
+import Link from "next/link";
+
+import {
+  ArrowRight,
+  Bot,
+  Building2,
+  Check,
+  CircleAlert,
+  FileCheck2,
+  GitBranch,
+  ListChecks,
+  Network,
+  Scale,
+  ShieldCheck,
+  SlidersHorizontal,
+  UserCheck,
+} from "lucide-react";
+
+import styles from "@/styles/page06-governance-decisioning.module.css";
+
+
+const decisionOutcomes = [
+  {
+    icon: Check,
+    number: "01",
+    title: "Proceed",
+    text:
+      "The current AI activity is consistent with the applicable governance.",
+  },
+  {
+    icon: SlidersHorizontal,
+    number: "02",
+    title: "Proceed with Controls",
+    text:
+      "The AI activity may proceed subject to defined conditions or additional controls.",
+  },
+  {
+    icon: UserCheck,
+    number: "03",
+    title: "Human Authority Required",
+    text:
+      "An authorised person is required to make or complete the governance decision.",
+  },
+  {
+    icon: GitBranch,
+    number: "04",
+    title: "Escalate for Review",
+    text:
+      "Additional review is required before the governance position can be resolved.",
+  },
+  {
+    icon: CircleAlert,
+    number: "05",
+    title: "Governance Restriction",
+    text:
+      "The applicable governance does not support the AI activity proceeding as currently proposed.",
+  },
+];
+
+
+const governanceSources = [
+  {
+    icon: ShieldCheck,
+    title: "AI governance requirements",
+    text:
+      "Organisation-defined requirements for how AI should operate and be governed.",
+  },
+  {
+    icon: Scale,
+    title: "Risk & compliance",
+    text:
+      "Applicable risk, regulatory, compliance and control requirements.",
+  },
+  {
+    icon: FileCheck2,
+    title: "Policies & standards",
+    text:
+      "Security, data, operating and other organisational policies that apply to the activity.",
+
+============================================================
+FILE: components\page07-human-authority.tsx
+============================================================
+
+"use client";
+
+import Link from "next/link";
+
+import {
+  ArrowRight,
+  Bell,
+  Building2,
+  Check,
+  CheckCircle2,
+  FileQuestion,
+  GitBranch,
+  Mail,
+  MessageSquare,
+  ShieldCheck,
+  UserCheck,
+  Workflow,
+  X,
+} from "lucide-react";
+
+import styles from "@/styles/page07-human-authority.module.css";
+
+
+const humanActions = [
+  {
+    icon: Check,
+    title: "Approve",
+    text:
+      "Authorise the proposed AI activity from a governance perspective.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Approve with Conditions",
+    text:
+      "Authorise the activity subject to defined conditions or limits.",
+  },
+  {
+    icon: X,
+    title: "Reject",
+    text:
+      "Do not provide the human authority required for the proposed activity.",
+  },
+  {
+    icon: FileQuestion,
+    title: "Request More Information",
+    text:
+      "Ask for additional context before making the governance decision.",
+  },
+  {
+    icon: GitBranch,
+    title: "Escalate",
+    text:
+      "Route the decision to another person or function with the required authority.",
+  },
+];
+
+
+const notificationChannels = [
+  {
+    icon: Bell,
+    title: "AIGO-OS work queue",
+    text:
+      "Surface governance tasks to the responsible person or team.",
+  },
+  {
+    icon: Mail,
+    title: "Email",
+    text:
+      "Notify authorised users when a governance decision needs their attention.",
+  },
+  {
+    icon: MessageSquare,
+    title: "Enterprise messaging",
+    text:
+      "Bring governance tasks into connected collaboration channels.",
+  },
+  {
+    icon: Workflow,
+    title: "Enterprise workflow",
+    text:
+
+============================================================
+FILE: components\page08-governance-receipts.tsx
+============================================================
+
+"use client";
+
+import Link from "next/link";
+
+import {
+  ArrowRight,
+  Bot,
+  Building2,
+  CheckCircle2,
+  Clock3,
+  Database,
+  FileCheck2,
+  FileJson,
+  Fingerprint,
+  Search,
+  ShieldCheck,
+  UserCheck,
+} from "lucide-react";
+
+import styles from "@/styles/page08-governance-receipts.module.css";
+
+
+const receiptContents = [
+  {
+    number: "01",
+    title: "AI Actor",
+    text:
+      "The governed AI Actor associated with the activity.",
+  },
+  {
+    number: "02",
+    title: "AI Activity",
+    text:
+      "The activity AIGO-OS understood and evaluated.",
+  },
+  {
+    number: "03",
+    title: "AI Authority Boundary",
+    text:
+      "The delegated authority understood for the AI Actor at that time.",
+  },
+  {
+    number: "04",
+    title: "Business Significance",
+    text:
+      "The business meaning and relevance of the activity.",
+  },
+  {
+    number: "05",
+    title: "Governance Decisions",
+    text:
+      "The AI Governance Decision and any Human Governance Decision involved.",
+  },
+  {
+    number: "06",
+    title: "Evidence & References",
+    text:
+      "Relevant timestamps, policy references, source records and decision ownership.",
+  },
+];
+
+
+const uses = [
+  {
+    icon: Search,
+    title: "Investigate",
+    text:
+      "Reconstruct how an AI activity was understood and governed at the time.",
+  },
+  {
+    icon: FileCheck2,
+    title: "Assure",
+    text:
+      "Provide structured evidence for governance, risk, compliance and internal review.",
+  },
+  {
+    icon: Building2,
+    title: "Understand patterns",
+    text:
+      "See where AI activity repeatedly reaches authority, governance or human-review thresholds.",
