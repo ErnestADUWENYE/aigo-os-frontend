@@ -1,0 +1,161 @@
+﻿.page {
+  min-height: calc(100vh - 150px);
+
+  padding: 104px 0 118px;
+
+  background:
+    linear-gradient(
+      122deg,
+      #dbe7ee 0%,
+      #eef1ef 46%,
+      #ebe1d5 100%
+    );
+}
+
+.hero {
+  max-width: 900px;
+}
+
+.eyebrow {
+  margin: 0 0 17px !important;
+
+  color: #365b7d !important;
+
+  font-size: 10px !important;
+  font-weight: 850 !important;
+
+  letter-spacing: 0.11em;
+
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 890px;
+
+  margin: 0;
+
+  color: #07111f;
+
+  font-size: clamp(48px, 5vw, 72px);
+  font-weight: 720;
+
+  line-height: 1.01;
+
+  letter-spacing: -0.05em;
+}
+
+.lead {
+  max-width: 720px;
+
+  margin: 25px 0 0 !important;
+
+  color: #344a5e !important;
+
+  font-size: 17px !important;
+
+  line-height: 1.68;
+}
+
+.paths {
+  margin-top: 54px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  border-top: 1px solid #b9c8d3;
+  border-left: 1px solid #b9c8d3;
+}
+
+.path,
+.pathQuiet {
+  min-height: 310px;
+
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  border-right: 1px solid #b9c8d3;
+  border-bottom: 1px solid #b9c8d3;
+
+  background: rgba(255,255,255,0.5);
+
+  color: inherit;
+
+  text-decoration: none;
+}
+
+.path {
+  transition:
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.path:hover,
+.path:focus-visible {
+  background: #ffffff;
+
+  box-shadow:
+    inset 0 3px 0 #d9a52b;
+
+  outline: none;
+}
+
+.paths span {
+  color: #365b7d;
+
+  font-size: 9px;
+  font-weight: 850;
+
+  letter-spacing: 0.07em;
+
+  text-transform: uppercase;
+}
+
+.paths strong {
+  margin-top: auto;
+
+  color: #07111f;
+
+  font-size: 24px;
+  font-weight: 700;
+
+  line-height: 1.1;
+}
+
+.paths p {
+  margin: 11px 0 0 !important;
+
+  color: #4c6073 !important;
+
+  font-size: 12px !important;
+
+  line-height: 1.6;
+}
+
+.paths small {
+  width: fit-content;
+
+  margin-top: 20px;
+  padding-bottom: 3px;
+
+  border-bottom: 1px solid #8199ad;
+
+  color: #173b59;
+
+  font-size: 10px;
+  font-weight: 760;
+}
+
+@media (max-width: 900px) {
+  .paths {
+    grid-template-columns: 1fr;
+  }
+
+  .path,
+  .pathQuiet {
+    min-height: 240px;
+  }
+}

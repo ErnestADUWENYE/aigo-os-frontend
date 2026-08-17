@@ -1,7 +1,9 @@
-import type { ReactNode } from "react";
+﻿import type { ReactNode } from "react";
 
-import { PublicFooter } from "@/components/public-footer";
-import { PublicHeader } from "@/components/public-header";
+import { PublicFooter } from "@/components/public/public-footer";
+import { PublicHeader } from "@/components/public/public-header";
+
+import styles from "./public-site.module.css";
 
 export default function PublicLayout({
   children,
@@ -9,10 +11,10 @@ export default function PublicLayout({
   children: ReactNode;
 }>) {
   return (
-    <div className="public-site">
+    <div className={styles.publicSite}>
       <PublicHeader />
 
-      <main className="public-site__main">
+      <main>
         {children}
       </main>
 
@@ -20,3 +22,4 @@ export default function PublicLayout({
     </div>
   );
 }
+

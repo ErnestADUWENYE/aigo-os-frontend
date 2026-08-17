@@ -1,0 +1,37 @@
+﻿.gutter {
+  box-sizing: border-box !important;
+
+  width: 100% !important;
+
+  padding-left: 120px !important;
+  padding-right: 120px !important;
+
+  margin: 0 !important;
+}
+
+.container {
+  box-sizing: border-box !important;
+
+  width: 100% !important;
+  max-width: 1360px !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+@media (max-width: 1280px) {
+  .gutter {
+    padding-left: 56px !important;
+    padding-right: 56px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .gutter {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+}

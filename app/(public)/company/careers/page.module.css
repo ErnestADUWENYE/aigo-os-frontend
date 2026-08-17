@@ -1,0 +1,568 @@
+﻿.hero {
+  position: relative;
+  padding: 118px 0 124px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 82% 28%,
+      rgba(71, 132, 166, 0.10),
+      transparent 29%
+    ),
+    linear-gradient(
+      120deg,
+      #f1ebe2 0%,
+      #eef2f4 52%,
+      #e0e9ef 100%
+    );
+
+  border-bottom: 1px solid #d7e1e7;
+}
+
+.heroInner {
+  max-width: 940px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow,
+.sectionLabel,
+.sectionLabelLight {
+  margin: 0 0 18px;
+  color: #365b7d;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  color: #07111f;
+  font-size: clamp(58px, 6vw, 88px);
+  font-weight: 680;
+  line-height: 0.97;
+  letter-spacing: -0.055em;
+}
+
+.heroIntro {
+  max-width: 720px;
+  margin: 28px auto 0 !important;
+  color: #455d70 !important;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.heroButton {
+  width: fit-content;
+  min-height: 52px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: 32px;
+  padding: 0 21px;
+
+  border: 1px solid #17384d;
+  border-radius: 9px;
+
+  background: #0b2c41;
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 760;
+  text-decoration: none;
+
+  box-shadow: 0 12px 28px rgba(7, 31, 46, 0.12);
+
+  transition:
+    transform 170ms ease,
+    box-shadow 170ms ease,
+    background 170ms ease;
+}
+
+.heroButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(7, 31, 46, 0.16);
+}
+
+
+/* OPEN OPPORTUNITIES */
+
+.jobsSection {
+  padding: 108px 0 118px;
+  background: #ffffff;
+  scroll-margin-top: 100px;
+}
+
+.jobsHeader {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(320px, 0.48fr);
+
+  gap: 80px;
+  align-items: end;
+
+  margin-bottom: 45px;
+}
+
+.jobsHeader h2 {
+  margin: 0;
+  color: #07111f;
+  font-size: clamp(40px, 3.8vw, 58px);
+  font-weight: 660;
+  line-height: 1.03;
+  letter-spacing: -0.045em;
+}
+
+.jobsHeader > p {
+  margin: 0 !important;
+  color: #52697a !important;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* JOB DIRECTORY */
+
+.jobsDirectory {
+  border-top: 1px solid #bfcbd3;
+}
+
+.jobRow {
+  position: relative;
+  min-height: 190px;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.1fr)
+    minmax(410px, 0.8fr)
+    42px;
+
+  gap: 46px;
+  align-items: center;
+
+  padding: 30px 4px;
+
+  border-bottom: 1px solid #cdd7dd;
+
+  color: inherit;
+  text-decoration: none;
+
+  transition:
+    padding-left 180ms ease,
+    background 180ms ease;
+}
+
+.jobRow::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -28px;
+  right: -28px;
+
+  z-index: 0;
+
+  border-radius: 12px;
+  background: #f6f9fa;
+
+  opacity: 0;
+
+  transition: opacity 180ms ease;
+}
+
+.jobRow:hover::before {
+  opacity: 1;
+}
+
+.jobRow:hover {
+  padding-left: 12px;
+}
+
+.jobPrimary,
+.jobMeta,
+.jobArrow {
+  position: relative;
+  z-index: 1;
+}
+
+.jobPrimary > span {
+  display: block;
+  margin-bottom: 10px;
+
+  color: #367895;
+
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.jobPrimary h3 {
+  margin: 0;
+  color: #07111f;
+
+  font-size: clamp(24px, 2.3vw, 34px);
+  font-weight: 660;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.jobPrimary p {
+  max-width: 650px;
+  margin: 11px 0 0 !important;
+
+  color: #566d7c !important;
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.jobMeta {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+.jobMeta div {
+  min-width: 0;
+}
+
+.jobMeta span {
+  display: block;
+
+  color: #84949e;
+
+  font-size: 7px;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+}
+
+.jobMeta strong {
+  display: block;
+  margin-top: 7px;
+
+  color: #29485b;
+
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.jobArrow {
+  display: grid;
+  place-items: center;
+
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid #d5e0e5;
+  border-radius: 50%;
+
+  color: #456e82;
+
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.jobRow:hover .jobArrow {
+  transform: translateX(4px);
+  background: #0b2c41;
+  color: #ffffff;
+}
+
+
+/* EMPTY STATE */
+
+.noRoles {
+  padding: 46px 0;
+  border-top: 1px solid #cbd6dc;
+  border-bottom: 1px solid #cbd6dc;
+}
+
+.noRoles h3 {
+  margin: 0;
+  color: #07111f;
+  font-size: 24px;
+}
+
+.noRoles p {
+  margin: 10px 0 0 !important;
+  color: #52697a !important;
+  font-size: 13px;
+}
+
+
+/* WORK WITH AIGO-OS */
+
+.workSection {
+  padding: 112px 0 120px;
+  background: #091a2d;
+}
+
+.sectionLabelLight {
+  color: #d9a52b;
+}
+
+.workHeader {
+  display: grid;
+  grid-template-columns:
+    0.23fr
+    minmax(0, 0.77fr);
+
+  gap: 72px;
+
+  margin-bottom: 52px;
+}
+
+.workHeader h2 {
+  max-width: 880px;
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(40px, 3.6vw, 57px);
+  font-weight: 660;
+  line-height: 1.04;
+  letter-spacing: -0.044em;
+}
+
+.workHeader > div > p {
+  max-width: 700px;
+  margin: 19px 0 0 !important;
+
+  color: #b8c8d2 !important;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.pathwayGrid {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.pathway {
+  min-height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 27px;
+
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.018),
+      transparent
+    );
+
+  transition: background 180ms ease;
+}
+
+.pathway:hover {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.pathwayTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.pathwayIcon {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(105, 194, 212, 0.17);
+  border-radius: 10px;
+
+  background: rgba(82, 183, 204, 0.07);
+
+  color: #69c1d3;
+}
+
+.pathwayTop > span {
+  color: #d9a52b;
+
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+}
+
+.pathwayContent h3 {
+  max-width: 500px;
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 24px;
+  font-weight: 670;
+  line-height: 1.13;
+  letter-spacing: -0.025em;
+}
+
+.pathwayContent p {
+  max-width: 520px;
+  margin: 12px 0 20px !important;
+
+  color: #b8c8d2 !important;
+
+  font-size: 12px;
+  line-height: 1.62;
+}
+
+.pathwayContent a {
+  width: fit-content;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 730;
+  text-decoration: none;
+}
+
+.pathwayContent a:hover {
+  color: #78c8d8;
+}
+
+
+/* CLOSING */
+
+.closing {
+  padding: 108px 0;
+  background: #f3efe6;
+}
+
+.closingLayout {
+  display: grid;
+  grid-template-columns:
+    0.23fr
+    minmax(0, 0.77fr);
+
+  gap: 72px;
+}
+
+.closingLayout h2 {
+  max-width: 850px;
+  margin: 0;
+
+  color: #07111f;
+
+  font-size: clamp(39px, 3.5vw, 55px);
+  font-weight: 660;
+  line-height: 1.05;
+  letter-spacing: -0.043em;
+}
+
+.closingLayout > div > p {
+  max-width: 700px;
+  margin: 20px 0 0 !important;
+
+  color: #4b6072 !important;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1050px) {
+  .jobRow {
+    grid-template-columns:
+      minmax(0, 1fr)
+      38px;
+
+    gap: 24px;
+  }
+
+  .jobMeta {
+    grid-column: 1;
+    grid-row: 2;
+    max-width: 620px;
+  }
+
+  .jobArrow {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+}
+
+@media (max-width: 850px) {
+  .jobsHeader,
+  .workHeader,
+  .closingLayout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .pathwayGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .hero,
+  .jobsSection,
+  .workSection,
+  .closing {
+    padding-top: 76px;
+    padding-bottom: 76px;
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 14vw, 70px);
+  }
+
+  .jobRow {
+    min-height: auto;
+    padding: 28px 0;
+  }
+
+  .jobMeta {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .pathway {
+    min-height: 270px;
+    padding: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroButton,
+  .jobRow,
+  .jobRow::before,
+  .jobArrow,
+  .pathway {
+    transition: none;
+  }
+}

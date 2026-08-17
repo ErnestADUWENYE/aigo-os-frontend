@@ -1,0 +1,355 @@
+﻿.hero {
+  padding: 112px 0 118px;
+
+  background:
+    radial-gradient(
+      circle at 82% 18%,
+      rgba(74, 128, 161, 0.08),
+      transparent 28%
+    ),
+    linear-gradient(
+      120deg,
+      #eee6db 0%,
+      #eef1f1 50%,
+      #dce7ee 100%
+    );
+}
+
+.heroLayout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(320px, 0.48fr);
+
+  gap: clamp(72px, 8vw, 132px);
+
+  align-items: end;
+}
+
+.eyebrow,
+.sectionLabel {
+  margin: 0 0 17px;
+
+  color: #365b7d;
+
+  font-size: 10px;
+  font-weight: 850;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 940px;
+
+  margin: 0;
+
+  color: #07111f;
+
+  font-size: clamp(52px, 5vw, 76px);
+  font-weight: 700;
+
+  line-height: 0.99;
+
+  letter-spacing: -0.053em;
+}
+
+.heroAside p {
+  margin: 0 !important;
+
+  color: #3f5668 !important;
+
+  font-size: 15px;
+
+  line-height: 1.72;
+}
+
+.heroAside p + p {
+  margin-top: 17px !important;
+}
+
+
+/* POSITION */
+
+.statement {
+  padding: 90px 0;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #d8e1e7;
+}
+
+.statementLayout {
+  display: grid;
+
+  grid-template-columns:
+    0.22fr
+    minmax(0, 0.78fr);
+
+  gap: 72px;
+}
+
+.statement h2 {
+  max-width: 980px;
+
+  margin: 0;
+
+  color: #07111f;
+
+  font-size: clamp(38px, 3.5vw, 55px);
+  font-weight: 660;
+
+  line-height: 1.06;
+
+  letter-spacing: -0.044em;
+}
+
+
+/* PRINCIPLES */
+
+.principlesSection {
+  padding: 112px 0 120px;
+
+  background: #f6f8f9;
+}
+
+.principlesGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+.principle {
+  min-height: 330px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  padding: 28px;
+
+  border: 1px solid #d8e2e7;
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #fbfcfc
+    );
+
+  box-shadow:
+    0 12px 34px rgba(16, 42, 58, 0.04);
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.principle:hover {
+  transform: translateY(-4px);
+
+  border-color: #c7d8df;
+
+  box-shadow:
+    0 22px 44px rgba(16, 42, 58, 0.07);
+}
+
+.featured {
+  grid-column: span 2;
+
+  min-height: 360px;
+
+  background:
+    radial-gradient(
+      circle at 88% 14%,
+      rgba(72, 181, 204, 0.12),
+      transparent 26%
+    ),
+    linear-gradient(
+      145deg,
+      #091a2d,
+      #0d3047
+    );
+
+  border-color: #1b4861;
+}
+
+.principleTop {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+}
+
+.number {
+  color: #365b7d;
+
+  font-size: 10px;
+  font-weight: 850;
+
+  letter-spacing: 0.08em;
+}
+
+.featured .number {
+  color: #72cada;
+}
+
+.rule {
+  height: 1px;
+
+  flex: 1;
+
+  background: #d8e2e7;
+}
+
+.featured .rule {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.principleCopy {
+  max-width: 620px;
+}
+
+.principle h2 {
+  margin: 0;
+
+  color: #07111f;
+
+  font-size: clamp(27px, 2.4vw, 36px);
+  font-weight: 670;
+
+  line-height: 1.08;
+
+  letter-spacing: -0.035em;
+}
+
+.featured h2 {
+  max-width: 760px;
+
+  color: #ffffff;
+
+  font-size: clamp(36px, 3.5vw, 54px);
+}
+
+.principle p {
+  max-width: 620px;
+
+  margin: 15px 0 0 !important;
+
+  color: #52697a !important;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+.featured p {
+  max-width: 760px;
+
+  color: #bfd0d8 !important;
+
+  font-size: 15px;
+}
+
+
+/* CLOSING */
+
+.closing {
+  padding: 108px 0;
+
+  background: #f2eee5;
+}
+
+.closingGrid {
+  display: grid;
+
+  grid-template-columns:
+    0.22fr
+    minmax(0, 0.78fr);
+
+  gap: 72px;
+}
+
+.closingGrid h2 {
+  max-width: 850px;
+
+  margin: 0;
+
+  color: #07111f;
+
+  font-size: clamp(39px, 3.5vw, 56px);
+  font-weight: 660;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.044em;
+}
+
+.closingGrid > div > p {
+  max-width: 680px;
+
+  margin: 22px 0 0 !important;
+
+  color: #4b6072 !important;
+
+  font-size: 14px;
+
+  line-height: 1.72;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .heroLayout,
+  .statementLayout,
+  .closingGrid {
+    grid-template-columns: 1fr;
+
+    gap: 32px;
+  }
+
+  .principlesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero,
+  .statement,
+  .principlesSection,
+  .closing {
+    padding-top: 76px;
+    padding-bottom: 76px;
+  }
+
+  .hero h1 {
+    font-size: clamp(43px, 13vw, 62px);
+  }
+
+  .principle,
+  .featured {
+    min-height: 270px;
+
+    padding: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .principle {
+    transition: none;
+  }
+}

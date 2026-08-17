@@ -1,0 +1,329 @@
+﻿.menu {
+  width: 100%;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  color: #07111f;
+}
+
+
+/* ==========================================================
+   TOP BAR
+   MATCHES PLATFORM DROPDOWN LANGUAGE
+   ========================================================== */
+
+.topBar {
+  min-height: 74px;
+
+  padding: 16px 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 28px;
+
+  background:
+    linear-gradient(
+      100deg,
+      #0b213a 0%,
+      #123452 100%
+    );
+
+  border-bottom: 1px solid #294a66;
+}
+
+.topCopy {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+}
+
+.eyebrow {
+  flex: 0 0 auto;
+
+  color: #e0b348;
+
+  font-size: 10px;
+  font-weight: 850;
+
+  letter-spacing: 0.11em;
+
+  text-transform: uppercase;
+}
+
+.topCopy strong {
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 730;
+
+  line-height: 1.2;
+}
+
+.overviewLink {
+  flex: 0 0 auto;
+
+  min-height: 38px;
+
+  padding: 0 14px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 7px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    background 150ms ease,
+    border-color 150ms ease;
+}
+
+.overviewLink:hover,
+.overviewLink:focus-visible {
+  background: rgba(255, 255, 255, 0.12);
+
+  border-color: rgba(255, 255, 255, 0.46);
+
+  outline: none;
+}
+
+
+/* ==========================================================
+   TWO PRODUCT COLUMNS
+   ========================================================== */
+
+.products {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f6f8fa 100%
+    );
+}
+
+.product {
+  min-width: 0;
+
+  min-height: 225px;
+
+  padding: 20px 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  color: inherit;
+
+  text-decoration: none;
+
+  transition:
+    background 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.product:first-child {
+  border-right: 1px solid #dbe3e9;
+}
+
+.product:hover,
+.product:focus-visible {
+  background: #edf3f7;
+
+  box-shadow:
+    inset 0 3px 0 #d9a52b;
+
+  outline: none;
+}
+
+
+/* ==========================================================
+   PRODUCT HEADING
+   ========================================================== */
+
+.productHeading {
+  display: grid;
+
+  grid-template-columns:
+    34px
+    minmax(0, 1fr);
+
+  align-items: start;
+
+  gap: 12px;
+}
+
+.number {
+  width: 30px;
+  height: 30px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #c4d0da;
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #365b7d;
+
+  font-size: 9px;
+  font-weight: 850;
+}
+
+.category {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #1d6598;
+
+  font-size: 9px;
+  font-weight: 850;
+
+  letter-spacing: 0.09em;
+
+  text-transform: uppercase;
+}
+
+.product h3 {
+  margin: 0;
+
+  color: #07111f;
+
+  font-size: 18px;
+  font-weight: 740;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 3px 0 0 !important;
+
+  color: #53687b !important;
+
+  font-size: 11px;
+  font-weight: 650;
+
+  line-height: 1.4;
+}
+
+
+/* ==========================================================
+   CAPABILITY LIST
+   ========================================================== */
+
+.detailList {
+  margin-top: 18px;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 6px;
+}
+
+.detailList span {
+  padding: 6px 8px;
+
+  border: 1px solid #d4dde5;
+  border-radius: 5px;
+
+  background: #ffffff;
+
+  color: #344d63;
+
+  font-size: 10px;
+  font-weight: 650;
+}
+
+
+/* ==========================================================
+   EXPLORE LINK
+   ========================================================== */
+
+.explore {
+  width: fit-content;
+
+  margin-top: auto;
+  padding-top: 18px;
+  padding-bottom: 2px;
+
+  border-bottom: 1px solid #8ba3b7;
+
+  color: #0a2745;
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.product:hover .explore,
+.product:focus-visible .explore {
+  border-bottom-color: #d9a52b;
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 900px) {
+  .topCopy {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 4px;
+  }
+
+  .products {
+    grid-template-columns: 1fr;
+  }
+
+  .product:first-child {
+    border-right: 0;
+
+    border-bottom: 1px solid #dbe3e9;
+  }
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 640px) {
+  .topBar {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+  .product {
+    min-height: 210px;
+
+    padding: 18px 20px;
+  }
+}

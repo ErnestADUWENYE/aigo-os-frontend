@@ -1,0 +1,1028 @@
+﻿.hero {
+  padding: 92px 0 104px;
+
+  background:
+    linear-gradient(
+      118deg,
+      #d9e6ee 0%,
+      #eef1ef 46%,
+      #eee4d6 100%
+    );
+}
+
+.heroGrid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.88fr)
+    minmax(520px, 1.12fr);
+
+  align-items: center;
+
+  gap: clamp(66px, 7vw, 112px);
+}
+
+.heroCopy {
+  max-width: 610px;
+}
+
+.eyebrow,
+.sectionLabel,
+.sectionLabelLight {
+  margin: 0 0 18px;
+
+  font-size: 10px;
+  font-weight: 850;
+
+  letter-spacing: 0.11em;
+
+  text-transform: uppercase;
+}
+
+.eyebrow,
+.sectionLabel {
+  color: #365b7d;
+}
+
+.hero h1 {
+  max-width: 620px;
+
+  margin: 0;
+
+  color: #07111f;
+
+  font-size: clamp(50px, 4.4vw, 69px);
+  font-weight: 735;
+
+  line-height: 1.01;
+
+  letter-spacing: -0.052em;
+
+  text-wrap: balance;
+}
+
+.heroText {
+  max-width: 570px;
+
+  margin: 27px 0 0 !important;
+
+  color: #304558 !important;
+
+  font-size: 17px;
+  font-weight: 500;
+
+  line-height: 1.65;
+}
+
+.heroActions {
+  margin-top: 34px;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 11px;
+}
+
+.primaryButton,
+.secondaryButton,
+.nextLink {
+  min-height: 46px;
+
+  padding: 0 19px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 740;
+
+  text-decoration: none;
+}
+
+.primaryButton {
+  background: #d9a52b;
+  color: #07111f;
+}
+
+.secondaryButton {
+  border: 1px solid #71869a;
+
+  background: rgba(255,255,255,0.46);
+
+  color: #07111f;
+}
+
+
+/* ==========================================================
+   BUSINESS MAP HERO
+   ========================================================== */
+
+.mapScene {
+  width: 100%;
+  max-width: 680px;
+
+  justify-self: end;
+}
+
+.mapSurface {
+  overflow: hidden;
+
+  border: 1px solid #b9c7d2;
+  border-radius: 22px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 28px 58px
+    rgba(7,26,51,0.14);
+}
+
+.mapHeader {
+  min-height: 75px;
+
+  padding: 18px 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  border-bottom: 1px solid #d8e0e7;
+
+  background: #f8fafb;
+}
+
+.mapHeader > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.mapHeader span {
+  color: #617588;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.mapHeader strong {
+  color: #07111f;
+
+  font-size: 17px;
+  font-weight: 730;
+}
+
+.mapState {
+  padding: 6px 10px;
+
+  border: 1px solid #b8c7d3;
+  border-radius: 999px;
+
+  background: #e9f0f5;
+
+  color: #244763 !important;
+
+  letter-spacing: 0 !important;
+
+  text-transform: none !important;
+}
+
+.relationshipMap {
+  min-height: 300px;
+
+  padding: 28px;
+
+  display: grid;
+
+  grid-template-columns:
+    0.8fr
+    80px
+    1fr;
+
+  align-items: center;
+
+  gap: 18px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #f5f8fa 0%,
+      #ffffff 46%,
+      #f8f7f3 100%
+    );
+}
+
+.aiSide,
+.businessSide {
+  min-width: 0;
+}
+
+.mapLabel {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #546b80;
+
+  font-size: 9px;
+  font-weight: 850;
+
+  letter-spacing: 0.09em;
+
+  text-transform: uppercase;
+}
+
+.aiAsset {
+  min-height: 190px;
+
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border: 1px solid #aebfcd;
+  border-radius: 14px;
+
+  background: #dce7ef;
+}
+
+.aiAsset span,
+.businessTarget span {
+  color: #556d81;
+
+  font-size: 9px;
+  font-weight: 760;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+}
+
+.aiAsset strong {
+  margin-top: 7px;
+
+  color: #07111f;
+
+  font-size: 20px;
+  font-weight: 730;
+
+  line-height: 1.18;
+}
+
+.aiAsset small {
+  margin-top: 8px;
+
+  color: #445a6e;
+
+  font-size: 10px;
+}
+
+.relationshipLane {
+  display: grid;
+
+  gap: 55px;
+}
+
+.relationshipLane span {
+  position: relative;
+
+  display: block;
+
+  height: 1px;
+
+  background: #7890a4;
+}
+
+.relationshipLane span::before,
+.relationshipLane span::after {
+  content: "";
+
+  position: absolute;
+
+  top: -3px;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  border: 1px solid #7890a4;
+}
+
+.relationshipLane span::before {
+  left: -3px;
+}
+
+.relationshipLane span::after {
+  right: -3px;
+}
+
+.businessSide {
+  display: grid;
+
+  gap: 8px;
+}
+
+.businessTarget {
+  min-height: 71px;
+
+  padding: 13px 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border: 1px solid #d1d9e0;
+  border-radius: 10px;
+
+  background: #ffffff;
+}
+
+.businessTarget strong {
+  margin-top: 3px;
+
+  color: #07111f;
+
+  font-size: 13px;
+  font-weight: 720;
+}
+
+.mapFooter {
+  min-height: 58px;
+
+  padding: 0 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-top: 1px solid #d8e0e7;
+
+  background: #f7f9fa;
+}
+
+.mapFooter span {
+  color: #607387;
+
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.mapFooter strong {
+  color: #204662;
+
+  font-size: 11px;
+  font-weight: 750;
+}
+
+
+/* ==========================================================
+   RELATIONSHIP MATRIX
+   ========================================================== */
+
+.relationshipSection {
+  padding: 110px 0;
+
+  background: #ffffff;
+}
+
+.relationshipHeader {
+  margin-bottom: 48px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(320px, 0.55fr);
+
+  align-items: end;
+
+  gap: 70px;
+}
+
+.relationshipHeader h2,
+.mappingValueHeader h2 {
+  max-width: 760px;
+
+  margin: 0;
+
+  color: #07111f;
+
+  font-size: clamp(39px, 3.4vw, 56px);
+  font-weight: 690;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.045em;
+}
+
+.relationshipHeader > p {
+  margin: 0 !important;
+
+  color: #405468 !important;
+
+  font-size: 15px;
+
+  line-height: 1.65;
+}
+
+.relationshipMatrix {
+  display: grid;
+
+  grid-template-columns:
+    0.68fr
+    1.32fr;
+
+  gap: 18px;
+}
+
+.matrixOrigin {
+  min-height: 410px;
+
+  padding: 28px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      155deg,
+      #0b2037,
+      #153b59
+    );
+}
+
+.matrixOrigin span {
+  color: #d8b450;
+
+  font-size: 10px;
+  font-weight: 850;
+
+  letter-spacing: 0.09em;
+
+  text-transform: uppercase;
+}
+
+.matrixOrigin strong {
+  max-width: 330px;
+
+  margin-top: 9px;
+
+  color: #ffffff;
+
+  font-size: 30px;
+  font-weight: 690;
+
+  line-height: 1.1;
+
+  letter-spacing: -0.035em;
+}
+
+.matrixRelationships {
+  border-top: 1px solid #d5dce2;
+}
+
+.matrixRow {
+  min-height: 100px;
+
+  padding: 16px 6px;
+
+  display: grid;
+
+  grid-template-columns:
+    40px
+    minmax(180px, 0.7fr)
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: 20px;
+
+  border-bottom: 1px solid #d5dce2;
+}
+
+.matrixNumber {
+  color: #607387;
+
+  font-size: 10px;
+  font-weight: 850;
+}
+
+.matrixRow > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.matrixType {
+  color: #406a8e;
+
+  font-size: 9px;
+  font-weight: 830;
+
+  letter-spacing: 0.07em;
+
+  text-transform: uppercase;
+}
+
+.matrixRow strong {
+  color: #07111f;
+
+  font-size: 15px;
+  font-weight: 730;
+}
+
+.matrixRow p {
+  margin: 0 !important;
+
+  color: #4b5d6f !important;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* ==========================================================
+   BUSINESS DOMAIN SECTION
+   ========================================================== */
+
+.domainSection {
+  padding: 112px 0;
+
+  background: #0a1c30;
+}
+
+.domainGrid {
+  display: grid;
+
+  grid-template-columns:
+    0.82fr
+    1.18fr;
+
+  align-items: center;
+
+  gap: 84px;
+}
+
+.sectionLabelLight {
+  color: #d9a52b;
+}
+
+.domainCopy h2 {
+  max-width: 630px;
+
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(40px, 3.5vw, 56px);
+  font-weight: 680;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.045em;
+}
+
+.domainCopy > p:last-child {
+  max-width: 560px;
+
+  margin: 23px 0 0 !important;
+
+  color: #d2dde7 !important;
+
+  font-size: 15px;
+
+  line-height: 1.68;
+}
+
+.domainCanvas {
+  overflow: hidden;
+
+  border: 1px solid rgba(255,255,255,0.17);
+  border-radius: 16px;
+
+  background: #102a43;
+}
+
+.domainBand {
+  padding: 19px 20px;
+
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+
+  background: rgba(255,255,255,0.035);
+}
+
+.domainBand span,
+.domainColumns span,
+.domainAi span {
+  display: block;
+
+  color: #aebcca;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.07em;
+
+  text-transform: uppercase;
+}
+
+.domainBand strong {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 730;
+}
+
+.domainColumns {
+  padding: 16px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0,1fr));
+
+  gap: 9px;
+}
+
+.domainColumns > div {
+  min-height: 165px;
+
+  padding: 15px;
+
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.035);
+}
+
+.domainColumns strong {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.domainColumns p {
+  margin: 11px 0 0 !important;
+
+  color: #b9c7d3 !important;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+.domainAi {
+  margin: 0 16px 16px;
+
+  padding: 16px;
+
+  border: 1px solid rgba(217,165,43,0.45);
+  border-radius: 10px;
+
+  background: rgba(217,165,43,0.09);
+}
+
+.domainAi strong {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 720;
+}
+
+
+/* ==========================================================
+   MAPPING VALUE
+   ========================================================== */
+
+.mappingValueSection {
+  padding: 108px 0;
+
+  background: #e3ebf1;
+}
+
+.mappingValueHeader {
+  max-width: 820px;
+
+  margin-bottom: 44px;
+}
+
+.mappingValueLayout {
+  display: grid;
+
+  grid-template-columns:
+    0.72fr
+    1.28fr;
+
+  gap: 16px;
+}
+
+.unmappedView,
+.mappedView {
+  min-height: 340px;
+
+  padding: 25px;
+
+  border-radius: 16px;
+}
+
+.unmappedView {
+  border: 1px solid #bcc9d3;
+
+  background: #eff4f7;
+}
+
+.mappedView {
+  border: 1px solid #afbeca;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 14px 30px
+    rgba(7,26,51,0.07);
+}
+
+.viewLabel {
+  color: #49677f;
+
+  font-size: 9px;
+  font-weight: 850;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.unmappedAsset {
+  margin-top: 65px;
+
+  padding: 18px;
+
+  border: 1px solid #c5d0d9;
+  border-radius: 11px;
+
+  background: #ffffff;
+}
+
+.unmappedAsset span {
+  color: #607387;
+
+  font-size: 10px;
+}
+
+.unmappedAsset strong {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #07111f;
+
+  font-size: 16px;
+  font-weight: 720;
+}
+
+.unmappedView > p {
+  margin: 23px 0 0 !important;
+
+  color: #506376 !important;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+.mappedRows {
+  margin-top: 22px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0,1fr));
+
+  gap: 9px;
+}
+
+.mappedRows > div {
+  min-height: 105px;
+
+  padding: 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  border: 1px solid #d1d9e0;
+  border-radius: 10px;
+
+  background: #f7f9fa;
+}
+
+.mappedRows span {
+  color: #607387;
+
+  font-size: 9px;
+  font-weight: 760;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+}
+
+.mappedRows strong {
+  margin-top: 4px;
+
+  color: #07111f;
+
+  font-size: 14px;
+  font-weight: 720;
+}
+
+
+/* ==========================================================
+   HANDOFF
+   ========================================================== */
+
+.handoffSection {
+  padding: 94px 0;
+
+  background: #f4f0e8;
+}
+
+.handoff {
+  min-height: 250px;
+
+  padding: 42px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 50px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      130deg,
+      #081728,
+      #103654
+    );
+}
+
+.handoff h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(37px, 3.1vw, 50px);
+  font-weight: 680;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.042em;
+}
+
+.handoff p {
+  max-width: 620px;
+
+  margin: 15px 0 0 !important;
+
+  color: #d3dfe8 !important;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+.nextLink {
+  flex: 0 0 auto;
+
+  border: 1px solid rgba(255,255,255,0.27);
+
+  background: rgba(255,255,255,0.05);
+
+  color: #ffffff;
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 1100px) {
+  .heroGrid,
+  .domainGrid {
+    grid-template-columns: 1fr;
+
+    gap: 52px;
+  }
+
+  .mapScene {
+    justify-self: start;
+  }
+
+  .relationshipHeader {
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+  }
+}
+
+@media (max-width: 860px) {
+  .relationshipMatrix,
+  .mappingValueLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .matrixOrigin {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    padding: 68px 0 76px;
+  }
+
+  .hero h1 {
+    font-size: clamp(44px, 12vw, 58px);
+  }
+
+  .relationshipMap {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .relationshipLane {
+    display: none;
+  }
+
+  .relationshipSection,
+  .domainSection,
+  .mappingValueSection,
+  .handoffSection {
+    padding: 78px 0;
+  }
+
+  .matrixRow {
+    grid-template-columns:
+      30px
+      1fr;
+
+    gap: 10px;
+  }
+
+  .matrixRow p {
+    grid-column: 2;
+  }
+
+  .domainColumns,
+  .mappedRows {
+    grid-template-columns: 1fr;
+  }
+
+  .handoff {
+    min-height: 330px;
+
+    padding: 30px;
+
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .nextLink {
+    width: 100%;
+  }
+}

@@ -1,94 +1,370 @@
 ﻿import Link from "next/link";
 
-const resourceAreas = [
+import { PublicContainer } from "@/components/public/public-container";
+
+import styles from "./page.module.css";
+
+const subjectAreas = [
   {
-    title: "AI Governance",
-    body:
-      "Practical guidance on governing AI agents, models, automations and AI-enabled services across the enterprise.",
-    href: "/resources/ai-governance",
+    number: "01",
+    label: "AI Governance",
+    title: "Govern AI in the context of the business.",
+    text:
+      "Perspectives on accountability, authority, AI agent oversight, governance priorities and enterprise responsibility.",
+    topics: [
+      "AI Agent Accountability",
+      "AI Agent Authority",
+      "Governance Priorities",
+      "AI Agent Sprawl",
+    ],
   },
   {
-    title: "Governed Autonomy",
-    body:
-      "Explore how identity, authority, risk and traceability combine to create safe operating boundaries for autonomous systems.",
-    href: "/resources/governed-autonomy",
+    number: "02",
+    label: "Business Impact",
+    title: "Understand what AI means for operations and outcomes.",
+    text:
+      "Research and practical thinking on dependencies, operational change, incidents and the business consequences surrounding AI.",
+    topics: [
+      "AI Business Dependencies",
+      "AI Change Impact",
+      "AI Incident Impact",
+      "Management Intelligence",
+    ],
   },
   {
-    title: "Actor Passports",
-    body:
-      "Understand how AIGO-OS assembles canonical identity, ownership, provenance, lifecycle and governance context for AI actors.",
-    href: "/resources/actor-passports",
+    number: "03",
+    label: "Enterprise Context",
+    title: "Understand AI as part of an operating enterprise.",
+    text:
+      "Ideas on connecting AI activity to business functions, processes, ownership, events and the environment in which AI operates.",
+    topics: [
+      "Enterprise Context",
+      "AI Business Mapping",
+      "Activity & Events",
+      "Contextual Intelligence",
+    ],
+  },
+];
+
+const formats = [
+  {
+    title: "Insights",
+    text:
+      "Articles and perspectives on enterprise AI governance, business impact and contextual intelligence.",
+    status: "Publishing soon",
   },
   {
-    title: "Authority",
-    body:
-      "Learn how machine authority can be expressed through scope, conditions, resources, approval requirements and revocation.",
-    href: "/resources/authority",
+    title: "Executive Briefs & Research",
+    text:
+      "Deeper analysis, management frameworks, research and decision material for enterprise leaders.",
+    status: "In development",
   },
   {
-    title: "Risk Intelligence",
-    body:
-      "See how technical signals, business significance, dependencies and authority can be interpreted together.",
-    href: "/platform",
+    title: "Webinars & Events",
+    text:
+      "Conversations, briefings and sessions exploring important enterprise AI questions.",
+    status: "Coming later",
   },
   {
-    title: "Governance Receipts",
-    body:
-      "Explore the role of traceable decision and action records in proving what happened and why.",
-    href: "/platform/governance-receipts",
+    title: "Glossary",
+    text:
+      "Clear definitions for the concepts used throughout AIGO-OS and the wider enterprise AI conversation.",
+    status: "Planned",
   },
 ];
 
 export default function ResourcesPage() {
   return (
-    <div className="public-page resources-page">
-      <section className="public-page__hero">
-        <div className="public-page__eyebrow">
-          Resources
-        </div>
+    <>
+      <section className={styles.hero}>
+        <PublicContainer>
 
-        <h1 className="public-page__title">
-          Understand the operating model behind governed AI.
-        </h1>
+          <div className={styles.heroGrid}>
 
-        <p className="public-page__lead">
-          Explore the concepts, architecture and operating patterns
-          shaping AIGO-OS and the move from manual AI oversight to
-          continuous governance.
-        </p>
+            <div>
+              <p className={styles.eyebrow}>
+                Resources
+              </p>
+
+              <h1>
+                Perspectives for governing AI in business context.
+              </h1>
+            </div>
+
+            <div className={styles.heroIntro}>
+              <p>
+                AIGO-OS Resources will bring together practical thinking,
+                research and executive perspectives on AI governance,
+                enterprise context and business impact.
+              </p>
+
+              <p>
+                The library will grow as original AIGO-OS material is
+                published. We will not fill it with generic content simply
+                to make the library look larger.
+              </p>
+            </div>
+
+          </div>
+
+        </PublicContainer>
       </section>
 
-      <section className="public-section">
-        <div className="public-section__eyebrow">
-          Explore
-        </div>
 
-        <h2 className="public-section__title">
-          Core concepts behind AIGO-OS.
-        </h2>
+      <section className={styles.editorialSection}>
+        <PublicContainer>
 
-        <div className="resources-grid">
-          {resourceAreas.map((resource, index) => (
-            <Link
-              className="resource-card"
-              href={resource.href}
-              key={resource.title}
-            >
-              <span className="resource-card__index">
-                0{index + 1}
+          <div className={styles.editorialPanel}>
+
+            <div className={styles.editorialLabel}>
+              <span>
+                Editorial focus
               </span>
+            </div>
 
-              <h3>{resource.title}</h3>
-              <p>{resource.body}</p>
+            <div className={styles.editorialStatement}>
+              <h2>
+                AI becomes more useful to management when it can be understood
+                as part of the business around it.
+              </h2>
 
-              <span className="resource-card__link">
-                Explore
-                <span aria-hidden="true">&rarr;</span>
-              </span>
-            </Link>
-          ))}
-        </div>
+              <p>
+                Our resource program will focus on the questions that sit
+                between AI activity and enterprise decision-making: who is
+                accountable, what authority exists, what the business depends
+                on, what changes and what requires management attention.
+              </p>
+            </div>
+
+          </div>
+
+        </PublicContainer>
       </section>
-    </div>
+
+
+      <section className={styles.subjectSection}>
+        <PublicContainer>
+
+          <div className={styles.sectionHeader}>
+            <div>
+              <p className={styles.sectionLabel}>
+                Areas of focus
+              </p>
+
+              <h2>
+                Three subjects anchor the AIGO-OS resource library.
+              </h2>
+            </div>
+
+            <p>
+              These themes follow the same business questions addressed by
+              the AIGO-OS platform without turning Resources into product
+              documentation.
+            </p>
+          </div>
+
+
+          <div className={styles.subjectList}>
+
+            {subjectAreas.map((subject) => (
+              <article
+                key={subject.number}
+                className={styles.subject}
+              >
+                <div className={styles.subjectNumber}>
+                  {subject.number}
+                </div>
+
+                <div className={styles.subjectIdentity}>
+                  <span>
+                    {subject.label}
+                  </span>
+
+                  <h3>
+                    {subject.title}
+                  </h3>
+                </div>
+
+                <div className={styles.subjectDescription}>
+                  <p>
+                    {subject.text}
+                  </p>
+
+                  <div className={styles.topicList}>
+                    {subject.topics.map((topic) => (
+                      <span key={topic}>
+                        {topic}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+
+          </div>
+
+        </PublicContainer>
+      </section>
+
+
+      <section className={styles.librarySection}>
+        <PublicContainer>
+
+          <div className={styles.libraryHeader}>
+            <p className={styles.sectionLabelLight}>
+              Resource library
+            </p>
+
+            <h2>
+              Built to grow with real AIGO-OS material.
+            </h2>
+
+            <p>
+              As material is published, these sections will become searchable
+              content libraries rather than placeholder marketing pages.
+            </p>
+          </div>
+
+
+          <div className={styles.formatList}>
+
+            {formats.map((format, index) => (
+              <div
+                key={format.title}
+                className={styles.formatRow}
+              >
+                <span className={styles.formatNumber}>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <strong>
+                  {format.title}
+                </strong>
+
+                <p>
+                  {format.text}
+                </p>
+
+                <span className={styles.formatStatus}>
+                  {format.status}
+                </span>
+              </div>
+            ))}
+
+          </div>
+
+        </PublicContainer>
+      </section>
+
+
+      <section className={styles.boundarySection}>
+        <PublicContainer>
+
+          <div className={styles.boundaryGrid}>
+
+            <div>
+              <p className={styles.sectionLabel}>
+                What Resources is not
+              </p>
+
+              <h2>
+                Learning content stays separate from product support.
+              </h2>
+            </div>
+
+
+            <div className={styles.boundaryList}>
+
+              <div>
+                <span>
+                  Connect AIGO-OS
+                </span>
+
+                <strong>
+                  Integrations
+                </strong>
+
+                <Link href="/integrations">
+                  Technical implementation resources
+                </Link>
+              </div>
+
+              <div>
+                <span>
+                  Use AIGO-OS
+                </span>
+
+                <strong>
+                  Help Center
+                </strong>
+
+                <Link href="/help">
+                  Product guidance and support
+                </Link>
+              </div>
+
+              <div>
+                <span>
+                  Trust AIGO-OS
+                </span>
+
+                <strong>
+                  Privacy & Trust
+                </strong>
+
+                <Link href="/trust">
+                  Security and assurance information
+                </Link>
+              </div>
+
+            </div>
+
+          </div>
+
+        </PublicContainer>
+      </section>
+
+
+      <section className={styles.finalSection}>
+        <PublicContainer>
+
+          <div className={styles.finalPanel}>
+
+            <div>
+              <p className={styles.sectionLabelLight}>
+                AIGO-OS perspectives
+              </p>
+
+              <h2>
+                Looking for a conversation rather than an article?
+              </h2>
+
+              <p>
+                Talk with us about AI governance, business impact or how
+                AIGO-OS could fit into your enterprise environment.
+              </p>
+            </div>
+
+            <div className={styles.finalActions}>
+              <Link
+                href="/talk-to-an-expert"
+                className={styles.primaryButton}
+              >
+                Talk to an Expert
+              </Link>
+
+              <Link
+                href="/request-demo"
+                className={styles.secondaryButton}
+              >
+                Request a Demo
+              </Link>
+            </div>
+
+          </div>
+
+        </PublicContainer>
+      </section>
+    </>
   );
 }

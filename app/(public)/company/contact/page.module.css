@@ -1,0 +1,220 @@
+﻿.hero {
+  padding: 108px 0 96px;
+
+  background:
+    linear-gradient(
+      120deg,
+      #ebe2d7,
+      #eef1ef 50%,
+      #dce7ee
+    );
+}
+
+.eyebrow,
+.sectionLabel {
+  margin: 0 0 17px;
+
+  color: #365b7d;
+
+  font-size: 10px;
+  font-weight: 850;
+
+  letter-spacing: 0.11em;
+
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+
+  color: #07111f;
+
+  font-size: clamp(52px, 5vw, 76px);
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: -0.052em;
+}
+
+.intro {
+  max-width: 690px;
+
+  margin: 25px 0 0 !important;
+
+  color: #405568 !important;
+
+  font-size: 16px;
+
+  line-height: 1.68;
+}
+
+.routes {
+  padding: 105px 0;
+
+  background: #ffffff;
+}
+
+.routeList {
+  border-top: 1px solid #bdc9d3;
+}
+
+.routeList a {
+  min-height: 138px;
+
+  padding: 22px 4px;
+
+  display: grid;
+
+  grid-template-columns:
+    170px
+    minmax(200px, 0.65fr)
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: 30px;
+
+  border-bottom: 1px solid #bdc9d3;
+
+  text-decoration: none;
+
+  transition:
+    background 150ms ease,
+    padding-left 150ms ease;
+}
+
+.routeList a:hover,
+.routeList a:focus-visible {
+  padding-left: 14px;
+
+  background: #f5f8f9;
+
+  outline: none;
+}
+
+.routeList span {
+  color: #365b7d;
+
+  font-size: 9px;
+  font-weight: 850;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.07em;
+}
+
+.routeList strong {
+  color: #07111f;
+
+  font-size: 18px;
+  font-weight: 710;
+}
+
+.routeList p {
+  margin: 0 !important;
+
+  color: #506274 !important;
+
+  font-size: 12px;
+
+  line-height: 1.58;
+}
+
+
+/* SOCIAL */
+
+.socialSection {
+  padding: 108px 0;
+
+  background: #e3ebf1;
+}
+
+.socialHeader {
+  max-width: 720px;
+
+  margin-bottom: 42px;
+}
+
+.socialHeader h2 {
+  margin: 0;
+
+  color: #07111f;
+
+  font-size: clamp(39px, 3.4vw, 54px);
+  font-weight: 650;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.042em;
+}
+
+.socialGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0,1fr));
+
+  border-top: 1px solid #b9c7d2;
+  border-left: 1px solid #b9c7d2;
+}
+
+.socialGrid a {
+  min-height: 240px;
+
+  padding: 22px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  border-right: 1px solid #b9c7d2;
+  border-bottom: 1px solid #b9c7d2;
+
+  text-decoration: none;
+
+  background: rgba(255,255,255,0.4);
+}
+
+.socialGrid span {
+  margin-bottom: auto;
+
+  color: #365b7d;
+
+  font-size: 9px;
+  font-weight: 850;
+
+  letter-spacing: 0.07em;
+
+  text-transform: uppercase;
+}
+
+.socialGrid strong {
+  color: #07111f;
+
+  font-size: 25px;
+  font-weight: 690;
+}
+
+.socialGrid p {
+  max-width: 520px;
+
+  margin: 9px 0 0 !important;
+
+  color: #506274 !important;
+
+  font-size: 12px;
+
+  line-height: 1.58;
+}
+
+@media (max-width: 720px) {
+  .routeList a,
+  .socialGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .routeList a {
+    gap: 8px;
+  }
+}

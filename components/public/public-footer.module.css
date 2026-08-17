@@ -1,0 +1,351 @@
+﻿.footer,
+.footer * {
+  box-sizing: border-box;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+.footer {
+  width: 100%;
+
+  /*
+    Light business footer.
+    The warm / cool blend connects back to the
+    AIGO-OS navy + gold identity without competing
+    with the main page.
+  */
+  background:
+    linear-gradient(
+      135deg,
+      #e8eef3 0%,
+      #eef1ef 48%,
+      #f2ede4 100%
+    );
+
+  color: #07111f;
+
+  border-top: 1px solid #c9d2dc;
+}
+
+
+/* ==========================================================
+   MAIN FOOTER
+   ========================================================== */
+
+.main {
+  display: grid;
+
+  grid-template-columns:
+    minmax(240px, 0.82fr)
+    minmax(0, 1.75fr);
+
+  gap: 72px;
+
+  padding-top: 38px;
+  padding-bottom: 32px;
+}
+
+
+/* ==========================================================
+   BRAND
+   ========================================================== */
+
+.brand {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+.logoLink {
+  display: inline-flex;
+
+  width: fit-content;
+
+  margin: 0 0 16px;
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  text-decoration: none;
+}
+
+.logo {
+  display: block;
+
+  width: 128px;
+  height: 58px;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+  border-radius: 0;
+
+  background: transparent;
+
+  object-fit: contain;
+  object-position: left center;
+
+  /*
+    The original PNG has a white canvas.
+    On this light footer, multiply visually removes
+    the white plate while retaining the logo artwork.
+  */
+  mix-blend-mode: multiply;
+
+  filter:
+    contrast(1.06)
+    saturate(1.05);
+}
+
+.brandText {
+  max-width: 320px;
+
+  margin: 0 !important;
+
+  color: #26384a !important;
+
+  font-size: 14px;
+  font-weight: 520;
+
+  line-height: 1.65;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 22px;
+}
+
+.primaryButton,
+.secondaryButton {
+  min-height: 42px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 17px;
+
+  border-radius: 7px;
+
+  font-size: 13px;
+  font-weight: 750;
+
+  text-decoration: none;
+}
+
+.primaryButton {
+  border: 1px solid #d9a52b;
+
+  background: #d9a52b;
+
+  color: #07111f;
+}
+
+.primaryButton:hover {
+  background: #e5b43c;
+}
+
+.secondaryButton {
+  border: 1px solid #60758a;
+
+  background: rgba(255, 255, 255, 0.35);
+
+  color: #071a33;
+}
+
+.secondaryButton:hover {
+  border-color: #365b7d;
+
+  background: rgba(255, 255, 255, 0.65);
+}
+
+
+/* ==========================================================
+   FOOTER LINKS
+   ========================================================== */
+
+.links {
+  display: grid;
+
+  grid-template-columns:
+    1.25fr
+    1fr
+    1fr
+    1fr;
+
+  gap: 38px;
+}
+
+.column {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 9px;
+}
+
+.columnTitle {
+  margin: 0 0 6px !important;
+
+  color: #163552 !important;
+
+  font-size: 11px;
+  font-weight: 850;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.column a {
+  color: #26384a;
+
+  font-size: 13px;
+  font-weight: 560;
+
+  line-height: 1.4;
+
+  text-decoration: none;
+
+  transition:
+    color 150ms ease,
+    transform 150ms ease;
+}
+
+.column a:hover {
+  color: #07111f;
+
+  transform: translateX(2px);
+}
+
+
+/* ==========================================================
+   BOTTOM LEGAL STRIP
+   ========================================================== */
+
+.bottom {
+  min-height: 60px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 28px;
+
+  border-top: 1px solid #c6d0da;
+}
+
+.bottom p {
+  margin: 0 !important;
+
+  color: #4a5b6d !important;
+
+  font-size: 11px;
+  font-weight: 520;
+
+  line-height: 1.4;
+}
+
+.bottomLinks {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 22px;
+}
+
+.bottomLinks a {
+  color: #405369;
+
+  font-size: 11px;
+  font-weight: 580;
+
+  text-decoration: none;
+}
+
+.bottomLinks a:hover {
+  color: #07111f;
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 1050px) {
+  .main {
+    grid-template-columns: 1fr;
+
+    gap: 38px;
+
+    padding-top: 36px;
+  }
+
+  .brand {
+    max-width: 480px;
+  }
+
+  .links {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    row-gap: 32px;
+  }
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 680px) {
+  .main {
+    padding-top: 32px;
+    padding-bottom: 28px;
+  }
+
+  .links {
+    grid-template-columns: 1fr;
+
+    gap: 26px;
+  }
+
+  .bottom {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    padding-top: 18px;
+    padding-bottom: 20px;
+  }
+
+  .bottomLinks {
+    gap: 16px;
+  }
+}
