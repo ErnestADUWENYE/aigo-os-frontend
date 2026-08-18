@@ -1,46 +1,10 @@
 ﻿import Link from "next/link";
 
+import { CapabilityCarousel } from "@/components/public/capability-carousel";
+import { HomeHeroVisual } from "@/components/public/home-hero-visual";
 import { PublicContainer } from "@/components/public/public-container";
 
 import styles from "./page.module.css";
-
-const capabilities = [
-  {
-    number: "01",
-    title: "Enterprise Context",
-    href: "/platform/enterprise-context",
-    description:
-      "Understand the enterprise environment surrounding AI activity.",
-  },
-  {
-    number: "02",
-    title: "AI Business Mapping",
-    href: "/platform/ai-business-mapping",
-    description:
-      "Connect AI to the business structures and processes it affects.",
-  },
-  {
-    number: "03",
-    title: "Activity & Event Correlation",
-    href: "/platform/activity-event-correlation",
-    description:
-      "Relate AI activity to relevant operational and enterprise events.",
-  },
-  {
-    number: "04",
-    title: "Contextual Intelligence",
-    href: "/platform/contextual-intelligence",
-    description:
-      "Interpret AI activity without separating it from business context.",
-  },
-  {
-    number: "05",
-    title: "Management Intelligence",
-    href: "/platform/management-intelligence",
-    description:
-      "Turn connected context into intelligence management teams can use.",
-  },
-];
 
 export default function HomePage() {
   return (
@@ -50,17 +14,22 @@ export default function HomePage() {
           <div className={styles.heroGrid}>
             <div className={styles.heroCopy}>
               <p className={styles.eyebrow}>
-                AIGO-OS Intelligence Platform
+                Enterprise AI Intelligence
               </p>
 
               <h1>
-                Understand AI in business context.
+                AI doesn't operate in a vacuum.
+                <span className={styles.heroQuestion}>
+                  Why manage it like it does?
+                </span>
               </h1>
 
               <p className={styles.heroText}>
-                Connect AI activity to the enterprise structures,
-                business relationships and operational context needed
-                to understand governance priorities and business impact.
+                AIGO-OS brings signals from AI agents and AI-enabled
+                platforms together with business context already held
+                across enterprise systems. It relates that information
+                to show how AI activity connects to business operations,
+                governance and potential business impact.
               </p>
 
               <div className={styles.heroActions}>
@@ -80,65 +49,12 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className={styles.heroVisual}>
-              <div className={styles.visualFrame}>
-                <div className={styles.visualHeader}>
-                  <div>
-                    <span>Enterprise view</span>
-                    <strong>AI business context</strong>
-                  </div>
-
-                  <div className={styles.liveState}>
-                    Connected
-                  </div>
-                </div>
-
-                <div className={styles.visualBody}>
-                  <div className={styles.signalPanel}>
-                    <span className={styles.signalLabel}>
-                      Current activity
-                    </span>
-
-                    <strong>
-                      AI activity
-                    </strong>
-
-                    <p>
-                      Activity enters the platform with enterprise
-                      context retained.
-                    </p>
-                  </div>
-
-                  <div className={styles.contextPanel}>
-                    <div>
-                      <span>Business area</span>
-                      <strong>Operations</strong>
-                    </div>
-
-                    <div>
-                      <span>Enterprise context</span>
-                      <strong>Available</strong>
-                    </div>
-
-                    <div>
-                      <span>Management view</span>
-                      <strong>Ready</strong>
-                    </div>
-                  </div>
-                </div>
-
-                <div className={styles.visualFooter}>
-                  <span>Governance intelligence</span>
-                  <span>Business impact intelligence</span>
-                </div>
-              </div>
-
-              <div className={styles.depthPanel} />
+            <div className={styles.heroIllustration}>
+              <HomeHeroVisual />
             </div>
           </div>
         </PublicContainer>
       </section>
-
 
       <section className={styles.contextSection}>
         <PublicContainer>
@@ -149,20 +65,21 @@ export default function HomePage() {
 
             <div>
               <h2>
-                AI becomes harder to manage when it is separated
-                from the business around it.
+                The signals already exist. The business context already exists.
+                The challenge is connecting them.
               </h2>
 
               <p>
-                AIGO-OS creates a connected intelligence layer between
-                AI activity and enterprise context, giving organizations
-                a clearer basis for understanding what matters.
+                AIGO-OS does not replace the platforms that create AI activity
+                or the enterprise systems that hold business records. It relates
+                selected signals with existing enterprise context so management
+                can understand governance significance and potential business
+                impact.
               </p>
             </div>
           </div>
         </PublicContainer>
       </section>
-
 
       <section className={styles.capabilitiesSection}>
         <PublicContainer>
@@ -173,37 +90,21 @@ export default function HomePage() {
               </p>
 
               <h2>
-                Five capabilities. One connected view.
+                One connected view of AI in the enterprise.
               </h2>
             </div>
 
-            <Link href="/platform" className={styles.inlineLink}>
+            <Link
+              href="/platform"
+              className={styles.inlineLink}
+            >
               Platform Overview
             </Link>
           </div>
 
-          <div className={styles.capabilityGrid}>
-            {capabilities.map((capability) => (
-              <Link
-                key={capability.href}
-                href={capability.href}
-                className={styles.capabilityCard}
-              >
-                <span className={styles.cardNumber}>
-                  {capability.number}
-                </span>
-
-                <div>
-                  <h3>{capability.title}</h3>
-
-                  <p>{capability.description}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
+          <CapabilityCarousel />
         </PublicContainer>
       </section>
-
 
       <section className={styles.productsSection}>
         <PublicContainer>
@@ -218,7 +119,10 @@ export default function HomePage() {
               </h2>
             </div>
 
-            <Link href="/products" className={styles.inlineLink}>
+            <Link
+              href="/products"
+              className={styles.inlineLink}
+            >
               Products Overview
             </Link>
           </div>
@@ -229,13 +133,15 @@ export default function HomePage() {
               className={styles.productCard}
             >
               <div className={styles.productTop}>
-                <span>01</span>
-
-                <span>AI Governance Intelligence</span>
+                <span>
+                  AI Governance Intelligence
+                </span>
               </div>
 
               <div className={styles.productContent}>
-                <h3>AIGO-OS Govern</h3>
+                <h3>
+                  AIGO-OS Govern
+                </h3>
 
                 <p>
                   Understand AI accountability, authority and governance
@@ -255,13 +161,15 @@ export default function HomePage() {
               className={styles.productCard}
             >
               <div className={styles.productTop}>
-                <span>02</span>
-
-                <span>AI Business Impact Intelligence</span>
+                <span>
+                  AI Business Impact Intelligence
+                </span>
               </div>
 
               <div className={styles.productContent}>
-                <h3>AIGO-OS Impact</h3>
+                <h3>
+                  AIGO-OS Impact
+                </h3>
 
                 <p>
                   Understand how AI incidents, changes and dependencies
@@ -278,7 +186,6 @@ export default function HomePage() {
           </div>
         </PublicContainer>
       </section>
-
 
       <section className={styles.useCaseSection}>
         <PublicContainer>
@@ -338,7 +245,6 @@ export default function HomePage() {
         </PublicContainer>
       </section>
 
-
       <section className={styles.finalSection}>
         <PublicContainer>
           <div className={styles.finalPanel}>
@@ -357,14 +263,14 @@ export default function HomePage() {
                 href="/talk-to-an-expert"
                 className={styles.finalPrimary}
               >
-                  Talk to an Expert
-                </Link>
+                Talk to an Expert
+              </Link>
 
               <Link
-                href="/talk-to-an-expert"
+                href="/request-demo"
                 className={styles.finalSecondary}
               >
-                Book a Demo
+                Request a Demo
               </Link>
             </div>
           </div>
@@ -373,6 +279,4 @@ export default function HomePage() {
     </>
   );
 }
-
-
 

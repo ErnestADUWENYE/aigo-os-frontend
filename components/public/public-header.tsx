@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { CompanyMenu } from "@/components/company/company-menu";
 import { PlatformMenu } from "@/components/navigation/platform-menu";
@@ -19,12 +19,22 @@ type OpenMenu =
   | "company"
   | null;
 
+type MobileMenu =
+  | "platform"
+  | "products"
+  | "solutions"
+  | "company"
+  | null;
+
 export function PublicHeader() {
   const [openMenu, setOpenMenu] =
     useState<OpenMenu>(null);
 
   const [mobileOpen, setMobileOpen] =
     useState(false);
+
+  const [mobileMenu, setMobileMenu] =
+    useState<MobileMenu>(null);
 
   const signInUrl =
     process.env.NEXT_PUBLIC_PLATFORM_SIGN_IN_URL ||
@@ -33,6 +43,7 @@ export function PublicHeader() {
   function closeNavigation() {
     setOpenMenu(null);
     setMobileOpen(false);
+    setMobileMenu(null);
   }
 
   function toggleMenu(
@@ -43,6 +54,39 @@ export function PublicHeader() {
     );
   }
 
+  function toggleMobileMenu(
+    menu: Exclude<MobileMenu, null>
+  ) {
+    setMobileMenu((current) =>
+      current === menu ? null : menu
+    );
+  }
+
+  function toggleMobileNavigation() {
+    setOpenMenu(null);
+
+    setMobileOpen((current) => {
+      if (current) {
+        setMobileMenu(null);
+      }
+
+      return !current;
+    });
+  }
+
+  useEffect(() => {
+    if (!mobileOpen) {
+      document.body.style.overflow = "";
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
   return (
     <header
       className={styles.header}
@@ -50,7 +94,6 @@ export function PublicHeader() {
     >
       <PublicContainer>
         <div className={styles.bar}>
-
           <Link
             href="/"
             className={styles.logo}
@@ -68,12 +111,10 @@ export function PublicHeader() {
             />
           </Link>
 
-
           <nav
             className={styles.desktopNav}
             aria-label="Primary navigation"
           >
-
             <button
               type="button"
               className={`${styles.navButton} ${
@@ -102,7 +143,6 @@ export function PublicHeader() {
                 aria-hidden="true"
               />
             </button>
-
 
             <button
               type="button"
@@ -133,7 +173,6 @@ export function PublicHeader() {
               />
             </button>
 
-
             <button
               type="button"
               className={`${styles.navButton} ${
@@ -163,7 +202,6 @@ export function PublicHeader() {
               />
             </button>
 
-
             <Link
               href="/resources"
               onMouseEnter={() =>
@@ -173,7 +211,6 @@ export function PublicHeader() {
             >
               Resources
             </Link>
-
 
             <button
               type="button"
@@ -203,9 +240,7 @@ export function PublicHeader() {
                 aria-hidden="true"
               />
             </button>
-
           </nav>
-
 
           <div
             className={styles.actions}
@@ -230,29 +265,26 @@ export function PublicHeader() {
 
             <button
               type="button"
-              className={styles.mobileToggle}
-              onClick={() =>
-                setMobileOpen(
-                  (current) => !current
-                )
-              }
+              className={`${styles.mobileToggle} ${
+                mobileOpen
+                  ? styles.mobileToggleOpen
+                  : ""
+              }`}
+              onClick={toggleMobileNavigation}
               aria-expanded={mobileOpen}
-              aria-label="Open navigation"
+              aria-label={
+                mobileOpen
+                  ? "Close navigation"
+                  : "Open navigation"
+              }
             >
               <span />
               <span />
               <span />
             </button>
           </div>
-
         </div>
       </PublicContainer>
-
-
-      {/* ====================================================
-          STANDARD DROPDOWN LAYER
-          Platform / Products / Solutions / Company
-      ==================================================== */}
 
       {openMenu && (
         <div
@@ -262,16 +294,20 @@ export function PublicHeader() {
           }
         >
           <PublicContainer>
-
             {openMenu === "company" ? (
-              <div className={styles.companyMenuPosition}>
+              <div
+                className={
+                  styles.companyMenuPosition
+                }
+              >
                 <CompanyMenu
                   onNavigate={closeNavigation}
                 />
               </div>
             ) : (
-              <div className={styles.dropdownSurface}>
-
+              <div
+                className={styles.dropdownSurface}
+              >
                 {openMenu === "platform" && (
                   <PlatformMenu
                     onNavigate={closeNavigation}
@@ -289,103 +325,313 @@ export function PublicHeader() {
                     onNavigate={closeNavigation}
                   />
                 )}
-
               </div>
             )}
-
           </PublicContainer>
         </div>
       )}
 
-
-      {/* ====================================================
-          MOBILE
-      ==================================================== */}
-
       {mobileOpen && (
         <div className={styles.mobilePanel}>
           <PublicContainer>
-
             <nav
               className={styles.mobileContent}
               aria-label="Mobile navigation"
             >
-              <Link
-                href="/platform"
-                onClick={closeNavigation}
-              >
-                Platform
-              </Link>
+              <div className={styles.mobileGroup}>
+                <button
+                  type="button"
+                  className={styles.mobileMenuButton}
+                  onClick={() =>
+                    toggleMobileMenu("platform")
+                  }
+                  aria-expanded={
+                    mobileMenu === "platform"
+                  }
+                >
+                  <span>Platform</span>
 
-              <Link
-                href="/products"
-                onClick={closeNavigation}
-              >
-                Products
-              </Link>
+                  <span
+                    className={`${styles.mobileChevron} ${
+                      mobileMenu === "platform"
+                        ? styles.mobileChevronOpen
+                        : ""
+                    }`}
+                    aria-hidden="true"
+                  />
+                </button>
 
-              <Link
-                href="/solutions/ai-agent-accountability"
-                onClick={closeNavigation}
-              >
-                Solutions
-              </Link>
+                {mobileMenu === "platform" && (
+                  <div
+                    className={styles.mobileSubmenu}
+                  >
+                    <Link
+                      href="/platform"
+                      onClick={closeNavigation}
+                    >
+                      Platform Overview
+                    </Link>
+
+                    <Link
+                      href="/platform/enterprise-context"
+                      onClick={closeNavigation}
+                    >
+                      Enterprise Context
+                    </Link>
+
+                    <Link
+                      href="/platform/ai-business-mapping"
+                      onClick={closeNavigation}
+                    >
+                      AI Business Mapping
+                    </Link>
+
+                    <Link
+                      href="/platform/activity-event-correlation"
+                      onClick={closeNavigation}
+                    >
+                      Activity & Event Correlation
+                    </Link>
+
+                    <Link
+                      href="/platform/contextual-intelligence"
+                      onClick={closeNavigation}
+                    >
+                      Contextual Intelligence
+                    </Link>
+
+                    <Link
+                      href="/platform/management-intelligence"
+                      onClick={closeNavigation}
+                    >
+                      Management Intelligence
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              <div className={styles.mobileGroup}>
+                <button
+                  type="button"
+                  className={styles.mobileMenuButton}
+                  onClick={() =>
+                    toggleMobileMenu("products")
+                  }
+                  aria-expanded={
+                    mobileMenu === "products"
+                  }
+                >
+                  <span>Products</span>
+
+                  <span
+                    className={`${styles.mobileChevron} ${
+                      mobileMenu === "products"
+                        ? styles.mobileChevronOpen
+                        : ""
+                    }`}
+                    aria-hidden="true"
+                  />
+                </button>
+
+                {mobileMenu === "products" && (
+                  <div
+                    className={styles.mobileSubmenu}
+                  >
+                    <Link
+                      href="/products"
+                      onClick={closeNavigation}
+                    >
+                      Products Overview
+                    </Link>
+
+                    <Link
+                      href="/products/aigo-os-govern"
+                      onClick={closeNavigation}
+                    >
+                      AIGO-OS Govern
+                    </Link>
+
+                    <Link
+                      href="/products/aigo-os-impact"
+                      onClick={closeNavigation}
+                    >
+                      AIGO-OS Impact
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              <div className={styles.mobileGroup}>
+                <button
+                  type="button"
+                  className={styles.mobileMenuButton}
+                  onClick={() =>
+                    toggleMobileMenu("solutions")
+                  }
+                  aria-expanded={
+                    mobileMenu === "solutions"
+                  }
+                >
+                  <span>Solutions</span>
+
+                  <span
+                    className={`${styles.mobileChevron} ${
+                      mobileMenu === "solutions"
+                        ? styles.mobileChevronOpen
+                        : ""
+                    }`}
+                    aria-hidden="true"
+                  />
+                </button>
+
+                {mobileMenu === "solutions" && (
+                  <div
+                    className={styles.mobileSubmenu}
+                  >
+                    <Link
+                      href="/solutions/ai-agent-accountability"
+                      onClick={closeNavigation}
+                    >
+                      AI Agent Accountability
+                    </Link>
+
+                    <Link
+                      href="/solutions/ai-agent-access-authority"
+                      onClick={closeNavigation}
+                    >
+                      AI Agent Access & Authority
+                    </Link>
+
+                    <Link
+                      href="/solutions/ai-agent-sprawl"
+                      onClick={closeNavigation}
+                    >
+                      AI Agent Sprawl
+                    </Link>
+
+                    <Link
+                      href="/solutions/ai-business-dependencies"
+                      onClick={closeNavigation}
+                    >
+                      AI Business Dependencies
+                    </Link>
+
+                    <Link
+                      href="/solutions/ai-change-business-impact"
+                      onClick={closeNavigation}
+                    >
+                      AI Change & Business Impact
+                    </Link>
+
+                    <Link
+                      href="/solutions/ai-governance-priorities"
+                      onClick={closeNavigation}
+                    >
+                      AI Governance Priorities
+                    </Link>
+
+                    <Link
+                      href="/solutions/ai-incident-business-impact"
+                      onClick={closeNavigation}
+                    >
+                      AI Incident Business Impact
+                    </Link>
+                  </div>
+                )}
+              </div>
 
               <Link
                 href="/resources"
+                className={styles.mobileDirectLink}
                 onClick={closeNavigation}
               >
                 Resources
               </Link>
 
-              <Link
-                href="/company/about"
-                onClick={closeNavigation}
-              >
-                About AIGO-OS
-              </Link>
+              <div className={styles.mobileGroup}>
+                <button
+                  type="button"
+                  className={styles.mobileMenuButton}
+                  onClick={() =>
+                    toggleMobileMenu("company")
+                  }
+                  aria-expanded={
+                    mobileMenu === "company"
+                  }
+                >
+                  <span>Company</span>
 
-              <Link
-                href="/company/principles"
-                onClick={closeNavigation}
-              >
-                Our Principles
-              </Link>
+                  <span
+                    className={`${styles.mobileChevron} ${
+                      mobileMenu === "company"
+                        ? styles.mobileChevronOpen
+                        : ""
+                    }`}
+                    aria-hidden="true"
+                  />
+                </button>
 
-              <Link
-                href="/company/careers"
-                onClick={closeNavigation}
-              >
-                Careers
-              </Link>
+                {mobileMenu === "company" && (
+                  <div
+                    className={styles.mobileSubmenu}
+                  >
+                    <Link
+                      href="/company/about"
+                      onClick={closeNavigation}
+                    >
+                      About AIGO-OS
+                    </Link>
 
-              <Link
-                href="/company/contact"
-                onClick={closeNavigation}
-              >
-                Contact
-              </Link>
+                    <Link
+                      href="/company/principles"
+                      onClick={closeNavigation}
+                    >
+                      Our Principles
+                    </Link>
 
-              <a href={signInUrl}>
-                Sign In
-              </a>
+                    <Link
+                      href="/company/careers"
+                      onClick={closeNavigation}
+                    >
+                      Careers
+                    </Link>
 
-              <Link
-                href="/talk-to-an-expert"
-                className={styles.mobileCta}
-                onClick={closeNavigation}
-              >
-                Talk to an Expert
-              </Link>
+                    <Link
+                      href="/company/contact"
+                      onClick={closeNavigation}
+                    >
+                      Contact
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              <div className={styles.mobileBottom}>
+                <a
+                  href={signInUrl}
+                  className={styles.mobileSignIn}
+                >
+                  Sign In
+                </a>
+
+                <Link
+                  href="/talk-to-an-expert"
+                  className={styles.mobileCta}
+                  onClick={closeNavigation}
+                >
+                  <span>Talk to an Expert</span>
+                  <span
+                    className={styles.ctaArrow}
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
+                </Link>
+              </div>
             </nav>
-
           </PublicContainer>
         </div>
       )}
-
     </header>
   );
 }
-
-
-

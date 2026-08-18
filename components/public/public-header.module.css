@@ -515,3 +515,270 @@
     max-width: 100% !important;
   }
 }
+
+/* ==========================================================
+   AIGO-OS MOBILE ACCORDION NAV - FINAL OVERRIDE
+   ========================================================== */
+
+@media (max-width: 1120px) {
+
+  .mobilePanel {
+    display: block !important;
+
+    position: fixed;
+    top: 82px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    z-index: 200;
+
+    overflow-y: auto;
+
+    border-top: 1px solid #cfd7e1;
+
+    background: #f4f0e8;
+
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  .mobileContent {
+    width: 100%;
+
+    padding: 18px 0 34px !important;
+
+    display: block !important;
+  }
+
+  .mobileGroup {
+    width: 100%;
+
+    border-bottom: 1px solid rgba(7, 26, 51, 0.1);
+  }
+
+  .mobileMenuButton {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+
+    width: 100% !important;
+    min-height: 64px !important;
+
+    margin: 0 !important;
+    padding: 0 4px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    background: transparent !important;
+
+    color: #07111f !important;
+
+    font-family: inherit !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+
+    text-align: left !important;
+
+    box-shadow: none !important;
+
+    cursor: pointer;
+  }
+
+  .mobileMenuButton > span:first-child {
+    display: block;
+  }
+
+  .mobileChevron {
+    display: block !important;
+
+    flex: 0 0 auto;
+
+    width: 10px !important;
+    height: 10px !important;
+
+    margin: -5px 8px 0 0 !important;
+
+    border: 0 !important;
+    border-right: 2px solid #07111f !important;
+    border-bottom: 2px solid #07111f !important;
+
+    transform: rotate(45deg) !important;
+
+    transition:
+      transform 180ms ease,
+      margin 180ms ease;
+  }
+
+  .mobileChevronOpen {
+    margin-top: 5px !important;
+
+    transform: rotate(225deg) !important;
+  }
+
+  .mobileSubmenu {
+    width: 100%;
+
+    padding: 2px 0 18px 18px !important;
+
+    display: grid !important;
+
+    gap: 1px;
+
+    animation: aigoMobileAccordionOpen 180ms ease-out;
+  }
+
+  .mobileSubmenu a {
+    width: 100%;
+
+    min-height: 44px;
+
+    padding: 10px 14px !important;
+
+    display: flex !important;
+    align-items: center;
+
+    border-radius: 7px;
+
+    color: #405568 !important;
+
+    font-size: 15px !important;
+    font-weight: 560 !important;
+    line-height: 1.35;
+
+    text-decoration: none !important;
+  }
+
+  .mobileSubmenu a:hover,
+  .mobileSubmenu a:focus-visible {
+    background: rgba(7, 26, 51, 0.06);
+
+    color: #07111f !important;
+  }
+
+  .mobileDirectLink {
+    width: 100% !important;
+    min-height: 64px !important;
+
+    padding: 0 4px !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    border-bottom: 1px solid rgba(7, 26, 51, 0.1);
+
+    color: #07111f !important;
+
+    font-size: 18px !important;
+    font-weight: 700 !important;
+
+    text-decoration: none !important;
+  }
+
+  .mobileBottom {
+    padding-top: 24px !important;
+
+    display: grid !important;
+
+    gap: 15px !important;
+  }
+
+  .mobileSignIn {
+    min-height: 48px;
+
+    display: flex !important;
+    align-items: center;
+
+    color: #07111f !important;
+
+    font-size: 17px !important;
+    font-weight: 700 !important;
+
+    text-decoration: none !important;
+  }
+
+  .mobileCta {
+    width: 100% !important;
+    min-height: 58px !important;
+
+    margin: 0 !important;
+    padding: 0 16px 0 22px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    border-radius: 10px !important;
+
+    background: #071a33 !important;
+
+    color: #ffffff !important;
+
+    font-size: 17px !important;
+    font-weight: 720 !important;
+
+    text-decoration: none !important;
+  }
+
+  .ctaArrow {
+    width: 34px;
+    height: 34px;
+
+    display: grid !important;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #071a33;
+
+    font-size: 20px;
+    line-height: 1;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .mobilePanel {
+    top: 72px;
+  }
+
+  .mobileContent {
+    padding-top: 8px !important;
+  }
+
+  .mobileMenuButton,
+  .mobileDirectLink {
+    min-height: 61px !important;
+
+    font-size: 17px !important;
+  }
+}
+
+@keyframes aigoMobileAccordionOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .mobileChevron,
+  .mobileSubmenu {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+

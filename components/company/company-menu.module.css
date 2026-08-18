@@ -1,383 +1,439 @@
-﻿.panel {
-  box-sizing: border-box;
-
-  width: 900px !important;
-  min-width: 900px !important;
-  max-width: 900px !important;
-  height: 430px;
-
-  display: grid !important;
-  grid-template-columns: 450px 450px !important;
-  grid-template-rows: 430px !important;
+﻿.menu {
+  width: 100%;
 
   overflow: hidden;
 
-  border: 1px solid #ccd7df;
-  border-radius: 16px;
+  border-radius: 15px;
 
-  background: #ffffff;
-
-  box-shadow:
-    0 22px 54px rgba(8, 25, 43, 0.18);
+  background: #f5f8fa;
 
   color: #07111f;
+
+  box-shadow:
+    0 22px 52px rgba(7, 24, 42, 0.18);
 }
 
 
 /* ==========================================================
-   BOTH TABLES
-   ========================================================== */
+   TOP BAR
+========================================================== */
 
-.companyTable,
-.socialTable {
-  box-sizing: border-box;
+.topBar {
+  min-height: 72px;
 
-  width: 450px !important;
-  min-width: 450px !important;
-  max-width: 450px !important;
-
-  height: 430px;
-
-  min-height: 0;
+  padding: 0 26px;
 
   display: grid;
 
-  grid-template-rows:
-    58px
-    372px;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(280px, 0.72fr);
 
-  overflow: hidden;
-}
+  align-items: center;
 
-.companyTable {
-  grid-column: 1;
-  grid-row: 1;
-
-  background: #ffffff;
-}
-
-.socialTable {
-  grid-column: 2;
-  grid-row: 1;
-
-  border-left: 1px solid #d5dfe6;
+  gap: 18px;
 
   background:
     linear-gradient(
-      145deg,
-      #f1f5f8 0%,
-      #f7f4ef 100%
+      105deg,
+      #0a2139 0%,
+      #123c5d 100%
     );
 }
 
-
-/* ==========================================================
-   HEADERS
-   ========================================================== */
-
-.tableHeading {
-  box-sizing: border-box;
-
-  height: 58px;
-
-  padding: 0 34px;
-
-  display: flex;
-  align-items: center;
-
-  border-bottom: 1px solid #d9e2e8;
-
-  color: #466a84;
+.topBar span {
+  color: #e0b348;
 
   font-size: 10px;
   font-weight: 850;
 
-  letter-spacing: 0.12em;
+  letter-spacing: 0.11em;
 
   text-transform: uppercase;
 }
 
 
 /* ==========================================================
-   LEFT TABLE
-   FOUR EQUAL ROWS
-   ========================================================== */
+   MENU BODY
+========================================================== */
 
-.companyRows {
-  height: 372px;
-
-  display: grid;
-
-  grid-template-rows:
-    repeat(4, 93px);
-}
-
-.companyRow {
-  box-sizing: border-box;
-
-  width: 100%;
-  height: 93px;
-
-  padding: 0 34px;
+.menuBody {
+  padding: 20px;
 
   display: grid;
 
   grid-template-columns:
-    52px
-    minmax(0, 1fr);
+    minmax(0, 1fr)
+    minmax(280px, 0.72fr);
+
+  gap: 16px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f3f7f9 100%
+    );
+}
+
+
+/* ==========================================================
+   SECTION SURFACES
+========================================================== */
+
+.companySection,
+.socialSection {
+  min-width: 0;
+
+  padding: 18px;
+
+  border: 1px solid #d6e0e7;
+  border-radius: 13px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 6px 18px rgba(7, 26, 51, 0.04);
+}
+
+.socialSection {
+  background:
+    linear-gradient(
+      145deg,
+      #edf4f7 0%,
+      #f6f4ef 100%
+    );
+}
+
+.sectionLabel {
+  margin-bottom: 13px;
+
+  color: #4b6c84;
+
+  font-size: 9px;
+  font-weight: 850;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+
+/* ==========================================================
+   COMPANY CARDS
+========================================================== */
+
+.companyGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+.companyCard {
+  position: relative;
+
+  min-width: 0;
+  min-height: 92px;
+
+  padding: 14px;
+
+  display: grid;
+
+  grid-template-columns:
+    38px
+    minmax(0, 1fr)
+    auto;
 
   align-items: center;
 
-  gap: 18px;
+  gap: 11px;
 
-  border-bottom: 1px solid #d9e2e8;
+  border: 1px solid #dce4ea;
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #fbfcfd
+    );
 
   color: inherit;
 
   text-decoration: none;
 
+  box-shadow:
+    0 3px 9px rgba(7, 26, 51, 0.025);
+
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+.companyCard:hover,
+.companyCard:focus-visible {
+  transform: translateY(-2px);
+
+  border-color: #a4b8c6;
+
   background: #ffffff;
 
-  transition: background 140ms ease;
-}
-
-.companyRow:last-child {
-  border-bottom: 0;
-}
-
-.companyRow:hover,
-.companyRow:focus-visible {
-  background: #f2f6f8;
+  box-shadow:
+    0 10px 21px rgba(7, 26, 51, 0.08);
 
   outline: none;
 }
 
-.companyRow:hover strong,
-.companyRow:focus-visible strong {
-  color: #205f89;
+.iconWrap {
+  width: 36px;
+  height: 36px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 9px;
+
+  background: #edf4f8;
+
+  color: #326b8c;
+
+  transition:
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.companyCard:hover .iconWrap,
+.companyCard:focus-visible .iconWrap {
+  background: #0b2c41;
+
+  color: #ffffff;
 }
 
 
 /* ==========================================================
-   LEFT ICONS
-   ========================================================== */
+   COPY
+========================================================== */
 
-.iconBox {
-  width: 50px;
-  height: 50px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 10px;
-
-  background: #edf3f7;
-
-  color: #315f82;
-}
-
-.iconBox svg {
-  width: 27px;
-  height: 27px;
-
-  fill: none;
-  stroke: currentColor;
-
-  stroke-width: 1.65;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-
-/* ==========================================================
-   TEXT
-   ========================================================== */
-
-.rowText {
+.cardCopy {
   min-width: 0;
 }
 
-.rowText strong {
+.cardCopy strong {
   display: block;
 
   color: #07111f;
 
-  font-size: 16px;
-  font-weight: 750;
+  font-size: 13px;
+  font-weight: 740;
 
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
-.rowText small {
+.cardCopy span {
   display: block;
 
-  margin-top: 5px;
+  margin-top: 4px;
 
-  color: #617587;
+  color: #617589;
 
-  font-size: 11px;
-  font-weight: 500;
+  font-size: 9.5px;
 
-  line-height: 1.4;
+  line-height: 1.42;
+}
+
+.cardArrow {
+  color: #889ba9;
+
+  transition:
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.companyCard:hover .cardArrow,
+.companyCard:focus-visible .cardArrow,
+.socialCard:hover .cardArrow,
+.socialCard:focus-visible .cardArrow {
+  color: #315f7b;
+
+  transform: translate(2px, -2px);
 }
 
 
 /* ==========================================================
-   RIGHT TABLE
-   TWO EQUAL LARGE ROWS
-   ========================================================== */
+   SOCIAL CARDS
+========================================================== */
 
-.socialRows {
-  height: 372px;
+.socialGrid {
+  display: grid;
+
+  gap: 10px;
+}
+
+.socialCard {
+  min-width: 0;
+  min-height: 102px;
+
+  padding: 15px;
 
   display: grid;
 
-  grid-template-rows:
-    186px
-    186px;
-}
-
-.socialRow {
-  box-sizing: border-box;
-
-  width: 100%;
-  height: 186px;
-
-  padding: 0 34px;
-
-  display: flex;
+  grid-template-columns:
+    42px
+    minmax(0, 1fr)
+    auto;
 
   align-items: center;
-  justify-content: space-between;
 
-  gap: 28px;
+  gap: 12px;
 
-  border-bottom: 1px solid #d5dfe6;
+  border: 1px solid rgba(117, 143, 160, 0.18);
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.58);
 
   color: inherit;
 
   text-decoration: none;
 
-  transition: background 140ms ease;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
 }
 
-.socialRow:last-child {
-  border-bottom: 0;
-}
+.socialCard:hover,
+.socialCard:focus-visible {
+  transform: translateY(-2px);
 
-.socialRow:hover,
-.socialRow:focus-visible {
-  background: rgba(255,255,255,0.55);
+  border-color: #c5d5df;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 10px 21px rgba(7, 26, 51, 0.075);
 
   outline: none;
 }
 
-.socialRow:hover strong,
-.socialRow:focus-visible strong {
-  color: #205f89;
-}
-
-
-/* ==========================================================
-   SOCIAL ICONS
-   ========================================================== */
-
 .socialIcon {
-  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
 
-  width: 60px;
-  height: 60px;
+  display: grid;
+  place-items: center;
 
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 10px;
 
-  border: 1px solid #cfdbe3;
-  border-radius: 11px;
-
-  background: rgba(255,255,255,0.86);
+  background: #ffffff;
 }
 
-.socialIcon svg {
-  width: 31px;
-  height: 31px;
-
-  fill: none;
-  stroke: currentColor;
-
-  stroke-width: 1.7;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.linkedin {
+.linkedinIcon {
   color: #0a66c2;
 }
 
-.youtube {
-  color: #ff0000;
+.youtubeIcon {
+  color: #e21b1b;
 }
 
 
 /* ==========================================================
-   ONLY STACK ON GENUINELY SMALL SCREENS
-   ========================================================== */
+   OFFICIAL CHANNELS NOTE
+========================================================== */
 
-@media (max-width: 700px) {
+.channelNote {
+  margin-top: 12px;
 
-  .panel {
-    width: calc(100vw - 32px) !important;
-    min-width: 0 !important;
-    max-width: calc(100vw - 32px) !important;
+  padding: 12px 13px;
 
-    height: auto;
+  border-radius: 9px;
 
-    grid-template-columns: 1fr !important;
-    grid-template-rows: auto auto !important;
+  background: rgba(255, 255, 255, 0.48);
+}
+
+.channelNote span {
+  color: #557087;
+
+  font-size: 8px;
+  font-weight: 850;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.channelNote p {
+  margin: 6px 0 0 !important;
+
+  color: #697a89 !important;
+
+  font-size: 9px !important;
+
+  line-height: 1.45;
+}
+
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width: 900px) {
+  .topBar,
+  .menuBody {
+    grid-template-columns: 1fr;
   }
 
-  .companyTable,
-  .socialTable {
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: none !important;
+  .topBar {
+    padding-block: 16px;
 
-    height: auto;
-
-    grid-column: 1;
+    gap: 5px;
   }
 
-  .companyTable {
-    grid-row: 1;
+  .topBar span:last-child {
+    display: none;
   }
 
-  .socialTable {
-    grid-row: 2;
+  .companyGrid {
+    grid-template-columns: 1fr;
+  }
+}
 
-    border-left: 0;
-    border-top: 1px solid #d5dfe6;
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 640px) {
+  .menuBody {
+    padding: 14px;
   }
 
-  .companyRows {
-    height: auto;
-
-    grid-template-rows:
-      repeat(4, 86px);
+  .companySection,
+  .socialSection {
+    padding: 15px;
   }
 
-  .companyRow {
-    height: 86px;
+  .companyCard,
+  .socialCard {
+    min-height: 84px;
   }
+}
 
-  .socialRows {
-    height: auto;
 
-    grid-template-rows:
-      repeat(2, 120px);
-  }
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
 
-  .socialRow {
-    height: 120px;
+@media (prefers-reduced-motion: reduce) {
+  .companyCard,
+  .socialCard,
+  .iconWrap,
+  .cardArrow {
+    transition: none;
   }
 }

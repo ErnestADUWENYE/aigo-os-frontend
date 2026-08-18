@@ -1,9 +1,16 @@
-﻿.page {
-  min-height: calc(100vh - 150px);
+﻿.hero {
+  position: relative;
 
-  padding: 104px 0 118px;
+  overflow: hidden;
+
+  padding: 106px 0 104px;
 
   background:
+    radial-gradient(
+      circle at 85% 16%,
+      rgba(63, 118, 151, 0.12),
+      transparent 28%
+    ),
     linear-gradient(
       122deg,
       #e8e0d5 0%,
@@ -12,211 +19,734 @@
     );
 }
 
-.shell {
-  max-width: 920px;
+
+.heroGrid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(300px, 0.43fr);
+
+  align-items: end;
+
+  gap: clamp(64px, 8vw, 126px);
 }
 
-.eyebrow {
-  margin: 0 0 17px !important;
 
-  color: #365b7d !important;
+.heroCopy {
+  max-width: 910px;
+}
 
-  font-size: 10px !important;
-  font-weight: 850 !important;
+
+.eyebrow,
+.sectionLabel {
+  margin: 0 0 17px;
+
+  color: #365b7d;
+
+  font-size: 10px;
+  font-weight: 850;
 
   letter-spacing: 0.11em;
 
   text-transform: uppercase;
 }
 
-.shell h1 {
-  max-width: 850px;
+
+.hero h1 {
+  max-width: 900px;
 
   margin: 0;
 
   color: #07111f;
 
-  font-size: clamp(48px, 5vw, 72px);
-  font-weight: 720;
+  font-size: clamp(51px, 5vw, 76px);
+  font-weight: 710;
 
-  line-height: 1.01;
+  line-height: 0.99;
 
-  letter-spacing: -0.05em;
+  letter-spacing: -0.054em;
+
+  text-wrap: balance;
 }
 
-.lead {
-  max-width: 720px;
 
-  margin: 25px 0 0 !important;
+.lead {
+  max-width: 735px;
+
+  margin: 26px 0 0 !important;
 
   color: #344a5e !important;
 
-  font-size: 17px !important;
+  font-size: 16px;
 
-  line-height: 1.68;
+  line-height: 1.7;
 }
 
-.demoScope,
-.commercialAreas {
-  max-width: 840px;
 
-  margin-top: 45px;
+.heroAside {
+  padding: 22px;
 
+  border: 1px solid rgba(66, 99, 123, 0.17);
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.48);
+
+  backdrop-filter: blur(8px);
+}
+
+
+.heroAside span {
+  display: block;
+
+  color: #365b7d;
+
+  font-size: 9px;
+  font-weight: 850;
+
+  letter-spacing: 0.09em;
+
+  text-transform: uppercase;
+}
+
+
+.heroAside strong {
+  display: block;
+
+  margin-top: 11px;
+
+  color: #07111f;
+
+  font-size: 19px;
+  font-weight: 720;
+
+  line-height: 1.25;
+}
+
+
+.heroAside p {
+  margin: 10px 0 0 !important;
+
+  color: #40586b !important;
+
+  font-size: 12px;
+
+  line-height: 1.62;
+}
+
+
+
+/* ==========================================================
+   DEMO FORM
+========================================================== */
+
+
+.demoSection {
+  padding: 110px 0 120px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f4f7f9 100%
+    );
+}
+
+
+.demoLayout {
   display: grid;
 
-  gap: 0;
-
-  border-top: 1px solid #bcc9d3;
-  border-left: 1px solid #bcc9d3;
-}
-
-.demoScope {
   grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+    minmax(260px, 0.42fr)
+    minmax(0, 0.78fr);
+
+  align-items: start;
+
+  gap: clamp(60px, 8vw, 120px);
 }
 
-.commercialAreas {
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
+
+
+/* ==========================================================
+   DEMO INTRO
+========================================================== */
+
+
+.demoIntro {
+  position: sticky;
+
+  top: 118px;
+
+  max-width: 430px;
 }
 
-.demoScope > div,
-.commercialAreas > div {
-  min-height: 150px;
+
+.demoIntro h2 {
+  margin: 0;
+
+  color: #07111f;
+
+  font-size: clamp(38px, 3.2vw, 51px);
+  font-weight: 670;
+
+  line-height: 1.04;
+
+  letter-spacing: -0.044em;
+}
+
+
+.demoIntro > p:not(.sectionLabel) {
+  margin: 22px 0 0 !important;
+
+  color: #506476 !important;
+
+  font-size: 14px;
+
+  line-height: 1.72;
+}
+
+
+.demoNote {
+  margin-top: 31px;
 
   padding: 18px;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  border-radius: 12px;
 
-  border-right: 1px solid #bcc9d3;
-  border-bottom: 1px solid #bcc9d3;
-
-  background: rgba(255,255,255,0.48);
+  background:
+    linear-gradient(
+      145deg,
+      #edf3f6,
+      #f3f5f4
+    );
 }
 
-.demoScope span,
-.commercialAreas span {
-  margin-bottom: auto;
 
-  color: #365b7d;
-
-  font-size: 9px;
-  font-weight: 820;
-
-  letter-spacing: 0.07em;
-
-  text-transform: uppercase;
-}
-
-.demoScope strong,
-.commercialAreas strong {
-  color: #07111f;
-
-  font-size: 16px;
-  font-weight: 710;
-}
-
-.demoScope p {
-  margin: 7px 0 0 !important;
-
-  color: #506274 !important;
-
-  font-size: 11px !important;
-
-  line-height: 1.55;
-}
-
-.notice {
-  max-width: 840px;
-
-  margin-top: 24px;
-
-  padding: 22px 24px;
-
-  border-top: 2px solid #173b59;
-  border-bottom: 1px solid #bcc9d3;
-
-  background: rgba(255,255,255,0.58);
-}
-
-.notice span {
-  color: #365b7d;
-
-  font-size: 9px;
-  font-weight: 820;
-
-  letter-spacing: 0.07em;
-
-  text-transform: uppercase;
-}
-
-.notice strong {
+.demoNote strong {
   display: block;
 
-  margin-top: 6px;
+  color: #173b59;
 
-  color: #07111f;
+  font-size: 13px;
+  font-weight: 730;
 
-  font-size: 17px;
-  font-weight: 710;
+  line-height: 1.35;
 }
 
-.notice p {
-  margin: 8px 0 0 !important;
 
-  color: #506274 !important;
+.demoNote p {
+  margin: 9px 0 0 !important;
 
-  font-size: 12px !important;
+  color: #526779 !important;
+
+  font-size: 11px;
 
   line-height: 1.58;
 }
 
-.actions {
-  margin-top: 28px;
 
-  display: flex;
-  flex-wrap: wrap;
 
-  gap: 9px;
+/* ==========================================================
+   FORM CARD
+========================================================== */
+
+
+.formCard {
+  min-width: 0;
+
+  padding: clamp(25px, 3vw, 39px);
+
+  border: 1px solid #d5e0e7;
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 18px 44px rgba(7, 26, 51, 0.08);
 }
 
-.primary,
-.secondary {
-  min-height: 44px;
 
-  padding: 0 16px;
+.form {
+  display: grid;
+
+  gap: 23px;
+}
+
+
+.twoColumn {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+
+.field {
+  min-width: 0;
+
+  display: grid;
+
+  gap: 8px;
+}
+
+
+.field label {
+  color: #14283d;
+
+  font-size: 12px;
+  font-weight: 720;
+}
+
+
+.field label span {
+  margin-left: 3px;
+
+  color: #9c691b;
+}
+
+
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+
+.inputWrap {
+  min-height: 52px;
+
+  padding: 0 15px;
+
+  display: grid;
+
+  grid-template-columns:
+    21px
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: 8px;
+
+  border: 1px solid #cbd7df;
+  border-radius: 9px;
+
+  background: #f9fbfc;
+
+  color: #678095;
+
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+
+.inputWrap:focus-within {
+  border-color: #567d98;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 3px rgba(54, 91, 125, 0.1);
+}
+
+
+.inputWrap input {
+  width: 100%;
+  min-width: 0;
+  height: 50px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #07111f;
+
+  font: inherit;
+
+  font-size: 14px;
+
+  outline: none;
+}
+
+
+.plainInput {
+  width: 100%;
+  min-height: 52px;
+
+  padding: 0 15px;
+
+  border: 1px solid #cbd7df;
+  border-radius: 9px;
+
+  background: #f9fbfc;
+
+  color: #07111f;
+
+  font: inherit;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+
+.plainInput:focus {
+  border-color: #567d98;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 3px rgba(54, 91, 125, 0.1);
+}
+
+
+.plainInput::placeholder {
+  color: #8b99a5;
+}
+
+
+
+/* ==========================================================
+   SELECT
+========================================================== */
+
+
+.selectWrap {
+  position: relative;
+}
+
+
+.selectWrap::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  right: 18px;
+
+  width: 8px;
+  height: 8px;
+
+  border-right: 1.5px solid #526779;
+  border-bottom: 1.5px solid #526779;
+
+  transform:
+    translateY(-70%)
+    rotate(45deg);
+
+  pointer-events: none;
+}
+
+
+.selectWrap select {
+  width: 100%;
+  min-height: 52px;
+
+  padding: 0 46px 0 15px;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  border: 1px solid #cbd7df;
+  border-radius: 9px;
+
+  background: #f9fbfc;
+
+  color: #07111f;
+
+  font: inherit;
+
+  font-size: 14px;
+
+  outline: none;
+
+  cursor: pointer;
+
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+
+.selectWrap select:focus {
+  border-color: #567d98;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 3px rgba(54, 91, 125, 0.1);
+}
+
+
+
+/* ==========================================================
+   TEXTAREA
+========================================================== */
+
+
+.field textarea {
+  width: 100%;
+
+  min-height: 150px;
+
+  padding: 15px 16px;
+
+  resize: vertical;
+
+  border: 1px solid #cbd7df;
+  border-radius: 9px;
+
+  background: #f9fbfc;
+
+  color: #07111f;
+
+  font: inherit;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  outline: none;
+
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+
+.field textarea::placeholder {
+  color: #8292a0;
+}
+
+
+.field textarea:focus {
+  border-color: #567d98;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 3px rgba(54, 91, 125, 0.1);
+}
+
+
+
+/* ==========================================================
+   FORM FOOTER
+========================================================== */
+
+
+.formFooter {
+  padding-top: 5px;
+
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 28px;
+}
+
+
+.privacy {
+  max-width: 470px;
+
+  margin: 0 !important;
+
+  color: #71808e !important;
+
+  font-size: 10px;
+
+  line-height: 1.55;
+}
+
+
+.submitButton {
+  flex: 0 0 auto;
+
+  min-height: 51px;
+
+  padding: 0 19px 0 22px;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 7px;
+  gap: 11px;
 
-  font-size: 12px;
-  font-weight: 740;
+  border: 0;
+  border-radius: 9px;
 
-  text-decoration: none;
-}
-
-.primary {
   background: #d9a52b;
 
   color: #07111f;
+
+  font: inherit;
+
+  font-size: 13px;
+  font-weight: 780;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 22px rgba(7, 26, 51, 0.16);
+
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
 }
 
-.secondary {
-  border: 1px solid #91a4b5;
 
-  background: rgba(255,255,255,0.5);
+.submitButton:hover,
+.submitButton:focus-visible {
+  transform: translateY(-2px);
 
-  color: #07111f;
+  background: #e4b847;
+
+  box-shadow:
+    0 16px 28px rgba(7, 26, 51, 0.2);
+
+  outline: none;
 }
+
+
+.submitButton svg {
+  transition:
+    transform 160ms ease;
+}
+
+
+.submitButton:hover svg {
+  transform: translate(2px, -1px);
+}
+
+
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+
+@media (max-width: 900px) {
+  .heroGrid,
+  .demoLayout {
+    grid-template-columns: 1fr;
+
+    gap: 34px;
+  }
+
+
+  .heroAside {
+    max-width: 620px;
+  }
+
+
+  .demoIntro {
+    position: static;
+
+    max-width: 680px;
+  }
+}
+
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
 
 @media (max-width: 700px) {
-  .demoScope,
-  .commercialAreas {
+  .hero {
+    padding: 76px 0 74px;
+  }
+
+
+  .demoSection {
+    padding: 72px 0 82px;
+  }
+
+
+  .hero h1 {
+    font-size: clamp(44px, 13vw, 62px);
+  }
+
+
+  .twoColumn {
     grid-template-columns: 1fr;
+  }
+
+
+  .formCard {
+    padding: 21px;
+
+    border-radius: 14px;
+  }
+
+
+  .formFooter {
+    align-items: stretch;
+
+    flex-direction: column;
+
+    gap: 18px;
+  }
+
+
+  .submitButton {
+    width: 100%;
+  }
+}
+
+
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+
+@media (max-width: 430px) {
+  .heroAside,
+  .formCard {
+    padding: 17px;
+  }
+}
+
+
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+
+@media (prefers-reduced-motion: reduce) {
+  .inputWrap,
+  .plainInput,
+  .selectWrap select,
+  .field textarea,
+  .submitButton,
+  .submitButton svg {
+    transition: none;
+  }
+
+
+  .submitButton:hover,
+  .submitButton:focus-visible {
+    transform: none;
+  }
+
+
+  .submitButton:hover svg {
+    transform: none;
   }
 }

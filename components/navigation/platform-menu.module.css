@@ -1,51 +1,50 @@
 ﻿.menu {
   width: 100%;
 
-  background: #f8fafc;
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #f7f9fb;
 
   color: #07111f;
 }
 
-
 /* ==========================================================
-   THIN PLATFORM INTRODUCTION
-   ========================================================== */
+   PLATFORM INTRO
+========================================================== */
 
 .overviewBar {
-  min-height: 82px;
+  min-height: 92px;
 
-  padding: 18px 22px;
+  padding: 20px 26px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  gap: 32px;
+  gap: 34px;
 
   background:
     linear-gradient(
-      100deg,
-      #0b213a 0%,
-      #123452 100%
+      105deg,
+      #0a2139 0%,
+      #123c5d 100%
     );
-
-  border-bottom: 1px solid #294a66;
 }
 
 .overviewCopy {
   min-width: 0;
 
-  display: grid;
-
-  grid-template-columns:
-    auto auto minmax(220px, 1fr);
-
+  display: flex;
   align-items: center;
 
-  gap: 18px;
+  gap: 22px;
 }
 
 .overviewMeta {
+  flex: 0 0 auto;
+
   color: #e0b348;
 
   font-size: 10px;
@@ -59,192 +58,185 @@
 .overviewCopy strong {
   color: #ffffff;
 
-  font-size: 16px;
-  font-weight: 730;
+  font-size: 17px;
+  font-weight: 720;
 
   line-height: 1.25;
-
-  white-space: nowrap;
-}
-
-.overviewCopy p {
-  margin: 0 !important;
-
-  color: #c8d5df !important;
-
-  font-size: 11px;
-  font-weight: 500;
-
-  line-height: 1.45;
 }
 
 .overviewButton {
   flex: 0 0 auto;
 
-  min-height: 38px;
+  min-height: 42px;
 
-  padding: 0 14px;
+  padding: 0 15px;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 7px;
+  gap: 8px;
 
-  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 9px;
+
+  background: rgba(255, 255, 255, 0.07);
 
   color: #ffffff;
 
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 720;
 
   text-decoration: none;
 
   transition:
-    background 150ms ease,
-    border-color 150ms ease;
+    background 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
 }
 
 .overviewButton:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.14);
 
-  border-color: rgba(255, 255, 255, 0.46);
+  border-color: rgba(255, 255, 255, 0.48);
+
+  transform: translateY(-1px);
 }
-
 
 /* ==========================================================
    CAPABILITY AREA
-   ========================================================== */
+========================================================== */
 
 .capabilityArea {
-  padding: 18px 20px 20px;
+  padding: 22px 24px 26px;
 
   background:
     linear-gradient(
       180deg,
       #ffffff 0%,
-      #f5f7f9 100%
+      #f4f7f9 100%
     );
 }
 
 .capabilityHeader {
-  min-height: 28px;
-
-  padding: 0 2px 10px;
+  margin-bottom: 16px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   gap: 20px;
-
-  border-bottom: 1px solid #d7dfe6;
 }
 
 .capabilityHeader span {
-  color: #4f6578;
+  color: #566b7d;
 
   font-size: 9px;
-  font-weight: 850;
+  font-weight: 840;
 
   letter-spacing: 0.1em;
 
   text-transform: uppercase;
 }
 
-
 /* ==========================================================
-   FIVE CAPABILITIES
-   3 on first row, 2 on second row
-   ========================================================== */
+   CAPABILITY CARDS
+========================================================== */
 
 .capabilityGrid {
   display: grid;
 
   grid-template-columns:
-    repeat(6, minmax(0, 1fr));
+    repeat(3, minmax(0, 1fr));
 
-  column-gap: 12px;
-  row-gap: 0;
+  gap: 12px;
 }
 
 .capabilityItem {
-  min-width: 0;
-  min-height: 92px;
+  position: relative;
 
-  padding: 14px 12px;
+  min-width: 0;
+  min-height: 158px;
+
+  padding: 18px;
 
   display: grid;
 
   grid-template-columns:
-    30px
-    minmax(0, 1fr);
+    42px
+    minmax(0, 1fr)
+    auto;
 
   align-items: start;
 
-  gap: 10px;
+  gap: 13px;
 
-  border-bottom: 1px solid #dde3e8;
+  border: 1px solid #d4dde5;
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 0%,
+      #f9fbfc 100%
+    );
 
   color: inherit;
 
   text-decoration: none;
 
+  box-shadow:
+    0 6px 16px rgba(7, 26, 51, 0.045);
+
   transition:
-    background 150ms ease,
-    transform 150ms ease;
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
 }
-
-
-/* first row */
-
-.capabilityItem:nth-child(1),
-.capabilityItem:nth-child(2),
-.capabilityItem:nth-child(3) {
-  grid-column: span 2;
-}
-
-
-/* second row */
 
 .capabilityItem:nth-child(4),
 .capabilityItem:nth-child(5) {
-  grid-column: span 3;
+  grid-column: span 1;
 }
-
-
-/* subtle separators */
-
-.capabilityItem:nth-child(1),
-.capabilityItem:nth-child(2),
-.capabilityItem:nth-child(4) {
-  border-right: 1px solid #dde3e8;
-}
-
 
 .capabilityItem:hover {
-  background: #edf3f7;
+  transform: translateY(-3px);
 
-  transform: translateY(-1px);
+  border-color: #9fb3c2;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 14px 30px rgba(7, 26, 51, 0.10);
 }
 
-.number {
-  width: 28px;
-  height: 28px;
+.iconWrap {
+  width: 40px;
+  height: 40px;
 
   display: grid;
   place-items: center;
 
-  border: 1px solid #c3d0da;
-  border-radius: 6px;
+  border: 1px solid #c9d6df;
+  border-radius: 10px;
 
-  background: #ffffff;
+  background: #edf3f6;
 
-  color: #365b7d;
+  color: #315f7b;
 
-  font-size: 9px;
-  font-weight: 850;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+.capabilityItem:hover .iconWrap {
+  border-color: #527b94;
+
+  background: #0b2c41;
+
+  color: #ffffff;
 }
 
 .itemCopy {
@@ -254,9 +246,9 @@
 .meta {
   display: block;
 
-  margin-bottom: 3px;
+  margin-bottom: 6px;
 
-  color: #3c688e;
+  color: #47728f;
 
   font-size: 8px;
   font-weight: 850;
@@ -269,79 +261,118 @@
 .capabilityItem strong {
   display: block;
 
+  max-width: 260px;
+
   color: #07111f;
 
-  font-size: 13px;
-  font-weight: 740;
+  font-size: 15px;
+  font-weight: 730;
 
-  line-height: 1.23;
+  line-height: 1.22;
 }
 
 .capabilityItem p {
-  margin: 4px 0 0 !important;
+  max-width: 285px;
 
-  color: #526678 !important;
+  margin: 7px 0 0 !important;
 
-  font-size: 10px;
+  color: #526779 !important;
+
+  font-size: 10.5px;
   font-weight: 500;
 
-  line-height: 1.4;
+  line-height: 1.46;
 }
 
+.itemArrow {
+  margin-top: 2px;
+
+  color: #8295a5;
+
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.capabilityItem:hover .itemArrow {
+  color: #315f7b;
+
+  transform: translate(2px, -2px);
+}
+
+/* ==========================================================
+   BALANCE SECOND ROW
+========================================================== */
+
+.capabilityItem:nth-child(4) {
+  grid-column: 1 / 2;
+}
+
+.capabilityItem:nth-child(5) {
+  grid-column: 2 / 3;
+}
 
 /* ==========================================================
    TABLET
-   ========================================================== */
+========================================================== */
 
 @media (max-width: 1000px) {
   .overviewCopy {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 5px;
+  }
+
+  .capabilityGrid {
     grid-template-columns:
-      auto
-      1fr;
+      repeat(2, minmax(0, 1fr));
   }
 
-  .overviewCopy p {
-    display: none;
-  }
-
-  .capabilityItem {
-    min-height: 88px;
+  .capabilityItem:nth-child(4),
+  .capabilityItem:nth-child(5) {
+    grid-column: auto;
   }
 }
 
-
 /* ==========================================================
    MOBILE
-   ========================================================== */
+========================================================== */
 
 @media (max-width: 760px) {
   .overviewBar {
     align-items: flex-start;
-
     flex-direction: column;
 
-    gap: 14px;
+    gap: 16px;
   }
 
-  .overviewCopy {
-    display: block;
+  .overviewButton {
+    width: 100%;
   }
 
-  .overviewCopy strong {
-    display: block;
-
-    margin-top: 5px;
-
-    white-space: normal;
+  .capabilityHeader span:last-child {
+    display: none;
   }
 
   .capabilityGrid {
     grid-template-columns: 1fr;
   }
 
-  .capabilityItem:nth-child(n) {
-    grid-column: auto;
+  .capabilityItem {
+    min-height: 132px;
+  }
+}
 
-    border-right: 0;
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .capabilityItem,
+  .iconWrap,
+  .itemArrow,
+  .overviewButton {
+    transition: none;
   }
 }

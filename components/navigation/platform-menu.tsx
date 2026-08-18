@@ -1,5 +1,14 @@
 ﻿import Link from "next/link";
 
+import {
+  Activity,
+  ArrowUpRight,
+  BrainCircuit,
+  Building2,
+  ChartNoAxesCombined,
+  Network,
+} from "lucide-react";
+
 import styles from "./platform-menu.module.css";
 
 type PlatformMenuProps = {
@@ -8,39 +17,44 @@ type PlatformMenuProps = {
 
 const capabilities = [
   {
+    icon: Building2,
     meta: "Enterprise foundation",
     title: "Enterprise Context",
     href: "/platform/enterprise-context",
     description:
-      "Enterprise environment around AI activity.",
+      "Understand the enterprise environment surrounding AI activity.",
   },
   {
+    icon: Network,
     meta: "Business relationships",
     title: "AI Business Mapping",
     href: "/platform/ai-business-mapping",
     description:
-      "AI connected to business functions, processes and ownership.",
+      "Relate AI to the business functions, processes and dependencies around it.",
   },
   {
+    icon: Activity,
     meta: "Operational context",
     title: "Activity & Event Correlation",
     href: "/platform/activity-event-correlation",
     description:
-      "AI activity understood alongside relevant enterprise events.",
+      "Connect AI signals with relevant operational and enterprise events.",
   },
   {
+    icon: BrainCircuit,
     meta: "Interpretation",
     title: "Contextual Intelligence",
     href: "/platform/contextual-intelligence",
     description:
-      "Business context retained during interpretation.",
+      "Interpret AI activity together with existing enterprise context.",
   },
   {
+    icon: ChartNoAxesCombined,
     meta: "Management view",
     title: "Management Intelligence",
     href: "/platform/management-intelligence",
     description:
-      "Connected context prepared for management use.",
+      "Present connected context in a form management teams can use.",
   },
 ];
 
@@ -49,7 +63,6 @@ export function PlatformMenu({
 }: PlatformMenuProps) {
   return (
     <div className={styles.menu}>
-
       <div className={styles.overviewBar}>
         <div className={styles.overviewCopy}>
           <span className={styles.overviewMeta}>
@@ -59,11 +72,6 @@ export function PlatformMenu({
           <strong>
             Understand AI in business context.
           </strong>
-
-          <p>
-            Five connected capabilities form the intelligence
-            foundation behind AIGO-OS Govern and Impact.
-          </p>
         </div>
 
         <Link
@@ -72,9 +80,14 @@ export function PlatformMenu({
           className={styles.overviewButton}
         >
           Platform Overview
+
+          <ArrowUpRight
+            size={15}
+            strokeWidth={1.8}
+            aria-hidden="true"
+          />
         </Link>
       </div>
-
 
       <div className={styles.capabilityArea}>
         <div className={styles.capabilityHeader}>
@@ -83,7 +96,7 @@ export function PlatformMenu({
           </span>
 
           <span>
-            Select a capability
+            Explore a capability
           </span>
         </div>
 
@@ -91,35 +104,49 @@ export function PlatformMenu({
           className={styles.capabilityGrid}
           aria-label="Platform capabilities"
         >
-          {capabilities.map((item, index) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={onNavigate}
-              className={styles.capabilityItem}
-            >
-              <div className={styles.number}>
-                {String(index + 1).padStart(2, "0")}
-              </div>
+          {capabilities.map((item) => {
+            const Icon = item.icon;
 
-              <div className={styles.itemCopy}>
-                <span className={styles.meta}>
-                  {item.meta}
-                </span>
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={onNavigate}
+                className={styles.capabilityItem}
+              >
+                <div className={styles.iconWrap}>
+                  <Icon
+                    size={20}
+                    strokeWidth={1.7}
+                    aria-hidden="true"
+                  />
+                </div>
 
-                <strong>
-                  {item.title}
-                </strong>
+                <div className={styles.itemCopy}>
+                  <span className={styles.meta}>
+                    {item.meta}
+                  </span>
 
-                <p>
-                  {item.description}
-                </p>
-              </div>
-            </Link>
-          ))}
+                  <strong>
+                    {item.title}
+                  </strong>
+
+                  <p>
+                    {item.description}
+                  </p>
+                </div>
+
+                <ArrowUpRight
+                  className={styles.itemArrow}
+                  size={16}
+                  strokeWidth={1.8}
+                  aria-hidden="true"
+                />
+              </Link>
+            );
+          })}
         </nav>
       </div>
-
     </div>
   );
 }

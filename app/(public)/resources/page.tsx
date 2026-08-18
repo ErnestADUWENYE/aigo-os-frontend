@@ -1,12 +1,33 @@
-﻿import Link from "next/link";
+﻿"use client";
+
+import Link from "next/link";
+
+import {
+  ArrowUpRight,
+  BookOpen,
+  BrainCircuit,
+  Building2,
+  FileText,
+  LifeBuoy,
+  Network,
+  Plug,
+  Presentation,
+  ShieldCheck,
+} from "lucide-react";
+
+import {
+  useEffect,
+  useState,
+} from "react";
 
 import { PublicContainer } from "@/components/public/public-container";
 
 import styles from "./page.module.css";
 
+
 const subjectAreas = [
   {
-    number: "01",
+    icon: ShieldCheck,
     label: "AI Governance",
     title: "Govern AI in the context of the business.",
     text:
@@ -18,8 +39,9 @@ const subjectAreas = [
       "AI Agent Sprawl",
     ],
   },
+
   {
-    number: "02",
+    icon: BrainCircuit,
     label: "Business Impact",
     title: "Understand what AI means for operations and outcomes.",
     text:
@@ -31,8 +53,9 @@ const subjectAreas = [
       "Management Intelligence",
     ],
   },
+
   {
-    number: "03",
+    icon: Network,
     label: "Enterprise Context",
     title: "Understand AI as part of an operating enterprise.",
     text:
@@ -46,26 +69,38 @@ const subjectAreas = [
   },
 ];
 
+
 const formats = [
   {
+    icon: FileText,
+    eyebrow: "Perspective",
     title: "Insights",
     text:
       "Articles and perspectives on enterprise AI governance, business impact and contextual intelligence.",
     status: "Publishing soon",
   },
+
   {
+    icon: BookOpen,
+    eyebrow: "Executive material",
     title: "Executive Briefs & Research",
     text:
       "Deeper analysis, management frameworks, research and decision material for enterprise leaders.",
     status: "In development",
   },
+
   {
+    icon: Presentation,
+    eyebrow: "Live discussion",
     title: "Webinars & Events",
     text:
       "Conversations, briefings and sessions exploring important enterprise AI questions.",
     status: "Coming later",
   },
+
   {
+    icon: Building2,
+    eyebrow: "Reference",
     title: "Glossary",
     text:
       "Clear definitions for the concepts used throughout AIGO-OS and the wider enterprise AI conversation.",
@@ -73,78 +108,128 @@ const formats = [
   },
 ];
 
+
+const boundaries = [
+  {
+    icon: Plug,
+    eyebrow: "Connect AIGO-OS",
+    title: "Integrations",
+    text:
+      "Technical implementation and information about connecting AIGO-OS to the enterprise environment.",
+    href: "/integrations",
+    action: "Explore integrations",
+  },
+
+  {
+    icon: LifeBuoy,
+    eyebrow: "Use AIGO-OS",
+    title: "Help Center",
+    text:
+      "Product guidance and support belong in the Help Center rather than the editorial resource library.",
+    href: "/help",
+    action: "Visit Help Center",
+  },
+
+  {
+    icon: ShieldCheck,
+    eyebrow: "Trust AIGO-OS",
+    title: "Trust & Security",
+    text:
+      "Security, privacy and assurance information stays in the dedicated trust area.",
+    href: "/trust",
+    action: "Explore trust",
+  },
+];
+
+
 export default function ResourcesPage() {
+  const [activeFormat, setActiveFormat] =
+    useState(0);
+
+  const [paused, setPaused] =
+    useState(false);
+
+
+  useEffect(() => {
+    if (paused) {
+      return;
+    }
+
+    const timer = window.setInterval(() => {
+      setActiveFormat((current) =>
+        (current + 1) % formats.length
+      );
+    }, 2000);
+
+    return () => {
+      window.clearInterval(timer);
+    };
+  }, [paused]);
+
+
+  const active = formats[activeFormat];
+
+  const ActiveIcon = active.icon;
+
+
   return (
     <>
       <section className={styles.hero}>
         <PublicContainer>
-
           <div className={styles.heroGrid}>
-
-            <div>
+            <div className={styles.heroCopy}>
               <p className={styles.eyebrow}>
                 Resources
               </p>
 
               <h1>
-                Perspectives for governing AI in business context.
+                Think more clearly about enterprise AI.
               </h1>
             </div>
 
             <div className={styles.heroIntro}>
               <p>
-                AIGO-OS Resources will bring together practical thinking,
-                research and executive perspectives on AI governance,
+                AIGO-OS Resources brings together perspectives,
+                research and practical thinking on AI governance,
                 enterprise context and business impact.
               </p>
 
               <p>
-                The library will grow as original AIGO-OS material is
-                published. We will not fill it with generic content simply
-                to make the library look larger.
+                The focus is not content volume. It is material that
+                helps enterprise leaders understand the questions
+                surrounding AI more clearly.
               </p>
             </div>
-
           </div>
-
         </PublicContainer>
       </section>
 
 
-      <section className={styles.editorialSection}>
+      <section className={styles.positionSection}>
         <PublicContainer>
+          <div className={styles.positionCard}>
+            <span className={styles.positionEyebrow}>
+              AIGO-OS perspective
+            </span>
 
-          <div className={styles.editorialPanel}>
+            <h2>
+              AI becomes more useful to management when it can be
+              understood as part of the business around it.
+            </h2>
 
-            <div className={styles.editorialLabel}>
-              <span>
-                Editorial focus
-              </span>
-            </div>
-
-            <div className={styles.editorialStatement}>
-              <h2>
-                AI becomes more useful to management when it can be understood
-                as part of the business around it.
-              </h2>
-
-              <p>
-                Our resource program will focus on the questions that sit
-                between AI activity and enterprise decision-making: who is
-                accountable, what authority exists, what the business depends
-                on, what changes and what requires management attention.
-              </p>
-            </div>
-
+            <p>
+              Our resource program focuses on the questions between
+              AI activity and enterprise decision-making: who is
+              accountable, what authority exists, what the business
+              depends on, what changed and what requires attention.
+            </p>
           </div>
-
         </PublicContainer>
       </section>
 
 
       <section className={styles.subjectSection}>
         <PublicContainer>
-
           <div className={styles.sectionHeader}>
             <div>
               <p className={styles.sectionLabel}>
@@ -152,43 +237,50 @@ export default function ResourcesPage() {
               </p>
 
               <h2>
-                Three subjects anchor the AIGO-OS resource library.
+                The questions we keep coming back to.
               </h2>
             </div>
 
             <p>
-              These themes follow the same business questions addressed by
-              the AIGO-OS platform without turning Resources into product
-              documentation.
+              These themes reflect the problems AIGO-OS is built
+              around without turning the resource library into
+              product documentation.
             </p>
           </div>
 
 
-          <div className={styles.subjectList}>
+          <div className={styles.subjectGrid}>
+            {subjectAreas.map((subject) => {
+              const Icon = subject.icon;
 
-            {subjectAreas.map((subject) => (
-              <article
-                key={subject.number}
-                className={styles.subject}
-              >
-                <div className={styles.subjectNumber}>
-                  {subject.number}
-                </div>
+              return (
+                <article
+                  key={subject.label}
+                  className={styles.subjectCard}
+                >
+                  <div className={styles.subjectTop}>
+                    <div className={styles.subjectIcon}>
+                      <Icon
+                        size={24}
+                        strokeWidth={1.65}
+                        aria-hidden="true"
+                      />
+                    </div>
 
-                <div className={styles.subjectIdentity}>
-                  <span>
-                    {subject.label}
-                  </span>
+                    <span>
+                      {subject.label}
+                    </span>
+                  </div>
 
-                  <h3>
-                    {subject.title}
-                  </h3>
-                </div>
+                  <div className={styles.subjectCopy}>
+                    <h3>
+                      {subject.title}
+                    </h3>
 
-                <div className={styles.subjectDescription}>
-                  <p>
-                    {subject.text}
-                  </p>
+                    <p>
+                      {subject.text}
+                    </p>
+                  </div>
 
                   <div className={styles.topicList}>
                     {subject.topics.map((topic) => (
@@ -197,151 +289,215 @@ export default function ResourcesPage() {
                       </span>
                     ))}
                   </div>
-                </div>
-              </article>
-            ))}
-
+                </article>
+              );
+            })}
           </div>
-
         </PublicContainer>
       </section>
 
 
       <section className={styles.librarySection}>
         <PublicContainer>
+          <div className={styles.libraryLayout}>
+            <div className={styles.libraryIntro}>
+              <p className={styles.sectionLabelLight}>
+                Resource library
+              </p>
 
-          <div className={styles.libraryHeader}>
-            <p className={styles.sectionLabelLight}>
-              Resource library
-            </p>
+              <h2>
+                Different formats. One point of view.
+              </h2>
 
-            <h2>
-              Built to grow with real AIGO-OS material.
-            </h2>
+              <p>
+                The library will expand through original AIGO-OS
+                material designed for enterprise leaders, governance
+                teams and people responsible for understanding AI
+                in business context.
+              </p>
 
-            <p>
-              As material is published, these sections will become searchable
-              content libraries rather than placeholder marketing pages.
-            </p>
-          </div>
-
-
-          <div className={styles.formatList}>
-
-            {formats.map((format, index) => (
               <div
-                key={format.title}
-                className={styles.formatRow}
+                className={styles.formatSelectors}
+                aria-label="Resource formats"
               >
-                <span className={styles.formatNumber}>
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-
-                <strong>
-                  {format.title}
-                </strong>
-
-                <p>
-                  {format.text}
-                </p>
-
-                <span className={styles.formatStatus}>
-                  {format.status}
-                </span>
+                {formats.map((format, index) => (
+                  <button
+                    key={format.title}
+                    type="button"
+                    className={
+                      index === activeFormat
+                        ? `${styles.formatSelector} ${styles.formatSelectorActive}`
+                        : styles.formatSelector
+                    }
+                    onClick={() =>
+                      setActiveFormat(index)
+                    }
+                    aria-label={`Show ${format.title}`}
+                    aria-pressed={
+                      index === activeFormat
+                    }
+                  >
+                    <span>
+                      {format.title}
+                    </span>
+                  </button>
+                ))}
               </div>
-            ))}
+            </div>
 
+
+            <div
+              className={styles.flashStage}
+              onMouseEnter={() =>
+                setPaused(true)
+              }
+              onMouseLeave={() =>
+                setPaused(false)
+              }
+              onFocusCapture={() =>
+                setPaused(true)
+              }
+              onBlurCapture={() =>
+                setPaused(false)
+              }
+            >
+              <article
+                key={activeFormat}
+                className={styles.flashCard}
+              >
+                <div className={styles.flashTop}>
+                  <div className={styles.flashIcon}>
+                    <ActiveIcon
+                      size={27}
+                      strokeWidth={1.6}
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  <span className={styles.flashStatus}>
+                    {active.status}
+                  </span>
+                </div>
+
+                <div className={styles.flashCopy}>
+                  <span className={styles.flashEyebrow}>
+                    {active.eyebrow}
+                  </span>
+
+                  <h3>
+                    {active.title}
+                  </h3>
+
+                  <p>
+                    {active.text}
+                  </p>
+                </div>
+              </article>
+
+              <div
+                className={styles.flashProgress}
+                aria-hidden="true"
+              >
+                {formats.map((format, index) => (
+                  <span
+                    key={format.title}
+                    className={
+                      index === activeFormat
+                        ? styles.flashProgressActive
+                        : ""
+                    }
+                  />
+                ))}
+              </div>
+            </div>
           </div>
-
         </PublicContainer>
       </section>
 
 
       <section className={styles.boundarySection}>
         <PublicContainer>
+          <div className={styles.boundaryHeader}>
+            <p className={styles.sectionLabel}>
+              Find the right place
+            </p>
 
-          <div className={styles.boundaryGrid}>
+            <h2>
+              Resources is for thinking and learning.
+            </h2>
 
-            <div>
-              <p className={styles.sectionLabel}>
-                What Resources is not
-              </p>
-
-              <h2>
-                Learning content stays separate from product support.
-              </h2>
-            </div>
-
-
-            <div className={styles.boundaryList}>
-
-              <div>
-                <span>
-                  Connect AIGO-OS
-                </span>
-
-                <strong>
-                  Integrations
-                </strong>
-
-                <Link href="/integrations">
-                  Technical implementation resources
-                </Link>
-              </div>
-
-              <div>
-                <span>
-                  Use AIGO-OS
-                </span>
-
-                <strong>
-                  Help Center
-                </strong>
-
-                <Link href="/help">
-                  Product guidance and support
-                </Link>
-              </div>
-
-              <div>
-                <span>
-                  Trust AIGO-OS
-                </span>
-
-                <strong>
-                  Privacy & Trust
-                </strong>
-
-                <Link href="/trust">
-                  Security and assurance information
-                </Link>
-              </div>
-
-            </div>
-
+            <p>
+              Product implementation, product support and trust
+              information each have their own dedicated home.
+            </p>
           </div>
 
+
+          <div className={styles.boundaryCards}>
+            {boundaries.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  className={styles.boundaryCard}
+                >
+                  <div className={styles.boundaryIcon}>
+                    <Icon
+                      size={21}
+                      strokeWidth={1.7}
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  <span className={styles.boundaryEyebrow}>
+                    {item.eyebrow}
+                  </span>
+
+                  <strong>
+                    {item.title}
+                  </strong>
+
+                  <p>
+                    {item.text}
+                  </p>
+
+                  <div className={styles.boundaryAction}>
+                    <span>
+                      {item.action}
+                    </span>
+
+                    <ArrowUpRight
+                      size={15}
+                      strokeWidth={1.8}
+                      aria-hidden="true"
+                    />
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </PublicContainer>
       </section>
 
 
       <section className={styles.finalSection}>
         <PublicContainer>
-
           <div className={styles.finalPanel}>
-
             <div>
-              <p className={styles.sectionLabelLight}>
-                AIGO-OS perspectives
+              <p className={styles.finalEyebrow}>
+                Continue the conversation
               </p>
 
               <h2>
-                Looking for a conversation rather than an article?
+                Have an enterprise AI question that needs more than an article?
               </h2>
 
               <p>
-                Talk with us about AI governance, business impact or how
-                AIGO-OS could fit into your enterprise environment.
+                Talk with us about AI governance, business impact
+                or how AIGO-OS may fit into your enterprise
+                environment.
               </p>
             </div>
 
@@ -360,9 +516,7 @@ export default function ResourcesPage() {
                 Request a Demo
               </Link>
             </div>
-
           </div>
-
         </PublicContainer>
       </section>
     </>

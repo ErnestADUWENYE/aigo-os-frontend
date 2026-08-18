@@ -1,6 +1,36 @@
-﻿import { PublicContainer } from "@/components/public/public-container";
+﻿import {
+  BrainCircuit,
+  Network,
+  Target,
+} from "lucide-react";
+
+import { PublicContainer } from "@/components/public/public-container";
 
 import styles from "./page.module.css";
+
+const purposeItems = [
+  {
+    icon: Network,
+    eyebrow: "Connected context",
+    title: "Connect relevant context",
+    description:
+      "Bring together the information needed to understand AI activity in its enterprise setting.",
+  },
+  {
+    icon: BrainCircuit,
+    eyebrow: "Business significance",
+    title: "Understand significance",
+    description:
+      "Relate AI activity to responsibility, authority, business context and the conditions around its use.",
+  },
+  {
+    icon: Target,
+    eyebrow: "Management focus",
+    title: "Focus management attention",
+    description:
+      "Make it clearer where governance attention is needed and why it matters to the organisation.",
+  },
+];
 
 export default function AboutPage() {
   return (
@@ -75,44 +105,40 @@ export default function AboutPage() {
           </div>
 
           <div className={styles.purposeGrid}>
-            <div className={styles.purposeItem}>
-              <span>01</span>
+            {purposeItems.map((item) => {
+              const Icon = item.icon;
 
-              <strong>
-                Connect relevant context
-              </strong>
+              return (
+                <article
+                  key={item.title}
+                  className={styles.purposeItem}
+                >
+                  <div className={styles.purposeTop}>
+                    <div className={styles.purposeIcon}>
+                      <Icon
+                        size={24}
+                        strokeWidth={1.65}
+                        aria-hidden="true"
+                      />
+                    </div>
 
-              <p>
-                Bring together the information needed to understand AI activity
-                in its enterprise setting.
-              </p>
-            </div>
+                    <span className={styles.purposeMeta}>
+                      {item.eyebrow}
+                    </span>
+                  </div>
 
-            <div className={styles.purposeItem}>
-              <span>02</span>
+                  <div className={styles.purposeCopy}>
+                    <strong>
+                      {item.title}
+                    </strong>
 
-              <strong>
-                Understand significance
-              </strong>
-
-              <p>
-                Relate AI activity to responsibility, authority, business
-                context and the conditions around its use.
-              </p>
-            </div>
-
-            <div className={styles.purposeItem}>
-              <span>03</span>
-
-              <strong>
-                Focus management attention
-              </strong>
-
-              <p>
-                Make it clearer where governance attention is needed and why
-                it matters to the organisation.
-              </p>
-            </div>
+                    <p>
+                      {item.description}
+                    </p>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </PublicContainer>
       </section>

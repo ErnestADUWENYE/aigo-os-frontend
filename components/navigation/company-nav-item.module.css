@@ -1,0 +1,408 @@
+﻿.root {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  flex: 0 0 auto;
+}
+
+
+/* ==========================================================
+   TRIGGER
+========================================================== */
+
+.trigger {
+  min-height: 54px;
+
+  padding: 0 14px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: #07111f;
+
+  font: inherit;
+
+  font-size: 14px;
+  font-weight: 720;
+
+  cursor: pointer;
+
+  transition:
+    background 150ms ease;
+}
+
+.trigger:hover,
+.trigger:focus-visible,
+.triggerOpen {
+  background: rgba(8, 25, 43, 0.07);
+
+  outline: none;
+}
+
+.chevron {
+  width: 7px;
+  height: 7px;
+
+  border-right: 1.5px solid #485866;
+  border-bottom: 1.5px solid #485866;
+
+  transform:
+    translateY(-2px)
+    rotate(45deg);
+
+  transition:
+    transform 150ms ease;
+}
+
+.chevronOpen {
+  transform:
+    translateY(2px)
+    rotate(225deg);
+}
+
+
+/* ==========================================================
+   FLOATING DROPDOWN
+========================================================== */
+
+.popover {
+  position: absolute;
+
+  z-index: 5000;
+
+  top: calc(100% + 8px);
+  right: -185px;
+
+  width: 660px;
+  max-width: calc(100vw - 48px);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-6px);
+
+  pointer-events: none;
+
+  transition:
+    opacity 140ms ease,
+    visibility 140ms ease,
+    transform 140ms ease;
+}
+
+.popoverOpen {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
+
+  pointer-events: auto;
+}
+
+
+/* ==========================================================
+   PANEL
+========================================================== */
+
+.panel {
+  width: 100%;
+
+  padding: 12px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.22fr)
+    minmax(250px, 0.78fr);
+
+  gap: 12px;
+
+  overflow: hidden;
+
+  border: 1px solid #cad5dd;
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f8fafb 0%,
+      #f3f6f8 100%
+    );
+
+  box-shadow:
+    0 22px 52px rgba(7, 24, 42, 0.18);
+}
+
+
+/* ==========================================================
+   COMPANY COLUMN
+========================================================== */
+
+.companyColumn {
+  min-width: 0;
+
+  padding: 18px;
+
+  border: 1px solid #d9e1e7;
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 4px 14px rgba(7, 26, 51, 0.035);
+}
+
+.columnLabel {
+  margin: 0 0 12px !important;
+
+  color: #496b84 !important;
+
+  font-size: 9px !important;
+  font-weight: 850 !important;
+
+  letter-spacing: 0.11em;
+
+  text-transform: uppercase;
+}
+
+
+/* ==========================================================
+   COMPANY LINKS
+========================================================== */
+
+.companyLink {
+  min-height: 64px;
+
+  margin-top: 6px;
+  padding: 11px 12px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border: 1px solid transparent;
+  border-radius: 9px;
+
+  background: transparent;
+
+  color: inherit;
+
+  text-decoration: none;
+
+  transition:
+    transform 150ms ease,
+    background 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.companyLink:hover,
+.companyLink:focus-visible {
+  transform: translateY(-1px);
+
+  border-color: #d8e2e9;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f8fbfd 0%,
+      #f1f6f9 100%
+    );
+
+  box-shadow:
+    0 7px 16px rgba(7, 26, 51, 0.055);
+
+  outline: none;
+}
+
+.companyLink strong {
+  color: #07111f;
+
+  font-size: 14px;
+  font-weight: 740;
+
+  line-height: 1.25;
+}
+
+.companyLink span {
+  margin-top: 4px;
+
+  color: #617589;
+
+  font-size: 10px;
+
+  line-height: 1.4;
+}
+
+
+/* ==========================================================
+   SOCIAL COLUMN
+========================================================== */
+
+.socialColumn {
+  min-width: 0;
+
+  padding: 18px;
+
+  border: 1px solid #d6e1e6;
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #edf4f7 0%,
+      #f5f4ef 100%
+    );
+
+  box-shadow:
+    0 4px 14px rgba(7, 26, 51, 0.035);
+}
+
+
+/* ==========================================================
+   SOCIAL LINKS
+========================================================== */
+
+.socialLink {
+  min-height: 76px;
+
+  margin-top: 6px;
+  padding: 12px 13px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border: 1px solid transparent;
+  border-radius: 9px;
+
+  background: rgba(255, 255, 255, 0.38);
+
+  color: inherit;
+
+  text-decoration: none;
+
+  transition:
+    transform 150ms ease,
+    background 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.socialLink:hover,
+.socialLink:focus-visible {
+  transform: translateY(-1px);
+
+  border-color: #cfdae1;
+
+  background: rgba(255, 255, 255, 0.82);
+
+  box-shadow:
+    0 7px 16px rgba(7, 26, 51, 0.055);
+
+  outline: none;
+}
+
+.socialLink strong {
+  color: #07111f;
+
+  font-size: 14px;
+  font-weight: 740;
+
+  transition:
+    color 150ms ease;
+}
+
+.socialLink span {
+  margin-top: 5px;
+
+  color: #627688;
+
+  font-size: 10px;
+
+  line-height: 1.4;
+}
+
+.socialLink:hover strong,
+.socialLink:focus-visible strong {
+  color: #1d5d85;
+}
+
+
+/* ==========================================================
+   OFFICIAL CHANNELS NOTE
+========================================================== */
+
+.socialNote {
+  margin-top: 12px;
+
+  padding: 13px 14px;
+
+  border: 1px solid rgba(73, 107, 132, 0.13);
+  border-radius: 9px;
+
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.socialNote > span {
+  color: #547087;
+
+  font-size: 8px;
+  font-weight: 850;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.socialNote p {
+  margin: 6px 0 0 !important;
+
+  color: #697a89 !important;
+
+  font-size: 9px !important;
+
+  line-height: 1.45;
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 1100px) {
+  .popover {
+    right: -70px;
+  }
+}
+
+@media (max-width: 760px) {
+  .popover {
+    display: none;
+  }
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .popover,
+  .trigger,
+  .chevron,
+  .companyLink,
+  .socialLink,
+  .socialLink strong {
+    transition: none;
+  }
+}
