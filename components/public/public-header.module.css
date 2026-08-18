@@ -517,22 +517,24 @@
 }
 
 /* ==========================================================
-   AIGO-OS MOBILE ACCORDION NAV - FINAL OVERRIDE
+   AIGO-OS MOBILE NAVIGATION
    ========================================================== */
 
 @media (max-width: 1120px) {
 
   .mobilePanel {
-    display: block !important;
-
     position: fixed;
+
     top: 82px;
     right: 0;
     bottom: 0;
     left: 0;
 
-    z-index: 200;
+    z-index: 90;
 
+    display: block;
+
+    overflow-x: hidden;
     overflow-y: auto;
 
     border-top: 1px solid #cfd7e1;
@@ -540,15 +542,18 @@
     background: #f4f0e8;
 
     -webkit-overflow-scrolling: touch;
-    overscroll-behavior: contain;
+    overscroll-behavior-y: contain;
   }
 
   .mobileContent {
     width: 100%;
 
-    padding: 18px 0 34px !important;
+    padding: 18px 0 40px;
 
-    display: block !important;
+    display: flex;
+    flex-direction: column;
+
+    gap: 0;
   }
 
   .mobileGroup {
@@ -558,36 +563,46 @@
   }
 
   .mobileMenuButton {
-    appearance: none !important;
-    -webkit-appearance: none !important;
+    appearance: none;
+    -webkit-appearance: none;
 
-    width: 100% !important;
-    min-height: 64px !important;
+    width: 100%;
+    min-height: 64px;
 
-    margin: 0 !important;
-    padding: 0 4px !important;
+    margin: 0;
+    padding: 0 4px;
 
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    border: 0 !important;
-    border-radius: 0 !important;
+    border: 0;
+    border-radius: 0;
 
-    background: transparent !important;
+    background: transparent;
 
-    color: #07111f !important;
+    color: #07111f;
 
-    font-family: inherit !important;
-    font-size: 18px !important;
-    font-weight: 700 !important;
-    line-height: 1.2 !important;
+    font: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
 
-    text-align: left !important;
-
-    box-shadow: none !important;
+    text-align: left;
 
     cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mobileMenuButton:hover,
+  .mobileMenuButton:focus-visible {
+    background: rgba(7, 26, 51, 0.035);
+  }
+
+  .mobileMenuButton:focus-visible {
+    outline: 2px solid #365b7d;
+    outline-offset: -2px;
   }
 
   .mobileMenuButton > span:first-child {
@@ -595,20 +610,17 @@
   }
 
   .mobileChevron {
-    display: block !important;
+    width: 10px;
+    height: 10px;
 
     flex: 0 0 auto;
 
-    width: 10px !important;
-    height: 10px !important;
+    margin: -5px 9px 0 0;
 
-    margin: -5px 8px 0 0 !important;
+    border-right: 2px solid #07111f;
+    border-bottom: 2px solid #07111f;
 
-    border: 0 !important;
-    border-right: 2px solid #07111f !important;
-    border-bottom: 2px solid #07111f !important;
-
-    transform: rotate(45deg) !important;
+    transform: rotate(45deg);
 
     transition:
       transform 180ms ease,
@@ -616,121 +628,127 @@
   }
 
   .mobileChevronOpen {
-    margin-top: 5px !important;
+    margin-top: 5px;
 
-    transform: rotate(225deg) !important;
+    transform: rotate(225deg);
   }
 
   .mobileSubmenu {
     width: 100%;
 
-    padding: 2px 0 18px 18px !important;
+    padding: 0 0 18px 18px;
 
-    display: grid !important;
+    display: grid;
 
-    gap: 1px;
+    gap: 2px;
 
     animation: aigoMobileAccordionOpen 180ms ease-out;
   }
 
   .mobileSubmenu a {
     width: 100%;
-
     min-height: 44px;
 
-    padding: 10px 14px !important;
+    padding: 10px 14px;
 
-    display: flex !important;
+    display: flex;
     align-items: center;
 
     border-radius: 7px;
 
-    color: #405568 !important;
+    color: #405568;
 
-    font-size: 15px !important;
-    font-weight: 560 !important;
+    font-size: 15px;
+    font-weight: 560;
     line-height: 1.35;
 
-    text-decoration: none !important;
+    text-decoration: none;
   }
 
   .mobileSubmenu a:hover,
   .mobileSubmenu a:focus-visible {
     background: rgba(7, 26, 51, 0.06);
 
-    color: #07111f !important;
+    color: #07111f;
   }
 
   .mobileDirectLink {
-    width: 100% !important;
-    min-height: 64px !important;
+    width: 100%;
+    min-height: 64px;
 
-    padding: 0 4px !important;
+    padding: 0 4px;
 
-    display: flex !important;
-    align-items: center !important;
+    display: flex;
+    align-items: center;
 
     border-bottom: 1px solid rgba(7, 26, 51, 0.1);
 
-    color: #07111f !important;
+    color: #07111f;
 
-    font-size: 18px !important;
-    font-weight: 700 !important;
+    font-size: 18px;
+    font-weight: 700;
 
-    text-decoration: none !important;
+    text-decoration: none;
+  }
+
+  .mobileDirectLink:hover,
+  .mobileDirectLink:focus-visible {
+    background: rgba(7, 26, 51, 0.035);
   }
 
   .mobileBottom {
-    padding-top: 24px !important;
+    padding-top: 24px;
 
-    display: grid !important;
+    display: grid;
 
-    gap: 15px !important;
+    gap: 15px;
   }
 
   .mobileSignIn {
     min-height: 48px;
 
-    display: flex !important;
+    display: flex;
     align-items: center;
 
-    color: #07111f !important;
+    color: #07111f;
 
-    font-size: 17px !important;
-    font-weight: 700 !important;
+    font-size: 17px;
+    font-weight: 700;
 
-    text-decoration: none !important;
+    text-decoration: none;
   }
 
   .mobileCta {
-    width: 100% !important;
-    min-height: 58px !important;
+    width: 100%;
+    min-height: 58px;
 
-    margin: 0 !important;
-    padding: 0 16px 0 22px !important;
+    margin: 0;
+    padding: 0 16px 0 22px;
 
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    border-radius: 10px !important;
+    border-radius: 10px;
 
-    background: #071a33 !important;
+    background: #071a33;
 
-    color: #ffffff !important;
+    color: #ffffff;
 
-    font-size: 17px !important;
-    font-weight: 720 !important;
+    font-size: 17px;
+    font-weight: 720;
 
-    text-decoration: none !important;
+    text-decoration: none;
   }
 
   .ctaArrow {
     width: 34px;
     height: 34px;
 
-    display: grid !important;
+    display: grid;
     place-items: center;
+
+    flex: 0 0 auto;
 
     border-radius: 50%;
 
@@ -750,21 +768,21 @@
   }
 
   .mobileContent {
-    padding-top: 8px !important;
+    padding-top: 8px;
   }
 
   .mobileMenuButton,
   .mobileDirectLink {
-    min-height: 61px !important;
+    min-height: 61px;
 
-    font-size: 17px !important;
+    font-size: 17px;
   }
 }
 
 @keyframes aigoMobileAccordionOpen {
   from {
     opacity: 0;
-    transform: translateY(-7px);
+    transform: translateY(-6px);
   }
 
   to {
@@ -777,8 +795,31 @@
 
   .mobileChevron,
   .mobileSubmenu {
-    transition: none !important;
-    animation: none !important;
+    transition: none;
+    animation: none;
   }
+}
+
+
+/* ==========================================================
+   MOBILE HAMBURGER STATE
+   ========================================================== */
+
+.mobileToggle span {
+  transition:
+    transform 180ms ease,
+    opacity 150ms ease;
+}
+
+.mobileToggleOpen span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobileToggleOpen span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobileToggleOpen span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
