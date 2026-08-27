@@ -1,4 +1,4 @@
-﻿import axios, {
+import axios, {
   type AxiosError,
   type AxiosInstance,
   type InternalAxiosRequestConfig,
@@ -7,7 +7,9 @@
 const apiUrl =
   process.env.NEXT_PUBLIC_API_BASE_URL ??
   process.env.NEXT_PUBLIC_AIGO_API_URL ??
-  "http://localhost:8000";
+  "http://127.0.0.1:8000";
+
+console.log("AIGO API URL:", apiUrl);
 
 export type ApiContext = {
   accessToken?: string | null;
@@ -119,30 +121,17 @@ apiClient.interceptors.response.use(
       }
     }
 
-    if (typeof window !== "undefined") {
-      if (status === 401) {
-        sessionHandlers?.clearTenant();
-        setApiContext({});
-
-        if (
-          window.location.pathname !==
-            "/session-expired" &&
-          window.location.pathname !== "/sign-in"
-        ) {
-          window.location.assign(
-            "/session-expired",
-          );
-        }
-      }
-
-      if (
-        status === 403 &&
-        window.location.pathname !== "/forbidden"
-      ) {
-        window.location.assign("/forbidden");
-      }
-    }
+    
 
     return Promise.reject(error);
   },
 );
+
+
+
+
+
+
+
+
+

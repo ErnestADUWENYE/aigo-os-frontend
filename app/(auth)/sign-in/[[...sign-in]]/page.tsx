@@ -24,15 +24,15 @@ export default function SignInPage() {
           },
           card: {
             width: "100%",
-            maxWidth: "500px",
+            maxWidth: "520px",
             border: "1px solid #e5eaf0",
-            borderRadius: "22px",
-            padding: "26px 30px",
+            borderRadius: "24px",
+            padding: "34px",
             boxShadow:
-              "0 20px 56px rgba(15, 23, 42, 0.10)",
+              "0 24px 70px rgba(15, 23, 42, 0.10)",
           },
           headerTitle: {
-            fontSize: "27px",
+            fontSize: "30px",
             fontWeight: "700",
             color: "#101828",
             letterSpacing: "-0.03em",
@@ -42,23 +42,25 @@ export default function SignInPage() {
             color: "#667085",
           },
           socialButtonsBlockButton: {
-            height: "48px",
+            height: "52px",
             borderRadius: "12px",
             border: "1px solid #dde3ea",
             fontWeight: "600",
           },
           formFieldInput: {
-            height: "48px",
+            height: "52px",
             borderRadius: "12px",
             border: "1px solid #d9e0e8",
             boxShadow: "none",
           },
           formButtonPrimary: {
-            height: "50px",
+            height: "54px",
             borderRadius: "12px",
             background:
               "linear-gradient(135deg, #091828 0%, #102943 100%)",
             fontWeight: "700",
+            boxShadow:
+              "0 10px 28px rgba(10, 28, 48, 0.18)",
           },
           footerActionLink: {
             color: "#087ec0",
@@ -79,3 +81,4 @@ export default function SignInPage() {
     />
   );
 }
+

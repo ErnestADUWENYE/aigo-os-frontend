@@ -11,7 +11,7 @@ import {
   LoaderCircle,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { useAuthentication } from "../../providers/authentication-provider";
 import { useTenant } from "../../providers/tenant-provider";
@@ -51,7 +51,10 @@ export default function SelectWorkspacePage() {
     enabled,
   });
 
-  const workspaces = workspacesQuery.data ?? [];
+  const workspaces = useMemo(
+  () => workspacesQuery.data ?? [],
+  [workspacesQuery.data],
+);
 
   useEffect(() => {
     if (workspacesQuery.data) {
@@ -293,3 +296,5 @@ export default function SelectWorkspacePage() {
     </main>
   );
 }
+
+

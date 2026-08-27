@@ -22,6 +22,8 @@ export type WorkspaceOption = {
 export type TenantSelection = {
   tenantId: string | null;
   workspaceId: string | null;
+  tenantName: string | null;
+  workspaceName: string | null;
 };
 
 export type TenantState = TenantSelection & {
@@ -49,4 +51,5 @@ export type TenantState = TenantSelection & {
 
   clearTenant: () => void;
 };
+
 

@@ -1,5 +1,10 @@
-﻿"use client";
+﻿
+"use client";
 
+
+import { BrandingPanel } from "../../../../components/customer/administration/branding-panel";
+import { TeamsPanel } from "../../../../components/customer/administration/teams-panel";
+import { ConsolePageSkeleton } from "../../../../components/customer/console-page-skeleton";
 import { useQuery } from "@tanstack/react-query";
 import {
   AlertCircle,
@@ -8,7 +13,6 @@ import {
   Factory,
   Globe2,
   Layers3,
-  LoaderCircle,
   Mail,
   MapPin,
   Network,
@@ -298,15 +302,7 @@ if (!canViewAdministration) {
       </section>
 
       {administrationQuery.isLoading ? (
-        <div className="flex items-center gap-3 rounded-2xl border p-6">
-          <LoaderCircle
-            aria-hidden="true"
-            className="size-5 animate-spin"
-          />
-          <span>
-            Loading tenant administration...
-          </span>
-        </div>
+        <ConsolePageSkeleton />
       ) : null}
 
       {administrationQuery.isError ? (
@@ -319,7 +315,7 @@ if (!canViewAdministration) {
 
       <section
         aria-label="Administration summary"
-        className="grid gap-4 md:grid-cols-2 xl:grid-cols-6"
+        className="grid gap-4 md:grid-cols-2 xl:grid-cols-7"
       >
         <MetricCard
           label="Organizations"
@@ -731,6 +727,24 @@ if (!canViewAdministration) {
         </div>
       </section>
 
+      <BrandingPanel
+        fallbackName={
+          tenantName ??
+          settings?.name ??
+          "Organization"
+        }
+      />
+
+      <TeamsPanel
+        profiles={profiles.map((profile) => ({
+          id: profile.id,
+          fullName: profile.fullName,
+          email: profile.email,
+          isActive: profile.isActive,
+        }))}
+      />
+
+
       <section className="rounded-2xl border">
         <div className="border-b p-6">
           <h2 className="text-lg font-semibold">
@@ -781,6 +795,15 @@ if (!canViewAdministration) {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
 
 
 

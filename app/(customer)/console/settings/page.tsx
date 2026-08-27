@@ -1,5 +1,7 @@
 ﻿"use client";
 
+import { useCustomerPreferences } from "../../../hooks/use-customer-preferences";
+
 import {
   useMutation,
   useQuery,
@@ -357,6 +359,26 @@ const authorization = useAuthorization();
   const queryClient = useQueryClient();
   const { tenantId, tenantName } = useTenant();
   const { themeId, setThemeId } = useTheme();
+const preferences = useCustomerPreferences();
+  const [preferenceDraft, setPreferenceDraft] =
+    useState<{
+      timezone: string | null;
+      locale: string | null;
+      accessibilityPreferences: Record<string, unknown>;
+    } | null>(null);
+
+  async function savePersonalPreferences() {
+    if (!preferenceDraft) {
+      return;
+    }
+
+    await preferences.updatePreferences({
+      timezone: preferenceDraft.timezone,
+      locale: preferenceDraft.locale,
+      accessibilityPreferences:
+        preferenceDraft.accessibilityPreferences,
+    });
+  }
 
   const enabled =
     authentication.isLoaded &&
@@ -408,6 +430,29 @@ const authorization = useAuthorization();
   ) {
     appearanceMutation.mutate(nextThemeId);
   }
+async function selectPersonalTheme(
+  nextThemeId: ThemeId,
+) {
+  setThemeId(nextThemeId);
+
+  await preferences.updatePreferences({
+    backgroundDesign: nextThemeId,
+  });
+}
+
+async function applyCompanyTheme() {
+  const companyTheme =
+    preferences.data?.organizationDefaultBackgroundDesign ??
+    preferences.data?.platformDefaultBackgroundDesign;
+
+  if (companyTheme) {
+    setThemeId(companyTheme);
+  }
+
+  await preferences.updatePreferences({
+    backgroundDesign: null,
+  });
+}
 
   const isLoading =
     organizationQuery.isLoading ||
@@ -633,8 +678,441 @@ if (!canManageSettings) {
           </p>
         ) : null}
       </section>
+    
+  <section className="rounded-2xl border">
+    <div className="border-b p-6">
+      <div className="flex items-center gap-3">
+        <Palette
+          aria-hidden="true"
+          className="size-5"
+        />
+
+        <div>
+          <h2 className="text-lg font-semibold">
+            Personal appearance
+          </h2>
+
+          <p className="mt-1 text-sm opacity-65">
+            Use the company design or choose a personal
+            AIGO design for your account.
+          </p>
+        </div>
+      </div>
     </div>
+
+    {preferences.isLoading ? (
+      <div className="flex items-center gap-3 p-6 text-sm opacity-65">
+        <LoaderCircle
+          aria-hidden="true"
+          className="size-4 animate-spin"
+        />
+        Loading personal appearance...
+      </div>
+    ) : null}
+
+    {preferences.data ? (
+      <>
+        <div className="border-b p-6">
+          <div className="flex flex-wrap items-center gap-3">
+            <button
+              className="rounded-lg border px-4 py-2 text-sm font-medium disabled:opacity-50"
+              disabled={preferences.isSaving}
+              onClick={() => {
+                void applyCompanyTheme();
+              }}
+              type="button"
+            >
+              Use company default
+            </button>
+
+            <span className="rounded-full border px-3 py-1 text-xs">
+              Effective:{" "}
+              {preferences.data.effectiveBackgroundDesign}
+            </span>
+
+            {preferences.data.backgroundDesign ? (
+              <span className="rounded-full border px-3 py-1 text-xs">
+                Personal override
+              </span>
+            ) : (
+              <span className="rounded-full border px-3 py-1 text-xs">
+                Company default
+              </span>
+            )}
+          </div>
+        </div>
+
+        <div className="grid gap-4 p-6 md:grid-cols-2 xl:grid-cols-3">
+          {themeList.map((theme) => {
+            const isPersonal =
+              preferences.data.backgroundDesign ===
+              theme.id;
+
+            const isCompanyDefault =
+              preferences.data
+                .organizationDefaultBackgroundDesign ===
+              theme.id;
+
+            const isEffective =
+              themeId === theme.id;
+
+            return (
+              <button
+                className="rounded-2xl border p-5 text-left disabled:opacity-50"
+                disabled={preferences.isSaving}
+                key={theme.id}
+                onClick={() => {
+                  void selectPersonalTheme(
+                    theme.id,
+                  );
+                }}
+                type="button"
+              >
+                <div
+                  className="h-24 rounded-xl border"
+                  style={{
+                    background:
+                      theme.tokens.gradient,
+                  }}
+                />
+
+                <div className="mt-4 flex items-start justify-between gap-3">
+                  <div>
+                    <h3 className="font-semibold">
+                      {theme.name}
+                    </h3>
+
+                    <p className="mt-2 text-sm opacity-65">
+                      {theme.description}
+                    </p>
+                  </div>
+
+                  {isEffective ? (
+                    <Check
+                      aria-hidden="true"
+                      className="size-5"
+                    />
+                  ) : null}
+                </div>
+
+                <div className="mt-4 flex flex-wrap gap-2 text-xs">
+                  {isPersonal ? (
+                    <span className="rounded-full border px-3 py-1">
+                      Personal choice
+                    </span>
+                  ) : null}
+
+                  {isCompanyDefault ? (
+                    <span className="rounded-full border px-3 py-1">
+                      Company default
+                    </span>
+                  ) : null}
+
+                  {isEffective ? (
+                    <span className="rounded-full border px-3 py-1">
+                      Effective
+                    </span>
+                  ) : null}
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      </>
+    ) : null}
+
+    {preferences.isError ? (
+      <p
+        className="border-t p-6 text-sm"
+        role="alert"
+      >
+        Personal appearance could not be loaded.
+      </p>
+    ) : null}
+  </section>
+
+  <section className="rounded-2xl border">
+    <div className="border-b p-6">
+      <h2 className="text-lg font-semibold">
+        Personal preferences
+      </h2>
+
+      <p className="mt-1 text-sm opacity-65">
+        Configure timezone, locale, and accessibility preferences
+        for your account.
+      </p>
+    </div>
+
+    {preferences.data ? (
+      <div className="grid gap-6 p-6 lg:grid-cols-2">
+        <div>
+          <label
+            className="text-sm font-medium"
+            htmlFor="preference-timezone"
+          >
+            Timezone
+          </label>
+
+          <select
+            className="mt-2 w-full rounded-lg border bg-transparent px-3 py-2"
+            id="preference-timezone"
+          onChange={(event) => {
+            const timezone =
+              event.target.value || null;
+
+            setPreferenceDraft((current) => ({
+              timezone,
+              locale:
+                current?.locale ??
+                preferences.data.locale,
+              accessibilityPreferences:
+                current?.accessibilityPreferences ?? {
+                  ...preferences.data
+                    .accessibilityPreferences,
+                },
+            }));
+          }}
+          value={
+            preferenceDraft?.timezone ??
+            preferences.data.timezone ??
+            ""
+          }
+          >
+            <option value="">
+              Use system/default timezone
+            </option>
+            <option value="UTC">UTC</option>
+            <option value="Europe/London">
+              Europe/London
+            </option>
+            <option value="Europe/Paris">
+              Europe/Paris
+            </option>
+            <option value="America/New_York">
+              America/New_York
+            </option>
+            <option value="America/Chicago">
+              America/Chicago
+            </option>
+            <option value="America/Los_Angeles">
+              America/Los_Angeles
+            </option>
+            <option value="Asia/Dubai">
+              Asia/Dubai
+            </option>
+            <option value="Asia/Singapore">
+              Asia/Singapore
+            </option>
+            <option value="Asia/Tokyo">
+              Asia/Tokyo
+            </option>
+            <option value="Australia/Sydney">
+              Australia/Sydney
+            </option>
+          </select>
+        </div>
+
+        <div>
+          <label
+            className="text-sm font-medium"
+            htmlFor="preference-locale"
+          >
+            Locale
+          </label>
+
+          <select
+            className="mt-2 w-full rounded-lg border bg-transparent px-3 py-2"
+            id="preference-locale"
+          onChange={(event) => {
+            const locale =
+              event.target.value || null;
+
+            setPreferenceDraft((current) => ({
+              timezone:
+                current?.timezone ??
+                preferences.data.timezone,
+              locale,
+              accessibilityPreferences:
+                current?.accessibilityPreferences ?? {
+                  ...preferences.data
+                    .accessibilityPreferences,
+                },
+            }));
+          }}
+          value={
+            preferenceDraft?.locale ??
+            preferences.data.locale ??
+            ""
+          }
+          >
+            <option value="">
+              Use platform default
+            </option>
+            <option value="en-US">
+              English (United States)
+            </option>
+            <option value="en-GB">
+              English (United Kingdom)
+            </option>
+            <option value="fr-FR">
+              French (France)
+            </option>
+            <option value="de-DE">
+              German (Germany)
+            </option>
+            <option value="es-ES">
+              Spanish (Spain)
+            </option>
+          </select>
+        </div>
+
+        <div className="lg:col-span-2">
+          <p className="text-sm font-medium">
+            Accessibility
+          </p>
+
+          <div className="mt-3 grid gap-3 sm:grid-cols-2">
+            <label className="flex items-center justify-between gap-4 rounded-xl border p-4">
+              <span>
+                <span className="block font-medium">
+                  Reduced motion
+                </span>
+
+                <span className="mt-1 block text-xs opacity-60">
+                  Reduce non-essential interface animation.
+                </span>
+              </span>
+
+              <input
+              checked={
+                (
+                  preferenceDraft
+                    ?.accessibilityPreferences
+                    .reducedMotion ??
+                  preferences.data
+                    .accessibilityPreferences
+                    .reducedMotion
+                ) === true
+              }
+              onChange={(event) => {
+                const reducedMotion =
+                  event.target.checked;
+
+                setPreferenceDraft((current) => ({
+                  timezone:
+                    current?.timezone ??
+                    preferences.data.timezone,
+                  locale:
+                    current?.locale ??
+                    preferences.data.locale,
+                  accessibilityPreferences: {
+                    ...preferences.data
+                      .accessibilityPreferences,
+                    ...current
+                      ?.accessibilityPreferences,
+                    reducedMotion,
+                  },
+                }));
+              }}
+                type="checkbox"
+              />
+            </label>
+
+            <label className="flex items-center justify-between gap-4 rounded-xl border p-4">
+              <span>
+                <span className="block font-medium">
+                  High contrast
+                </span>
+
+                <span className="mt-1 block text-xs opacity-60">
+                  Prefer stronger visual contrast where supported.
+                </span>
+              </span>
+
+              <input
+              checked={
+                (
+                  preferenceDraft
+                    ?.accessibilityPreferences
+                    .highContrast ??
+                  preferences.data
+                    .accessibilityPreferences
+                    .highContrast
+                ) === true
+              }
+              onChange={(event) => {
+                const highContrast =
+                  event.target.checked;
+
+                setPreferenceDraft((current) => ({
+                  timezone:
+                    current?.timezone ??
+                    preferences.data.timezone,
+                  locale:
+                    current?.locale ??
+                    preferences.data.locale,
+                  accessibilityPreferences: {
+                    ...preferences.data
+                      .accessibilityPreferences,
+                    ...current
+                      ?.accessibilityPreferences,
+                    highContrast,
+                  },
+                }));
+              }}
+                type="checkbox"
+              />
+            </label>
+          </div>
+        </div>
+
+        <div className="flex items-center justify-end gap-3 lg:col-span-2">
+          {preferenceDraft ? (
+            <button
+              className="rounded-lg border px-4 py-2 text-sm font-medium"
+              disabled={preferences.isSaving}
+              onClick={() => {
+                setPreferenceDraft(null);
+              }}
+              type="button"
+            >
+              Cancel
+            </button>
+          ) : null}
+
+          <button
+            className="rounded-lg border px-4 py-2 text-sm font-medium"
+            disabled={
+              preferences.isSaving ||
+              !preferenceDraft
+            }
+            onClick={() => {
+              void savePersonalPreferences().then(() => {
+                setPreferenceDraft(null);
+              });
+            }}
+            type="button"
+          >
+            {preferences.isSaving
+              ? "Saving..."
+              : "Save preferences"}
+          </button>
+        </div>
+      </div>
+    ) : null}
+  </section>
+</div>
   );
 }
+
+
+
+
+
+
+
+
+
+
 
 
