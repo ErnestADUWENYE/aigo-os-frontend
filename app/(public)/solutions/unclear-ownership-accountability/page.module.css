@@ -1,0 +1,2716 @@
+﻿.page {
+  --navy: #071b33;
+  --navy-soft: #163a50;
+  --deep: #06394a;
+  --deep-2: #0b5261;
+  --teal: #128b73;
+  --teal-bright: #20a98a;
+  --mint: #54dfbf;
+  --gold: #efbd35;
+  --cream: #faf7ef;
+  --soft: #eef5f2;
+  --paper: #ffffff;
+  --body: #38566d;
+
+  overflow: hidden;
+  background: #ffffff;
+  color: var(--navy);
+}
+
+.page *,
+.page *::before,
+.page *::after {
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.page svg {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   SHARED
+========================================================= */
+
+.productLabel,
+.sectionLabel,
+.darkLabel,
+.lightLabel {
+  margin: 0 0 18px;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: .14em;
+
+  text-transform: uppercase;
+}
+
+.productLabel,
+.sectionLabel {
+  color: #31566d;
+}
+
+.darkLabel,
+.lightLabel {
+  color: #68e1c8;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  min-height: calc(100svh - 108px);
+
+  display: flex;
+  align-items: center;
+
+  background:
+    radial-gradient(
+      circle at 88% 22%,
+      rgba(48, 214, 178, .16),
+      transparent 30rem
+    ),
+    radial-gradient(
+      circle at 66% 83%,
+      rgba(239, 189, 53, .055),
+      transparent 25rem
+    ),
+    linear-gradient(
+      112deg,
+      #faf7ef 0%,
+      #fbfaf7 57%,
+      #edf7f3 100%
+    );
+}
+
+.heroGrid {
+  padding: 38px 0 44px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(470px, .88fr)
+    minmax(620px, 1.12fr);
+
+  gap: clamp(46px, 5vw, 82px);
+
+  align-items: center;
+}
+
+.heroCopy {
+  max-width: 620px;
+}
+
+.hero h1 {
+  margin: 0;
+
+  color: var(--navy);
+
+  font-size: clamp(49px, 4.05vw, 68px);
+  font-weight: 800;
+
+  line-height: .99;
+
+  letter-spacing: -.052em;
+
+  text-wrap: balance;
+}
+
+.heroLead {
+  max-width: 600px;
+
+  margin: 27px 0 0;
+
+  color: #28495f;
+
+  font-size: clamp(20px, 1.4vw, 24px);
+  font-weight: 700;
+
+  line-height: 1.45;
+}
+
+.heroBody {
+  max-width: 600px;
+
+  margin: 20px 0 0;
+
+  color: var(--body);
+
+  font-size: 16.5px;
+
+  line-height: 1.66;
+}
+
+.heroActions {
+  margin-top: 29px;
+
+  display: flex;
+
+  gap: 14px;
+}
+
+.primaryButton,
+.secondaryButton,
+.finalPrimary,
+.finalSecondary {
+  min-height: 56px;
+
+  padding: 0 24px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  border-radius: 11px;
+
+  text-decoration: none;
+
+  font-size: 15px;
+  font-weight: 750;
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.primaryButton {
+  color: #ffffff !important;
+
+  background: #063b54;
+
+  box-shadow:
+    0 14px 28px rgba(7, 27, 51, .17);
+}
+
+.primaryButton svg {
+  stroke: #ffffff !important;
+}
+
+.secondaryButton {
+  color: var(--navy) !important;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 9px 23px rgba(7, 27, 51, .08);
+}
+
+
+/* =========================================================
+   ACCOUNTABILITY DESK
+========================================================= */
+
+.accountabilityDesk {
+  width: 100%;
+  max-width: 720px;
+
+  justify-self: end;
+
+  padding: 17px;
+
+  color: #ffffff;
+
+  background:
+    radial-gradient(
+      circle at 83% 15%,
+      rgba(53, 222, 185, .16),
+      transparent 17rem
+    ),
+    linear-gradient(
+      145deg,
+      #07394b,
+      #064b59
+    );
+
+  border-radius: 29px;
+
+  box-shadow:
+    0 31px 58px rgba(7, 43, 55, .21),
+    14px 15px 0 rgba(8, 87, 80, .075),
+    inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.deskHeader {
+  padding: 3px 4px 13px;
+
+  display: flex;
+  justify-content: space-between;
+
+  gap: 18px;
+}
+
+.deskHeader > div:first-child span {
+  display: block;
+
+  color: #8ce8d5;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: .09em;
+}
+
+.deskHeader > div:first-child strong {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #ffffff;
+
+  font-size: 18px;
+}
+
+.contextBadge {
+  align-self: flex-start;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 8px 11px;
+
+  color: #ffffff;
+
+  background: rgba(255,255,255,.09);
+
+  border-radius: 999px;
+
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.contextBadge svg {
+  color: var(--gold);
+}
+
+
+.deskStage {
+  min-height: 445px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  perspective: 1000px;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(45, 210, 175, .12),
+      rgba(45, 210, 175, .025) 44%,
+      transparent 68%
+    );
+
+  border-radius: 22px;
+}
+
+
+/* Central elevated object */
+
+.objectPedestal {
+  width: 245px;
+  min-height: 185px;
+
+  padding: 23px;
+
+  position: absolute;
+
+  top: 45%;
+  left: 50%;
+
+  z-index: 6;
+
+  transform:
+    translate(-50%, -50%)
+    translateZ(40px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      #18a082,
+      #0d7966
+    );
+
+  border-radius: 28px;
+
+  box-shadow:
+    0 19px 0 rgba(4, 76, 65, .24),
+    0 31px 40px rgba(0, 25, 31, .20),
+    inset 0 1px 0 rgba(255,255,255,.13);
+
+  animation: objectFloat 5.6s ease-in-out infinite;
+}
+
+@keyframes objectFloat {
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      translateY(-6px);
+  }
+}
+
+.objectIcon {
+  width: 51px;
+  height: 51px;
+
+  margin-bottom: 14px;
+
+  display: grid;
+  place-items: center;
+
+  color: var(--gold);
+
+  background: rgba(255,255,255,.12);
+
+  border-radius: 15px;
+}
+
+.objectPedestal > span {
+  color: #d8fff5;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: .08em;
+}
+
+.objectPedestal > strong {
+  margin-top: 6px;
+
+  color: #ffffff;
+
+  font-size: 20px;
+
+  line-height: 1.2;
+}
+
+.objectPedestal > small {
+  margin-top: 8px;
+
+  color: #ffffff;
+
+  font-size: 10px;
+
+  line-height: 1.4;
+}
+
+
+/* Responsibility plaques */
+
+.roleOperate,
+.roleTechnology,
+.roleAccountable,
+.roleMissing {
+  position: absolute;
+
+  z-index: 3;
+
+  padding: 16px;
+
+  border-radius: 17px;
+
+  box-shadow:
+    0 15px 26px rgba(0, 25, 33, .17),
+    0 7px 0 rgba(3, 43, 52, .11),
+    inset 0 1px 0 rgba(255,255,255,.07);
+
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.roleOperate:hover,
+.roleTechnology:hover,
+.roleAccountable:hover,
+.roleMissing:hover {
+  transform: translateY(-5px);
+}
+
+.roleOperate,
+.roleTechnology {
+  width: 205px;
+
+  top: 27px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #2a6475,
+      #225364
+    );
+}
+
+.roleOperate {
+  left: 23px;
+}
+
+.roleTechnology {
+  right: 23px;
+}
+
+.roleAccountable {
+  width: 220px;
+
+  left: 24px;
+  bottom: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #148c75,
+      #0e725f
+    );
+}
+
+.roleMissing {
+  width: 225px;
+
+  right: 24px;
+  bottom: 28px;
+
+  display: grid;
+
+  grid-template-columns:
+    28px 1fr;
+
+  gap: 9px;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      145deg,
+      #4c4434,
+      #39352d
+    );
+
+  box-shadow:
+    0 15px 26px rgba(22, 17, 9, .18),
+    0 7px 0 rgba(239, 189, 53, .06);
+}
+
+.roleOperate span,
+.roleTechnology span,
+.roleAccountable span,
+.roleMissing span {
+  display: block;
+
+  color: #a7ecde;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: .07em;
+}
+
+.roleMissing span {
+  color: #ffe398;
+}
+
+.roleOperate strong,
+.roleTechnology strong,
+.roleAccountable strong,
+.roleMissing strong {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #ffffff;
+
+  font-size: 13px;
+}
+
+.roleOperate small,
+.roleTechnology small,
+.roleAccountable small,
+.roleMissing small {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #ffffff;
+
+  font-size: 9.5px;
+
+  line-height: 1.4;
+}
+
+.roleMissing svg {
+  color: var(--gold);
+}
+
+
+/* question pill */
+
+.heroDecision {
+  width: 330px;
+
+  padding: 13px 16px;
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 12px;
+
+  z-index: 8;
+
+  transform: translateX(-50%);
+
+  color: var(--navy);
+
+  background:
+    linear-gradient(
+      145deg,
+      #fff3ca,
+      #ffe9a2
+    );
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 10px 0 rgba(157, 113, 8, .09),
+    0 19px 27px rgba(0,0,0,.11);
+}
+
+.heroDecision span {
+  display: block;
+
+  color: #7b5500;
+
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.heroDecision strong {
+  display: block;
+
+  margin-top: 4px;
+
+  color: var(--navy);
+
+  font-size: 11px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   PROBLEM
+========================================================= */
+
+.problemSection {
+  padding: 125px 0 140px;
+
+  background:
+    radial-gradient(
+      circle at 20% 72%,
+      rgba(42, 196, 164, .08),
+      transparent 24rem
+    ),
+    #f5f8f6;
+}
+
+.sectionIntro {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(330px, .58fr);
+
+  gap: 90px;
+
+  align-items: end;
+}
+
+.sectionIntro h2,
+.rightsCopy h2,
+.outcomeIntro h2 {
+  margin: 0;
+
+  color: var(--navy);
+
+  font-size: clamp(40px, 3.7vw, 62px);
+  font-weight: 800;
+
+  line-height: 1.03;
+
+  letter-spacing: -.048em;
+}
+
+.sectionIntro > p,
+.rightsCopy > p {
+  margin: 0;
+
+  color: var(--body);
+
+  font-size: 17px;
+
+  line-height: 1.7;
+}
+
+
+.ownerVsAccountability {
+  margin-top: 66px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(330px, .72fr)
+    minmax(570px, 1.28fr);
+
+  gap: 28px;
+
+  align-items: stretch;
+}
+
+.ownerClaim {
+  padding: 33px;
+
+  background: #ffffff;
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 22px 42px rgba(21, 65, 70, .10),
+    0 8px 0 rgba(17, 106, 91, .04);
+}
+
+.ownerClaim > span,
+.spectrumHeading > span {
+  display: block;
+
+  color: #39708a;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: .09em;
+}
+
+.ownerClaim > strong {
+  display: block;
+
+  margin-top: 22px;
+
+  color: var(--navy);
+
+  font-size: 29px;
+
+  line-height: 1.2;
+}
+
+.ownerClaim p {
+  margin: 20px 0 0;
+
+  color: #3e5b70;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+.responsibilitySpectrum {
+  padding: 31px;
+
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(44, 205, 169, .10),
+      transparent 17rem
+    ),
+    #eaf3f0;
+
+  border-radius: 28px;
+
+  box-shadow:
+    inset 0 1px 0 #ffffff,
+    0 23px 50px rgba(22, 66, 71, .07);
+}
+
+.spectrumHeading strong {
+  display: block;
+
+  margin-top: 7px;
+
+  color: var(--navy);
+
+  font-size: 23px;
+}
+
+.spectrumItems {
+  margin-top: 25px;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 11px;
+}
+
+.spectrumItems > div {
+  min-height: 64px;
+
+  padding: 13px 15px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  color: var(--navy);
+
+  background: #ffffff;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 9px 18px rgba(22, 67, 71, .08);
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.spectrumItems > div:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 15px 25px rgba(22, 67, 71, .12);
+}
+
+.spectrumItems svg {
+  color: #14836d;
+}
+
+.spectrumItems span {
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.accountabilityQuestion {
+  color: #ffffff !important;
+
+  background: #07394b !important;
+
+  box-shadow:
+    0 14px 24px rgba(7, 49, 61, .15) !important;
+}
+
+.accountabilityQuestion svg {
+  color: var(--gold) !important;
+}
+
+
+/* =========================================================
+   FAILURE TERRAIN
+========================================================= */
+
+.failureSection {
+  padding: 125px 0 145px;
+
+  background:
+    radial-gradient(
+      circle at 82% 20%,
+      rgba(48, 217, 181, .13),
+      transparent 27rem
+    ),
+    #061f32;
+}
+
+.failureIntro {
+  max-width: 900px;
+}
+
+.failureIntro h2,
+.governCopy h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(42px, 3.8vw, 62px);
+  font-weight: 800;
+
+  line-height: 1.03;
+
+  letter-spacing: -.048em;
+}
+
+.failureIntro > p:last-child,
+.governCopy > p {
+  max-width: 720px;
+
+  margin: 25px 0 0;
+
+  color: #ffffff;
+
+  font-size: 17px;
+
+  line-height: 1.7;
+}
+
+.failureTerrain {
+  margin-top: 63px;
+
+  display: grid;
+
+  grid-template-columns:
+    .9fr 1.1fr;
+
+  grid-template-areas:
+    "missing conflict"
+    "misleading outdated";
+
+  gap: 18px;
+
+  align-items: stretch;
+}
+
+.failurePanel {
+  min-height: 220px;
+
+  padding: 29px;
+
+  color: #ffffff;
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 17px 0 rgba(2, 28, 38, .16),
+    0 28px 40px rgba(0,0,0,.14),
+    inset 0 1px 0 rgba(255,255,255,.07);
+
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.failurePanel:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 22px 0 rgba(2, 28, 38, .13),
+    0 35px 48px rgba(0,0,0,.18);
+}
+
+.failureMissing {
+  grid-area: missing;
+
+  background:
+    linear-gradient(
+      145deg,
+      #0d4254,
+      #0a3547
+    );
+}
+
+.failureConflict {
+  grid-area: conflict;
+
+  min-height: 250px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #1b6270,
+      #124c5a
+    );
+}
+
+.failureMisleading {
+  grid-area: misleading;
+
+  min-height: 260px;
+
+  margin-left: 8%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #159077,
+      #0e6d5f
+    );
+}
+
+.failureOutdated {
+  grid-area: outdated;
+
+  margin-right: 7%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #4b4333,
+      #37332b
+    );
+}
+
+.failurePanel > span {
+  display: block;
+
+  color: #8ce6d4;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: .09em;
+}
+
+.failureOutdated > span {
+  color: #ffe298;
+}
+
+.failurePanel h3 {
+  margin: 13px 0 0;
+
+  color: #ffffff;
+
+  font-size: 23px;
+
+  line-height: 1.2;
+}
+
+.failurePanel p {
+  max-width: 560px;
+
+  margin: 17px 0 0;
+
+  color: #ffffff;
+
+  font-size: 13.5px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   DECISION RIGHTS
+========================================================= */
+
+.rightsSection {
+  padding: 132px 0;
+
+  background: #ffffff;
+}
+
+.rightsLayout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(390px, .76fr)
+    minmax(620px, 1.24fr);
+
+  gap: 88px;
+
+  align-items: center;
+}
+
+.rightsCopy > p:last-child {
+  margin-top: 26px;
+}
+
+
+.rightsWorkbench {
+  padding: 27px;
+
+  background:
+    radial-gradient(
+      circle at 84% 13%,
+      rgba(44, 211, 175, .11),
+      transparent 16rem
+    ),
+    #edf5f2;
+
+  border-radius: 29px;
+
+  box-shadow:
+    0 27px 56px rgba(18, 61, 67, .10),
+    inset 0 1px 0 #ffffff;
+}
+
+.workbenchObject {
+  max-width: 540px;
+
+  margin: 0 auto 22px;
+
+  padding: 18px 20px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #169579,
+      #0e7967
+    );
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 12px 0 rgba(5, 83, 71, .20),
+    0 20px 28px rgba(8, 78, 68, .13);
+}
+
+.workbenchObject svg {
+  color: var(--gold);
+}
+
+.workbenchObject span {
+  display: block;
+
+  color: #d8fff5;
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.workbenchObject strong {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #ffffff;
+
+  font-size: 16px;
+}
+
+
+.rightsSlots {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+.rightSlot,
+.rightSlotMissing {
+  min-height: 160px;
+
+  padding: 18px;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 12px 22px rgba(20, 65, 70, .08);
+
+  transition:
+    transform 200ms ease;
+}
+
+.rightSlot:hover,
+.rightSlotMissing:hover {
+  transform: translateY(-5px);
+}
+
+.rightSlot {
+  background: #ffffff;
+}
+
+.rightSlotMissing {
+  background:
+    linear-gradient(
+      145deg,
+      #fff4d5,
+      #fff8e7
+    );
+}
+
+.slotIcon {
+  width: 39px;
+  height: 39px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 15px;
+
+  color: #147b67;
+
+  background: #e5f5ef;
+
+  border-radius: 11px;
+}
+
+.rightSlotMissing .slotIcon {
+  color: #815900;
+
+  background: #ffe49a;
+}
+
+.rightSlot > span,
+.rightSlotMissing > span {
+  display: block;
+
+  color: #527083;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: .07em;
+}
+
+.rightSlotMissing > span {
+  color: #886107;
+}
+
+.rightSlot strong,
+.rightSlotMissing strong {
+  display: block;
+
+  margin-top: 5px;
+
+  color: var(--navy);
+
+  font-size: 14px;
+}
+
+.rightSlot small,
+.rightSlotMissing small {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #456276;
+
+  font-size: 10px;
+
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   GOVERN
+========================================================= */
+
+.governSection {
+  padding: 132px 0 145px;
+
+  background:
+    radial-gradient(
+      circle at 87% 18%,
+      rgba(49, 220, 183, .15),
+      transparent 27rem
+    ),
+    #061f32;
+}
+
+.governLayout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(390px, .76fr)
+    minmax(640px, 1.24fr);
+
+  gap: 86px;
+
+  align-items: center;
+}
+
+.governBoundary {
+  margin-top: 30px;
+
+  padding: 18px;
+
+  display: flex;
+
+  gap: 12px;
+
+  color: #ffffff;
+
+  background: rgba(255,255,255,.07);
+
+  border-radius: 15px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+.governBoundary svg {
+  flex: 0 0 auto;
+
+  color: var(--gold);
+}
+
+.governBoundary p {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+.evidenceDesk {
+  padding: 27px;
+
+  background:
+    radial-gradient(
+      circle at 84% 10%,
+      rgba(55, 222, 184, .14),
+      transparent 17rem
+    ),
+    #07394b;
+
+  border-radius: 27px;
+
+  box-shadow:
+    0 29px 54px rgba(0,0,0,.19),
+    11px 12px 0 rgba(18, 139, 115, .06);
+}
+
+.evidenceDeskHeader {
+  padding: 18px 20px;
+
+  color: #ffffff;
+
+  background: #128b73;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 11px 0 rgba(5, 83, 71, .20),
+    0 19px 27px rgba(0,0,0,.12);
+}
+
+.evidenceDeskHeader span {
+  display: block;
+
+  color: #d8fff5;
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.evidenceDeskHeader strong {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #ffffff;
+
+  font-size: 17px;
+}
+
+
+.evidenceStack {
+  margin-top: 15px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+.evidenceEstablished,
+.evidenceGap {
+  min-height: 130px;
+
+  padding: 16px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto;
+
+  gap: 9px;
+
+  align-items: center;
+
+  border-radius: 14px;
+}
+
+.evidenceEstablished {
+  background: rgba(255,255,255,.075);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+.evidenceGap {
+  background:
+    linear-gradient(
+      145deg,
+      #494132,
+      #373229
+    );
+
+  box-shadow:
+    0 9px 0 rgba(239, 189, 53, .06);
+}
+
+.evidenceEstablished span,
+.evidenceGap span {
+  display: block;
+
+  color: #8fe8d6;
+
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.evidenceGap span {
+  color: #ffe298;
+}
+
+.evidenceEstablished strong,
+.evidenceGap strong {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #ffffff;
+
+  font-size: 12px;
+
+  line-height: 1.35;
+}
+
+.evidenceValue {
+  grid-column: 1 / -1;
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.evidenceState {
+  justify-self: end;
+
+  padding: 6px 8px;
+
+  color: #123f36;
+
+  background: #b8e8da;
+
+  border-radius: 999px;
+
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.evidenceGap .evidenceState {
+  color: #705000;
+
+  background: #ffe095;
+}
+
+
+.accountabilityConclusion {
+  margin-top: 14px;
+
+  padding: 16px 17px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  color: var(--navy);
+
+  background: #e4f5ed;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 9px 0 rgba(19, 110, 91, .07);
+}
+
+.accountabilityConclusion svg {
+  flex: 0 0 auto;
+
+  color: #14725e;
+}
+
+.accountabilityConclusion span {
+  display: block;
+
+  color: #14725e;
+
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.accountabilityConclusion strong {
+  display: block;
+
+  margin-top: 4px;
+
+  color: var(--navy);
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   OUTCOME
+========================================================= */
+
+.outcomeSection {
+  padding: 125px 0 145px;
+
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(44, 211, 175, .10),
+      transparent 26rem
+    ),
+    #f3f7f5;
+}
+
+.outcomeIntro {
+  max-width: 940px;
+}
+
+.outcomeComposition {
+  margin-top: 62px;
+
+  display: grid;
+
+  grid-template-columns:
+    1.25fr .75fr .75fr;
+
+  grid-template-rows:
+    1fr 1fr;
+
+  gap: 17px;
+}
+
+.outcomePrimary,
+.outcomeSecondary {
+  padding: 27px;
+
+  background: #ffffff;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 20px 38px rgba(22, 67, 71, .10),
+    0 8px 0 rgba(17, 111, 92, .035);
+
+  transition:
+    transform 190ms ease;
+}
+
+.outcomePrimary:hover,
+.outcomeSecondary:hover {
+  transform: translateY(-5px);
+}
+
+.outcomePrimary {
+  grid-row: 1 / 3;
+
+  min-height: 420px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #07394b,
+      #0b5261
+    );
+
+  color: #ffffff;
+}
+
+.outcomePrimary svg {
+  color: var(--gold);
+}
+
+.outcomePrimary > span,
+.outcomeSecondary > span {
+  display: block;
+
+  margin-top: 55px;
+
+  color: #76dfca;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: .08em;
+}
+
+.outcomePrimary strong {
+  display: block;
+
+  margin-top: 12px;
+
+  color: #ffffff;
+
+  font-size: 27px;
+
+  line-height: 1.25;
+}
+
+.outcomePrimary p {
+  margin: 19px 0 0;
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  line-height: 1.65;
+}
+
+.outcomeSecondary svg {
+  color: #14826d;
+}
+
+.outcomeSecondary > span {
+  margin-top: 30px;
+
+  color: #147764;
+}
+
+.outcomeSecondary strong {
+  display: block;
+
+  margin-top: 10px;
+
+  color: var(--navy);
+
+  font-size: 16px;
+
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.finalSection {
+  padding: 90px 0;
+
+  background: #ffffff;
+}
+
+.finalPanel {
+  min-height: 300px;
+
+  padding: 47px 50px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto;
+
+  gap: 70px;
+
+  align-items: center;
+
+  color: #ffffff;
+
+  background:
+    radial-gradient(
+      circle at 87% 18%,
+      rgba(47, 219, 181, .18),
+      transparent 24rem
+    ),
+    #06384a;
+
+  border-radius: 29px;
+
+  box-shadow:
+    0 28px 55px rgba(7, 45, 57, .15);
+}
+
+.finalPanel > div:first-child > span {
+  display: block;
+
+  color: var(--gold);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: .12em;
+}
+
+.finalPanel h2 {
+  max-width: 790px;
+
+  margin: 15px 0 0;
+
+  color: #ffffff;
+
+  font-size: clamp(38px, 3.4vw, 54px);
+  font-weight: 800;
+
+  line-height: 1.04;
+
+  letter-spacing: -.045em;
+}
+
+.finalPanel p {
+  max-width: 730px;
+
+  margin: 20px 0 0;
+
+  color: #ffffff;
+
+  font-size: 16px;
+
+  line-height: 1.6;
+}
+
+.finalActions {
+  min-width: 225px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 11px;
+}
+
+.finalPrimary,
+.finalPrimary:link,
+.finalPrimary:visited,
+.finalPrimary:hover,
+.finalPrimary:active {
+  color: var(--navy) !important;
+
+  background: #ffffff;
+}
+
+.finalPrimary svg {
+  stroke: var(--navy) !important;
+}
+
+.finalSecondary,
+.finalSecondary:link,
+.finalSecondary:visited,
+.finalSecondary:hover,
+.finalSecondary:active {
+  color: #ffffff !important;
+
+  background: rgba(255,255,255,.10);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+
+/* =========================================================
+   LAPTOP HERO FIT
+========================================================= */
+
+@media (min-width: 1101px) and (max-height: 850px) {
+
+  .heroGrid {
+    padding-top: 22px;
+    padding-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-size: clamp(46px, 3.7vw, 60px);
+  }
+
+  .heroLead {
+    margin-top: 20px;
+
+    font-size: 19px;
+  }
+
+  .heroBody {
+    margin-top: 15px;
+
+    font-size: 14.5px;
+
+    line-height: 1.55;
+  }
+
+  .heroActions {
+    margin-top: 21px;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    min-height: 49px;
+
+    font-size: 14px;
+  }
+
+  .accountabilityDesk {
+    max-width: 680px;
+
+    padding: 14px;
+  }
+
+  .deskStage {
+    min-height: 385px;
+  }
+
+  .objectPedestal {
+    width: 220px;
+    min-height: 160px;
+  }
+
+  .roleOperate,
+  .roleTechnology {
+    width: 185px;
+  }
+
+  .roleAccountable,
+  .roleMissing {
+    width: 200px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .hero {
+    min-height: auto;
+  }
+
+  .heroGrid,
+  .sectionIntro,
+  .rightsLayout,
+  .governLayout {
+    grid-template-columns: 1fr;
+
+    gap: 48px;
+  }
+
+  .heroGrid {
+    padding: 66px 0 76px;
+  }
+
+  .accountabilityDesk {
+    max-width: 760px;
+
+    justify-self: start;
+  }
+
+  .ownerVsAccountability {
+    grid-template-columns: 1fr;
+  }
+
+  .outcomeComposition {
+    grid-template-columns: 1fr 1fr;
+
+    grid-template-rows: auto;
+  }
+
+  .outcomePrimary {
+    grid-column: 1 / -1;
+    grid-row: auto;
+
+    min-height: 300px;
+  }
+
+  .finalPanel {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .finalActions {
+    flex-direction: row;
+
+    min-width: 0;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 720px) {
+
+  .heroGrid {
+    padding: 48px 0 58px;
+  }
+
+  .hero h1 {
+    font-size: clamp(41px, 11.5vw, 55px);
+  }
+
+  .heroLead {
+    font-size: 19px;
+  }
+
+  .heroBody {
+    font-size: 15.5px;
+  }
+
+  .heroActions,
+  .finalActions {
+    flex-direction: column;
+  }
+
+  .primaryButton,
+  .secondaryButton,
+  .finalPrimary,
+  .finalSecondary {
+    width: 100%;
+  }
+
+  .accountabilityDesk {
+    padding: 14px;
+
+    border-radius: 22px;
+  }
+
+  .deskHeader {
+    flex-direction: column;
+  }
+
+  .deskStage {
+    min-height: auto;
+
+    padding: 10px 0;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 11px;
+  }
+
+  .objectPedestal,
+  .roleOperate,
+  .roleTechnology,
+  .roleAccountable,
+  .roleMissing,
+  .heroDecision {
+    width: auto;
+    min-height: auto;
+
+    position: static;
+
+    transform: none;
+
+    animation: none;
+  }
+
+  .objectPedestal {
+    padding: 24px;
+  }
+
+  .problemSection,
+  .failureSection,
+  .rightsSection,
+  .governSection,
+  .outcomeSection {
+    padding: 76px 0;
+  }
+
+  .sectionIntro {
+    gap: 27px;
+  }
+
+  .ownerVsAccountability {
+    margin-top: 43px;
+  }
+
+  .ownerClaim,
+  .responsibilitySpectrum {
+    padding: 23px;
+  }
+
+  .failureTerrain {
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+      "missing"
+      "conflict"
+      "misleading"
+      "outdated";
+  }
+
+  .failureConflict,
+  .failureMisleading,
+  .failureOutdated {
+    min-height: 0;
+
+    margin: 0;
+  }
+
+  .rightsSlots,
+  .evidenceStack,
+  .outcomeComposition {
+    grid-template-columns: 1fr;
+  }
+
+  .outcomePrimary {
+    grid-column: auto;
+
+    min-height: auto;
+  }
+
+  .finalSection {
+    padding: 58px 0;
+  }
+
+  .finalPanel {
+    min-height: 0;
+
+    padding: 29px 22px;
+
+    border-radius: 22px;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  .objectPedestal {
+    animation: none;
+  }
+
+  .primaryButton,
+  .secondaryButton,
+  .roleOperate,
+  .roleTechnology,
+  .roleAccountable,
+  .roleMissing,
+  .failurePanel,
+  .rightSlot,
+  .rightSlotMissing,
+  .outcomePrimary,
+  .outcomeSecondary {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   TARGETED FIX
+   UNCLEAR OWNERSHIP & ACCOUNTABILITY
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   FINAL CTA
+   Force visible dark text inside the white primary button
+   --------------------------------------------------------- */
+
+.finalPrimary,
+.finalPrimary:link,
+.finalPrimary:visited,
+.finalPrimary:hover,
+.finalPrimary:focus,
+.finalPrimary:active {
+  color: #071b33 !important;
+  background: #ffffff !important;
+  opacity: 1 !important;
+  text-decoration: none !important;
+}
+
+.finalPrimary * {
+  color: #071b33 !important;
+  opacity: 1 !important;
+}
+
+.finalPrimary svg {
+  stroke: #071b33 !important;
+  color: #071b33 !important;
+  opacity: 1 !important;
+}
+
+
+/* ---------------------------------------------------------
+   HERO VISUAL
+   Reduce overall visual height and give every card its own
+   protected space. No overlaps.
+   --------------------------------------------------------- */
+
+.accountabilityDesk {
+  max-width: 680px !important;
+  padding: 14px !important;
+}
+
+.deskStage {
+  min-height: 382px !important;
+  overflow: visible !important;
+}
+
+
+/* Central object becomes smaller */
+
+.objectPedestal {
+  width: 210px !important;
+  min-height: 150px !important;
+
+  top: 47% !important;
+
+  padding: 18px !important;
+
+  border-radius: 23px !important;
+}
+
+.objectIcon {
+  width: 44px !important;
+  height: 44px !important;
+  margin-bottom: 10px !important;
+}
+
+.objectPedestal > strong {
+  font-size: 17px !important;
+  line-height: 1.16 !important;
+}
+
+.objectPedestal > small {
+  margin-top: 6px !important;
+  font-size: 9px !important;
+  line-height: 1.35 !important;
+}
+
+
+/* ---------------------------------------------------------
+   TOP ROLE CARDS
+   Keep them clearly above the central object
+   --------------------------------------------------------- */
+
+.roleOperate,
+.roleTechnology {
+  width: 190px !important;
+  min-height: 88px !important;
+
+  top: 18px !important;
+
+  padding: 13px 14px !important;
+}
+
+.roleOperate {
+  left: 18px !important;
+}
+
+.roleTechnology {
+  right: 18px !important;
+}
+
+
+/* ---------------------------------------------------------
+   BOTTOM ROLE CARDS
+   Move them away from both the centre and the question card
+   --------------------------------------------------------- */
+
+.roleAccountable,
+.roleMissing {
+  width: 195px !important;
+  min-height: 88px !important;
+
+  bottom: 21px !important;
+
+  padding: 13px 14px !important;
+}
+
+.roleAccountable {
+  left: 18px !important;
+}
+
+.roleMissing {
+  right: 18px !important;
+}
+
+
+/* ---------------------------------------------------------
+   ROLE CARD TYPOGRAPHY
+   Keep all content visible inside smaller cards
+   --------------------------------------------------------- */
+
+.roleOperate span,
+.roleTechnology span,
+.roleAccountable span,
+.roleMissing span {
+  font-size: 7.5px !important;
+  line-height: 1.2 !important;
+}
+
+.roleOperate strong,
+.roleTechnology strong,
+.roleAccountable strong,
+.roleMissing strong {
+  margin-top: 4px !important;
+
+  font-size: 11.5px !important;
+  line-height: 1.25 !important;
+}
+
+.roleOperate small,
+.roleTechnology small,
+.roleAccountable small,
+.roleMissing small {
+  margin-top: 4px !important;
+
+  font-size: 8.5px !important;
+  line-height: 1.35 !important;
+}
+
+
+/* ---------------------------------------------------------
+   QUESTION CARD
+   Move it below the central object without covering
+   responsibility cards.
+   --------------------------------------------------------- */
+
+.heroDecision {
+  width: 310px !important;
+
+  bottom: -12px !important;
+
+  padding: 11px 14px !important;
+
+  z-index: 12 !important;
+}
+
+.heroDecision strong {
+  font-size: 10px !important;
+  line-height: 1.35 !important;
+}
+
+
+/* Give the question card breathing room */
+
+.accountabilityDesk {
+  padding-bottom: 25px !important;
+}
+
+
+/* ---------------------------------------------------------
+   Prevent hover states from causing new overlaps
+   --------------------------------------------------------- */
+
+.roleOperate:hover,
+.roleTechnology:hover,
+.roleAccountable:hover,
+.roleMissing:hover {
+  transform: translateY(-2px) !important;
+}
+
+
+/* ---------------------------------------------------------
+   LAPTOP VIEW
+   Make sure the complete visual fits comfortably on one
+   screen beside the hero copy
+   --------------------------------------------------------- */
+
+@media (min-width: 1101px) and (max-height: 900px) {
+
+  .accountabilityDesk {
+    max-width: 650px !important;
+  }
+
+  .deskStage {
+    min-height: 355px !important;
+  }
+
+  .objectPedestal {
+    width: 195px !important;
+    min-height: 138px !important;
+  }
+
+  .roleOperate,
+  .roleTechnology,
+  .roleAccountable,
+  .roleMissing {
+    width: 180px !important;
+  }
+
+  .heroDecision {
+    width: 290px !important;
+    bottom: -10px !important;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE / TABLET
+   Disable absolute overlap layout entirely
+   --------------------------------------------------------- */
+
+@media (max-width: 720px) {
+
+  .accountabilityDesk {
+    max-width: 100% !important;
+    padding: 14px !important;
+  }
+
+  .deskStage {
+    min-height: auto !important;
+    overflow: visible !important;
+
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+
+    gap: 11px !important;
+  }
+
+  .objectPedestal,
+  .roleOperate,
+  .roleTechnology,
+  .roleAccountable,
+  .roleMissing,
+  .heroDecision {
+    width: 100% !important;
+    min-height: auto !important;
+
+    position: static !important;
+
+    transform: none !important;
+
+    animation: none !important;
+  }
+
+  .heroDecision {
+    margin-top: 3px !important;
+  }
+}
+
+
+/* =========================================================
+   HERO ACCOUNTABILITY VISUAL REDESIGN
+   No overlap. Clear responsibility hierarchy.
+   ========================================================= */
+
+.accountabilityDesk {
+  max-width: 690px !important;
+  padding: 15px !important;
+
+  background:
+    radial-gradient(
+      circle at 84% 14%,
+      rgba(55, 221, 184, 0.15),
+      transparent 17rem
+    ),
+    linear-gradient(
+      145deg,
+      #07394b,
+      #064b59
+    ) !important;
+
+  border-radius: 28px !important;
+
+  box-shadow:
+    0 30px 56px rgba(7, 43, 55, 0.21),
+    12px 13px 0 rgba(8, 87, 80, 0.07),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+
+.accountabilitySurface {
+  padding: 17px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(40, 199, 168, 0.10),
+      transparent 65%
+    ),
+    rgba(5, 49, 64, 0.55);
+
+  border-radius: 21px;
+}
+
+
+/* ---------------------------------------------------------
+   Top governed object band
+   --------------------------------------------------------- */
+
+.governedObjectBand {
+  min-height: 96px;
+
+  padding: 17px 19px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #18a083,
+      #0e7b67
+    );
+
+  border-radius: 17px;
+
+  box-shadow:
+    0 11px 0 rgba(4, 79, 67, 0.20),
+    0 19px 27px rgba(0,0,0,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+.governedObjectIcon {
+  width: 47px;
+  height: 47px;
+
+  flex: 0 0 auto;
+
+  display: grid;
+  place-items: center;
+
+  color: #efbd35;
+
+  background: rgba(255,255,255,0.11);
+
+  border-radius: 13px;
+}
+
+.governedObjectBand span {
+  display: block;
+
+  color: #d8fff5;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+
+.governedObjectBand strong {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #ffffff;
+
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.governedObjectBand small {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #ffffff;
+
+  font-size: 9.5px;
+  line-height: 1.4;
+}
+
+
+/* ---------------------------------------------------------
+   Role matrix
+   --------------------------------------------------------- */
+
+.roleMatrix {
+  margin-top: 15px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 11px;
+}
+
+.roleCardEstablished,
+.roleCardGap {
+  min-height: 112px;
+
+  padding: 15px;
+
+  display: grid;
+
+  grid-template-columns:
+    39px
+    minmax(0, 1fr);
+
+  align-items: start;
+
+  gap: 11px;
+
+  border-radius: 15px;
+
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.roleCardEstablished {
+  background:
+    linear-gradient(
+      145deg,
+      #225c6d,
+      #194b5c
+    );
+
+  box-shadow:
+    0 11px 19px rgba(0, 25, 33, 0.15),
+    inset 0 1px 0 rgba(255,255,255,0.07);
+}
+
+.roleCardGap {
+  background:
+    linear-gradient(
+      145deg,
+      #4c4434,
+      #39352d
+    );
+
+  box-shadow:
+    0 11px 19px rgba(22, 17, 9, 0.16),
+    0 6px 0 rgba(239, 189, 53, 0.05);
+}
+
+.roleCardEstablished:hover,
+.roleCardGap:hover {
+  transform: translateY(-3px);
+}
+
+.roleCardIcon,
+.roleCardIconGap {
+  width: 39px;
+  height: 39px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 11px;
+}
+
+.roleCardIcon {
+  color: #efbd35;
+
+  background: rgba(255,255,255,0.08);
+}
+
+.roleCardIconGap {
+  color: #efbd35;
+
+  background: rgba(239, 189, 53, 0.10);
+}
+
+.roleCardEstablished span,
+.roleCardGap span {
+  display: block;
+
+  font-size: 7.5px;
+  font-weight: 800;
+
+  letter-spacing: 0.07em;
+}
+
+.roleCardEstablished span {
+  color: #9feadb;
+}
+
+.roleCardGap span {
+  color: #ffe29b;
+}
+
+.roleCardEstablished strong,
+.roleCardGap strong {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #ffffff;
+
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.roleCardEstablished small,
+.roleCardGap small {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #ffffff;
+
+  font-size: 9px;
+  line-height: 1.4;
+
+  opacity: 1 !important;
+}
+
+
+/* ---------------------------------------------------------
+   Accountability footer
+   Replaces the yellow floating card
+   --------------------------------------------------------- */
+
+.accountabilityFooter {
+  margin-top: 14px;
+
+  min-height: 68px;
+
+  padding: 13px 15px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #102f42,
+      #0b2839
+    );
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 10px 19px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.footerIcon {
+  width: 40px;
+  height: 40px;
+
+  flex: 0 0 auto;
+
+  display: grid;
+  place-items: center;
+
+  color: #efbd35;
+
+  background: rgba(255,255,255,0.07);
+
+  border-radius: 11px;
+}
+
+.accountabilityFooter span {
+  display: block;
+
+  color: #72dfca;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+
+.accountabilityFooter strong {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #ffffff !important;
+
+  font-size: 11.5px;
+
+  line-height: 1.4;
+
+  opacity: 1 !important;
+}
+
+
+/* ---------------------------------------------------------
+   Remove previous absolute hero pieces
+   --------------------------------------------------------- */
+
+.deskStage,
+.objectPedestal,
+.roleOperate,
+.roleTechnology,
+.roleAccountable,
+.roleMissing,
+.heroDecision {
+  display: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   One-screen laptop fit
+   --------------------------------------------------------- */
+
+@media (min-width: 1101px) and (max-height: 900px) {
+
+  .accountabilityDesk {
+    max-width: 650px !important;
+  }
+
+  .accountabilitySurface {
+    padding: 14px;
+  }
+
+  .governedObjectBand {
+    min-height: 84px;
+    padding: 14px 16px;
+  }
+
+  .roleMatrix {
+    gap: 9px;
+    margin-top: 12px;
+  }
+
+  .roleCardEstablished,
+  .roleCardGap {
+    min-height: 96px;
+    padding: 12px;
+  }
+
+  .accountabilityFooter {
+    min-height: 58px;
+    margin-top: 11px;
+    padding: 11px 13px;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   Mobile
+   --------------------------------------------------------- */
+
+@media (max-width: 720px) {
+
+  .accountabilityDesk {
+    max-width: 100% !important;
+  }
+
+  .accountabilitySurface {
+    padding: 12px;
+  }
+
+  .roleMatrix {
+    grid-template-columns: 1fr;
+  }
+
+  .governedObjectBand,
+  .accountabilityFooter {
+    align-items: flex-start;
+  }
+}
+

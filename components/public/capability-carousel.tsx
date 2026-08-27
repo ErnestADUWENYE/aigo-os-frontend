@@ -26,28 +26,28 @@ const capabilities = [
   },
   {
     title: "AI Business Mapping",
-    href: "/platform/ai-business-mapping",
+    href: "/platform/relationship-dependency-intelligence",
     description:
       "Relate AI to the business processes, systems and dependencies around it.",
     label: "Business relationships",
   },
   {
     title: "Activity & Event Correlation",
-    href: "/platform/activity-event-correlation",
+    href: "/platform/continuous-intelligence",
     description:
       "Connect AI signals with relevant operational and enterprise events.",
     label: "Signal correlation",
   },
   {
     title: "Contextual Intelligence",
-    href: "/platform/contextual-intelligence",
+    href: "/platform/contextual-reasoning",
     description:
       "Interpret AI activity together with existing enterprise context.",
     label: "Connected understanding",
   },
   {
     title: "Management Intelligence",
-    href: "/platform/management-intelligence",
+    href: "/platform",
     description:
       "Present connected context in a form management teams can use.",
     label: "Management view",
@@ -230,4 +230,5 @@ export function CapabilityCarousel() {
     </div>
   );
 }
+
 

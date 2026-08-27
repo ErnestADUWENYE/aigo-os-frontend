@@ -2,103 +2,89 @@
 
 import {
   ArrowUpRight,
+  CircleAlert,
+  FileWarning,
   GitBranch,
-  KeyRound,
-  ListChecks,
   Network,
-  RefreshCw,
-  ShieldCheck,
-  TriangleAlert,
-  UserRoundCheck,
+  SearchX,
+  ShieldAlert,
+  UserRoundX,
   Workflow,
 } from "lucide-react";
 
+import {
+  governSolutions,
+  impactSolutions,
+} from "./solution-catalogue";
+
 import styles from "./solutions-menu.module.css";
+
 
 type Props = {
   onNavigate?: () => void;
 };
 
-const governCases = [
-  {
-    icon: UserRoundCheck,
-    title: "AI Agent Accountability",
-    href: "/solutions/ai-agent-accountability",
-    description:
-      "Clarify ownership and responsibility around autonomous AI activity.",
-  },
-  {
-    icon: KeyRound,
-    title: "AI Agent Access Authority",
-    href: "/solutions/ai-agent-access-authority",
-    description:
-      "Understand what AI agents are permitted to access and act on.",
-  },
-  {
-    icon: Network,
-    title: "AI Agent Sprawl",
-    href: "/solutions/ai-agent-sprawl",
-    description:
-      "Bring distributed AI agents into a clearer enterprise view.",
-  },
-  {
-    icon: ListChecks,
-    title: "AI Governance Priorities",
-    href: "/solutions/ai-governance-priorities",
-    description:
-      "Identify which governance issues require attention first.",
-  },
+
+const governIcons = [
+  ShieldAlert,
+  GitBranch,
+  SearchX,
+  FileWarning,
+  UserRoundX,
 ];
 
-const impactCases = [
-  {
-    icon: GitBranch,
-    title: "AI Business Dependencies",
-    href: "/solutions/ai-business-dependencies",
-    description:
-      "Understand the business processes and services that depend on AI.",
-  },
-  {
-    icon: RefreshCw,
-    title: "AI Change Business Impact",
-    href: "/solutions/ai-change-business-impact",
-    description:
-      "See how AI changes may affect business operations and services.",
-  },
-  {
-    icon: TriangleAlert,
-    title: "AI Incident Business Impact",
-    href: "/solutions/ai-incident-business-impact",
-    description:
-      "Connect AI incidents to the business areas and dependencies affected.",
-  },
+
+const impactIcons = [
+  GitBranch,
+  CircleAlert,
+  Network,
+  Workflow,
 ];
+
 
 export function SolutionsMenu({
   onNavigate,
 }: Props) {
   return (
     <div className={styles.menu}>
+
       <div className={styles.topBar}>
-        <span className={styles.eyebrow}>
-          Use Cases
-        </span>
+        <div>
+          <span className={styles.eyebrow}>
+            Solutions
+          </span>
+
+          <strong className={styles.topTitle}>
+            By Use Case
+          </strong>
+
+          <p className={styles.topDescription}>
+            Start with the enterprise problem you need to understand.
+          </p>
+        </div>
 
         <span className={styles.topNote}>
-          Govern and Impact
+          Govern + Impact
         </span>
       </div>
 
+
       <div className={styles.groups}>
+
+        {/* ===================================================
+            AIGO-OS GOVERN
+            =================================================== */}
+
         <section className={styles.group}>
+
           <div
             className={`${styles.groupHeader} ${styles.governHeader}`}
           >
             <div
               className={`${styles.groupIcon} ${styles.governIcon}`}
             >
-              <ShieldCheck
-                size={23}
+              <ShieldAlert
+                size={22}
                 strokeWidth={1.7}
                 aria-hidden="true"
               />
@@ -106,21 +92,27 @@ export function SolutionsMenu({
 
             <div>
               <span className={styles.productType}>
-                AI Governance Intelligence
+                Governance Intelligence
               </span>
 
               <strong>
                 AIGO-OS Govern
               </strong>
+
+              <p className={styles.productDescription}>
+                Understand governance problems using connected
+                enterprise context and explainable reasoning.
+              </p>
             </div>
           </div>
+
 
           <nav
             className={styles.caseList}
             aria-label="AIGO-OS Govern use cases"
           >
-            {governCases.map((item) => {
-              const Icon = item.icon;
+            {governSolutions.map((item, index) => {
+              const Icon = governIcons[index];
 
               return (
                 <Link
@@ -133,7 +125,7 @@ export function SolutionsMenu({
                     className={`${styles.caseIcon} ${styles.governCaseIcon}`}
                   >
                     <Icon
-                      size={17}
+                      size={16}
                       strokeWidth={1.7}
                       aria-hidden="true"
                     />
@@ -151,7 +143,7 @@ export function SolutionsMenu({
 
                   <ArrowUpRight
                     className={styles.caseArrow}
-                    size={15}
+                    size={14}
                     strokeWidth={1.8}
                     aria-hidden="true"
                   />
@@ -159,9 +151,16 @@ export function SolutionsMenu({
               );
             })}
           </nav>
+
         </section>
 
+
+        {/* ===================================================
+            AIGO-OS IMPACT
+            =================================================== */}
+
         <section className={styles.group}>
+
           <div
             className={`${styles.groupHeader} ${styles.impactHeader}`}
           >
@@ -169,7 +168,7 @@ export function SolutionsMenu({
               className={`${styles.groupIcon} ${styles.impactIcon}`}
             >
               <Workflow
-                size={23}
+                size={22}
                 strokeWidth={1.7}
                 aria-hidden="true"
               />
@@ -177,21 +176,27 @@ export function SolutionsMenu({
 
             <div>
               <span className={styles.productType}>
-                AI Business Impact Intelligence
+                Business Impact Intelligence
               </span>
 
               <strong>
                 AIGO-OS Impact
               </strong>
+
+              <p className={styles.productDescription}>
+                Understand dependencies and business consequences
+                across connected enterprise context.
+              </p>
             </div>
           </div>
+
 
           <nav
             className={styles.caseList}
             aria-label="AIGO-OS Impact use cases"
           >
-            {impactCases.map((item) => {
-              const Icon = item.icon;
+            {impactSolutions.map((item, index) => {
+              const Icon = impactIcons[index];
 
               return (
                 <Link
@@ -204,7 +209,7 @@ export function SolutionsMenu({
                     className={`${styles.caseIcon} ${styles.impactCaseIcon}`}
                   >
                     <Icon
-                      size={17}
+                      size={16}
                       strokeWidth={1.7}
                       aria-hidden="true"
                     />
@@ -222,7 +227,7 @@ export function SolutionsMenu({
 
                   <ArrowUpRight
                     className={styles.caseArrow}
-                    size={15}
+                    size={14}
                     strokeWidth={1.8}
                     aria-hidden="true"
                   />
@@ -230,8 +235,11 @@ export function SolutionsMenu({
               );
             })}
           </nav>
+
         </section>
+
       </div>
+
     </div>
   );
 }

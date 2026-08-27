@@ -1,216 +1,729 @@
 ﻿.section {
-  padding: 92px 0;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
 
-  border-top: 1px solid #cbd6df;
+  padding: 104px 0 98px;
 
   background:
+    radial-gradient(
+      circle at 91% 9%,
+      rgba(48, 113, 139, 0.12),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 7% 92%,
+      rgba(196, 154, 55, 0.08),
+      transparent 24%
+    ),
     linear-gradient(
-      180deg,
-      #f4f7f8 0%,
-      #edf2f5 100%
+      145deg,
+      #eef3f5 0%,
+      #f8f9f7 47%,
+      #edf2f2 100%
     );
 }
 
+
+.ambientGlow {
+  position: absolute;
+  z-index: -1;
+
+  width: 420px;
+  height: 420px;
+
+  top: -250px;
+  right: 8%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(55, 126, 151, 0.14),
+      rgba(55, 126, 151, 0) 68%
+    );
+
+  filter: blur(10px);
+
+  pointer-events: none;
+}
+
+
+/* ==========================================================
+   HEADING
+   ========================================================== */
+
 .heading {
-  margin-bottom: 36px;
+  margin-bottom: 43px;
 
   display: grid;
 
   grid-template-columns:
-    minmax(0, 1fr)
-    minmax(300px, 0.55fr);
+    minmax(0, 0.9fr)
+    minmax(320px, 0.48fr);
 
   align-items: end;
 
-  gap: 70px;
+  gap: 76px;
 }
 
+
+.headingCopy {
+  min-width: 0;
+}
+
+
 .eyebrow {
-  margin: 0 0 12px !important;
+  margin: 0 0 13px !important;
 
-  color: #365b7d !important;
+  color: #35647d !important;
 
-  font-size: 10px !important;
+  font-size: 9px !important;
   font-weight: 850 !important;
 
-  letter-spacing: 0.11em;
+  line-height: 1.2;
+
+  letter-spacing: 0.12em;
 
   text-transform: uppercase;
 }
 
+
 .heading h2 {
-  max-width: 700px;
+  max-width: 780px;
 
   margin: 0;
 
   color: #07111f;
 
-  font-size: clamp(34px, 3vw, 48px);
-  font-weight: 690;
+  font-size: clamp(36px, 3.15vw, 50px);
+  font-weight: 680;
 
-  line-height: 1.05;
+  line-height: 1.04;
 
-  letter-spacing: -0.04em;
+  letter-spacing: -0.043em;
 }
 
+
+.heading h2 span {
+  color: #35647d;
+}
+
+
 .intro {
+  max-width: 500px;
+
   margin: 0 !important;
 
-  color: #43586a !important;
+  color: #455d6d !important;
 
-  font-size: 14px !important;
+  font-size: 13px !important;
 
-  line-height: 1.65;
+  line-height: 1.72;
 }
 
 
 /* ==========================================================
-   RESOURCES
+   RESOURCE GRID
    ========================================================== */
 
 .resources {
-  border-top: 1px solid #bdcbd6;
-}
-
-.resource {
-  min-height: 132px;
-
-  padding: 20px 4px;
-
   display: grid;
 
   grid-template-columns:
-    48px
-    minmax(0, 1fr)
-    auto;
+    repeat(3, minmax(0, 1fr));
 
-  align-items: center;
+  gap: 17px;
+}
 
-  gap: 22px;
 
-  border-bottom: 1px solid #bdcbd6;
+.resource {
+  position: relative;
+
+  min-width: 0;
+  min-height: 355px;
+
+  padding: 23px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border-radius: 20px;
 
   color: inherit;
 
   text-decoration: none;
 
+  transform: translateY(0);
+
   transition:
-    background 160ms ease,
-    padding-left 160ms ease,
-    padding-right 160ms ease;
+    transform 200ms ease,
+    box-shadow 200ms ease;
 }
+
+
+.integrationResource {
+  background:
+    radial-gradient(
+      circle at 88% 7%,
+      rgba(61, 137, 164, 0.17),
+      transparent 31%
+    ),
+    linear-gradient(
+      145deg,
+      #e5f0f3 0%,
+      #f8fbfb 60%,
+      #edf4f5 100%
+    );
+
+  box-shadow:
+    0 20px 42px rgba(20, 57, 75, 0.11),
+    0 6px 15px rgba(20, 57, 75, 0.045),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+
+.helpResource {
+  background:
+    radial-gradient(
+      circle at 89% 8%,
+      rgba(47, 126, 111, 0.15),
+      transparent 31%
+    ),
+    linear-gradient(
+      145deg,
+      #e5f1ed 0%,
+      #fafbf9 60%,
+      #edf4f0 100%
+    );
+
+  box-shadow:
+    0 20px 42px rgba(18, 70, 62, 0.105),
+    0 6px 15px rgba(18, 70, 62, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+
+.trustResource {
+  background:
+    radial-gradient(
+      circle at 90% 8%,
+      rgba(194, 151, 48, 0.16),
+      transparent 31%
+    ),
+    linear-gradient(
+      145deg,
+      #f2eddf 0%,
+      #fffdf8 59%,
+      #f4f0e6 100%
+    );
+
+  box-shadow:
+    0 20px 42px rgba(74, 59, 28, 0.105),
+    0 6px 15px rgba(74, 59, 28, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+
+.resource::after {
+  content: "";
+
+  position: absolute;
+
+  width: 170px;
+  height: 170px;
+
+  right: -85px;
+  bottom: -105px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0) 70%
+    );
+
+  opacity: 0.65;
+
+  pointer-events: none;
+}
+
 
 .resource:hover,
 .resource:focus-visible {
-  padding-left: 15px;
-  padding-right: 15px;
-
-  background: rgba(255,255,255,0.72);
+  transform: translateY(-7px);
 
   outline: none;
 }
 
-.index {
-  color: #365b7d;
 
-  font-size: 10px;
-  font-weight: 850;
+.integrationResource:hover,
+.integrationResource:focus-visible {
+  box-shadow:
+    0 30px 58px rgba(20, 57, 75, 0.16),
+    0 9px 19px rgba(20, 57, 75, 0.06),
+    inset 0 1px 0 #ffffff;
 }
+
+
+.helpResource:hover,
+.helpResource:focus-visible {
+  box-shadow:
+    0 30px 58px rgba(18, 70, 62, 0.15),
+    0 9px 19px rgba(18, 70, 62, 0.055),
+    inset 0 1px 0 #ffffff;
+}
+
+
+.trustResource:hover,
+.trustResource:focus-visible {
+  box-shadow:
+    0 30px 58px rgba(74, 59, 28, 0.145),
+    0 9px 19px rgba(74, 59, 28, 0.05),
+    inset 0 1px 0 #ffffff;
+}
+
+
+/* ==========================================================
+   CARD TOP
+   ========================================================== */
+
+.resourceTop {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+
+.iconShell,
+.arrowShell {
+  display: grid;
+  place-items: center;
+
+  flex: 0 0 auto;
+}
+
+
+.iconShell {
+  width: 49px;
+  height: 49px;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 0.55)
+    );
+
+  color: #214e68;
+
+  box-shadow:
+    0 9px 20px rgba(18, 48, 64, 0.09),
+    inset 0 1px 0 #ffffff;
+}
+
+
+.helpResource .iconShell {
+  color: #176858;
+}
+
+
+.trustResource .iconShell {
+  color: #876718;
+}
+
+
+.iconShell svg {
+  width: 23px;
+  height: 23px;
+
+  fill: none;
+  stroke: currentColor;
+
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+.arrowShell {
+  width: 39px;
+  height: 39px;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.58);
+
+  color: #36596c;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.88);
+
+  transition:
+    transform 190ms ease,
+    background 190ms ease,
+    color 190ms ease;
+}
+
+
+.arrowShell svg {
+  width: 17px;
+  height: 17px;
+
+  fill: none;
+  stroke: currentColor;
+
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+.resource:hover .arrowShell,
+.resource:focus-visible .arrowShell {
+  transform: translateX(3px);
+
+  background: #0a2638;
+
+  color: #ffffff;
+}
+
+
+/* ==========================================================
+   CARD COPY
+   ========================================================== */
 
 .resourceCopy {
-  min-width: 0;
+  position: relative;
+  z-index: 1;
+
+  margin-top: auto;
+
+  padding-top: 52px;
 }
+
 
 .label {
   display: block;
 
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 
-  color: #52708b;
+  color: #477088;
 
-  font-size: 9px;
-  font-weight: 800;
+  font-size: 8px;
+  font-weight: 850;
 
-  letter-spacing: 0.07em;
+  line-height: 1.2;
+
+  letter-spacing: 0.1em;
 
   text-transform: uppercase;
 }
+
+
+.helpResource .label {
+  color: #317264;
+}
+
+
+.trustResource .label {
+  color: #806821;
+}
+
 
 .resourceCopy strong {
   display: block;
 
   color: #07111f;
 
-  font-size: 20px;
-  font-weight: 720;
+  font-size: 25px;
+  font-weight: 700;
+
+  line-height: 1.08;
+
+  letter-spacing: -0.025em;
+}
+
+
+.resourceCopy p {
+  max-width: 420px;
+
+  margin: 13px 0 0 !important;
+
+  color: #4a6070 !important;
+
+  font-size: 12px !important;
+
+  line-height: 1.63;
+}
+
+
+/* ==========================================================
+   ACTION
+   ========================================================== */
+
+.resourceAction {
+  position: relative;
+  z-index: 1;
+
+  margin-top: 25px;
+
+  min-height: 42px;
+
+  padding: 0 13px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  border-radius: 11px;
+
+  background: rgba(255, 255, 255, 0.58);
+
+  color: #123b54;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 5px 13px rgba(15, 50, 67, 0.045);
+
+  transition:
+    background 190ms ease,
+    color 190ms ease,
+    transform 190ms ease;
+}
+
+
+.resourceAction span {
+  font-size: 10px;
+  font-weight: 800;
 
   line-height: 1.2;
 }
 
-.resourceCopy p {
-  max-width: 720px;
 
-  margin: 7px 0 0 !important;
+.resourceAction svg {
+  width: 15px;
+  height: 15px;
 
-  color: #516679 !important;
+  flex: 0 0 auto;
 
-  font-size: 12px !important;
+  fill: none;
+  stroke: currentColor;
+
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+.resource:hover .resourceAction,
+.resource:focus-visible .resourceAction {
+  background: #0a2638;
+
+  color: #ffffff;
+
+  transform: translateY(-1px);
+}
+
+
+/* ==========================================================
+   RESOURCE CONTEXT
+   ========================================================== */
+
+.resourceContext {
+  margin-top: 18px;
+
+  padding: 17px 20px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(222, 233, 236, 0.88),
+      rgba(244, 246, 244, 0.92)
+    );
+
+  box-shadow:
+    0 11px 25px rgba(22, 54, 68, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+
+.contextMark {
+  width: 38px;
+  height: 38px;
+
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 3px;
+
+  border-radius: 11px;
+
+  background: #d6e5e9;
+}
+
+
+.contextMark span {
+  width: 4px;
+
+  display: block;
+
+  border-radius: 999px;
+
+  background: #32667c;
+}
+
+
+.contextMark span:nth-child(1) {
+  height: 9px;
+}
+
+
+.contextMark span:nth-child(2) {
+  height: 17px;
+}
+
+
+.contextMark span:nth-child(3) {
+  height: 12px;
+}
+
+
+.resourceContext p {
+  max-width: 780px;
+
+  margin: 0 !important;
+
+  color: #435d6d !important;
+
+  font-size: 11px !important;
+  font-weight: 570;
 
   line-height: 1.55;
 }
 
-.action {
-  min-width: 145px;
 
-  padding-bottom: 3px;
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
 
-  border-bottom: 1px solid #8199ad;
+@media (max-width: 980px) {
 
-  color: #0d2942;
-
-  font-size: 11px;
-  font-weight: 780;
-
-  text-align: right;
-}
-
-.resource:hover .action,
-.resource:focus-visible .action {
-  border-bottom-color: #d9a52b;
-}
+  .section {
+    padding: 88px 0;
+  }
 
 
-@media (max-width: 900px) {
   .heading {
     grid-template-columns: 1fr;
 
-    gap: 18px;
+    gap: 20px;
   }
+
+
+  .intro {
+    max-width: 720px;
+  }
+
+
+  .resources {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .trustResource {
+    grid-column: 1 / -1;
+
+    min-height: 300px;
+  }
+
 }
 
 
 @media (max-width: 700px) {
+
   .section {
     padding: 72px 0;
   }
 
-  .resource {
-    grid-template-columns:
-      32px
-      1fr;
 
-    gap: 10px;
+  .heading {
+    margin-bottom: 31px;
   }
 
-  .action {
-    grid-column: 2;
 
-    width: fit-content;
+  .resources {
+    grid-template-columns: 1fr;
 
-    min-width: 0;
-
-    margin-top: 5px;
-
-    text-align: left;
+    gap: 13px;
   }
+
+
+  .resource,
+  .trustResource {
+    grid-column: auto;
+
+    min-height: 300px;
+
+    padding: 20px;
+
+    border-radius: 17px;
+  }
+
+
+  .resourceCopy {
+    padding-top: 39px;
+  }
+
+
+  .resourceContext {
+    align-items: flex-start;
+  }
+
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  .resource,
+  .arrowShell,
+  .resourceAction {
+    transition: none;
+  }
+
+
+  .resource:hover,
+  .resource:focus-visible,
+  .resource:hover .arrowShell,
+  .resource:focus-visible .arrowShell,
+  .resource:hover .resourceAction,
+  .resource:focus-visible .resourceAction {
+    transform: none;
+  }
+
 }

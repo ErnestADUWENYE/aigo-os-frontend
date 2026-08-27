@@ -1,0 +1,719 @@
+﻿.hero {
+  position: relative;
+
+  overflow: hidden;
+
+  padding:
+    clamp(88px, 8vw, 116px)
+    0
+    clamp(96px, 8vw, 126px);
+
+  background:
+    radial-gradient(
+      circle at 84% 14%,
+      rgba(61, 120, 153, 0.12),
+      transparent 29%
+    ),
+    linear-gradient(
+      122deg,
+      #ebe3d8 0%,
+      #eef1ef 49%,
+      #dce8ef 100%
+    );
+}
+
+
+.heroLayout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(320px, 0.46fr);
+
+  align-items: center;
+
+  gap:
+    clamp(
+      68px,
+      8vw,
+      126px
+    );
+}
+
+
+.heroCopy {
+  max-width: 840px;
+}
+
+
+.eyebrow,
+.sectionLabel {
+  margin: 0 0 16px;
+
+  color: #365b7d;
+
+  font-size: 10px;
+  font-weight: 830;
+
+  letter-spacing: 0.11em;
+
+  text-transform: uppercase;
+}
+
+
+.hero h1 {
+  margin: 0;
+
+  color: #07111f;
+
+  font-size:
+    clamp(
+      54px,
+      5.4vw,
+      80px
+    );
+
+  font-weight: 710;
+
+  line-height: 0.98;
+
+  letter-spacing: -0.054em;
+}
+
+
+.lead {
+  max-width: 700px;
+
+  margin:
+    25px
+    0
+    0 !important;
+
+  color: #405568 !important;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+}
+
+
+.updated {
+  margin:
+    22px
+    0
+    0 !important;
+
+  color: #71818e !important;
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+
+.heroAside {
+  max-width: 430px;
+
+  padding: 25px;
+
+  border:
+    1px solid
+    rgba(77, 108, 130, 0.17);
+
+  border-radius: 15px;
+
+  background:
+    rgba(255, 255, 255, 0.5);
+}
+
+
+.asideIcon {
+  width: 44px;
+  height: 44px;
+
+  margin-bottom: 21px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 11px;
+
+  background: #e8f0f4;
+
+  color: #315f7d;
+}
+
+
+.heroAside > span {
+  display: block;
+
+  color: #365b7d;
+
+  font-size: 9px;
+  font-weight: 830;
+
+  letter-spacing: 0.09em;
+
+  text-transform: uppercase;
+}
+
+
+.heroAside strong {
+  display: block;
+
+  margin-top: 10px;
+
+  color: #12354f;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  line-height: 1.25;
+
+  letter-spacing: -0.025em;
+}
+
+
+.heroAside p {
+  margin:
+    11px
+    0
+    0 !important;
+
+  color: #4b6173 !important;
+
+  font-size: 12px;
+
+  line-height: 1.62;
+}
+
+
+.settingsAction,
+.manageButton {
+  margin-top: 20px;
+}
+
+
+.settingsAction button,
+.manageButton button {
+  min-height: 43px;
+
+  padding:
+    0
+    15px;
+
+  border:
+    1px solid
+    #7894a6;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #173b59;
+
+  font: inherit;
+
+  font-size: 11px;
+  font-weight: 740;
+
+  cursor: pointer;
+}
+
+
+/* ==========================================================
+   POLICY
+========================================================== */
+
+
+.policySection {
+  padding:
+    clamp(90px, 8vw, 118px)
+    0
+    clamp(108px, 9vw, 138px);
+
+  background: #ffffff;
+}
+
+
+.policyLayout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(190px, 0.26fr)
+    minmax(0, 0.74fr);
+
+  align-items: start;
+
+  gap:
+    clamp(
+      60px,
+      8vw,
+      112px
+    );
+}
+
+
+.policyNav {
+  position: sticky;
+
+  top: 112px;
+
+  padding-top: 4px;
+}
+
+
+.policyNav > p {
+  margin: 0 0 15px !important;
+
+  color: #78909f !important;
+
+  font-size: 9px;
+  font-weight: 830;
+
+  letter-spacing: 0.09em;
+
+  text-transform: uppercase;
+}
+
+
+.policyNav nav {
+  display: grid;
+
+  gap: 2px;
+}
+
+
+.policyNav a {
+  padding: 8px 0;
+
+  color: #526879;
+
+  font-size: 11px;
+  font-weight: 620;
+
+  line-height: 1.4;
+
+  text-decoration: none;
+}
+
+
+.policyNav a:hover,
+.policyNav a:focus-visible {
+  color: #173b59;
+
+  text-decoration: underline;
+
+  text-underline-offset: 4px;
+
+  outline: none;
+}
+
+
+.policyContent {
+  min-width: 0;
+
+  max-width: 850px;
+}
+
+
+.policyBlock {
+  padding:
+    0
+    0
+    64px;
+
+  scroll-margin-top: 120px;
+}
+
+
+.policyBlock + .policyBlock {
+  padding-top: 63px;
+
+  border-top:
+    1px solid
+    #e0e7eb;
+}
+
+
+.policyBlock h2 {
+  max-width: 760px;
+
+  margin: 0;
+
+  color: #07111f;
+
+  font-size:
+    clamp(
+      31px,
+      2.8vw,
+      43px
+    );
+
+  font-weight: 660;
+
+  line-height: 1.08;
+
+  letter-spacing: -0.039em;
+}
+
+
+.policyBlock > p:not(.sectionLabel),
+.blockHeading + p {
+  max-width: 760px;
+
+  margin:
+    19px
+    0
+    0 !important;
+
+  color: #4c6172 !important;
+
+  font-size: 14px;
+
+  line-height: 1.75;
+}
+
+
+.blockHeading {
+  display: grid;
+
+  grid-template-columns:
+    31px
+    minmax(0, 1fr);
+
+  align-items: start;
+
+  gap: 13px;
+
+  color: #376780;
+}
+
+
+.blockHeading .sectionLabel {
+  margin-bottom: 11px;
+}
+
+
+/* ==========================================================
+   TECHNOLOGY LIST
+========================================================== */
+
+
+.technologyTable {
+  margin-top: 32px;
+
+  display: grid;
+
+  gap: 13px;
+}
+
+
+.technologyRow {
+  padding: 22px;
+
+  border:
+    1px solid
+    #d7e1e7;
+
+  border-radius: 13px;
+
+  background: #f8fafb;
+}
+
+
+.technologyTop {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+
+.technologyTop strong {
+  color: #102b41;
+
+  font-size: 15px;
+  font-weight: 720;
+}
+
+
+.technologyTop span {
+  padding:
+    5px
+    8px;
+
+  border-radius: 999px;
+
+  background: #e8f0f4;
+
+  color: #315f7d;
+
+  font-size: 8px;
+  font-weight: 830;
+
+  letter-spacing: 0.07em;
+
+  text-transform: uppercase;
+}
+
+
+.technologyRow dl {
+  margin:
+    18px
+    0
+    0;
+
+  display: grid;
+
+  gap: 13px;
+}
+
+
+.technologyRow dl > div {
+  display: grid;
+
+  grid-template-columns:
+    94px
+    minmax(0, 1fr);
+
+  gap: 13px;
+}
+
+
+.technologyRow dt {
+  color: #728592;
+
+  font-size: 9px;
+  font-weight: 750;
+
+  text-transform: uppercase;
+}
+
+
+.technologyRow dd {
+  margin: 0;
+
+  color: #526778;
+
+  font-size: 11px;
+
+  line-height: 1.58;
+}
+
+
+/* ==========================================================
+   CALLOUTS
+========================================================== */
+
+
+.callout {
+  max-width: 760px;
+
+  margin-top: 25px;
+
+  padding: 17px;
+
+  display: grid;
+
+  grid-template-columns:
+    23px
+    minmax(0, 1fr);
+
+  gap: 11px;
+
+  border-radius: 10px;
+
+  background: #edf5f1;
+
+  color: #34715d;
+}
+
+
+.callout p {
+  margin: 0 !important;
+
+  color: #4f665d !important;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+
+.managePanel {
+  max-width: 760px;
+
+  margin-top: 26px;
+
+  padding: 20px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 28px;
+
+  border:
+    1px solid
+    #d4e0e7;
+
+  border-radius: 12px;
+
+  background: #f5f8fa;
+}
+
+
+.managePanel strong {
+  color: #173b59;
+
+  font-size: 13px;
+  font-weight: 720;
+}
+
+
+.managePanel p {
+  max-width: 540px;
+
+  margin:
+    7px
+    0
+    0 !important;
+
+  color: #5c7181 !important;
+
+  font-size: 11px;
+
+  line-height: 1.57;
+}
+
+
+.manageButton {
+  flex: 0 0 auto;
+
+  margin-top: 0;
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+
+@media (max-width: 900px) {
+  .heroLayout,
+  .policyLayout {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+
+  .heroAside {
+    max-width: 620px;
+  }
+
+
+  .policyNav {
+    position: static;
+
+    padding:
+      0
+      0
+      24px;
+
+    border-bottom:
+      1px solid
+      #dde5e9;
+  }
+
+
+  .policyNav nav {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap:
+      4px
+      20px;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .hero {
+    padding:
+      74px
+      0
+      80px;
+  }
+
+
+  .policySection {
+    padding:
+      72px
+      0
+      90px;
+  }
+
+
+  .hero h1 {
+    font-size:
+      clamp(
+        48px,
+        14vw,
+        68px
+      );
+  }
+
+
+  .policyBlock {
+    padding-bottom: 48px;
+  }
+
+
+  .policyBlock + .policyBlock {
+    padding-top: 47px;
+  }
+
+
+  .technologyRow dl > div {
+    grid-template-columns: 1fr;
+
+    gap: 4px;
+  }
+
+
+  .managePanel {
+    align-items: stretch;
+
+    flex-direction: column;
+
+    gap: 16px;
+  }
+
+
+  .manageButton button {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 430px) {
+  .heroAside,
+  .technologyRow,
+  .managePanel {
+    padding: 17px;
+  }
+
+
+  .technologyTop {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 9px;
+  }
+}

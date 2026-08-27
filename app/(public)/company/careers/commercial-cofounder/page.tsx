@@ -1,27 +1,28 @@
-﻿import type { Metadata } from "next";
-import Link from "next/link";
+﻿import Link from "next/link";
 
 import {
-  ArrowLeft,
-  ArrowRight,
-  BriefcaseBusiness,
+  ArrowLeft,  BriefcaseBusiness,
   Check,
   CircleDollarSign,
   Globe2,
-  Handshake,
-  MessageSquareText,
-  Users,
-} from "lucide-react";
+  Handshake,} from "lucide-react";
 
 import { PublicContainer } from "@/components/public/public-container";
+import { createPageMetadata } from "@/lib/seo/metadata";
 
 import styles from "./page.module.css";
 
-export const metadata: Metadata = {
-  title: "Commercial Co-founder | AIGO-OS",
+export const metadata = createPageMetadata({
+  title: "Commercial Co-founder",
   description:
     "Join AIGO-OS as Commercial Co-founder and help build the commercial side of an early-stage enterprise AI governance company.",
-};
+  path: "/company/careers/commercial-cofounder",
+  keywords: [
+    "AIGO-OS Commercial Co-founder",
+    "AI governance co-founder",
+    "enterprise AI startup careers",
+  ],
+});
 
 const responsibilities = [
   "Develop relationships with organisations evaluating or governing enterprise AI.",
@@ -282,154 +283,195 @@ export default function CommercialCofounderPage() {
               </div>
             </div>
 
-            <form className={styles.applicationForm}>
-              <div className={styles.formGrid}>
-                <label>
-                  <span>Full name</span>
-                  <input
-                    type="text"
-                    name="name"
-                    autoComplete="name"
-                    placeholder="Your name"
-                  />
-                </label>
+            <form
+  className={styles.applicationForm}
+  action="/api/careers/commercial-cofounder"
+  method="post"
+>
+  <div className={styles.formGrid}>
+    <label>
+      <span>Full name</span>
 
-                <label>
-                  <span>Email</span>
-                  <input
-                    type="email"
-                    name="email"
-                    autoComplete="email"
-                    placeholder="you@example.com"
-                  />
-                </label>
+      <input
+        type="text"
+        name="name"
+        autoComplete="name"
+        placeholder="Your name"
+        required
+      />
+    </label>
 
-                <label>
-                  <span>LinkedIn profile</span>
-                  <input
-                    type="url"
-                    name="linkedin"
-                    placeholder="https://www.linkedin.com/in/..."
-                  />
-                </label>
+    <label>
+      <span>Email</span>
 
-                <label>
-                  <span>Location</span>
-                  <input
-                    type="text"
-                    name="location"
-                    placeholder="City / Country"
-                  />
-                </label>
+      <input
+        type="email"
+        name="email"
+        autoComplete="email"
+        placeholder="you@example.com"
+        required
+      />
+    </label>
 
-                <label className={styles.fullWidth}>
-                  <span>Current role or company</span>
-                  <input
-                    type="text"
-                    name="currentRole"
-                    placeholder="Current role, company or relevant context"
-                  />
-                </label>
+    <label>
+      <span>LinkedIn profile</span>
 
-                <label className={styles.fullWidth}>
-                  <span>
-                    Why are you interested in building AIGO-OS as a Commercial Co-founder?
-                  </span>
+      <input
+        type="url"
+        name="linkedin"
+        placeholder="https://www.linkedin.com/in/..."
+      />
+    </label>
 
-                  <textarea
-                    name="interest"
-                    rows={6}
-                    placeholder="Tell us why this opportunity is relevant to you."
-                  />
-                </label>
+    <label>
+      <span>Location</span>
 
-                <label className={styles.fullWidth}>
-                  <span>
-                    Tell us about your experience taking enterprise technology into organisations.
-                  </span>
+      <input
+        type="text"
+        name="location"
+        placeholder="City / Country"
+        required
+      />
+    </label>
 
-                  <textarea
-                    name="enterpriseExperience"
-                    rows={6}
-                    placeholder="Share relevant enterprise sales, commercial development, partnerships or customer-building experience."
-                  />
-                </label>
+    <label className={styles.fullWidth}>
+      <span>
+        Current role or company
+      </span>
 
-                <label className={styles.fullWidth}>
-                  <span>
-                    What relationships, market experience or capabilities would you bring?
-                  </span>
+      <input
+        type="text"
+        name="currentRole"
+        placeholder="Current role, company or relevant context"
+        required
+      />
+    </label>
 
-                  <textarea
-                    name="contribution"
-                    rows={6}
-                    placeholder="Tell us what you could contribute to AIGO-OS."
-                  />
-                </label>
+    <label className={styles.fullWidth}>
+      <span>
+        Why are you interested in building AIGO-OS as a Commercial Co-founder?
+      </span>
 
-                <label>
-                  <span>Current commitment</span>
+      <textarea
+        name="interest"
+        rows={6}
+        placeholder="Tell us why this opportunity is relevant to you."
+        required
+      />
+    </label>
 
-                  <select name="commitment" defaultValue="">
-                    <option value="" disabled>
-                      Select one
-                    </option>
-                    <option value="full-time">
-                      Full-time
-                    </option>
-                    <option value="part-time">
-                      Part-time
-                    </option>
-                    <option value="flexible">
-                      Flexible
-                    </option>
-                    <option value="other">
-                      Other
-                    </option>
-                  </select>
-                </label>
+    <label className={styles.fullWidth}>
+      <span>
+        Tell us about your experience taking enterprise technology into organisations.
+      </span>
 
-                <label>
-                  <span>Equity-only basis</span>
+      <textarea
+        name="enterpriseExperience"
+        rows={6}
+        placeholder="Share relevant enterprise sales, commercial development, partnerships or customer-building experience."
+        required
+      />
+    </label>
 
-                  <select name="equityOnly" defaultValue="">
-                    <option value="" disabled>
-                      Select one
-                    </option>
-                    <option value="yes">
-                      Yes, I understand
-                    </option>
-                    <option value="no">
-                      No
-                    </option>
-                  </select>
-                </label>
-              </div>
+    <label className={styles.fullWidth}>
+      <span>
+        What relationships, market experience or capabilities would you bring?
+      </span>
 
-              <div className={styles.formFooter}>
-                <div>
-                  <MessageSquareText size={17} strokeWidth={1.7} />
+      <textarea
+        name="contribution"
+        rows={6}
+        placeholder="Tell us what you could contribute to AIGO-OS."
+        required
+      />
+    </label>
 
-                  <p>
-                    Submission delivery will be connected to the AIGO-OS
-                    application workflow before this form goes live.
-                  </p>
-                </div>
+    <label>
+      <span>
+        Current commitment
+      </span>
 
-                <button
-                  type="button"
-                  className={styles.submitButton}
-                  aria-disabled="true"
-                >
-                  Submit application
-                  <ArrowRight size={16} strokeWidth={1.8} />
-                </button>
-              </div>
-            </form>
+      <select
+        name="commitment"
+        defaultValue=""
+        required
+      >
+        <option
+          value=""
+          disabled
+        >
+          Select one
+        </option>
+
+        <option value="full-time">
+          Full-time
+        </option>
+
+        <option value="part-time">
+          Part-time
+        </option>
+
+        <option value="flexible">
+          Flexible
+        </option>
+
+        <option value="other">
+          Other
+        </option>
+      </select>
+    </label>
+
+    <label>
+      <span>
+        I understand this is currently an equity-only opportunity
+      </span>
+
+      <select
+        name="equityOnly"
+        defaultValue=""
+        required
+      >
+        <option
+          value=""
+          disabled
+        >
+          Select one
+        </option>
+
+        <option value="yes">
+          Yes, I understand
+        </option>
+
+        <option value="no">
+          No
+        </option>
+      </select>
+    </label>
+  </div>
+
+  <div className={styles.formFooter}>
+    <div>
+      <p>
+        Your application will be sent directly to AIGO-OS for review.
+        Please do not include confidential or sensitive information.
+      </p>
+    </div>
+
+    <button
+      type="submit"
+      className={styles.submitButton}
+    >
+      Submit application
+    </button>
+  </div>
+</form>
           </div>
         </PublicContainer>
       </section>
     </>
   );
 }
+
+
+
 

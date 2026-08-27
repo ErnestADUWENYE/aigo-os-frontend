@@ -1,50 +1,68 @@
 ﻿import type { MetadataRoute } from "next";
 
-const routes = [
-  "",
-  "/platform",
-  "/platform/actor-passports",
-  "/platform/machine-authority",
-  "/platform/business-significance",
-  "/platform/governance-decisioning",
-  "/platform/human-authority",
-  "/platform/governance-receipts",
+import { siteConfig } from "@/lib/seo/site";
 
-  "/solutions/accountable-ai-identity",
-  "/solutions/excessive-agency",
-  "/solutions/ai-authority-privilege",
-  "/solutions/human-oversight",
-  "/solutions/prioritise-ai-governance",
-  "/solutions/ai-governance-evidence",
+
+const publicRoutes = [
+  "/",
+
+  "/platform",
+  "/platform/contextual-reasoning",
+  "/platform/continuous-intelligence",
+  "/platform/enterprise-connectivity",
+  "/platform/enterprise-context",
+  "/platform/explainability-traceability",
+  "/platform/relationship-dependency-intelligence",
+
+  "/products",
+  "/products/aigo-os-govern",
+  "/products/aigo-os-impact",
+
+  "/solutions",
+
+  "/solutions/disconnected-policies-controls",
+  "/solutions/hidden-dependencies",
+  "/solutions/unclear-control-applicability",
+  "/solutions/unclear-control-coverage",
+  "/solutions/unclear-critical-service-dependencies",
+  "/solutions/unclear-incident-business-impact",
+  "/solutions/unclear-ownership-accountability",
+  "/solutions/unknown-change-impact",
+  "/solutions/unknown-governance-change-impact",
 
   "/integrations",
-  "/security",
   "/resources",
-  "/resources/ai-governance",
-  "/resources/governed-autonomy",
-  "/resources/actor-passports",
-  "/resources/authority",
+
   "/company",
-  "/design-partners",
-  "/contact",
-  "/privacy",
-  "/terms",
+  "/company/about",
+  "/company/principles",
+  "/company/careers",
+  "/company/careers/commercial-cofounder",
+  "/company/contact",
+
+  "/request-demo",
+  "/talk-to-an-expert",
+  "/contact-sales",
+  "/get-started",
+
+  "/trust",
+  "/security",
   "/responsible-disclosure",
-];
+  "/privacy",
+  "/cookies",
+  "/terms",
+  "/accessibility",
+] as const;
+
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://aigo-os.com";
-
-  return routes.map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: route === "" ? "weekly" : "monthly",
-    priority:
-      route === ""
-        ? 1
-        : route === "/platform" ||
-            route.startsWith("/solutions/")
-          ? 0.9
-          : 0.7,
+  return publicRoutes.map((route) => ({
+    url:
+      route === "/"
+        ? siteConfig.url
+        : `${siteConfig.url}${route}`,
   }));
 }
+
+
+

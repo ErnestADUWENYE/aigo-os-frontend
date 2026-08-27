@@ -1,8 +1,18 @@
 ﻿import Link from "next/link";
 
 import { PublicContainer } from "@/components/public/public-container";
+import { createPageMetadata } from "@/lib/seo/metadata";
 
 import styles from "./page.module.css";
+
+
+export const metadata = createPageMetadata({
+  title: "Help Center",
+  description:
+    "AIGO-OS product guidance, administration information and support resources.",
+  path: "/help",
+  index: false,
+});
 
 export default function HelpPage() {
   return (
@@ -135,5 +145,6 @@ export default function HelpPage() {
     </main>
   );
 }
+
 
 

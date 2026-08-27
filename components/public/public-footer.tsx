@@ -1,10 +1,31 @@
 ﻿import Image from "next/image";
 import Link from "next/link";
 
+import { CookieSettingsButton } from "@/components/public/cookie-settings-button";
 import { PublicContainer } from "@/components/public/public-container";
 import { SiteSupportLinks } from "@/components/public/site-support-links";
 
 import styles from "./public-footer.module.css";
+
+
+const LINKEDIN_URL =
+  "https://www.linkedin.com/company/aigo-os/";
+
+
+function LinkedInIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="20"
+      height="20"
+      aria-hidden="true"
+      focusable="false"
+      fill="currentColor"
+    >
+      <path d="M5.2 3.5a2.1 2.1 0 1 1 0 4.2 2.1 2.1 0 0 1 0-4.2ZM3.4 9h3.6v11.5H3.4V9Zm5.8 0h3.4v1.6h.1c.5-.9 1.7-2 3.6-2 3.8 0 4.5 2.5 4.5 5.8v6.1h-3.6v-5.4c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9v5.5H9.2V9Z" />
+    </svg>
+  );
+}
 
 
 export function PublicFooter() {
@@ -13,11 +34,13 @@ export function PublicFooter() {
       <PublicContainer>
 
         {/* =====================================================
-            BRAND + PRIMARY CONVERSION
+            BRAND + CTA
         ===================================================== */}
 
         <div className={styles.top}>
+
           <div className={styles.brand}>
+
             <Link
               href="/"
               className={styles.logoLink}
@@ -32,30 +55,54 @@ export function PublicFooter() {
               />
             </Link>
 
+
             <p className={styles.brandText}>
-              Enterprise intelligence for understanding AI governance
-              and business impact in context.
+              Connected intelligence for understanding governance,
+              enterprise relationships and business impact in context.
             </p>
+
+
+            <div
+              className={styles.socials}
+              aria-label="Follow AIGO-OS"
+            >
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.socialLink}
+                aria-label="Follow AIGO-OS on LinkedIn"
+                title="LinkedIn"
+              >
+                <LinkedInIcon />
+              </a>
+            </div>
+
           </div>
 
 
           <div className={styles.cta}>
+
             <div className={styles.ctaCopy}>
+
               <span>
                 Explore AIGO-OS
               </span>
 
               <strong>
-                Bring AI activity into clearer business context.
+                Understand what your enterprise information means.
               </strong>
 
               <p>
-                Explore AIGO-OS through a product demonstration or
-                start a commercial conversation about enterprise adoption.
+                See how AIGO-OS connects enterprise context to support
+                governance intelligence and business-impact intelligence.
               </p>
+
             </div>
 
+
             <div className={styles.actions}>
+
               <Link
                 href="/request-demo"
                 className={styles.primaryButton}
@@ -64,18 +111,21 @@ export function PublicFooter() {
               </Link>
 
               <Link
-                href="/get-started"
+                href="/talk-to-an-expert"
                 className={styles.secondaryButton}
               >
-                Get Started
+                Talk to an Expert
               </Link>
+
             </div>
+
           </div>
+
         </div>
 
 
         {/* =====================================================
-            FOOTER NAVIGATION
+            CURRENT SITE NAVIGATION
         ===================================================== */}
 
         <nav
@@ -83,9 +133,14 @@ export function PublicFooter() {
           aria-label="Footer navigation"
         >
 
-          {/* PLATFORM */}
+          {/* ===================================================
+              PLATFORM
+
+              Mirrors the current Platform mega menu.
+          =================================================== */}
 
           <div className={styles.column}>
+
             <p className={styles.columnTitle}>
               Platform
             </p>
@@ -94,31 +149,71 @@ export function PublicFooter() {
               Platform Overview
             </Link>
 
+
+            <span className={styles.groupLabel}>
+              Connect
+            </span>
+
+            <Link href="/platform/enterprise-connectivity">
+              Enterprise Connectivity
+            </Link>
+
+
+            <span className={styles.groupLabel}>
+              Understand
+            </span>
+
             <Link href="/platform/enterprise-context">
               Enterprise Context
             </Link>
 
-            <Link href="/platform/ai-business-mapping">
-              AI Business Mapping
+
+            <span className={styles.groupLabel}>
+              Relate
+            </span>
+
+            <Link href="/platform/relationship-dependency-intelligence">
+              Relationship &amp; Dependency Intelligence
             </Link>
 
-            <Link href="/platform/activity-event-correlation">
-              Activity & Event Correlation
+
+            <span className={styles.groupLabel}>
+              Keep Current
+            </span>
+
+            <Link href="/platform/continuous-intelligence">
+              Continuous Intelligence
             </Link>
 
-            <Link href="/platform/contextual-intelligence">
-              Contextual Intelligence
+
+            <span className={styles.groupLabel}>
+              Reason
+            </span>
+
+            <Link href="/platform/contextual-reasoning">
+              Contextual Reasoning
             </Link>
 
-            <Link href="/platform/management-intelligence">
-              Management Intelligence
+
+            <span className={styles.groupLabel}>
+              Explain
+            </span>
+
+            <Link href="/platform/explainability-traceability">
+              Explainability &amp; Traceability
             </Link>
+
           </div>
 
 
-          {/* PRODUCTS */}
+          {/* ===================================================
+              PRODUCTS
+
+              Mirrors the current Products mega menu.
+          =================================================== */}
 
           <div className={styles.column}>
+
             <p className={styles.columnTitle}>
               Products
             </p>
@@ -127,15 +222,117 @@ export function PublicFooter() {
               Products Overview
             </Link>
 
-            <Link href="/products/aigo-os-govern">
-              AIGO-OS Govern
+
+            <div className={styles.productFooterItem}>
+              <span className={styles.groupLabel}>
+                Governance Intelligence
+              </span>
+
+              <Link href="/products/aigo-os-govern">
+                AIGO-OS Govern
+              </Link>
+            </div>
+
+
+            <div className={styles.productFooterItem}>
+              <span className={styles.groupLabel}>
+                Business Impact Intelligence
+              </span>
+
+              <Link href="/products/aigo-os-impact">
+                AIGO-OS Impact
+              </Link>
+            </div>
+
+          </div>
+
+
+          {/* ===================================================
+              SOLUTIONS
+
+              Mirrors the CURRENT Govern / Impact dropdown,
+              not the retired solution names.
+          =================================================== */}
+
+          <div className={`${styles.column} ${styles.solutionsColumn}`}>
+
+            <p className={styles.columnTitle}>
+              Solutions
+            </p>
+
+
+            <span className={styles.groupLabel}>
+              Govern
+            </span>
+
+            <Link href="/solutions/unclear-control-applicability">
+              Unclear Control Applicability
             </Link>
 
-            <Link href="/products/aigo-os-impact">
-              AIGO-OS Impact
+            <Link href="/solutions/disconnected-policies-controls">
+              Disconnected Policies &amp; Controls
+            </Link>
+
+            <Link href="/solutions/unclear-control-coverage">
+              Unclear Control Coverage
+            </Link>
+
+            <Link href="/solutions/unknown-governance-change-impact">
+              Unknown Governance Change Impact
+            </Link>
+
+            <Link href="/solutions/unclear-ownership-accountability">
+              Unclear Ownership &amp; Accountability
+            </Link>
+
+
+            <span className={styles.groupLabel}>
+              Impact
+            </span>
+
+            <Link href="/solutions/unknown-change-impact">
+              Unknown Change Impact
+            </Link>
+
+            <Link href="/solutions/unclear-incident-business-impact">
+              Unclear Incident Business Impact
+            </Link>
+
+            <Link href="/solutions/hidden-dependencies">
+              Hidden Dependencies
+            </Link>
+
+            <Link href="/solutions/unclear-critical-service-dependencies">
+              Unclear Critical Service Dependencies
+            </Link>
+
+          </div>
+
+
+          {/* ===================================================
+              RESOURCES
+          =================================================== */}
+
+          <div className={styles.column}>
+
+            <p className={styles.columnTitle}>
+              Resources
+            </p>
+
+            <Link href="/resources">
+              Resources
+            </Link>
+
+            <Link href="/integrations">
+              Integrations
+            </Link>
+
+            <Link href="/help">
+              Help Center
             </Link>
 
             <div className={styles.columnSubgroup}>
+
               <span>
                 Explore
               </span>
@@ -147,58 +344,18 @@ export function PublicFooter() {
               <Link href="/talk-to-an-expert">
                 Talk to an Expert
               </Link>
+
             </div>
+
           </div>
 
 
-          {/* SOLUTIONS */}
+          {/* ===================================================
+              COMPANY
+          =================================================== */}
 
           <div className={styles.column}>
-            <p className={styles.columnTitle}>
-              Solutions
-            </p>
 
-            <span className={styles.groupLabel}>
-              Govern
-            </span>
-
-            <Link href="/solutions/ai-agent-accountability">
-              AI Agent Accountability
-            </Link>
-
-            <Link href="/solutions/ai-agent-access-authority">
-              AI Agent Access Authority
-            </Link>
-
-            <Link href="/solutions/ai-agent-sprawl">
-              AI Agent Sprawl
-            </Link>
-
-            <Link href="/solutions/ai-governance-priorities">
-              AI Governance Priorities
-            </Link>
-
-            <span className={styles.groupLabel}>
-              Impact
-            </span>
-
-            <Link href="/solutions/ai-business-dependencies">
-              AI Business Dependencies
-            </Link>
-
-            <Link href="/solutions/ai-change-business-impact">
-              AI Change Business Impact
-            </Link>
-
-            <Link href="/solutions/ai-incident-business-impact">
-              AI Incident Business Impact
-            </Link>
-          </div>
-
-
-          {/* COMPANY */}
-
-          <div className={styles.column}>
             <p className={styles.columnTitle}>
               Company
             </p>
@@ -219,66 +376,39 @@ export function PublicFooter() {
               Contact
             </Link>
 
+
             <div className={styles.columnSubgroup}>
+
               <span>
-                Follow
+                Follow AIGO-OS
               </span>
 
-              <Link href="/company/linkedin">
-                LinkedIn
-              </Link>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.inlineSocialLink}
+              >
+                <LinkedInIcon />
 
-              <Link href="/company/youtube">
-                YouTube
-              </Link>
+                <span>
+                  LinkedIn
+                </span>
+              </a>
+
             </div>
+
           </div>
 
 
-          {/* RESOURCES */}
+          {/* ===================================================
+              TRUST + LEGAL
+          =================================================== */}
 
           <div className={styles.column}>
+
             <p className={styles.columnTitle}>
-              Resources
-            </p>
-
-            <Link href="/resources">
-              Resources
-            </Link>
-
-            <Link href="/integrations">
-              Integrations
-            </Link>
-
-            <Link href="/help">
-              Help Center
-            </Link>
-
-            <div className={styles.columnSubgroup}>
-              <span>
-                Talk to AIGO-OS
-              </span>
-
-              <Link href="/talk-to-an-expert">
-                Talk to an Expert
-              </Link>
-
-              <Link href="/request-demo">
-                Request a Demo
-              </Link>
-
-              <Link href="/get-started">
-                Sales & Commercial
-              </Link>
-            </div>
-          </div>
-
-
-          {/* TRUST + LEGAL */}
-
-          <div className={styles.column}>
-            <p className={styles.columnTitle}>
-              Trust & Legal
+              Trust &amp; Legal
             </p>
 
             <Link href="/security">
@@ -296,43 +426,77 @@ export function PublicFooter() {
             <Link href="/accessibility">
               Accessibility
             </Link>
+
           </div>
 
         </nav>
 
 
         {/* =====================================================
-            BOTTOM
+            BOTTOM BAR
         ===================================================== */}
 
         <div className={styles.bottom}>
+
           <div className={styles.copyright}>
+
             <strong>
               AIGO-OS
             </strong>
 
             <p>
-              © {new Date().getFullYear()} AIGO-OS. All rights reserved.
+              © {new Date().getFullYear()} AIGO-OS.
+              All rights reserved.
             </p>
+
           </div>
 
-          <div className={styles.bottomLinks}>
-            <Link href="/privacy">
-              Privacy
-            </Link>
 
-            <Link href="/terms">
-              Terms
-            </Link>
+          <div className={styles.bottomRight}>
 
-            <Link href="/security">
-              Security
-            </Link>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.bottomLinkedIn}
+              aria-label="AIGO-OS on LinkedIn"
+            >
+              <LinkedInIcon />
+            </a>
 
-            <Link href="/accessibility">
-              Accessibility
-            </Link>
+
+            <div className={styles.bottomLinks}>
+
+              <Link href="/privacy">
+                Privacy
+              </Link>
+
+              <Link href="/cookies">
+                Cookies
+              </Link>
+
+              <Link href="/terms">
+                Terms
+              </Link>
+
+              <Link href="/security">
+                Security
+              </Link>
+
+              <Link href="/responsible-disclosure">
+                Responsible Disclosure
+              </Link>
+
+              <Link href="/accessibility">
+                Accessibility
+              </Link>
+
+              <CookieSettingsButton />
+
+            </div>
+
           </div>
+
         </div>
 
       </PublicContainer>
@@ -341,3 +505,6 @@ export function PublicFooter() {
     </footer>
   );
 }
+
+
+

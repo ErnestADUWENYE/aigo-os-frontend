@@ -1,5 +1,4 @@
-﻿import type { Metadata } from "next";
-import Link from "next/link";
+﻿import Link from "next/link";
 
 import {
   ArrowRight,
@@ -11,14 +10,21 @@ import {
 
 import { PublicContainer } from "@/components/public/public-container";
 import { openCareerRoles } from "@/data/careers";
+import { createPageMetadata } from "@/lib/seo/metadata";
 
 import styles from "./page.module.css";
 
-export const metadata: Metadata = {
-  title: "Careers | AIGO-OS",
+export const metadata = createPageMetadata({
+  title: "Careers",
   description:
     "Explore open opportunities at AIGO-OS and other ways to work with us as an early customer, design partner, strategic partner or investor.",
-};
+  path: "/company/careers",
+  keywords: [
+    "AIGO-OS careers",
+    "AI governance careers",
+    "enterprise AI careers",
+  ],
+});
 
 const pathways = [
   {
@@ -27,7 +33,7 @@ const pathways = [
     title: "Explore AIGO-OS in your organisation",
     text:
       "For organisations with a real enterprise AI governance need and an interest in evaluating where AIGO-OS could fit.",
-    href: "/contact?intent=early-customer",
+    href: "/company/contact?intent=early-customer",
     action: "Talk to us",
   },
   {
@@ -36,7 +42,7 @@ const pathways = [
     title: "Help shape AIGO-OS around real governance needs",
     text:
       "Work closely with us around a genuine enterprise use case, provide practical feedback and help validate AIGO-OS in real operating environments.",
-    href: "/contact?intent=design-partner",
+    href: "/company/contact?intent=design-partner",
     action: "Become a design partner",
   },
   {
@@ -45,7 +51,7 @@ const pathways = [
     title: "Explore a meaningful partnership",
     text:
       "For organisations where integration, advisory, implementation, distribution or another ecosystem relationship could create mutual value.",
-    href: "/contact?intent=strategic-partner",
+    href: "/company/contact?intent=strategic-partner",
     action: "Discuss a partnership",
   },
   {
@@ -54,7 +60,7 @@ const pathways = [
     title: "Talk to us about the company we are building",
     text:
       "We welcome conversations with angel and early-stage investors who understand enterprise software, AI or governance and are interested in AIGO-OS.",
-    href: "/contact?intent=investor",
+    href: "/company/contact?intent=investor",
     action: "Start a conversation",
   },
 ];
@@ -265,3 +271,5 @@ export default function CareersPage() {
     </>
   );
 }
+
+

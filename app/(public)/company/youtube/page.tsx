@@ -2,7 +2,18 @@
 
 import { PublicContainer } from "@/components/public/public-container";
 
+import { createPageMetadata } from "@/lib/seo/metadata";
+
 import styles from "../social-placeholder.module.css";
+
+
+export const metadata = createPageMetadata({
+  title: "YouTube",
+  description:
+    "The official AIGO-OS YouTube channel is being prepared.",
+  path: "/company/youtube",
+  index: false,
+});
 
 export default function YouTubePage() {
   return (
@@ -44,3 +55,4 @@ export default function YouTubePage() {
     </main>
   );
 }
+

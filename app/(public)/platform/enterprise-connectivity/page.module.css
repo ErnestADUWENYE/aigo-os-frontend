@@ -1,0 +1,1228 @@
+﻿.hero,
+.sourceSection,
+.authoritySection,
+.productSection,
+.nextSection {
+  position: relative;
+}
+
+
+/* ==========================================================
+   SHARED
+   ========================================================== */
+
+.sectionLabel,
+.sectionLabelLight {
+  margin: 0 0 14px !important;
+
+  font-size: 10px;
+  font-weight: 850;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.09em;
+
+  text-transform: uppercase;
+}
+
+.sectionLabel {
+  color: #245d7e;
+}
+
+.sectionLabelLight {
+  color: #e0b348;
+}
+
+
+/* ==========================================================
+   HERO
+   ========================================================== */
+
+.hero {
+  overflow: hidden;
+
+  padding: 98px 0 104px;
+
+  background:
+    radial-gradient(
+      circle at 88% 15%,
+      rgba(51, 120, 154, 0.12),
+      transparent 27%
+    ),
+    linear-gradient(
+      123deg,
+      #eee8de 0%,
+      #f8f8f5 51%,
+      #e2ebf1 100%
+    );
+}
+
+.heroGrid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.96fr)
+    minmax(470px, 0.78fr);
+
+  align-items: center;
+
+  gap: clamp(46px, 5vw, 78px);
+}
+
+.heroCopy {
+  min-width: 0;
+}
+
+.platformIdentity {
+  margin-bottom: 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.platformIdentity span {
+  color: #245d7e;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.11em;
+}
+
+.platformIdentity strong {
+  color: #07111f;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  letter-spacing: 0.045em;
+}
+
+.heroTitle {
+  max-width: 800px;
+
+  margin: 0;
+
+  color: #07111f;
+
+  font-size: clamp(48px, 4.7vw, 72px);
+  font-weight: 720;
+
+  line-height: 1;
+
+  letter-spacing: -0.052em;
+}
+
+.heroTitle span {
+  display: block;
+}
+
+.heroTitle span + span {
+  margin-top: 7px;
+
+  color: #1f6689;
+}
+
+.heroText {
+  max-width: 710px;
+
+  margin: 27px 0 0 !important;
+
+  color: #294458 !important;
+
+  font-size: 16px;
+  font-weight: 510;
+
+  line-height: 1.72;
+}
+
+.heroActions {
+  margin-top: 31px;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+.primaryButton,
+.secondaryButton {
+  min-height: 46px;
+
+  padding: 0 19px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+  font-weight: 780;
+
+  text-decoration: none;
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.primaryButton {
+  background: #082b42;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 10px 24px rgba(8, 43, 66, 0.16);
+}
+
+.secondaryButton {
+  border: 1px solid #8ca5b5;
+
+  background: #ffffff;
+
+  color: #0b2b41;
+}
+
+.primaryButton:hover,
+.secondaryButton:hover {
+  transform: translateY(-2px);
+}
+
+
+/* ==========================================================
+   HERO CONNECTIVITY MAP
+   ========================================================== */
+
+.connectionVisual {
+  width: 100%;
+  max-width: 600px;
+
+  justify-self: end;
+
+  padding: 20px;
+
+  border: 1px solid #b9ccd7;
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 26px 58px rgba(10, 38, 55, 0.13);
+}
+
+.visualHeading {
+  padding: 2px 2px 17px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+
+  border-bottom: 1px solid #cfdae1;
+}
+
+.visualHeading span {
+  color: #245d7e;
+
+  font-size: 8px;
+  font-weight: 850;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.visualHeading strong {
+  max-width: 450px;
+
+  color: #07111f;
+
+  font-size: 13px;
+  font-weight: 720;
+
+  line-height: 1.35;
+}
+
+.connectionMap {
+  min-height: 370px;
+
+  padding-top: 18px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(145px, 0.7fr)
+    minmax(120px, 0.6fr)
+    minmax(180px, 0.82fr);
+
+  align-items: center;
+
+  gap: 0;
+}
+
+.sourceNodes {
+  height: 350px;
+
+  display: grid;
+
+  grid-template-rows:
+    repeat(6, 1fr);
+
+  align-items: center;
+
+  gap: 5px;
+}
+
+.mapSource {
+  min-height: 49px;
+
+  padding: 7px 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border: 1px solid #bfd0da;
+  border-radius: 8px;
+
+  background: #f7fafb;
+
+  box-shadow:
+    0 5px 12px rgba(15, 48, 66, 0.035);
+}
+
+.mapSource span {
+  color: #4f7890;
+
+  font-size: 7px;
+  font-weight: 850;
+
+  letter-spacing: 0.05em;
+
+  text-transform: uppercase;
+}
+
+.mapSource strong {
+  margin-top: 2px;
+
+  color: #07111f;
+
+  font-size: 9px;
+  font-weight: 720;
+
+  line-height: 1.25;
+}
+
+.flowCanvas {
+  width: 100%;
+  height: 350px;
+}
+
+.flowCanvas svg {
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+}
+
+.flowPath {
+  fill: none;
+
+  stroke: #4385a7;
+  stroke-width: 1.5;
+
+  opacity: 0.88;
+}
+
+.combinedPath {
+  fill: none;
+
+  stroke: #1c678c;
+  stroke-width: 2.3;
+}
+
+.signalDot {
+  fill: #1e82ad;
+}
+
+.combinedSignal {
+  fill: #dba729;
+}
+
+.junctionOuter {
+  fill: #ffffff;
+
+  stroke: #2e769b;
+  stroke-width: 2.2;
+}
+
+.junctionInner {
+  fill: #1d6c92;
+}
+
+
+/* AIGO-OS */
+
+.aigoNode {
+  min-height: 268px;
+
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+
+  overflow: hidden;
+
+  border: 1px solid #174c68;
+  border-radius: 14px;
+
+  background:
+    radial-gradient(
+      circle at 92% 9%,
+      rgba(72, 164, 198, 0.22),
+      transparent 33%
+    ),
+    #082d43;
+
+  box-shadow:
+    0 20px 36px rgba(8, 45, 67, 0.2);
+}
+
+.aigoNode::after {
+  content: "";
+
+  width: 190px;
+  height: 190px;
+
+  position: absolute;
+
+  right: -110px;
+  bottom: -108px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 50%;
+}
+
+.nodeStatus {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+}
+
+.nodeStatus i {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #72d2a9;
+
+  box-shadow:
+    0 0 0 5px rgba(114, 210, 169, 0.11);
+
+  animation:
+    statusPulse 2s ease-in-out infinite;
+}
+
+.nodeStatus span {
+  color: #b4d7ca;
+
+  font-size: 8px;
+  font-weight: 760;
+}
+
+.aigoNode small {
+  margin-top: 28px;
+
+  color: #9dc1d2;
+
+  font-size: 8px;
+  font-weight: 850;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.aigoNode > strong {
+  max-width: 260px;
+
+  margin-top: 6px;
+
+  color: #ffffff;
+
+  font-size: 21px;
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.02em;
+}
+
+.aigoNode > p {
+  max-width: 270px;
+
+  margin: 11px 0 0 !important;
+
+  color: #d0dce3 !important;
+
+  font-size: 10px;
+
+  line-height: 1.58;
+}
+
+.productTags {
+  margin-top: auto;
+
+  display: flex;
+
+  position: relative;
+  z-index: 2;
+
+  gap: 6px;
+}
+
+.productTags span {
+  padding: 6px 10px;
+
+  border: 1px solid rgba(255,255,255,0.17);
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.07);
+
+  color: #ffffff;
+
+  font-size: 8px;
+  font-weight: 720;
+}
+
+
+/* ==========================================================
+   SOURCE CAROUSEL
+   ========================================================== */
+
+.sourceSection {
+  overflow: hidden;
+
+  padding: 108px 0 116px;
+
+  background: #ffffff;
+}
+
+.sectionHeader {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.74fr)
+    minmax(300px, 0.4fr);
+
+  align-items: end;
+
+  gap: 66px;
+
+  margin-bottom: 44px;
+}
+
+.sectionHeader h2,
+.authorityCopy h2 {
+  max-width: 820px;
+
+  margin: 0;
+
+  color: #07111f;
+
+  font-size: clamp(38px, 3.4vw, 54px);
+  font-weight: 700;
+
+  line-height: 1.06;
+
+  letter-spacing: -0.043em;
+}
+
+.sectionHeader > p,
+.authorityCopy > p {
+  margin: 0 !important;
+
+  color: #344f62 !important;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  line-height: 1.7;
+}
+
+.carouselViewport {
+  width: 100%;
+
+  overflow: hidden;
+
+  padding: 15px 0 22px;
+
+  mask-image:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      #000 5%,
+      #000 95%,
+      transparent 100%
+    );
+}
+
+.carouselTrack {
+  width: max-content;
+
+  display: flex;
+
+  gap: 13px;
+
+  animation:
+    sourceRoll 32s linear infinite;
+}
+
+.carouselViewport:hover .carouselTrack {
+  animation-play-state: paused;
+}
+
+.sourceCard {
+  width: 320px;
+  min-height: 238px;
+
+  padding: 20px;
+
+  flex: 0 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+
+  overflow: hidden;
+
+  border: 1px solid #aebfca;
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #eef4f7
+    );
+
+  box-shadow:
+    0 15px 30px rgba(10, 41, 58, 0.09);
+
+  transform:
+    perspective(900px)
+    rotateY(-1.6deg);
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.sourceCard::after {
+  content: "";
+
+  width: 170px;
+  height: 170px;
+
+  position: absolute;
+
+  right: -90px;
+  top: -90px;
+
+  border: 1px solid rgba(29, 101, 137, 0.12);
+  border-radius: 50%;
+}
+
+.sourceCard:hover {
+  transform:
+    perspective(900px)
+    translateY(-7px)
+    rotateY(0deg);
+
+  border-color: #4b83a0;
+
+  box-shadow:
+    0 24px 44px rgba(10, 41, 58, 0.14);
+}
+
+.sourceCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 14px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.sourceIcon {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #b9ccd7;
+  border-radius: 9px;
+
+  background: #e8f0f4;
+
+  color: #175d81;
+}
+
+.sourceCardTop > span {
+  color: #426e86;
+
+  font-size: 7px;
+  font-weight: 850;
+
+  letter-spacing: 0.07em;
+
+  text-transform: uppercase;
+}
+
+.sourceCardBody {
+  margin-top: auto;
+
+  position: relative;
+  z-index: 2;
+}
+
+.sourceCardBody strong {
+  color: #07111f;
+
+  font-size: 18px;
+  font-weight: 720;
+
+  line-height: 1.25;
+}
+
+.sourceCardBody p {
+  margin: 9px 0 0 !important;
+
+  color: #354f61 !important;
+
+  font-size: 11px;
+
+  line-height: 1.58;
+}
+
+.carouselNote {
+  margin-top: 4px;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 7px;
+}
+
+.carouselNote span {
+  padding: 6px 10px;
+
+  border: 1px solid #c2d0d8;
+  border-radius: 999px;
+
+  background: #f5f8f9;
+
+  color: #325d75;
+
+  font-size: 8px;
+  font-weight: 740;
+}
+
+
+/* ==========================================================
+   AUTHORITY
+   ========================================================== */
+
+.authoritySection {
+  overflow: hidden;
+
+  padding: 112px 0;
+
+  background:
+    radial-gradient(
+      circle at 88% 12%,
+      rgba(65, 151, 184, 0.18),
+      transparent 27%
+    ),
+    #08283b;
+}
+
+.authorityGrid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.64fr)
+    minmax(420px, 0.75fr);
+
+  align-items: center;
+
+  gap: 85px;
+}
+
+.authorityCopy h2 {
+  color: #ffffff;
+}
+
+.authorityCopy > p {
+  max-width: 650px;
+
+  margin-top: 21px !important;
+
+  color: #c7d6de !important;
+}
+
+.authorityCopy > p + p {
+  margin-top: 12px !important;
+}
+
+.authorityVisual {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 10px;
+
+  perspective: 1000px;
+}
+
+.authorityCard,
+.authorityAigo {
+  min-height: 164px;
+
+  padding: 17px;
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 11px;
+
+  transition:
+    transform 180ms ease,
+    background 180ms ease;
+}
+
+.authorityCard {
+  border: 1px solid rgba(185, 215, 228, 0.2);
+
+  background: rgba(255,255,255,0.055);
+}
+
+.authorityCard:hover {
+  transform:
+    translateY(-4px)
+    rotateX(1.4deg);
+
+  background: rgba(255,255,255,0.08);
+}
+
+.authorityAigo {
+  border: 1px solid rgba(224, 179, 72, 0.45);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(224,179,72,0.14),
+      rgba(224,179,72,0.06)
+    );
+
+  transform:
+    translateY(-5px);
+}
+
+.authorityVisual span {
+  color: #a9c3d1;
+
+  font-size: 8px;
+  font-weight: 850;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+}
+
+.authorityAigo span {
+  color: #efc253;
+}
+
+.authorityVisual strong {
+  margin-top: auto;
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 680;
+
+  line-height: 1.4;
+}
+
+.authorityVisual small {
+  margin-top: 8px;
+
+  color: #9db3c0;
+
+  font-size: 8px;
+}
+
+
+/* ==========================================================
+   PRODUCTS
+   ========================================================== */
+
+.productSection {
+  padding: 108px 0 116px;
+
+  background: #f0f5f7;
+}
+
+.productGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+.productCard {
+  min-height: 320px;
+
+  padding: 26px;
+
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid #bbcbd4;
+  border-radius: 15px;
+
+  background: #ffffff;
+
+  color: inherit;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 10px 24px rgba(10, 42, 59, 0.05);
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.productCard:hover {
+  transform: translateY(-5px);
+
+  border-color: #628ca2;
+
+  box-shadow:
+    0 24px 42px rgba(10, 42, 59, 0.11);
+}
+
+.productCard > span {
+  color: #245d7e;
+
+  font-size: 9px;
+  font-weight: 850;
+
+  letter-spacing: 0.07em;
+
+  text-transform: uppercase;
+}
+
+.productCard h3 {
+  max-width: 500px;
+
+  margin: 68px 0 0;
+
+  color: #07111f;
+
+  font-size: 27px;
+  font-weight: 700;
+
+  line-height: 1.17;
+
+  letter-spacing: -0.027em;
+}
+
+.productCard p {
+  max-width: 575px;
+
+  margin: 12px 0 0 !important;
+
+  color: #3f596b !important;
+
+  font-size: 12px;
+
+  line-height: 1.62;
+}
+
+.productCard > strong {
+  margin-top: auto;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color: #124d6d;
+
+  font-size: 10px;
+  font-weight: 780;
+}
+
+
+/* ==========================================================
+   NEXT
+   ========================================================== */
+
+.nextSection {
+  padding: 78px 0 90px;
+
+  background: #ffffff;
+}
+
+.nextCapability {
+  min-height: 180px;
+
+  padding: 27px 31px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+
+  border: 1px solid #b8c9d2;
+  border-radius: 15px;
+
+  background:
+    radial-gradient(
+      circle at 88% 10%,
+      rgba(51, 127, 163, 0.1),
+      transparent 25%
+    ),
+    #f7fafb;
+
+  color: inherit;
+
+  text-decoration: none;
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.nextCapability:hover {
+  transform: translateY(-4px);
+
+  border-color: #53819a;
+
+  box-shadow:
+    0 19px 36px rgba(10, 42, 59, 0.1);
+}
+
+.nextCapability span {
+  color: #346b88;
+
+  font-size: 8px;
+  font-weight: 850;
+
+  letter-spacing: 0.07em;
+
+  text-transform: uppercase;
+}
+
+.nextCapability strong {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #07111f;
+
+  font-size: 27px;
+  font-weight: 700;
+
+  letter-spacing: -0.025em;
+}
+
+.nextCapability p {
+  max-width: 690px;
+
+  margin: 8px 0 0 !important;
+
+  color: #3f596a !important;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+.nextCapability > svg {
+  flex: 0 0 auto;
+
+  color: #1e6589;
+}
+
+
+/* ==========================================================
+   MOTION
+   ========================================================== */
+
+@keyframes statusPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform: scale(1.08);
+  }
+}
+
+@keyframes sourceRoll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-8 * 333px));
+  }
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 1120px) {
+  .heroGrid,
+  .authorityGrid {
+    grid-template-columns: 1fr;
+
+    gap: 44px;
+  }
+
+  .connectionVisual {
+    justify-self: start;
+
+    max-width: 650px;
+  }
+
+  .sectionHeader {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+}
+
+
+@media (max-width: 760px) {
+  .hero {
+    padding: 76px 0;
+  }
+
+  .heroTitle {
+    font-size: clamp(41px, 11vw, 56px);
+  }
+
+  .heroActions {
+    flex-direction: column;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+
+  .connectionVisual {
+    max-width: 100%;
+  }
+
+  .connectionMap {
+    grid-template-columns:
+      minmax(110px, 0.58fr)
+      minmax(80px, 0.4fr)
+      minmax(140px, 0.7fr);
+
+    transform-origin: top left;
+  }
+
+  .mapSource {
+    padding: 6px 7px;
+  }
+
+  .mapSource strong {
+    font-size: 8px;
+  }
+
+  .aigoNode {
+    min-height: 250px;
+
+    padding: 15px;
+  }
+
+  .aigoNode > strong {
+    font-size: 17px;
+  }
+
+  .sourceCard {
+    width: 270px;
+  }
+
+  .authorityVisual,
+  .productGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .nextCapability {
+    padding: 23px;
+
+    align-items: flex-start;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .carouselTrack,
+  .nodeStatus i {
+    animation: none;
+  }
+
+  .primaryButton,
+  .secondaryButton,
+  .sourceCard,
+  .authorityCard,
+  .productCard,
+  .nextCapability {
+    transition: none;
+  }
+
+  .primaryButton:hover,
+  .secondaryButton:hover,
+  .sourceCard:hover,
+  .authorityCard:hover,
+  .productCard:hover,
+  .nextCapability:hover {
+    transform: none;
+  }
+}

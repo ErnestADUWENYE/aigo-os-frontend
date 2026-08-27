@@ -611,30 +611,96 @@
 .submitButton {
   flex: 0 0 auto;
 
-  min-height: 48px;
+  min-height: 50px;
 
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
 
   gap: 9px;
 
-  padding: 0 18px;
+  padding: 0 20px;
 
   border: 0;
   border-radius: 9px;
 
-  background: #8d9ba4;
+  background: #071a33;
 
   color: #ffffff;
+
+  font: inherit;
 
   font-size: 12px;
   font-weight: 760;
 
-  cursor: not-allowed;
+  cursor: pointer;
 
-  opacity: 0.7;
+  box-shadow:
+    0 10px 22px rgba(7, 26, 51, 0.16);
+
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease,
+    opacity 160ms ease;
+}
+
+
+.submitButton:hover:not(:disabled),
+.submitButton:focus-visible:not(:disabled) {
+  transform: translateY(-2px);
+
+  background: #103756;
+
+  box-shadow:
+    0 16px 28px rgba(7, 26, 51, 0.21);
+
+  outline: none;
+}
+
+
+.submitButton:disabled {
+  opacity: 0.58;
+
+  cursor: wait;
+
+  transform: none;
+}
+
+
+.formStatus {
+  margin-top: 20px;
+
+  padding: 14px 16px;
+
+  border-radius: 9px;
+
+  font-size: 12px;
+  font-weight: 620;
+
+  line-height: 1.55;
+}
+
+
+.formSuccess {
+  border:
+    1px solid
+    rgba(42, 118, 82, 0.22);
+
+  background: #eef7f2;
+
+  color: #245f46;
+}
+
+
+.formError {
+  border:
+    1px solid
+    rgba(150, 64, 64, 0.22);
+
+  background: #fbf1f1;
+
+  color: #893f3f;
 }
 
 
@@ -705,3 +771,4 @@
 .noBreak {
   white-space: nowrap;
 }
+

@@ -3,21 +3,22 @@
 
   overflow: hidden;
 
-  border-radius: 10px;
+  border-radius: 12px;
 
-  background: #f7f9fb;
+  background: #f5f8fa;
 
   color: #07111f;
 }
 
+
 /* ==========================================================
-   TOP BAR
-========================================================== */
+   TOP
+   ========================================================== */
 
 .topBar {
-  min-height: 82px;
+  min-height: 72px;
 
-  padding: 18px 26px;
+  padding: 15px 24px;
 
   display: flex;
   align-items: center;
@@ -26,17 +27,31 @@
   gap: 30px;
 
   background:
+    radial-gradient(
+      circle at 78% 20%,
+      rgba(64, 128, 160, 0.2),
+      transparent 30%
+    ),
     linear-gradient(
       105deg,
-      #0a2139 0%,
-      #123c5d 100%
+      #071d32 0%,
+      #103b5b 100%
     );
 }
+
+
+.topBar > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
 
 .eyebrow {
   color: #e0b348;
 
-  font-size: 10px;
+  font-size: 8px;
   font-weight: 850;
 
   letter-spacing: 0.11em;
@@ -44,19 +59,30 @@
   text-transform: uppercase;
 }
 
+
+.topTitle {
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 680;
+
+  letter-spacing: -0.01em;
+}
+
+
 .topNote {
   flex: 0 0 auto;
 
-  padding: 7px 12px;
+  padding: 6px 10px;
 
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 999px;
 
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.055);
 
   color: #d1dce4;
 
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 750;
 
   letter-spacing: 0.06em;
@@ -64,114 +90,127 @@
   text-transform: uppercase;
 }
 
+
 /* ==========================================================
    PRODUCT GROUPS
-========================================================== */
+   ========================================================== */
 
 .groups {
-  padding: 22px 24px 26px;
+  padding: 16px;
 
   display: grid;
 
   grid-template-columns:
     repeat(2, minmax(0, 1fr));
 
-  gap: 16px;
+  align-items: start;
+
+  gap: 12px;
 
   background:
     linear-gradient(
       180deg,
       #ffffff 0%,
-      #f4f7f9 100%
+      #f3f6f8 100%
     );
 }
+
 
 .group {
   min-width: 0;
 
   overflow: hidden;
 
-  border: 1px solid #d5dee6;
-  border-radius: 15px;
+  border: 1px solid #d5dee5;
+  border-radius: 13px;
 
   background: #ffffff;
 
   box-shadow:
-    0 7px 20px rgba(7, 26, 51, 0.05);
+    0 6px 18px rgba(7, 26, 51, 0.045);
 }
 
+
 /* ==========================================================
-   PRODUCT SUBHEADERS
-========================================================== */
+   PRODUCT HEADER
+   ========================================================== */
 
 .groupHeader {
-  min-height: 96px;
+  min-height: 91px;
 
-  padding: 18px 20px;
+  padding: 14px 16px;
 
   display: grid;
 
   grid-template-columns:
-    50px
+    42px
     minmax(0, 1fr);
 
   align-items: center;
 
-  gap: 14px;
+  gap: 12px;
+
+  border-bottom: 1px solid #dce4e9;
 }
+
 
 .governHeader {
   background:
-    linear-gradient(
-      120deg,
-      #edf5fa 0%,
-      #f4f8fb 58%,
-      #f8fafc 100%
-    );
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(70, 132, 166, 0.1),
+      transparent 35%
+    ),
+    #eef5f9;
 }
+
 
 .impactHeader {
   background:
-    linear-gradient(
-      120deg,
-      #edf7f1 0%,
-      #f4f9f6 58%,
-      #f8faf9 100%
-    );
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(55, 139, 90, 0.09),
+      transparent 35%
+    ),
+    #eef7f2;
 }
 
+
 .groupIcon {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
 
   display: grid;
   place-items: center;
 
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
-.governIcon {
-  border: 1px solid #c3d7e4;
 
-  background: #e4f0f7;
+.governIcon {
+  border: 1px solid #bfd4e0;
+
+  background: #e0edf4;
 
   color: #245f83;
 }
 
-.impactIcon {
-  border: 1px solid #c4dfce;
 
-  background: #e5f3ea;
+.impactIcon {
+  border: 1px solid #c0ddca;
+
+  background: #e1f0e6;
 
   color: #237747;
 }
 
+
 .productType {
   display: block;
 
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 
-  font-size: 8.5px;
+  font-size: 7px;
   font-weight: 850;
 
   letter-spacing: 0.085em;
@@ -179,20 +218,23 @@
   text-transform: uppercase;
 }
 
+
 .governHeader .productType {
   color: #346f92;
 }
 
+
 .impactHeader .productType {
   color: #347a50;
 }
+
 
 .groupHeader strong {
   display: block;
 
   color: #07111f;
 
-  font-size: 19px;
+  font-size: 16px;
   font-weight: 760;
 
   line-height: 1.14;
@@ -200,90 +242,102 @@
   letter-spacing: -0.02em;
 }
 
+
+.productDescription {
+  max-width: 400px;
+
+  margin: 4px 0 0;
+
+  color: #5a6d7c;
+
+  font-size: 8px;
+
+  line-height: 1.35;
+}
+
+
 /* ==========================================================
-   USE CASE AREA
-========================================================== */
+   USE CASES
+   ========================================================== */
 
 .caseList {
-  padding: 16px;
+  padding: 9px;
 
   display: grid;
 
-  gap: 9px;
+  gap: 5px;
 
   background: #ffffff;
 }
 
+
 .caseItem {
   position: relative;
 
-  min-height: 76px;
+  min-height: 59px;
 
-  padding: 12px 13px;
+  padding: 8px 10px;
 
   display: grid;
 
   grid-template-columns:
-    36px
+    31px
     minmax(0, 1fr)
-    auto;
+    15px;
 
   align-items: center;
 
-  gap: 12px;
+  gap: 9px;
 
-  border: 1px solid #dce4ea;
-  border-radius: 11px;
+  border: 1px solid #e0e6eb;
+  border-radius: 8px;
 
-  background:
-    linear-gradient(
-      145deg,
-      #ffffff,
-      #fbfcfd
-    );
+  background: #ffffff;
 
   color: inherit;
 
   text-decoration: none;
 
-  box-shadow:
-    0 3px 9px rgba(7, 26, 51, 0.025);
-
   transition:
-    transform 160ms ease,
-    border-color 160ms ease,
-    box-shadow 160ms ease,
-    background 160ms ease;
+    transform 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease,
+    background 150ms ease;
 }
+
 
 .caseItem:hover,
 .caseItem:focus-visible {
-  transform: translateY(-2px);
+  z-index: 2;
 
-  border-color: #a5b8c6;
+  transform: translateX(2px);
 
-  background: #ffffff;
+  border-color: #aebfca;
+
+  background: #fbfdfe;
 
   box-shadow:
-    0 10px 21px rgba(7, 26, 51, 0.08);
+    0 7px 16px rgba(7, 26, 51, 0.07);
 
   outline: none;
 }
 
+
 .caseIcon {
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
 
   display: grid;
   place-items: center;
 
-  border-radius: 9px;
+  border-radius: 7px;
 
   transition:
-    background 160ms ease,
-    color 160ms ease,
-    transform 160ms ease;
+    background 150ms ease,
+    color 150ms ease,
+    transform 150ms ease;
 }
+
 
 .governCaseIcon {
   background: #edf4f8;
@@ -291,61 +345,75 @@
   color: #346f92;
 }
 
+
 .impactCaseIcon {
-  background: #eef7f1;
+  background: #edf6f0;
 
   color: #347a50;
 }
+
 
 .caseItem:hover .governCaseIcon,
 .caseItem:focus-visible .governCaseIcon {
   background: #245f83;
 
   color: #ffffff;
+
+  transform: scale(1.04);
 }
+
 
 .caseItem:hover .impactCaseIcon,
 .caseItem:focus-visible .impactCaseIcon {
   background: #287649;
 
   color: #ffffff;
+
+  transform: scale(1.04);
 }
+
 
 .caseCopy {
   min-width: 0;
 }
+
 
 .caseCopy strong {
   display: block;
 
   color: #07111f;
 
-  font-size: 12.5px;
-  font-weight: 740;
+  font-size: 10.5px;
+  font-weight: 750;
 
-  line-height: 1.25;
+  line-height: 1.22;
 }
+
 
 .caseCopy span {
   display: block;
 
-  margin-top: 4px;
+  margin-top: 2px;
 
-  color: #55697c;
+  color: #5a6d7c;
 
-  font-size: 9.5px;
+  font-size: 8px;
   font-weight: 500;
 
-  line-height: 1.42;
+  line-height: 1.32;
 }
+
 
 .caseArrow {
-  color: #8a9ca9;
+  justify-self: end;
+
+  color: #93a3ae;
 
   transition:
-    color 160ms ease,
-    transform 160ms ease;
+    color 150ms ease,
+    transform 150ms ease;
 }
+
 
 .caseItem:hover .caseArrow,
 .caseItem:focus-visible .caseArrow {
@@ -354,76 +422,162 @@
   transform: translate(2px, -2px);
 }
 
+
 /* ==========================================================
    TABLET
-========================================================== */
+   ========================================================== */
 
 @media (max-width: 900px) {
+
   .topNote {
     display: none;
   }
 
+
   .groups {
     grid-template-columns: 1fr;
+
+    max-height: min(72vh, 720px);
+
+    overflow-y: auto;
   }
+
 }
+
 
 /* ==========================================================
    MOBILE
-========================================================== */
+   ========================================================== */
 
 @media (max-width: 640px) {
-  .topBar {
-    min-height: 68px;
 
-    padding: 16px 20px;
+  .menu {
+    border-radius: 0;
   }
+
+
+  .topBar {
+    min-height: 64px;
+
+    padding: 13px 16px;
+  }
+
+
+  .topTitle {
+    max-width: 290px;
+
+    font-size: 11px;
+
+    line-height: 1.3;
+  }
+
 
   .groups {
-    padding: 15px;
+    padding: 10px;
 
-    gap: 13px;
+    gap: 10px;
+
+    max-height: 72vh;
   }
+
 
   .groupHeader {
-    min-height: 88px;
+    min-height: 82px;
 
-    padding: 16px 17px;
+    padding: 12px 13px;
 
     grid-template-columns:
-      44px
+      38px
       minmax(0, 1fr);
+
+    gap: 10px;
   }
+
 
   .groupIcon {
-    width: 42px;
-    height: 42px;
+    width: 36px;
+    height: 36px;
   }
+
 
   .groupHeader strong {
-    font-size: 17px;
+    font-size: 15px;
   }
+
+
+  .productDescription {
+    font-size: 7.5px;
+  }
+
 
   .caseList {
-    padding: 12px;
+    padding: 7px;
+
+    gap: 4px;
   }
 
+
   .caseItem {
+    min-height: 57px;
+
+    padding: 8px;
+
     grid-template-columns:
-      34px
+      29px
       minmax(0, 1fr)
-      auto;
+      14px;
+
+    gap: 8px;
   }
+
+
+  .caseIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+
+  .caseCopy strong {
+    font-size: 10px;
+  }
+
+
+  .caseCopy span {
+    font-size: 7.5px;
+  }
+
 }
+
 
 /* ==========================================================
    REDUCED MOTION
-========================================================== */
+   ========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
+
   .caseItem,
   .caseIcon,
   .caseArrow {
     transition: none;
   }
+
+
+  .caseItem:hover,
+  .caseItem:focus-visible {
+    transform: none;
+  }
+
+}
+
+.topDescription {
+  max-width: 520px;
+
+  margin: 6px 0 0;
+
+  color: #647789;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  line-height: 1.5;
 }

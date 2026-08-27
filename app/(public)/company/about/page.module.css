@@ -1,73 +1,178 @@
-﻿.hero {
-  padding: 108px 0 118px;
+﻿/* ==========================================================
+   AIGO-OS ABOUT
+========================================================== */
+
+
+/* ==========================================================
+   SHARED TYPOGRAPHY
+========================================================== */
+
+.eyebrow,
+.sectionLabel,
+.sectionLabelLight {
+  margin: 0 0 18px;
+
+  font-size: 10px;
+  font-weight: 820;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.115em;
+
+  text-transform: uppercase;
+}
+
+
+.eyebrow,
+.sectionLabel {
+  color: #365b7d;
+}
+
+
+.sectionLabelLight {
+  color: #e0b348;
+}
+
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero {
+  position: relative;
+
+  overflow: hidden;
+
+  padding:
+    clamp(86px, 8vw, 118px)
+    0
+    clamp(98px, 9vw, 136px);
 
   background:
+    radial-gradient(
+      circle at 84% 16%,
+      rgba(66, 139, 174, 0.12),
+      transparent 30%
+    ),
     linear-gradient(
       120deg,
-      #e9e0d5 0%,
-      #eef1ef 47%,
-      #dbe7ee 100%
+      #eee7dc 0%,
+      #edf2f3 48%,
+      #dfe9ef 100%
     );
+
+  color: #07111f;
 }
+
 
 .heroLayout {
   display: grid;
 
   grid-template-columns:
-    minmax(0, 1fr)
-    minmax(340px, 0.55fr);
+    minmax(0, 1.04fr)
+    minmax(360px, 0.62fr);
 
-  align-items: end;
+  align-items: center;
 
-  gap: clamp(70px, 8vw, 130px);
+  gap:
+    clamp(
+      70px,
+      8vw,
+      126px
+    );
 }
 
-.eyebrow,
-.sectionLabel,
-.sectionLabelLight {
-  margin: 0 0 17px;
 
-  color: #365b7d;
-
-  font-size: 10px;
-  font-weight: 850;
-
-  letter-spacing: 0.11em;
-
-  text-transform: uppercase;
+.heroCopy {
+  max-width: 850px;
 }
+
 
 .hero h1 {
-  max-width: 900px;
+  max-width: 840px;
 
   margin: 0;
 
   color: #07111f;
 
-  font-size: clamp(51px, 5vw, 77px);
+  font-size:
+    clamp(
+      50px,
+      4.75vw,
+      72px
+    );
+
   font-weight: 710;
 
-  line-height: 0.99;
+  line-height: 1;
 
-  letter-spacing: -0.053em;
+  letter-spacing: -0.052em;
+
+  text-wrap: balance;
 }
+
+
+.heroStatement {
+  max-width: 690px;
+
+  margin:
+    30px
+    0
+    0 !important;
+
+  color: #3d5669 !important;
+
+  font-size: 15px;
+  font-weight: 520;
+
+  line-height: 1.68;
+}
+
 
 .heroAside {
-  padding-bottom: 5px;
+  max-width: 510px;
+
+  padding:
+    28px
+    0
+    28px
+    34px;
+
+  border-left:
+    3px solid
+    rgba(215, 170, 48, 0.68);
 }
+
 
 .heroAside p {
   margin: 0 !important;
 
-  color: #34495c !important;
+  color: #496071 !important;
 
-  font-size: 15px;
+  font-size: 14px;
 
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
+
+.heroAside .heroLead {
+  color: #173b59 !important;
+
+  font-size:
+    clamp(
+      18px,
+      1.5vw,
+      21px
+    );
+
+  font-weight: 610;
+
+  line-height: 1.52;
+}
+
+
 .heroAside p + p {
-  margin-top: 16px !important;
+  margin-top: 24px !important;
 }
 
 
@@ -76,51 +181,90 @@
 ========================================================== */
 
 .problem {
-  padding: 110px 0;
+  padding:
+    clamp(96px, 8vw, 128px)
+    0;
 
   background: #ffffff;
 }
+
 
 .problemGrid {
   display: grid;
 
   grid-template-columns:
-    0.25fr
-    0.75fr;
+    minmax(0, 0.92fr)
+    minmax(380px, 0.62fr);
 
-  gap: 72px;
+  align-items: start;
+
+  gap:
+    clamp(
+      68px,
+      8vw,
+      118px
+    );
 }
 
+
 .problemGrid h2 {
-  max-width: 930px;
+  max-width: 820px;
 
   margin: 0;
 
   color: #07111f;
 
-  font-size: clamp(40px, 3.5vw, 57px);
-  font-weight: 660;
+  font-size:
+    clamp(
+      39px,
+      3.45vw,
+      55px
+    );
 
-  line-height: 1.06;
+  font-weight: 670;
+
+  line-height: 1.05;
 
   letter-spacing: -0.044em;
 }
 
-.problemGrid > div > p {
-  max-width: 720px;
 
-  margin: 23px 0 0 !important;
+.problemCopy {
+  max-width: 610px;
+}
 
-  color: #4b6072 !important;
+
+.problemCopy p {
+  margin: 0 !important;
+
+  color: #4e6374 !important;
+
+  font-size: 13px;
+
+  line-height: 1.75;
+}
+
+
+.problemCopy p + p {
+  margin-top: 19px !important;
+}
+
+
+.problemCopy .problemEmphasis {
+  margin-top: 29px !important;
+
+  color: #173b59 !important;
 
   font-size: 14px;
 
-  line-height: 1.72;
+  font-weight: 620;
+
+  line-height: 1.68;
 }
 
 
 /* ==========================================================
-   OUR PURPOSE
+   WHAT WE ARE BUILDING
 ========================================================== */
 
 .purpose {
@@ -128,53 +272,341 @@
 
   overflow: hidden;
 
-  padding: 112px 0 120px;
+  padding:
+    clamp(102px, 8vw, 132px)
+    0
+    clamp(110px, 9vw, 142px);
 
   background:
     radial-gradient(
-      circle at 84% 18%,
-      rgba(45, 101, 140, 0.18),
-      transparent 30%
+      circle at 86% 12%,
+      rgba(59, 147, 185, 0.17),
+      transparent 31%
     ),
-    radial-gradient(
-      circle at 8% 86%,
-      rgba(217, 165, 43, 0.08),
-      transparent 26%
-    ),
-    #091a2d;
+    #081a2d;
 }
 
-.sectionLabelLight {
-  color: #e3b94e;
-}
 
 .purposeHeader {
-  position: relative;
+  margin-bottom: 48px;
 
-  z-index: 1;
+  display: grid;
 
-  max-width: 980px;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(320px, 0.46fr);
 
-  margin-bottom: 46px;
+  align-items: end;
+
+  gap:
+    clamp(
+      54px,
+      8vw,
+      110px
+    );
 }
 
+
 .purposeHeader h2 {
+  max-width: 820px;
+
   margin: 0;
 
-  color: #ffffff !important;
+  color: #ffffff;
 
-  font-size: clamp(40px, 3.5vw, 57px);
-  font-weight: 660;
+  font-size:
+    clamp(
+      40px,
+      3.55vw,
+      55px
+    );
+
+  font-weight: 665;
 
   line-height: 1.05;
 
   letter-spacing: -0.044em;
 }
 
-.purposeGrid {
-  position: relative;
 
-  z-index: 1;
+.purposeHeader > p {
+  margin: 0 !important;
+
+  color: #c6d6e0 !important;
+
+  font-size: 13px;
+
+  line-height: 1.72;
+}
+
+
+.purposeGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+
+.purposeItem {
+  min-width: 0;
+  min-height: 285px;
+
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  border:
+    1px solid
+    rgba(176, 207, 225, 0.15);
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20, 51, 76, 0.94),
+      rgba(10, 33, 54, 0.98)
+    );
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+
+.purposeItem:hover {
+  transform: translateY(-5px);
+
+  border-color:
+    rgba(155, 202, 225, 0.31);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(23, 61, 88, 0.98),
+      rgba(12, 39, 63, 1)
+    );
+
+  box-shadow:
+    0 24px 44px
+    rgba(0, 0, 0, 0.2);
+}
+
+
+.purposeTop {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+}
+
+
+.purposeIcon {
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 11px;
+
+  background:
+    rgba(218, 236, 246, 0.075);
+
+  color: #bfdae9;
+}
+
+
+.purposeMeta {
+  color: #94afc0;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+
+.purposeCopy {
+  margin-top: auto;
+
+  padding-top: 48px;
+}
+
+
+.purposeCopy strong {
+  display: block;
+
+  max-width: 350px;
+
+  color: #ffffff;
+
+  font-size: 23px;
+  font-weight: 675;
+
+  line-height: 1.13;
+
+  letter-spacing: -0.022em;
+}
+
+
+.purposeCopy p {
+  max-width: 360px;
+
+  margin:
+    14px
+    0
+    0 !important;
+
+  color: #c7d8e2 !important;
+
+  font-size: 11.5px;
+
+  line-height: 1.64;
+}
+
+
+/* ==========================================================
+   WHERE WE ARE GOING
+========================================================== */
+
+.future {
+  padding:
+    clamp(100px, 8vw, 132px)
+    0;
+
+  background:
+    linear-gradient(
+      180deg,
+      #edf3f6,
+      #e7eef2
+    );
+}
+
+
+.futureLayout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(340px, 0.48fr);
+
+  align-items: end;
+
+  gap:
+    clamp(
+      62px,
+      8vw,
+      112px
+    );
+}
+
+
+.futureHeading h2 {
+  max-width: 850px;
+
+  margin: 0;
+
+  color: #07111f;
+
+  font-size:
+    clamp(
+      40px,
+      3.5vw,
+      55px
+    );
+
+  font-weight: 670;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.043em;
+}
+
+
+.futureCopy p {
+  margin: 0 !important;
+
+  color: #4b6072 !important;
+
+  font-size: 13px;
+
+  line-height: 1.72;
+}
+
+
+.futureCopy p + p {
+  margin-top: 19px !important;
+}
+
+
+/* ==========================================================
+   WHAT GUIDES US
+========================================================== */
+
+.belief {
+  padding:
+    clamp(98px, 8vw, 126px)
+    0
+    clamp(104px, 9vw, 134px);
+
+  background: #f6f2eb;
+}
+
+
+.beliefHeader {
+  max-width: 860px;
+}
+
+
+.beliefHeader h2 {
+  margin: 0;
+
+  color: #07111f;
+
+  font-size:
+    clamp(
+      39px,
+      3.45vw,
+      54px
+    );
+
+  font-weight: 670;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.043em;
+}
+
+
+.beliefHeader > p:not(.sectionLabel) {
+  max-width: 650px;
+
+  margin:
+    20px
+    0
+    0 !important;
+
+  color: #536778 !important;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+.beliefsGrid {
+  margin-top: 52px;
 
   display: grid;
 
@@ -185,234 +617,41 @@
 }
 
 
-/* ==========================================================
-   PURPOSE FLASH CARDS
-========================================================== */
-
-.purposeItem {
-  position: relative;
-
-  isolation: isolate;
-
-  min-width: 0;
-  min-height: 300px;
+.beliefItem {
+  min-height: 190px;
 
   padding: 24px;
 
-  display: flex;
-  flex-direction: column;
-
-  overflow: hidden;
-
-  border: 1px solid rgba(180, 205, 224, 0.18);
-  border-radius: 16px;
+  border-radius: 14px;
 
   background:
-    linear-gradient(
-      145deg,
-      rgba(21, 48, 72, 0.92) 0%,
-      rgba(12, 35, 57, 0.96) 100%
-    );
-
-  box-shadow:
-    0 15px 34px rgba(0, 0, 0, 0.16);
-
-  transition:
-    transform 200ms ease,
-    border-color 200ms ease,
-    box-shadow 200ms ease,
-    background 200ms ease;
+    rgba(255, 255, 255, 0.58);
 }
 
-.purposeItem::before {
-  content: "";
 
-  position: absolute;
-
-  z-index: -1;
-
-  top: -90px;
-  right: -90px;
-
-  width: 210px;
-  height: 210px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(93, 155, 196, 0.17),
-      transparent 67%
-    );
-
-  opacity: 0;
-
-  transform: scale(0.82);
-
-  transition:
-    opacity 220ms ease,
-    transform 220ms ease;
-}
-
-.purposeItem:hover,
-.purposeItem:focus-within {
-  transform: translateY(-6px);
-
-  border-color: rgba(159, 197, 223, 0.36);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(25, 57, 83, 0.97) 0%,
-      rgba(14, 39, 63, 0.98) 100%
-    );
-
-  box-shadow:
-    0 24px 48px rgba(0, 0, 0, 0.24);
-}
-
-.purposeItem:hover::before,
-.purposeItem:focus-within::before {
-  opacity: 1;
-
-  transform: scale(1);
-}
-
-.purposeTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 18px;
-}
-
-.purposeIcon {
-  width: 48px;
-  height: 48px;
-
-  display: grid;
-  place-items: center;
-
-  border: 1px solid rgba(190, 216, 233, 0.2);
-  border-radius: 12px;
-
-  background: rgba(218, 234, 244, 0.08);
-
-  color: #bcd9ec;
-
-  transition:
-    background 200ms ease,
-    color 200ms ease,
-    border-color 200ms ease,
-    transform 200ms ease;
-}
-
-.purposeItem:hover .purposeIcon {
-  border-color: rgba(231, 188, 79, 0.44);
-
-  background: #d9a52b;
-
-  color: #07111f;
-
-  transform: rotate(-3deg) scale(1.04);
-}
-
-.purposeMeta {
-  color: #9eb7c9 !important;
-
-  font-size: 9px;
-  font-weight: 820;
-
-  letter-spacing: 0.09em;
-
-  text-transform: uppercase;
-}
-
-.purposeCopy {
-  margin-top: auto;
-
-  padding-top: 52px;
-}
-
-.purposeCopy strong {
+.beliefItem strong {
   display: block;
 
-  max-width: 340px;
+  color: #173b59;
 
-  color: #ffffff !important;
+  font-size: 18px;
+  font-weight: 700;
 
-  font-size: 23px;
-  font-weight: 680;
-
-  line-height: 1.15;
-
-  letter-spacing: -0.018em;
-}
-
-.purposeCopy p {
-  max-width: 345px;
-
-  margin: 14px 0 0 !important;
-
-  color: #d6e1e9 !important;
-
-  font-size: 12.5px;
-  font-weight: 480;
-
-  line-height: 1.62;
+  line-height: 1.25;
 }
 
 
-/* ==========================================================
-   WHAT WE BELIEVE
-========================================================== */
+.beliefItem p {
+  margin:
+    12px
+    0
+    0 !important;
 
-.belief {
-  padding: 108px 0;
+  color: #5b6d7b !important;
 
-  background: #f4f0e8;
-}
+  font-size: 11.5px;
 
-.beliefGrid {
-  display: grid;
-
-  grid-template-columns:
-    1fr
-    0.48fr;
-
-  align-items: end;
-
-  gap: 90px;
-}
-
-.beliefGrid h2 {
-  max-width: 820px;
-
-  margin: 0;
-
-  color: #07111f;
-
-  font-size: clamp(39px, 3.4vw, 55px);
-  font-weight: 660;
-
-  line-height: 1.05;
-
-  letter-spacing: -0.043em;
-}
-
-.beliefCopy p {
-  margin: 0 !important;
-
-  color: #4b6072 !important;
-
-  font-size: 14px;
-
-  line-height: 1.7;
-}
-
-.beliefCopy p + p {
-  margin-top: 17px !important;
+  line-height: 1.65;
 }
 
 
@@ -421,25 +660,39 @@
 ========================================================== */
 
 @media (max-width: 1000px) {
-  .purposeGrid {
+
+  .heroLayout,
+  .problemGrid,
+  .purposeHeader,
+  .futureLayout {
+    grid-template-columns: 1fr;
+
+    gap: 42px;
+  }
+
+
+  .heroAside {
+    max-width: 680px;
+  }
+
+
+  .problemCopy,
+  .purposeHeader > p,
+  .futureCopy {
+    max-width: 680px;
+  }
+
+
+  .purposeGrid,
+  .beliefsGrid {
     grid-template-columns:
       repeat(2, minmax(0, 1fr));
   }
 
-  .purposeItem:last-child {
+
+  .purposeItem:last-child,
+  .beliefItem:last-child {
     grid-column: 1 / -1;
-
-    min-height: 250px;
-  }
-}
-
-@media (max-width: 900px) {
-  .heroLayout,
-  .problemGrid,
-  .beliefGrid {
-    grid-template-columns: 1fr;
-
-    gap: 32px;
   }
 }
 
@@ -449,52 +702,59 @@
 ========================================================== */
 
 @media (max-width: 700px) {
-  .hero,
-  .problem,
-  .purpose,
-  .belief {
-    padding: 76px 0;
+
+  .hero {
+    padding:
+      72px
+      0
+      84px;
   }
+
 
   .hero h1 {
-    font-size: clamp(43px, 13vw, 62px);
+    font-size:
+      clamp(
+        44px,
+        12vw,
+        61px
+      );
   }
 
-  .problemGrid h2,
-  .purposeHeader h2,
-  .beliefGrid h2 {
-    font-size: clamp(34px, 9vw, 47px);
+
+  .heroAside {
+    padding:
+      0
+      0
+      0
+      22px;
   }
 
-  .purposeHeader {
-    margin-bottom: 30px;
+
+  .problem,
+  .purpose,
+  .future,
+  .belief {
+    padding-top: 76px;
+    padding-bottom: 76px;
   }
 
-  .purposeGrid {
+
+  .purposeGrid,
+  .beliefsGrid {
     grid-template-columns: 1fr;
-
-    gap: 12px;
   }
+
 
   .purposeItem,
-  .purposeItem:last-child {
+  .purposeItem:last-child,
+  .beliefItem,
+  .beliefItem:last-child {
     grid-column: auto;
-
-    min-height: 238px;
-
-    padding: 21px;
   }
 
-  .purposeCopy {
-    padding-top: 38px;
-  }
 
-  .purposeCopy strong {
-    font-size: 21px;
-  }
-
-  .purposeCopy p {
-    font-size: 12px;
+  .purposeItem {
+    min-height: 255px;
   }
 }
 
@@ -504,20 +764,24 @@
 ========================================================== */
 
 @media (max-width: 430px) {
+
+  .purposeItem,
+  .beliefItem {
+    padding: 20px;
+  }
+
+
   .purposeTop {
     align-items: flex-start;
 
     flex-direction: column;
 
-    gap: 13px;
+    gap: 12px;
   }
 
-  .purposeItem {
-    min-height: 255px;
-  }
 
   .purposeCopy {
-    padding-top: 28px;
+    padding-top: 34px;
   }
 }
 
@@ -527,18 +791,13 @@
 ========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .purposeItem,
-  .purposeItem::before,
-  .purposeIcon {
+
+  .purposeItem {
     transition: none;
   }
 
-  .purposeItem:hover,
-  .purposeItem:focus-within {
-    transform: none;
-  }
 
-  .purposeItem:hover .purposeIcon {
+  .purposeItem:hover {
     transform: none;
   }
 }

@@ -1,4 +1,5 @@
-﻿import {
+﻿import { createPageMetadata } from "@/lib/seo/metadata";
+import {
   BrainCircuit,
   FileCheck2,
   Network,
@@ -11,62 +12,56 @@ import { PublicContainer } from "@/components/public/public-container";
 import styles from "./page.module.css";
 
 
+
+export const metadata = createPageMetadata({
+  title: "AIGO-OS Principles",
+  description:
+    "Explore the principles guiding AIGO-OS, including contextual interpretation, accountability, business significance, connected evidence and enterprise integration.",
+  path: "/company/principles",
+  keywords: [
+    "AI governance principles",
+    "responsible enterprise AI",
+  ],
+});
 const principles = [
   {
     icon: BrainCircuit,
-
-    meta: "Interpretation",
-
-    title: "Context before conclusion",
-
+    meta: "Context",
+    title: "Understand context before drawing conclusions",
     text:
-      "AIGO-OS should not interpret an AI signal in isolation. Activity becomes useful for governance when it is understood alongside the business process, system, dependency, ownership and operating conditions around it.",
-
-    featured: true,
-  },
-
-  {
-    icon: ShieldCheck,
-
-    meta: "Accountability",
-
-    title: "Responsibility must survive automation",
-
-    text:
-      "As AI systems and agents take on more activity, AIGO-OS should keep responsibility, delegated authority and the relevant management ownership visible rather than allowing automation to obscure them.",
-  },
-
-  {
-    icon: Target,
-
-    meta: "Management attention",
-
-    title: "Business significance drives attention",
-
-    text:
-      "AIGO-OS should help distinguish what matters from what merely happened. Governance attention should follow business relevance, potential impact and the context surrounding the activity.",
-  },
-
-  {
-    icon: FileCheck2,
-
-    meta: "Evidence",
-
-    title: "Keep evidence connected to the decision",
-
-    text:
-      "When AIGO-OS presents a governance conclusion or management view, the supporting signals, enterprise context and reasoning should remain connected so the outcome can be understood and challenged.",
+      "Signals become meaningful when they are understood alongside the systems, services, ownership, controls, dependencies and operating conditions around them.",
   },
 
   {
     icon: Network,
-
-    meta: "Enterprise architecture",
-
-    title: "Connect to the enterprise. Do not recreate it.",
-
+    meta: "Relationships",
+    title: "Make relationships part of the intelligence",
     text:
-      "AIGO-OS should use relevant context already held across enterprise systems. It is an intelligence and governance layer, not a replacement for identity, workflow, security, observability or business platforms.",
+      "Enterprise understanding depends on seeing how information connects. AIGO-OS should preserve those relationships rather than reduce them to isolated records.",
+  },
+
+  {
+    icon: Target,
+    meta: "Significance",
+    title: "Focus on what matters to the enterprise",
+    text:
+      "Not every event has the same consequence. Intelligence should help distinguish activity from significance and show what deserves management attention.",
+  },
+
+  {
+    icon: ShieldCheck,
+    meta: "Responsibility",
+    title: "Keep ownership and accountability visible",
+    text:
+      "Automation should not make responsibility harder to understand. Relevant ownership, authority and accountability should remain connected to the activity they govern.",
+  },
+
+  {
+    icon: FileCheck2,
+    meta: "Explainability",
+    title: "Keep understanding connected to its evidence",
+    text:
+      "When AIGO-OS presents a conclusion, the supporting context, relationships and reasoning should remain understandable so the result can be examined and challenged.",
   },
 ];
 
@@ -74,61 +69,78 @@ const principles = [
 export default function PrinciplesPage() {
   return (
     <>
+      {/* =====================================================
+          HERO
+      ===================================================== */}
+
       <section className={styles.hero}>
         <PublicContainer>
           <div className={styles.heroLayout}>
-            <div>
+            <div className={styles.heroCopy}>
               <p className={styles.eyebrow}>
                 Our Principles
               </p>
 
               <h1>
-                Govern AI in context, not in isolation.
+                Understand the enterprise in context, not in fragments.
               </h1>
+
+              <p className={styles.heroStatement}>
+                AIGO-OS is built around the belief that better enterprise
+                intelligence comes from understanding relationships,
+                significance, responsibility and evidence together.
+              </p>
             </div>
 
             <div className={styles.heroAside}>
-              <p>
-                AIGO-OS is built around a simple idea: AI governance should
-                preserve business context, accountability and evidence rather
-                than separate AI from the enterprise environment in which it
-                operates.
+              <p className={styles.heroLead}>
+                Information becomes more useful when the connections
+                around it remain visible.
               </p>
 
               <p>
-                These principles guide how AIGO-OS connects information,
-                interprets significance and presents governance intelligence
-                to management.
+                These principles guide how AIGO-OS connects enterprise
+                information, interprets what matters and helps management
+                understand governance and business impact in context.
               </p>
             </div>
           </div>
         </PublicContainer>
       </section>
 
+
+      {/* =====================================================
+          STANDARD
+      ===================================================== */}
 
       <section className={styles.standard}>
         <PublicContainer>
-          <div className={styles.standardGrid}>
-            <p className={styles.sectionLabel}>
-              The standard we set
-            </p>
+          <div className={styles.standardLayout}>
+            <div className={styles.standardHeading}>
+              <p className={styles.sectionLabel}>
+                The standard we set
+              </p>
 
-            <div className={styles.standardContent}>
-              <div className={styles.standardStatement}>
-                <h2>
-                  Clear enough for management.
-                </h2>
-
-                <h2>
+              <h2>
+                Clear enough to understand.
+                <span>
                   Connected enough to explain why.
-                </h2>
-              </div>
+                </span>
+              </h2>
+            </div>
+
+            <div className={styles.standardCopy}>
+              <p>
+                AIGO-OS should help leaders understand what is happening,
+                what it relates to, what may be affected and why the
+                information matters.
+              </p>
 
               <p>
-                AIGO-OS should make the governance state of enterprise AI
-                easier for management to understand without separating
-                conclusions from the context, accountability and evidence
-                behind them.
+                The goal is not to produce more signals. It is to make
+                enterprise information more understandable without
+                separating conclusions from the context that gives
+                them meaning.
               </p>
             </div>
           </div>
@@ -136,17 +148,30 @@ export default function PrinciplesPage() {
       </section>
 
 
+      {/* =====================================================
+          PRINCIPLES
+      ===================================================== */}
+
       <section className={styles.principlesSection}>
         <PublicContainer>
-          <div className={styles.principlesIntro}>
-            <p className={styles.sectionLabel}>
-              How we build AIGO-OS
-            </p>
+          <div className={styles.principlesHeader}>
+            <div>
+              <p className={styles.sectionLabel}>
+                How we build AIGO-OS
+              </p>
 
-            <h2>
-              The principles behind the platform.
-            </h2>
+              <h2>
+                Principles that shape the intelligence.
+              </h2>
+            </div>
+
+            <p>
+              These are not decorative values. They influence how
+              information is connected, interpreted and presented
+              throughout AIGO-OS.
+            </p>
           </div>
+
 
           <div className={styles.principlesGrid}>
             {principles.map((principle) => {
@@ -155,16 +180,12 @@ export default function PrinciplesPage() {
               return (
                 <article
                   key={principle.title}
-                  className={
-                    principle.featured
-                      ? `${styles.principle} ${styles.featured}`
-                      : styles.principle
-                  }
+                  className={styles.principle}
                 >
                   <div className={styles.principleTop}>
                     <div className={styles.iconWrap}>
                       <Icon
-                        size={23}
+                        size={21}
                         strokeWidth={1.65}
                         aria-hidden="true"
                       />
@@ -190,6 +211,35 @@ export default function PrinciplesPage() {
           </div>
         </PublicContainer>
       </section>
+
+
+      {/* =====================================================
+          CLOSING PRINCIPLE
+      ===================================================== */}
+
+      <section className={styles.closing}>
+        <PublicContainer>
+          <div className={styles.closingLayout}>
+            <p className={styles.sectionLabel}>
+              What this means
+            </p>
+
+            <div>
+              <h2>
+                AIGO-OS should help people understand more, not simply
+                show them more.
+              </h2>
+
+              <p>
+                Every part of the platform should move enterprise
+                information toward clearer context, clearer consequence
+                and more explainable management understanding.
+              </p>
+            </div>
+          </div>
+        </PublicContainer>
+      </section>
     </>
   );
 }
+

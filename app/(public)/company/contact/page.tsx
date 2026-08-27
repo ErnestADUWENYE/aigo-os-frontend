@@ -1,4 +1,7 @@
-﻿import {
+﻿"use client";
+
+import Link from "next/link";
+import {
   Building2,
   Mail,
   MessageSquareText,
@@ -6,12 +9,117 @@
   UserRound,
 } from "lucide-react";
 
+import {
+  FormEvent,
+  useState,
+} from "react";
+
 import { PublicContainer } from "@/components/public/public-container";
 
 import styles from "./page.module.css";
 
 
+type SubmitState =
+  | "idle"
+  | "submitting"
+  | "success"
+  | "error";
+
+
 export default function ContactPage() {
+  const [submitState, setSubmitState] =
+    useState<SubmitState>("idle");
+
+  const [message, setMessage] =
+    useState("");
+
+
+  async function handleSubmit(
+    event: FormEvent<HTMLFormElement>
+  ) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+
+    setSubmitState("submitting");
+    setMessage("");
+
+    try {
+      const formData = new FormData(form);
+
+      const payload = {
+        firstName:
+          String(formData.get("firstName") ?? "").trim(),
+
+        lastName:
+          String(formData.get("lastName") ?? "").trim(),
+
+        email:
+          String(formData.get("email") ?? "").trim(),
+
+        company:
+          String(formData.get("company") ?? "").trim(),
+
+        topic:
+          String(formData.get("topic") ?? "").trim(),
+
+        message:
+          String(formData.get("message") ?? "").trim(),
+      };
+
+
+      const response = await fetch(
+        "/api/contact",
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify(payload),
+        }
+      );
+
+
+      const result = await response.json();
+
+
+      if (!response.ok) {
+        throw new Error(
+          result?.error ||
+          "We could not send your message."
+        );
+      }
+
+
+      form.reset();
+
+      setSubmitState("success");
+
+      setMessage(
+        "Thank you. Your message has been sent to AIGO-OS."
+      );
+    }
+    catch (error) {
+      console.error(
+        "Contact submission failed:",
+        error
+      );
+
+      setSubmitState("error");
+
+      setMessage(
+        "We could not send your message. Please try again."
+      );
+    }
+  }
+
+
+  const isSubmitting =
+    submitState === "submitting";
+
+
   return (
     <>
       <section className={styles.hero}>
@@ -23,24 +131,29 @@ export default function ContactPage() {
               </p>
 
               <h1>
-                Get in touch.
+                Start the right conversation.
               </h1>
 
               <p className={styles.intro}>
                 Have a general question about AIGO-OS, the company,
-                partnerships or something else? Send us a message and
-                give us enough context to route it appropriately.
+                partnerships, media or something else? Send us a message
+                and give us enough context to respond appropriately.
               </p>
             </div>
+
 
             <div className={styles.heroAside}>
               <span>
                 General enquiries
               </span>
 
+              <strong>
+                For conversations that do not need a dedicated route.
+              </strong>
+
               <p>
-                This form is for enquiries that do not belong to a
-                dedicated product evaluation, demo or commercial route.
+                Product demonstrations and focused expert discussions have
+                their own pages. Use this form for broader company enquiries.
               </p>
             </div>
           </div>
@@ -62,8 +175,8 @@ export default function ContactPage() {
 
               <p>
                 Give us a little context about who you are and what you
-                would like to discuss. The more specific the message,
-                the easier it is to direct it to the right place.
+                would like to discuss. A clear message helps us understand
+                the enquiry and respond appropriately.
               </p>
 
               <div className={styles.contextNote}>
@@ -74,15 +187,19 @@ export default function ContactPage() {
                 />
 
                 <span>
-                  For product evaluations, demos or commercial discussions,
-                  use the dedicated AIGO-OS pages for those conversations.
+                  For product evaluation, request a demo. For a focused
+                  discussion about a specific enterprise problem, use
+                  Talk to an Expert.
                 </span>
               </div>
             </aside>
 
 
             <div className={styles.formCard}>
-              <form className={styles.form}>
+              <form
+                className={styles.form}
+                onSubmit={handleSubmit}
+              >
                 <div className={styles.twoColumn}>
                   <div className={styles.field}>
                     <label htmlFor="firstName">
@@ -192,7 +309,10 @@ export default function ContactPage() {
                       defaultValue=""
                       required
                     >
-                      <option value="" disabled>
+                      <option
+                        value=""
+                        disabled
+                      >
                         Select a topic
                       </option>
 
@@ -209,7 +329,7 @@ export default function ContactPage() {
                       </option>
 
                       <option value="corporate">
-                        Company / corporate
+                        Company and corporate
                       </option>
 
                       <option value="website">
@@ -240,19 +360,45 @@ export default function ContactPage() {
                 </div>
 
 
+                {message ? (
+                  <div
+                    className={
+                      submitState === "success"
+                        ? styles.formSuccess
+                        : styles.formError
+                    }
+                    role={
+                      submitState === "error"
+                        ? "alert"
+                        : "status"
+                    }
+                    aria-live="polite"
+                  >
+                    {message}
+                  </div>
+                ) : null}
+
+
                 <div className={styles.formFooter}>
                   <p className={styles.privacy}>
                     By submitting this form, you are providing information
                     so AIGO-OS can respond to your enquiry. Please do not
-                    include confidential or sensitive information.
+                    include confidential or sensitive information. See our{" "}
+                    <Link href="/privacy">
+                      Privacy Policy
+                    </Link>
+                    {" "}for information about how AIGO-OS handles personal information.
                   </p>
 
                   <button
                     type="submit"
                     className={styles.submitButton}
+                    disabled={isSubmitting}
                   >
                     <span>
-                      Send message
+                      {isSubmitting
+                        ? "Sending..."
+                        : "Send message"}
                     </span>
 
                     <Send
@@ -270,3 +416,5 @@ export default function ContactPage() {
     </>
   );
 }
+
+

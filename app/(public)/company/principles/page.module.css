@@ -1,18 +1,57 @@
-﻿.hero {
-  padding: 108px 0 116px;
+﻿/* ==========================================================
+   AIGO-OS PRINCIPLES
+========================================================== */
+
+
+/* ==========================================================
+   SHARED TYPOGRAPHY
+========================================================== */
+
+.eyebrow,
+.sectionLabel {
+  margin: 0 0 18px;
+
+  color: #365b7d;
+
+  font-size: 10px;
+  font-weight: 820;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.115em;
+
+  text-transform: uppercase;
+}
+
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero {
+  position: relative;
+
+  overflow: hidden;
+
+  padding:
+    clamp(86px, 8vw, 118px)
+    0
+    clamp(98px, 9vw, 136px);
 
   background:
     radial-gradient(
-      circle at 82% 18%,
-      rgba(74, 128, 161, 0.09),
-      transparent 28%
+      circle at 84% 15%,
+      rgba(71, 139, 172, 0.12),
+      transparent 30%
     ),
     linear-gradient(
       120deg,
-      #eee6db 0%,
-      #eef1f1 50%,
-      #dce7ee 100%
+      #eee7dc 0%,
+      #edf2f3 49%,
+      #dfe9ef 100%
     );
+
+  color: #07111f;
 }
 
 
@@ -20,186 +59,279 @@
   display: grid;
 
   grid-template-columns:
-    minmax(0, 1fr)
-    minmax(320px, 0.48fr);
+    minmax(0, 1.04fr)
+    minmax(360px, 0.62fr);
 
-  gap: clamp(72px, 8vw, 132px);
+  align-items: center;
 
-  align-items: end;
+  gap:
+    clamp(
+      70px,
+      8vw,
+      126px
+    );
 }
 
 
-.eyebrow,
-.sectionLabel {
-  margin: 0 0 17px;
-
-  color: #365b7d;
-
-  font-size: 10px;
-  font-weight: 850;
-
-  letter-spacing: 0.12em;
-
-  text-transform: uppercase;
+.heroCopy {
+  max-width: 850px;
 }
 
 
 .hero h1 {
-  max-width: 860px;
+  max-width: 850px;
 
   margin: 0;
 
   color: #07111f;
 
-  font-size: clamp(54px, 5vw, 78px);
+  font-size:
+    clamp(
+      50px,
+      4.8vw,
+      73px
+    );
+
   font-weight: 710;
 
-  line-height: 0.98;
+  line-height: 1;
 
-  letter-spacing: -0.055em;
+  letter-spacing: -0.052em;
 
   text-wrap: balance;
 }
 
 
+.heroStatement {
+  max-width: 700px;
+
+  margin:
+    30px
+    0
+    0 !important;
+
+  color: #40586a !important;
+
+  font-size: 15px;
+  font-weight: 520;
+
+  line-height: 1.68;
+}
+
+
 .heroAside {
-  max-width: 430px;
+  max-width: 510px;
+
+  padding:
+    25px
+    0
+    25px
+    31px;
+
+  border-left:
+    2px solid
+    rgba(210, 165, 46, 0.62);
 }
 
 
 .heroAside p {
   margin: 0 !important;
 
-  color: #3f5668 !important;
+  color: #4a6072 !important;
 
-  font-size: 15px;
+  font-size: 14px;
 
-  line-height: 1.72;
+  line-height: 1.74;
+}
+
+
+.heroAside .heroLead {
+  color: #173b59 !important;
+
+  font-size:
+    clamp(
+      18px,
+      1.5vw,
+      21px
+    );
+
+  font-weight: 610;
+
+  line-height: 1.5;
 }
 
 
 .heroAside p + p {
-  margin-top: 17px !important;
+  margin-top: 23px !important;
 }
 
 
-
 /* ==========================================================
-   THE STANDARD WE SET
+   STANDARD
 ========================================================== */
 
-
 .standard {
-  padding: 104px 0 110px;
+  padding:
+    clamp(96px, 8vw, 126px)
+    0;
 
   background:
     linear-gradient(
       115deg,
-      #f4f0e8 0%,
-      #f1eee7 56%,
-      #edf1f1 100%
+      #f5f1ea 0%,
+      #f2efe9 54%,
+      #edf2f2 100%
     );
 }
 
 
-.standardGrid {
+.standardLayout {
   display: grid;
 
   grid-template-columns:
-    0.22fr
-    minmax(0, 0.78fr);
+    minmax(0, 1fr)
+    minmax(360px, 0.52fr);
 
-  gap: 72px;
+  align-items: end;
+
+  gap:
+    clamp(
+      68px,
+      8vw,
+      118px
+    );
 }
 
 
-.standardContent {
-  min-width: 0;
+.standardHeading {
+  max-width: 880px;
 }
 
 
-.standardStatement {
-  display: grid;
-
-  gap: 2px;
-}
-
-
-.standardStatement h2 {
-  max-width: 1040px;
-
+.standardHeading h2 {
   margin: 0;
 
   color: #07111f;
 
-  font-size: clamp(40px, 3.8vw, 59px);
+  font-size:
+    clamp(
+      40px,
+      3.65vw,
+      57px
+    );
+
   font-weight: 670;
 
-  line-height: 1.02;
+  line-height: 1.04;
 
-  letter-spacing: -0.048em;
+  letter-spacing: -0.046em;
 }
 
 
-.standardStatement h2:last-child {
+.standardHeading h2 span {
+  display: block;
+
+  margin-top: 4px;
+
   color: #315f7d;
 }
 
 
-.standardContent > p {
-  max-width: 770px;
-
-  margin: 28px 0 0 !important;
-
-  color: #4b6072 !important;
-
-  font-size: 14px;
-
-  line-height: 1.72;
+.standardCopy {
+  max-width: 580px;
 }
 
+
+.standardCopy p {
+  margin: 0 !important;
+
+  color: #4e6374 !important;
+
+  font-size: 13px;
+
+  line-height: 1.74;
+}
+
+
+.standardCopy p + p {
+  margin-top: 19px !important;
+}
 
 
 /* ==========================================================
    PRINCIPLES
 ========================================================== */
 
-
 .principlesSection {
   position: relative;
 
   overflow: hidden;
 
-  padding: 112px 0 120px;
+  padding:
+    clamp(100px, 8vw, 132px)
+    0
+    clamp(108px, 9vw, 142px);
 
   background:
     radial-gradient(
-      circle at 88% 12%,
-      rgba(67, 122, 154, 0.09),
-      transparent 26%
+      circle at 88% 10%,
+      rgba(67, 129, 161, 0.08),
+      transparent 27%
     ),
-    #f4f7f9;
+    #edf3f6;
 }
 
 
-.principlesIntro {
-  max-width: 760px;
+.principlesHeader {
+  margin-bottom: 46px;
 
-  margin-bottom: 38px;
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(320px, 0.45fr);
+
+  align-items: end;
+
+  gap:
+    clamp(
+      52px,
+      7vw,
+      100px
+    );
 }
 
 
-.principlesIntro h2 {
+.principlesHeader h2 {
+  max-width: 740px;
+
   margin: 0;
 
   color: #07111f;
 
-  font-size: clamp(36px, 3vw, 49px);
-  font-weight: 660;
+  font-size:
+    clamp(
+      38px,
+      3.25vw,
+      52px
+    );
 
-  line-height: 1.06;
+  font-weight: 670;
 
-  letter-spacing: -0.041em;
+  line-height: 1.05;
+
+  letter-spacing: -0.043em;
+}
+
+
+.principlesHeader > p {
+  margin: 0 !important;
+
+  color: #4e6374 !important;
+
+  font-size: 13px;
+
+  line-height: 1.7;
 }
 
 
@@ -207,314 +339,321 @@
   display: grid;
 
   grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+    repeat(6, minmax(0, 1fr));
 
-  gap: 16px;
+  gap: 14px;
 }
-
 
 
 /* ==========================================================
    PRINCIPLE CARDS
 ========================================================== */
 
-
 .principle {
-  position: relative;
-
-  isolation: isolate;
+  grid-column: span 2;
 
   min-width: 0;
-  min-height: 310px;
+  min-height: 295px;
 
-  padding: 25px;
+  padding: 24px;
 
   display: flex;
   flex-direction: column;
 
-  overflow: hidden;
+  border:
+    1px solid
+    rgba(102, 137, 157, 0.2);
 
-  border: 1px solid #d5e0e6;
-  border-radius: 17px;
+  border-radius: 15px;
 
   background:
-    linear-gradient(
-      145deg,
-      #ffffff 0%,
-      #f9fbfc 100%
-    );
+    rgba(255, 255, 255, 0.73);
 
   box-shadow:
-    0 10px 28px rgba(16, 42, 58, 0.045);
+    0 10px 26px
+    rgba(16, 42, 58, 0.035);
 
   transition:
-    transform 190ms ease,
-    border-color 190ms ease,
-    box-shadow 190ms ease,
-    background 190ms ease;
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 
-.principle::before {
-  content: "";
+/*
+   Last two cards intentionally become wider.
+   This avoids an awkward 3 + 2 layout with a missing column.
+*/
 
-  position: absolute;
-
-  z-index: -1;
-
-  top: -100px;
-  right: -100px;
-
-  width: 230px;
-  height: 230px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(73, 137, 173, 0.1),
-      transparent 67%
-    );
-
-  opacity: 0;
-
-  transform: scale(0.8);
-
-  transition:
-    opacity 200ms ease,
-    transform 200ms ease;
+.principle:nth-child(4),
+.principle:nth-child(5) {
+  grid-column: span 3;
 }
 
 
-.principle:hover,
-.principle:focus-within {
+.principle:hover {
   transform: translateY(-5px);
 
-  border-color: #afc3d0;
+  border-color:
+    rgba(72, 113, 137, 0.34);
 
   background: #ffffff;
 
   box-shadow:
-    0 22px 42px rgba(16, 42, 58, 0.09);
+    0 22px 42px
+    rgba(16, 42, 58, 0.08);
 }
-
-
-.principle:hover::before,
-.principle:focus-within::before {
-  opacity: 1;
-
-  transform: scale(1);
-}
-
-
-
-/* ==========================================================
-   FEATURED PRINCIPLE
-========================================================== */
-
-
-.featured {
-  grid-column: span 2;
-
-  min-height: 350px;
-
-  background:
-    radial-gradient(
-      circle at 87% 14%,
-      rgba(76, 158, 188, 0.18),
-      transparent 28%
-    ),
-    linear-gradient(
-      145deg,
-      #091a2d 0%,
-      #0d3047 100%
-    );
-
-  border-color: #31546b;
-
-  box-shadow:
-    0 18px 42px rgba(7, 22, 37, 0.18);
-}
-
-
-.featured:hover,
-.featured:focus-within {
-  border-color: #5f8ba4;
-
-  background:
-    radial-gradient(
-      circle at 87% 14%,
-      rgba(76, 158, 188, 0.24),
-      transparent 30%
-    ),
-    linear-gradient(
-      145deg,
-      #0b2036 0%,
-      #10405b 100%
-    );
-
-  box-shadow:
-    0 28px 54px rgba(7, 22, 37, 0.25);
-}
-
-
-
-/* ==========================================================
-   CARD HEADER
-========================================================== */
 
 
 .principleTop {
   display: flex;
+
   align-items: center;
   justify-content: space-between;
 
-  gap: 18px;
+  gap: 16px;
 }
 
 
 .iconWrap {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
 
   display: grid;
   place-items: center;
 
-  border: 1px solid #cbd9e2;
-  border-radius: 12px;
+  border-radius: 11px;
 
-  background: #edf4f8;
+  background: #e5eef3;
 
-  color: #346d8e;
+  color: #315f7d;
 
   transition:
-    background 190ms ease,
-    color 190ms ease,
-    border-color 190ms ease,
-    transform 190ms ease;
+    background 180ms ease,
+    color 180ms ease;
 }
 
 
 .principle:hover .iconWrap {
-  border-color: #4f7890;
-
-  background: #0b2c41;
+  background: #123a52;
 
   color: #ffffff;
-
-  transform: rotate(-2deg) scale(1.03);
-}
-
-
-.featured .iconWrap {
-  border-color: rgba(191, 219, 235, 0.24);
-
-  background: rgba(221, 238, 248, 0.09);
-
-  color: #bee0f0;
-}
-
-
-.featured:hover .iconWrap {
-  border-color: #e0b348;
-
-  background: #d9a52b;
-
-  color: #07111f;
 }
 
 
 .principleMeta {
-  color: #4b738d;
+  color: #53768c;
 
-  font-size: 9px;
-  font-weight: 830;
+  font-size: 8px;
+  font-weight: 800;
 
-  letter-spacing: 0.09em;
+  letter-spacing: 0.095em;
 
   text-transform: uppercase;
 }
 
 
-.featured .principleMeta {
-  color: #b7d2e1 !important;
-}
-
-
-
-/* ==========================================================
-   CARD COPY
-========================================================== */
-
-
 .principleCopy {
-  max-width: 660px;
-
   margin-top: auto;
 
-  padding-top: 58px;
+  padding-top: 46px;
 }
 
 
 .principle h3 {
+  max-width: 430px;
+
   margin: 0;
 
   color: #07111f;
 
-  font-size: clamp(27px, 2.4vw, 36px);
-  font-weight: 670;
+  font-size:
+    clamp(
+      23px,
+      1.8vw,
+      29px
+    );
 
-  line-height: 1.08;
+  font-weight: 675;
 
-  letter-spacing: -0.035em;
+  line-height: 1.1;
+
+  letter-spacing: -0.03em;
 }
 
 
 .principle p {
-  max-width: 640px;
+  max-width: 520px;
 
-  margin: 15px 0 0 !important;
+  margin:
+    14px
+    0
+    0 !important;
 
-  color: #52697a !important;
+  color: #53697a !important;
 
-  font-size: 14px;
-  font-weight: 480;
+  font-size: 11.5px;
 
-  line-height: 1.7;
+  line-height: 1.65;
 }
 
 
-.featured h3 {
-  max-width: 780px;
+/* ==========================================================
+   CLOSING
+========================================================== */
 
-  color: #ffffff !important;
+.closing {
+  padding:
+    clamp(96px, 8vw, 126px)
+    0;
 
-  font-size: clamp(36px, 3.5vw, 54px);
+  background: #ffffff;
 }
 
 
-.featured p {
-  max-width: 780px;
+.closingLayout {
+  display: grid;
 
-  color: #d6e3ea !important;
+  grid-template-columns:
+    minmax(150px, 0.22fr)
+    minmax(0, 0.78fr);
 
-  font-size: 15px;
+  align-items: start;
+
+  gap:
+    clamp(
+      56px,
+      7vw,
+      96px
+    );
 }
 
+
+.closingLayout > div {
+  max-width: 920px;
+}
+
+
+.closingLayout h2 {
+  max-width: 850px;
+
+  margin: 0;
+
+  color: #07111f;
+
+  font-size:
+    clamp(
+      39px,
+      3.45vw,
+      54px
+    );
+
+  font-weight: 670;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.043em;
+}
+
+
+.closingLayout > div > p {
+  max-width: 680px;
+
+  margin:
+    23px
+    0
+    0 !important;
+
+  color: #4e6374 !important;
+
+  font-size: 13px;
+
+  line-height: 1.72;
+}
 
 
 /* ==========================================================
    TABLET
 ========================================================== */
 
+@media (max-width: 1000px) {
 
-@media (max-width: 900px) {
   .heroLayout,
-  .standardGrid {
+  .standardLayout,
+  .principlesHeader {
     grid-template-columns: 1fr;
 
-    gap: 32px;
+    gap: 40px;
+  }
+
+
+  .heroAside,
+  .standardCopy,
+  .principlesHeader > p {
+    max-width: 680px;
+  }
+
+
+  .principlesGrid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .principle,
+  .principle:nth-child(4),
+  .principle:nth-child(5) {
+    grid-column: auto;
+  }
+
+
+  .principle:last-child {
+    grid-column: 1 / -1;
+
+    min-height: 240px;
+  }
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 700px) {
+
+  .hero {
+    padding:
+      72px
+      0
+      84px;
+  }
+
+
+  .hero h1 {
+    font-size:
+      clamp(
+        44px,
+        12vw,
+        61px
+      );
+  }
+
+
+  .heroAside {
+    padding:
+      0
+      0
+      0
+      22px;
+  }
+
+
+  .standard,
+  .principlesSection,
+  .closing {
+    padding-top: 76px;
+    padding-bottom: 76px;
   }
 
 
@@ -523,96 +662,39 @@
   }
 
 
-  .featured {
+  .principle,
+  .principle:last-child {
     grid-column: auto;
+
+    min-height: 245px;
   }
 
 
-  .principle,
-  .featured {
-    min-height: 280px;
-  }
-}
+  .closingLayout {
+    grid-template-columns: 1fr;
 
-
-
-/* ==========================================================
-   MOBILE
-========================================================== */
-
-
-@media (max-width: 700px) {
-  .hero,
-  .standard,
-  .principlesSection {
-    padding-top: 76px;
-    padding-bottom: 76px;
-  }
-
-
-  .hero h1 {
-    font-size: clamp(45px, 13vw, 62px);
-  }
-
-
-  .standardStatement {
-    gap: 5px;
-  }
-
-
-  .standardStatement h2 {
-    font-size: clamp(35px, 9vw, 48px);
-  }
-
-
-  .principlesIntro {
-    margin-bottom: 28px;
-  }
-
-
-  .principle,
-  .featured {
-    min-height: 250px;
-
-    padding: 22px;
-  }
-
-
-  .principleCopy {
-    padding-top: 42px;
-  }
-
-
-  .principle h3 {
-    font-size: 27px;
-  }
-
-
-  .featured h3 {
-    font-size: clamp(31px, 9vw, 43px);
-  }
-
-
-  .principle p,
-  .featured p {
-    font-size: 13px;
+    gap: 28px;
   }
 }
-
 
 
 /* ==========================================================
    SMALL MOBILE
 ========================================================== */
 
-
 @media (max-width: 430px) {
+
+  .principle {
+    padding: 20px;
+  }
+
+
   .principleTop {
     align-items: flex-start;
 
     flex-direction: column;
 
-    gap: 13px;
+    gap: 12px;
   }
 
 
@@ -622,27 +704,19 @@
 }
 
 
-
 /* ==========================================================
    REDUCED MOTION
 ========================================================== */
 
-
 @media (prefers-reduced-motion: reduce) {
+
   .principle,
-  .principle::before,
   .iconWrap {
     transition: none;
   }
 
 
-  .principle:hover,
-  .principle:focus-within {
-    transform: none;
-  }
-
-
-  .principle:hover .iconWrap {
+  .principle:hover {
     transform: none;
   }
 }

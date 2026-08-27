@@ -1,5 +1,4 @@
-﻿"use client";
-
+﻿import { createPageMetadata } from "@/lib/seo/metadata";
 import Link from "next/link";
 
 import {
@@ -15,68 +14,77 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
-import {
-  useEffect,
-  useState,
-} from "react";
-
 import { PublicContainer } from "@/components/public/public-container";
 
 import styles from "./page.module.css";
 
 
+
+export const metadata = createPageMetadata({
+  title: "AI Governance Resources",
+  description:
+    "Explore AIGO-OS resources covering enterprise AI governance, connected context, accountability, dependencies, governance intelligence and business impact.",
+  path: "/resources",
+  keywords: [
+    "AI governance resources",
+    "enterprise AI governance resources",
+  ],
+});
 const subjectAreas = [
   {
     icon: ShieldCheck,
-    label: "AI Governance",
-    title: "Govern AI in the context of the business.",
+    label: "Governance Intelligence",
+    title: "Understand what governance requires in context.",
     text:
-      "Perspectives on accountability, authority, AI agent oversight, governance priorities and enterprise responsibility.",
+      "Perspectives on controls, accountability, policy relationships, ownership and the consequences of governance change.",
     topics: [
-      "AI Agent Accountability",
-      "AI Agent Authority",
-      "Governance Priorities",
-      "AI Agent Sprawl",
+      "Control Applicability",
+      "Policies & Controls",
+      "Control Coverage",
+      "Governance Change Impact",
+      "Ownership & Accountability",
     ],
   },
 
   {
     icon: BrainCircuit,
-    label: "Business Impact",
-    title: "Understand what AI means for operations and outcomes.",
+    label: "Business Impact Intelligence",
+    title: "See what change, disruption and dependency mean for the business.",
     text:
-      "Research and practical thinking on dependencies, operational change, incidents and the business consequences surrounding AI.",
+      "Practical thinking on operational dependencies, incidents, change and the business services affected by AI and enterprise activity.",
     topics: [
-      "AI Business Dependencies",
-      "AI Change Impact",
-      "AI Incident Impact",
-      "Management Intelligence",
+      "Change Impact",
+      "Incident Business Impact",
+      "Hidden Dependencies",
+      "Critical Service Dependencies",
     ],
   },
 
   {
     icon: Network,
     label: "Enterprise Context",
-    title: "Understand AI as part of an operating enterprise.",
+    title: "Understand relationships before making conclusions.",
     text:
-      "Ideas on connecting AI activity to business functions, processes, ownership, events and the environment in which AI operates.",
+      "Ideas on connecting enterprise information so systems, activity, ownership and business meaning can be understood together.",
     topics: [
+      "Enterprise Connectivity",
       "Enterprise Context",
-      "AI Business Mapping",
-      "Activity & Events",
-      "Contextual Intelligence",
+      "Relationship Intelligence",
+      "Continuous Intelligence",
+      "Contextual Reasoning",
+      "Explainability",
     ],
   },
 ];
 
 
-const formats = [
+const resourceFormats = [
   {
     icon: FileText,
     eyebrow: "Perspective",
     title: "Insights",
     text:
-      "Articles and perspectives on enterprise AI governance, business impact and contextual intelligence.",
+      "Focused AIGO-OS perspectives on enterprise AI governance, business impact, context and decision-making.",
     status: "Publishing soon",
   },
 
@@ -85,16 +93,16 @@ const formats = [
     eyebrow: "Executive material",
     title: "Executive Briefs & Research",
     text:
-      "Deeper analysis, management frameworks, research and decision material for enterprise leaders.",
+      "Deeper analysis, management frameworks and research designed for enterprise leaders and governance teams.",
     status: "In development",
   },
 
   {
     icon: Presentation,
-    eyebrow: "Live discussion",
-    title: "Webinars & Events",
+    eyebrow: "Discussion",
+    title: "Briefings & Events",
     text:
-      "Conversations, briefings and sessions exploring important enterprise AI questions.",
+      "Structured conversations and sessions exploring important enterprise AI questions and operating realities.",
     status: "Coming later",
   },
 
@@ -115,7 +123,7 @@ const boundaries = [
     eyebrow: "Connect AIGO-OS",
     title: "Integrations",
     text:
-      "Technical implementation and information about connecting AIGO-OS to the enterprise environment.",
+      "Technical information about connecting AIGO-OS to enterprise systems and information sources.",
     href: "/integrations",
     action: "Explore integrations",
   },
@@ -125,7 +133,7 @@ const boundaries = [
     eyebrow: "Use AIGO-OS",
     title: "Help Center",
     text:
-      "Product guidance and support belong in the Help Center rather than the editorial resource library.",
+      "Product guidance, support and operational help belong in the dedicated AIGO-OS Help Center.",
     href: "/help",
     action: "Visit Help Center",
   },
@@ -133,71 +141,62 @@ const boundaries = [
   {
     icon: ShieldCheck,
     eyebrow: "Trust AIGO-OS",
-    title: "Trust & Security",
+    title: "Security",
     text:
-      "Security, privacy and assurance information stays in the dedicated trust area.",
-    href: "/trust",
-    action: "Explore trust",
+      "Security, privacy and assurance information is maintained separately from the editorial resource library.",
+    href: "/security",
+    action: "Explore security",
   },
 ];
 
 
 export default function ResourcesPage() {
-  const [activeFormat, setActiveFormat] =
-    useState(0);
-
-  const [paused, setPaused] =
-    useState(false);
-
-
-  useEffect(() => {
-    if (paused) {
-      return;
-    }
-
-    const timer = window.setInterval(() => {
-      setActiveFormat((current) =>
-        (current + 1) % formats.length
-      );
-    }, 2000);
-
-    return () => {
-      window.clearInterval(timer);
-    };
-  }, [paused]);
-
-
-  const active = formats[activeFormat];
-
-  const ActiveIcon = active.icon;
-
-
   return (
     <>
+      {/* =====================================================
+          HERO
+      ===================================================== */}
+
       <section className={styles.hero}>
+        <div
+          className={styles.heroGridPattern}
+          aria-hidden="true"
+        />
+
         <PublicContainer>
           <div className={styles.heroGrid}>
             <div className={styles.heroCopy}>
               <p className={styles.eyebrow}>
-                Resources
+                AIGO-OS Resources
               </p>
 
               <h1>
                 Think more clearly about enterprise AI.
               </h1>
+
+              <div
+                className={styles.heroSignals}
+                aria-label="Resource focus areas"
+              >
+                <span>Governance</span>
+                <span>Business impact</span>
+                <span>Enterprise context</span>
+              </div>
             </div>
 
             <div className={styles.heroIntro}>
-              <p>
+              <span className={styles.heroIntroRule} />
+
+              <p className={styles.heroLead}>
                 AIGO-OS Resources brings together perspectives,
-                research and practical thinking on AI governance,
-                enterprise context and business impact.
+                research and practical thinking for leaders trying
+                to understand AI in the context of the enterprise.
               </p>
 
               <p>
-                The focus is not content volume. It is material that
-                helps enterprise leaders understand the questions
-                surrounding AI more clearly.
+                The goal is not content volume. It is useful material
+                that makes relationships, consequences and management
+                questions easier to understand.
               </p>
             </div>
           </div>
@@ -205,28 +204,68 @@ export default function ResourcesPage() {
       </section>
 
 
+      {/* =====================================================
+          EDITORIAL POSITION
+      ===================================================== */}
+
       <section className={styles.positionSection}>
         <PublicContainer>
-          <div className={styles.positionCard}>
-            <span className={styles.positionEyebrow}>
-              AIGO-OS perspective
-            </span>
+          <div className={styles.positionLayout}>
+            <div className={styles.positionHeading}>
+              <p className={styles.sectionLabel}>
+                AIGO-OS perspective
+              </p>
 
-            <h2>
-              AI becomes more useful to management when it can be
-              understood as part of the business around it.
-            </h2>
+              <h2>
+                Enterprise AI becomes more useful when it can be
+                understood as part of the business around it.
+              </h2>
+            </div>
 
-            <p>
-              Our resource program focuses on the questions between
-              AI activity and enterprise decision-making: who is
-              accountable, what authority exists, what the business
-              depends on, what changed and what requires attention.
-            </p>
+            <div className={styles.positionDetail}>
+              <p>
+                Our resource program focuses on the questions between
+                AI activity and enterprise decision-making: what is
+                connected, what matters, who is accountable, what
+                changed and what the business may be affected by.
+              </p>
+
+              <div className={styles.positionPrinciples}>
+                <div>
+                  <span>01</span>
+                  <strong>Understand context</strong>
+                  <p>
+                    Look beyond isolated systems, events and AI activity.
+                  </p>
+                </div>
+
+                <div>
+                  <span>02</span>
+                  <strong>Understand relationships</strong>
+                  <p>
+                    See how enterprise information connects before
+                    drawing conclusions.
+                  </p>
+                </div>
+
+                <div>
+                  <span>03</span>
+                  <strong>Understand consequence</strong>
+                  <p>
+                    Connect technical activity to governance and
+                    business meaning.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </PublicContainer>
       </section>
 
+
+      {/* =====================================================
+          FOCUS AREAS
+      ===================================================== */}
 
       <section className={styles.subjectSection}>
         <PublicContainer>
@@ -237,14 +276,14 @@ export default function ResourcesPage() {
               </p>
 
               <h2>
-                The questions we keep coming back to.
+                The questions behind the platform.
               </h2>
             </div>
 
             <p>
-              These themes reflect the problems AIGO-OS is built
-              around without turning the resource library into
-              product documentation.
+              Resources explores the same enterprise problems AIGO-OS
+              is designed to help make understandable, without turning
+              the library into product documentation.
             </p>
           </div>
 
@@ -261,7 +300,7 @@ export default function ResourcesPage() {
                   <div className={styles.subjectTop}>
                     <div className={styles.subjectIcon}>
                       <Icon
-                        size={24}
+                        size={22}
                         strokeWidth={1.65}
                         aria-hidden="true"
                       />
@@ -297,184 +336,87 @@ export default function ResourcesPage() {
       </section>
 
 
+      {/* =====================================================
+          RESOURCE LIBRARY
+      ===================================================== */}
+
       <section className={styles.librarySection}>
+        <div
+          className={styles.libraryGlow}
+          aria-hidden="true"
+        />
+
         <PublicContainer>
-          <div className={styles.libraryLayout}>
-            <div className={styles.libraryIntro}>
+          <div className={styles.libraryHeader}>
+            <div>
               <p className={styles.sectionLabelLight}>
                 Resource library
               </p>
 
               <h2>
-                Different formats. One point of view.
+                Different formats.
+                <br />
+                One connected point of view.
               </h2>
+            </div>
 
+            <div className={styles.libraryHeaderCopy}>
               <p>
-                The library will expand through original AIGO-OS
-                material designed for enterprise leaders, governance
+                The library is being built deliberately around original
+                AIGO-OS material for enterprise leaders, governance
                 teams and people responsible for understanding AI
                 in business context.
               </p>
 
-              <div
-                className={styles.formatSelectors}
-                aria-label="Resource formats"
-              >
-                {formats.map((format, index) => (
-                  <button
-                    key={format.title}
-                    type="button"
-                    className={
-                      index === activeFormat
-                        ? `${styles.formatSelector} ${styles.formatSelectorActive}`
-                        : styles.formatSelector
-                    }
-                    onClick={() =>
-                      setActiveFormat(index)
-                    }
-                    aria-label={`Show ${format.title}`}
-                    aria-pressed={
-                      index === activeFormat
-                    }
-                  >
-                    <span>
-                      {format.title}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-
-            <div
-              className={styles.flashStage}
-              onMouseEnter={() =>
-                setPaused(true)
-              }
-              onMouseLeave={() =>
-                setPaused(false)
-              }
-              onFocusCapture={() =>
-                setPaused(true)
-              }
-              onBlurCapture={() =>
-                setPaused(false)
-              }
-            >
-              <article
-                key={activeFormat}
-                className={styles.flashCard}
-              >
-                <div className={styles.flashTop}>
-                  <div className={styles.flashIcon}>
-                    <ActiveIcon
-                      size={27}
-                      strokeWidth={1.6}
-                      aria-hidden="true"
-                    />
-                  </div>
-
-                  <span className={styles.flashStatus}>
-                    {active.status}
-                  </span>
-                </div>
-
-                <div className={styles.flashCopy}>
-                  <span className={styles.flashEyebrow}>
-                    {active.eyebrow}
-                  </span>
-
-                  <h3>
-                    {active.title}
-                  </h3>
-
-                  <p>
-                    {active.text}
-                  </p>
-                </div>
-              </article>
-
-              <div
-                className={styles.flashProgress}
-                aria-hidden="true"
-              >
-                {formats.map((format, index) => (
-                  <span
-                    key={format.title}
-                    className={
-                      index === activeFormat
-                        ? styles.flashProgressActive
-                        : ""
-                    }
-                  />
-                ))}
-              </div>
+              <span>
+                New material will appear here as it is published.
+              </span>
             </div>
           </div>
-        </PublicContainer>
-      </section>
 
 
-      <section className={styles.boundarySection}>
-        <PublicContainer>
-          <div className={styles.boundaryHeader}>
-            <p className={styles.sectionLabel}>
-              Find the right place
-            </p>
-
-            <h2>
-              Resources is for thinking and learning.
-            </h2>
-
-            <p>
-              Product implementation, product support and trust
-              information each have their own dedicated home.
-            </p>
-          </div>
-
-
-          <div className={styles.boundaryCards}>
-            {boundaries.map((item) => {
-              const Icon = item.icon;
+          <div className={styles.resourceGrid}>
+            {resourceFormats.map((format) => {
+              const Icon = format.icon;
 
               return (
-                <Link
-                  key={item.title}
-                  href={item.href}
-                  className={styles.boundaryCard}
+                <article
+                  key={format.title}
+                  className={styles.resourceCard}
                 >
-                  <div className={styles.boundaryIcon}>
-                    <Icon
-                      size={21}
-                      strokeWidth={1.7}
-                      aria-hidden="true"
-                    />
+                  <div className={styles.resourceCardTop}>
+                    <div className={styles.resourceIcon}>
+                      <Icon
+                        size={23}
+                        strokeWidth={1.6}
+                        aria-hidden="true"
+                      />
+                    </div>
+
+                    <span className={styles.resourceStatus}>
+                      {format.status}
+                    </span>
                   </div>
 
-                  <span className={styles.boundaryEyebrow}>
-                    {item.eyebrow}
-                  </span>
-
-                  <strong>
-                    {item.title}
-                  </strong>
-
-                  <p>
-                    {item.text}
-                  </p>
-
-                  <div className={styles.boundaryAction}>
-                    <span>
-                      {item.action}
+                  <div className={styles.resourceCardCopy}>
+                    <span className={styles.resourceEyebrow}>
+                      {format.eyebrow}
                     </span>
 
-                    <ArrowUpRight
-                      size={15}
-                      strokeWidth={1.8}
-                      aria-hidden="true"
-                    />
+                    <h3>
+                      {format.title}
+                    </h3>
+
+                    <p>
+                      {format.text}
+                    </p>
                   </div>
-                </Link>
+
+                  <div
+                    className={styles.resourceCardRule}
+                    aria-hidden="true"
+                  />
+                </article>
               );
             })}
           </div>
@@ -482,22 +424,100 @@ export default function ResourcesPage() {
       </section>
 
 
+      {/* =====================================================
+          RESOURCE BOUNDARIES
+      ===================================================== */}
+
+      <section className={styles.boundarySection}>
+        <PublicContainer>
+          <div className={styles.boundaryLayout}>
+            <div className={styles.boundaryHeader}>
+              <p className={styles.sectionLabel}>
+                Find the right place
+              </p>
+
+              <h2>
+                Resources is for thinking and learning.
+              </h2>
+
+              <p>
+                Implementation guidance, support and trust information
+                each have a dedicated destination elsewhere in AIGO-OS.
+              </p>
+            </div>
+
+
+            <div className={styles.boundaryCards}>
+              {boundaries.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <Link
+                    key={item.title}
+                    href={item.href}
+                    className={styles.boundaryCard}
+                  >
+                    <div className={styles.boundaryCardHeader}>
+                      <div className={styles.boundaryIcon}>
+                        <Icon
+                          size={20}
+                          strokeWidth={1.7}
+                          aria-hidden="true"
+                        />
+                      </div>
+
+                      <ArrowUpRight
+                        className={styles.boundaryArrow}
+                        size={17}
+                        strokeWidth={1.8}
+                        aria-hidden="true"
+                      />
+                    </div>
+
+                    <span className={styles.boundaryEyebrow}>
+                      {item.eyebrow}
+                    </span>
+
+                    <strong>
+                      {item.title}
+                    </strong>
+
+                    <p>
+                      {item.text}
+                    </p>
+
+                    <div className={styles.boundaryAction}>
+                      {item.action}
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </PublicContainer>
+      </section>
+
+
+      {/* =====================================================
+          FINAL CTA
+      ===================================================== */}
+
       <section className={styles.finalSection}>
         <PublicContainer>
           <div className={styles.finalPanel}>
-            <div>
+            <div className={styles.finalCopy}>
               <p className={styles.finalEyebrow}>
                 Continue the conversation
               </p>
 
               <h2>
-                Have an enterprise AI question that needs more than an article?
+                Some enterprise AI questions need more than an article.
               </h2>
 
               <p>
-                Talk with us about AI governance, business impact
-                or how AIGO-OS may fit into your enterprise
-                environment.
+                Talk with us about governance intelligence, business
+                impact intelligence or how AIGO-OS may fit into your
+                enterprise environment.
               </p>
             </div>
 
@@ -522,3 +542,4 @@ export default function ResourcesPage() {
     </>
   );
 }
+

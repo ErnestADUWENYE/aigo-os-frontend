@@ -1,67 +1,93 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
+
+import { StructuredData } from "@/components/public/structured-data";
+
+import {
+  organizationSchema,
+  websiteSchema,
+} from "@/lib/seo/schema";
+
+import { siteConfig } from "@/lib/seo/site";
 
 import { ApplicationProviders } from "./providers/application-providers";
+
 import "./globals.css";
 
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://aigo-os.com"),
+  metadataBase: new URL(siteConfig.url),
 
   title: {
-    default: "AIGO-OS | AI Governance Operating System",
+    default: siteConfig.title,
     template: "%s | AIGO-OS",
   },
 
   description:
-    "AIGO-OS is the governance operating layer for enterprise AI, continuously governing AI actors, authority, risk, decisions and evidence across autonomous systems.",
+    siteConfig.description,
 
-  applicationName: "AIGO-OS",
+  applicationName:
+    siteConfig.name,
 
   keywords: [
-    "AI governance",
-    "AI agent governance",
-    "enterprise AI governance",
-    "autonomous AI governance",
-    "governed autonomy",
-    "AI risk management",
-    "AI authority",
-    "AI actor identity",
-    "AI governance operating system",
-    "AIGO-OS",
+    ...siteConfig.keywords,
   ],
 
-  authors: [{ name: "AIGO-OS" }],
-  creator: "AIGO-OS",
-  publisher: "AIGO-OS",
+  authors: [
+    {
+      name: siteConfig.name,
+    },
+  ],
+
+  creator:
+    siteConfig.name,
+
+  publisher:
+    siteConfig.name,
+
+  alternates: {
+    canonical: "/",
+  },
 
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: siteConfig.locale,
     url: "/",
-    siteName: "AIGO-OS",
-    title: "AIGO-OS | AI Governance Operating System",
+    siteName: siteConfig.name,
+    title: siteConfig.title,
     description:
-      "Govern enterprise AI at the speed of autonomy. Discover AI actors, understand authority and risk, make governance decisions and preserve traceable evidence.",
+      siteConfig.description,
+
     images: [
       {
-        url: "/branding/aigo-os-master.png",
+        url: siteConfig.socialImage,
         width: 1200,
         height: 630,
-        alt: "AIGO-OS",
+        alt: siteConfig.socialImageAlt,
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "AIGO-OS | AI Governance Operating System",
+    title: siteConfig.title,
     description:
-      "The governance operating layer for autonomous enterprise AI.",
-    images: ["/branding/aigo-os-master.png"],
+      siteConfig.shortDescription,
+    images: [
+      siteConfig.socialImage,
+    ],
   },
 
   robots: {
     index: true,
     follow: true,
+
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 
   icons: {
@@ -80,16 +106,31 @@ export const metadata: Metadata = {
   },
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+    >
       <body>
-        <ApplicationProviders>{children}</ApplicationProviders>
+        <StructuredData
+          data={organizationSchema()}
+        />
+
+        <StructuredData
+          data={websiteSchema()}
+        />
+
+        <ApplicationProviders>
+          {children}
+        </ApplicationProviders>
       </body>
     </html>
   );
 }
+

@@ -1,16 +1,133 @@
-﻿import {
+﻿"use client";
+
+import Link from "next/link";
+import {
   Building2,
   Mail,
   Send,
   UserRound,
 } from "lucide-react";
 
+import {
+  FormEvent,
+  useState,
+} from "react";
+
 import { PublicContainer } from "@/components/public/public-container";
 
 import styles from "./page.module.css";
 
 
+type SubmitState =
+  | "idle"
+  | "submitting"
+  | "success"
+  | "error";
+
+
 export default function RequestDemoPage() {
+  const [submitState, setSubmitState] =
+    useState<SubmitState>("idle");
+
+  const [message, setMessage] =
+    useState("");
+
+
+  async function handleSubmit(
+    event: FormEvent<HTMLFormElement>
+  ) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+
+    setSubmitState("submitting");
+    setMessage("");
+
+    try {
+      const formData = new FormData(form);
+
+      const payload = {
+        firstName:
+          String(formData.get("firstName") ?? "").trim(),
+
+        lastName:
+          String(formData.get("lastName") ?? "").trim(),
+
+        email:
+          String(formData.get("email") ?? "").trim(),
+
+        company:
+          String(formData.get("company") ?? "").trim(),
+
+        role:
+          String(formData.get("role") ?? "").trim(),
+
+        demoFocus:
+          String(formData.get("demoFocus") ?? "").trim(),
+
+        objective:
+          String(formData.get("objective") ?? "").trim(),
+
+        question:
+          String(formData.get("question") ?? "").trim(),
+
+        environment:
+          String(formData.get("environment") ?? "").trim(),
+      };
+
+
+      const response = await fetch(
+        "/api/request-demo",
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify(payload),
+        }
+      );
+
+
+      const result = await response.json();
+
+
+      if (!response.ok) {
+        throw new Error(
+          result?.error ||
+          "We could not send your demo request."
+        );
+      }
+
+
+      form.reset();
+
+      setSubmitState("success");
+
+      setMessage(
+        "Thank you. Your demo request has been sent to AIGO-OS."
+      );
+    }
+    catch (error) {
+      console.error(
+        "Request Demo submission failed:",
+        error
+      );
+
+      setSubmitState("error");
+
+      setMessage(
+        "We could not send your demo request. Please try again."
+      );
+    }
+  }
+
+
+  const isSubmitting =
+    submitState === "submitting";
+
+
   return (
     <main>
       <section className={styles.hero}>
@@ -22,30 +139,30 @@ export default function RequestDemoPage() {
               </p>
 
               <h1>
-                See AIGO-OS around the problem you need to solve.
+                See AIGO-OS around the questions that matter to your organisation.
               </h1>
 
               <p className={styles.lead}>
-                Tell us what you want to understand or govern. We will use
-                that context to make the demonstration relevant to your
-                enterprise environment rather than give you a generic
-                product walkthrough.
+                Tell us what you need to understand, govern or assess.
+                We will use that context to focus the AIGO-OS demonstration
+                on the problems, relationships and business questions that
+                matter to your organisation.
               </p>
             </div>
 
+
             <aside className={styles.heroAside}>
               <span>
-                Your demo
+                One platform. Your focus.
               </span>
 
               <strong>
-                Built around your use case.
+                A demonstration built around your priorities.
               </strong>
 
               <p>
-                A demonstration can focus on AIGO-OS Govern, AIGO-OS Impact,
-                or how the platform connects AI activity with enterprise
-                context.
+                Explore Governance Intelligence, Business Impact Intelligence,
+                how they work together, or the broader AIGO-OS platform.
               </p>
             </aside>
           </div>
@@ -62,30 +179,34 @@ export default function RequestDemoPage() {
               </p>
 
               <h2>
-                Show us what matters to you.
+                Tell us what you need to see.
               </h2>
 
               <p>
-                Give us enough context to understand what you would like
-                the demonstration to focus on.
+                You do not need to understand the AIGO-OS architecture before
+                requesting a demonstration. Tell us what matters to your
+                organisation and we will focus the session accordingly.
               </p>
 
               <div className={styles.demoNote}>
                 <strong>
-                  A useful demo starts with a real question.
+                  A useful demo starts with your question.
                 </strong>
 
                 <p>
-                  You do not need to know which AIGO-OS capability you need.
-                  Describe the governance or business-impact problem and we
-                  can structure the session around it.
+                  Give us the business, governance or operating context behind
+                  your interest. That helps us demonstrate AIGO-OS through a
+                  relevant scenario rather than a generic product tour.
                 </p>
               </div>
             </aside>
 
 
             <div className={styles.formCard}>
-              <form className={styles.form}>
+              <form
+                className={styles.form}
+                onSubmit={handleSubmit}
+              >
                 <div className={styles.twoColumn}>
                   <div className={styles.field}>
                     <label htmlFor="firstName">
@@ -203,36 +324,39 @@ export default function RequestDemoPage() {
 
 
                 <div className={styles.field}>
-                  <label htmlFor="product">
-                    What would you like to see?
+                  <label htmlFor="demoFocus">
+                    What should we focus on during the demo?
                     <span aria-hidden="true">*</span>
                   </label>
 
                   <div className={styles.selectWrap}>
                     <select
-                      id="product"
-                      name="product"
+                      id="demoFocus"
+                      name="demoFocus"
                       defaultValue=""
                       required
                     >
-                      <option value="" disabled>
-                        Select an area
+                      <option
+                        value=""
+                        disabled
+                      >
+                        Select a focus
                       </option>
 
-                      <option value="govern">
-                        AIGO-OS Govern
+                      <option value="governance-intelligence">
+                        Governance Intelligence
                       </option>
 
-                      <option value="impact">
-                        AIGO-OS Impact
+                      <option value="business-impact-intelligence">
+                        Business Impact Intelligence
                       </option>
 
-                      <option value="both">
-                        Govern and Impact together
+                      <option value="connected-intelligence">
+                        How Govern and Impact work together
                       </option>
 
-                      <option value="platform">
-                        AIGO-OS platform capabilities
+                      <option value="platform-overview">
+                        Full AIGO-OS platform overview
                       </option>
 
                       <option value="unsure">
@@ -244,56 +368,67 @@ export default function RequestDemoPage() {
 
 
                 <div className={styles.field}>
-                  <label htmlFor="useCase">
-                    What problem or use case should the demo focus on?
+                  <label htmlFor="objective">
+                    What are you trying to understand or improve?
                     <span aria-hidden="true">*</span>
                   </label>
 
                   <div className={styles.selectWrap}>
                     <select
-                      id="useCase"
-                      name="useCase"
+                      id="objective"
+                      name="objective"
                       defaultValue=""
                       required
                     >
-                      <option value="" disabled>
-                        Select a use case
+                      <option
+                        value=""
+                        disabled
+                      >
+                        Select the closest fit
                       </option>
 
-                      <option value="agent-accountability">
-                        AI agent accountability
+                      <option value="governance-state">
+                        Understand AI governance state
                       </option>
 
-                      <option value="agent-access">
-                        AI agent access authority
+                      <option value="controls-coverage">
+                        Understand policies, controls and governance coverage
                       </option>
 
-                      <option value="agent-sprawl">
-                        AI agent sprawl
+                      <option value="ownership-accountability">
+                        Clarify ownership and accountability
                       </option>
 
-                      <option value="governance-priorities">
-                        AI governance priorities
+                      <option value="governance-change-impact">
+                        Understand governance impact when things change
+                      </option>
+
+                      <option value="business-impact">
+                        Understand AI business impact
                       </option>
 
                       <option value="dependencies">
-                        AI business dependencies
+                        Understand business and service dependencies
                       </option>
 
                       <option value="change-impact">
-                        AI change business impact
+                        Understand the business impact of change
                       </option>
 
                       <option value="incident-impact">
-                        AI incident business impact
+                        Understand the business impact of incidents
                       </option>
 
                       <option value="enterprise-context">
-                        Enterprise AI context and visibility
+                        Connect AI activity with enterprise context
+                      </option>
+
+                      <option value="relationships">
+                        Understand relationships across the AI environment
                       </option>
 
                       <option value="other">
-                        Other
+                        Something else
                       </option>
                     </select>
                   </div>
@@ -310,7 +445,7 @@ export default function RequestDemoPage() {
                     id="question"
                     name="question"
                     rows={6}
-                    placeholder="Tell us the question, challenge or decision you would like the demonstration to address."
+                    placeholder="Tell us what you are trying to understand, improve or make a decision about."
                     required
                   />
                 </div>
@@ -318,30 +453,56 @@ export default function RequestDemoPage() {
 
                 <div className={styles.field}>
                   <label htmlFor="environment">
-                    Tell us about your current AI environment
+                    Anything useful to know about your current environment?
                   </label>
 
                   <textarea
                     id="environment"
                     name="environment"
                     rows={4}
-                    placeholder="For example: AI agents, models, AI-enabled platforms, existing governance tooling or relevant enterprise systems."
+                    placeholder="For example: AI systems, models, AI-enabled applications, enterprise platforms, governance processes or business services involved."
                   />
                 </div>
+
+
+                {message ? (
+                  <div
+                    className={
+                      submitState === "success"
+                        ? styles.formSuccess
+                        : styles.formError
+                    }
+                    role={
+                      submitState === "error"
+                        ? "alert"
+                        : "status"
+                    }
+                    aria-live="polite"
+                  >
+                    {message}
+                  </div>
+                ) : null}
 
 
                 <div className={styles.formFooter}>
                   <p className={styles.privacy}>
                     Please do not include confidential, regulated or sensitive
-                    information in this form.
+                    information in this form. See our{" "}
+                    <Link href="/privacy">
+                      Privacy Policy
+                    </Link>
+                    {" "}for information about how AIGO-OS handles personal information.
                   </p>
 
                   <button
                     type="submit"
                     className={styles.submitButton}
+                    disabled={isSubmitting}
                   >
                     <span>
-                      Request a Demo
+                      {isSubmitting
+                        ? "Sending..."
+                        : "Request a Demo"}
                     </span>
 
                     <Send
@@ -359,3 +520,5 @@ export default function RequestDemoPage() {
     </main>
   );
 }
+
+

@@ -1,15 +1,134 @@
-﻿import {
+﻿"use client";
+
+import {
   Building2,
   Mail,
   Send,
   UserRound,
 } from "lucide-react";
 
+import {
+  FormEvent,
+  useState,
+} from "react";
+
 import { PublicContainer } from "@/components/public/public-container";
 
 import styles from "./page.module.css";
 
+
+type SubmitState =
+  | "idle"
+  | "submitting"
+  | "success"
+  | "error";
+
+
 export default function GetStartedPage() {
+  const [submitState, setSubmitState] =
+    useState<SubmitState>("idle");
+
+  const [statusMessage, setStatusMessage] =
+    useState("");
+
+
+  async function handleSubmit(
+    event: FormEvent<HTMLFormElement>
+  ) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+
+    setSubmitState("submitting");
+    setStatusMessage("");
+
+    try {
+      const formData = new FormData(form);
+
+      const payload = {
+        firstName:
+          String(formData.get("firstName") ?? "").trim(),
+
+        lastName:
+          String(formData.get("lastName") ?? "").trim(),
+
+        email:
+          String(formData.get("email") ?? "").trim(),
+
+        company:
+          String(formData.get("company") ?? "").trim(),
+
+        role:
+          String(formData.get("role") ?? "").trim(),
+
+        interest:
+          String(formData.get("interest") ?? "").trim(),
+
+        commercialTopic:
+          String(
+            formData.get("commercialTopic") ?? ""
+          ).trim(),
+
+        timeline:
+          String(formData.get("timeline") ?? "").trim(),
+
+        message:
+          String(formData.get("message") ?? "").trim(),
+      };
+
+
+      const response = await fetch(
+        "/api/get-started",
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify(payload),
+        }
+      );
+
+
+      const result = await response.json();
+
+
+      if (!response.ok) {
+        throw new Error(
+          result?.error ||
+          "We could not send your enquiry."
+        );
+      }
+
+
+      form.reset();
+
+      setSubmitState("success");
+
+      setStatusMessage(
+        "Thank you. Your commercial enquiry has been sent to AIGO-OS."
+      );
+    }
+    catch (error) {
+      console.error(
+        "Get Started submission failed:",
+        error
+      );
+
+      setSubmitState("error");
+
+      setStatusMessage(
+        "We could not send your enquiry. Please try again."
+      );
+    }
+  }
+
+
+  const isSubmitting =
+    submitState === "submitting";
+
+
   return (
     <main>
       <section className={styles.hero}>
@@ -32,6 +151,7 @@ export default function GetStartedPage() {
               </p>
             </div>
 
+
             <aside className={styles.heroAside}>
               <span>
                 Enterprise commercial enquiries
@@ -51,6 +171,7 @@ export default function GetStartedPage() {
         </PublicContainer>
       </section>
 
+
       <section className={styles.salesSection}>
         <PublicContainer>
           <div className={styles.salesLayout}>
@@ -69,20 +190,25 @@ export default function GetStartedPage() {
                 deployment fully defined yet.
               </p>
 
+
               <div className={styles.scopeNote}>
                 <strong>
                   This page is for commercial discussions.
                 </strong>
 
                 <p>
-                  Product demonstrations and exploratory governance
-                  conversations have their own dedicated routes.
+                  Product demonstrations and exploratory conversations
+                  have their own dedicated routes.
                 </p>
               </div>
             </aside>
 
+
             <div className={styles.formCard}>
-              <form className={styles.form}>
+              <form
+                className={styles.form}
+                onSubmit={handleSubmit}
+              >
                 <div className={styles.twoColumn}>
                   <div className={styles.field}>
                     <label htmlFor="firstName">
@@ -106,6 +232,7 @@ export default function GetStartedPage() {
                       />
                     </div>
                   </div>
+
 
                   <div className={styles.field}>
                     <label htmlFor="lastName">
@@ -131,6 +258,7 @@ export default function GetStartedPage() {
                   </div>
                 </div>
 
+
                 <div className={styles.field}>
                   <label htmlFor="email">
                     Work email
@@ -153,6 +281,7 @@ export default function GetStartedPage() {
                     />
                   </div>
                 </div>
+
 
                 <div className={styles.twoColumn}>
                   <div className={styles.field}>
@@ -178,6 +307,7 @@ export default function GetStartedPage() {
                     </div>
                   </div>
 
+
                   <div className={styles.field}>
                     <label htmlFor="role">
                       Your role
@@ -193,6 +323,7 @@ export default function GetStartedPage() {
                     />
                   </div>
                 </div>
+
 
                 <div className={styles.field}>
                   <label htmlFor="interest">
@@ -211,20 +342,20 @@ export default function GetStartedPage() {
                         Select an area
                       </option>
 
-                      <option value="govern">
-                        AIGO-OS Govern
+                      <option value="governance-intelligence">
+                        Governance Intelligence
                       </option>
 
-                      <option value="impact">
-                        AIGO-OS Impact
+                      <option value="business-impact-intelligence">
+                        Business Impact Intelligence
                       </option>
 
-                      <option value="both">
-                        Govern and Impact
+                      <option value="connected-intelligence">
+                        Govern and Impact together
                       </option>
 
                       <option value="platform">
-                        AIGO-OS platform capabilities
+                        Broader AIGO-OS platform
                       </option>
 
                       <option value="unsure">
@@ -233,6 +364,7 @@ export default function GetStartedPage() {
                     </select>
                   </div>
                 </div>
+
 
                 <div className={styles.field}>
                   <label htmlFor="commercialTopic">
@@ -260,7 +392,7 @@ export default function GetStartedPage() {
                       </option>
 
                       <option value="deployment">
-                        Deployment scope
+                        Deployment requirements
                       </option>
 
                       <option value="evaluation">
@@ -275,12 +407,17 @@ export default function GetStartedPage() {
                         Contracting and commercial terms
                       </option>
 
+                      <option value="security">
+                        Security or technical due diligence
+                      </option>
+
                       <option value="other">
-                        Other
+                        Other commercial enquiry
                       </option>
                     </select>
                   </div>
                 </div>
+
 
                 <div className={styles.field}>
                   <label htmlFor="timeline">
@@ -293,8 +430,8 @@ export default function GetStartedPage() {
                       name="timeline"
                       defaultValue=""
                     >
-                      <option value="" disabled>
-                        Select a timeline
+                      <option value="">
+                        Not specified
                       </option>
 
                       <option value="now">
@@ -320,6 +457,7 @@ export default function GetStartedPage() {
                   </div>
                 </div>
 
+
                 <div className={styles.field}>
                   <label htmlFor="message">
                     Tell us about the commercial context
@@ -335,6 +473,26 @@ export default function GetStartedPage() {
                   />
                 </div>
 
+
+                {statusMessage ? (
+                  <div
+                    className={`${styles.formStatus} ${
+                      submitState === "success"
+                        ? styles.formSuccess
+                        : styles.formError
+                    }`}
+                    role={
+                      submitState === "error"
+                        ? "alert"
+                        : "status"
+                    }
+                    aria-live="polite"
+                  >
+                    {statusMessage}
+                  </div>
+                ) : null}
+
+
                 <div className={styles.formFooter}>
                   <p className={styles.privacy}>
                     Please do not include confidential, regulated or sensitive
@@ -344,9 +502,12 @@ export default function GetStartedPage() {
                   <button
                     type="submit"
                     className={styles.submitButton}
+                    disabled={isSubmitting}
                   >
                     <span>
-                      Start the conversation
+                      {isSubmitting
+                        ? "Sending..."
+                        : "Start the conversation"}
                     </span>
 
                     <Send

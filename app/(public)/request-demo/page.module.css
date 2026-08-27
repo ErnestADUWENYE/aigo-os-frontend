@@ -750,3 +750,71 @@
     transform: none;
   }
 }
+
+/* ==========================================================
+   FORM SUBMISSION STATUS
+========================================================== */
+
+.formSuccess,
+.formError {
+  padding: 13px 15px;
+
+  border-radius: 9px;
+
+  font-size: 12px;
+  font-weight: 620;
+
+  line-height: 1.55;
+}
+
+
+.formSuccess {
+  border:
+    1px solid
+    rgba(45, 117, 85, 0.22);
+
+  background: #eef7f2;
+
+  color: #245f46;
+}
+
+
+.formError {
+  border:
+    1px solid
+    rgba(150, 64, 64, 0.22);
+
+  background: #fbf1f1;
+
+  color: #893f3f;
+}
+
+
+.submitButton:disabled {
+  opacity: 0.68;
+
+  cursor: wait;
+
+  transform: none;
+}
+
+
+
+.privacy a {
+  color: #315f7d;
+
+  font-weight: 700;
+
+  text-decoration: underline;
+
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+
+.privacy a:hover,
+.privacy a:focus-visible {
+  color: #173b59;
+
+  outline: none;
+}

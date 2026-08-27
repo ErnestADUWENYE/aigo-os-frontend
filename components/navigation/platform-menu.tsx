@@ -5,8 +5,10 @@ import {
   ArrowUpRight,
   BrainCircuit,
   Building2,
-  ChartNoAxesCombined,
+  FileSearch,
+  GitBranch,
   Network,
+  PlugZap,
 } from "lucide-react";
 
 import styles from "./platform-menu.module.css";
@@ -17,44 +19,52 @@ type PlatformMenuProps = {
 
 const capabilities = [
   {
+    icon: PlugZap,
+    meta: "Connect",
+    title: "Enterprise Connectivity",
+    href: "/platform/enterprise-connectivity",
+    description:
+      "Connect the enterprise systems where governance, technology, AI and business information already lives.",
+  },
+  {
     icon: Building2,
-    meta: "Enterprise foundation",
+    meta: "Understand",
     title: "Enterprise Context",
     href: "/platform/enterprise-context",
     description:
-      "Understand the enterprise environment surrounding AI activity.",
+      "Give connected information a consistent organisational and business meaning.",
   },
   {
-    icon: Network,
-    meta: "Business relationships",
-    title: "AI Business Mapping",
-    href: "/platform/ai-business-mapping",
+    icon: GitBranch,
+    meta: "Relate",
+    title: "Relationship & Dependency Intelligence",
+    href: "/platform/relationship-dependency-intelligence",
     description:
-      "Relate AI to the business functions, processes and dependencies around it.",
+      "Understand how governance, technology, AI and business entities relate to and depend on one another.",
   },
   {
     icon: Activity,
-    meta: "Operational context",
-    title: "Activity & Event Correlation",
-    href: "/platform/activity-event-correlation",
+    meta: "Keep current",
+    title: "Continuous Intelligence",
+    href: "/platform/continuous-intelligence",
     description:
-      "Connect AI signals with relevant operational and enterprise events.",
+      "Keep enterprise context and relationships current as systems, conditions and dependencies change.",
   },
   {
     icon: BrainCircuit,
-    meta: "Interpretation",
-    title: "Contextual Intelligence",
-    href: "/platform/contextual-intelligence",
+    meta: "Reason",
+    title: "Contextual Reasoning",
+    href: "/platform/contextual-reasoning",
     description:
-      "Interpret AI activity together with existing enterprise context.",
+      "Reason across connected enterprise context to answer governance and business-impact questions.",
   },
   {
-    icon: ChartNoAxesCombined,
-    meta: "Management view",
-    title: "Management Intelligence",
-    href: "/platform/management-intelligence",
+    icon: FileSearch,
+    meta: "Explain",
+    title: "Explainability & Traceability",
+    href: "/platform/explainability-traceability",
     description:
-      "Present connected context in a form management teams can use.",
+      "Show the sources, relationships, context and current conditions behind material AIGO-OS conclusions.",
   },
 ];
 
@@ -70,7 +80,7 @@ export function PlatformMenu({
           </span>
 
           <strong>
-            Understand AI in business context.
+            Connect enterprise context. Understand what it means.
           </strong>
         </div>
 

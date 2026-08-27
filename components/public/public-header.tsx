@@ -336,28 +336,28 @@ export function PublicHeader() {
                   </Link>
 
                   <Link
-                    href="/platform/ai-business-mapping"
+                    href="/platform/relationship-dependency-intelligence"
                     onClick={closeNavigation}
                   >
                     AI Business Mapping
                   </Link>
 
                   <Link
-                    href="/platform/activity-event-correlation"
+                    href="/platform/continuous-intelligence"
                     onClick={closeNavigation}
                   >
                     Activity & Event Correlation
                   </Link>
 
                   <Link
-                    href="/platform/contextual-intelligence"
+                    href="/platform/contextual-reasoning"
                     onClick={closeNavigation}
                   >
                     Contextual Intelligence
                   </Link>
 
                   <Link
-                    href="/platform/management-intelligence"
+                    href="/platform"
                     onClick={closeNavigation}
                   >
                     Management Intelligence
@@ -417,28 +417,28 @@ export function PublicHeader() {
                   </span>
 
                   <Link
-                    href="/solutions/ai-agent-accountability"
+                    href="/solutions/unclear-ownership-accountability"
                     onClick={closeNavigation}
                   >
                     AI Agent Accountability
                   </Link>
 
                   <Link
-                    href="/solutions/ai-agent-access-authority"
+                    href="/products/aigo-os-govern"
                     onClick={closeNavigation}
                   >
                     AI Agent Access Authority
                   </Link>
 
                   <Link
-                    href="/solutions/ai-agent-sprawl"
+                    href="/products/aigo-os-govern"
                     onClick={closeNavigation}
                   >
                     AI Agent Sprawl
                   </Link>
 
                   <Link
-                    href="/solutions/ai-governance-priorities"
+                    href="/products/aigo-os-govern"
                     onClick={closeNavigation}
                   >
                     AI Governance Priorities
@@ -449,21 +449,21 @@ export function PublicHeader() {
                   </span>
 
                   <Link
-                    href="/solutions/ai-business-dependencies"
+                    href="/solutions/hidden-dependencies"
                     onClick={closeNavigation}
                   >
                     AI Business Dependencies
                   </Link>
 
                   <Link
-                    href="/solutions/ai-change-business-impact"
+                    href="/solutions/unknown-change-impact"
                     onClick={closeNavigation}
                   >
                     AI Change Business Impact
                   </Link>
 
                   <Link
-                    href="/solutions/ai-incident-business-impact"
+                    href="/solutions/unclear-incident-business-impact"
                     onClick={closeNavigation}
                   >
                     AI Incident Business Impact
@@ -578,3 +578,5 @@ export function PublicHeader() {
     </header>
   );
 }
+
+

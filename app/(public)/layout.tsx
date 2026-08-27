@@ -1,5 +1,6 @@
 ﻿import type { ReactNode } from "react";
 
+import { CookieConsent } from "@/components/public/cookie-consent";
 import { PublicFooter } from "@/components/public/public-footer";
 import { PublicHeader } from "@/components/public/public-header";
 
@@ -19,7 +20,10 @@ export default function PublicLayout({
       </main>
 
       <PublicFooter />
+
+      <CookieConsent />
     </div>
   );
 }
+
 

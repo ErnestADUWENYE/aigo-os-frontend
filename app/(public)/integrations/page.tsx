@@ -1,9 +1,22 @@
-﻿import Link from "next/link";
+﻿import { createPageMetadata } from "@/lib/seo/metadata";
+import Link from "next/link";
 
 import { PublicContainer } from "@/components/public/public-container";
 
 import styles from "./page.module.css";
 
+
+export const metadata = createPageMetadata({
+  title: "Enterprise AI Integrations",
+  description:
+    "See how AIGO-OS is designed to connect relevant context across enterprise systems rather than recreate identity, security, workflow or observability platforms.",
+  path: "/integrations",
+  keywords: [
+    "AI governance integrations",
+    "enterprise AI integrations",
+    "AI governance connectivity",
+  ],
+});
 export default function IntegrationsPage() {
   return (
     <main className={styles.page}>
@@ -68,6 +81,7 @@ export default function IntegrationsPage() {
     </main>
   );
 }
+
 
 
 

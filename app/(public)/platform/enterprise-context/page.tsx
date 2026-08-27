@@ -1,57 +1,386 @@
-﻿import Link from "next/link";
+﻿"use client";
+
+import Link from "next/link";
+
+import {
+  ArrowRight,
+  BrainCircuit,
+  Building2,
+  Database,
+  FileText,
+  Layers3,
+  ShieldCheck,
+  Workflow,
+} from "lucide-react";
+
+import {
+  useEffect,
+  useState,
+} from "react";
 
 import { PublicContainer } from "@/components/public/public-container";
 
 import styles from "./page.module.css";
 
-const contextDimensions = [
+
+const contextCards = [
   {
-    key: "Ownership",
-    value: "Digital Operations",
-    detail: "Who carries responsibility around the activity.",
+    icon: Building2,
+    label: "Organisation",
+    title: "Ownership and responsibility",
+    description:
+      "Understand who owns the object, which organisational area it belongs to and where responsibility sits.",
+    facts: [
+      ["Business area", "Customer Operations"],
+      ["Accountable team", "Digital Services"],
+      ["Ownership state", "Assigned"],
+    ],
   },
+
   {
-    key: "Business function",
-    value: "Customer Operations",
-    detail: "Where the activity sits within the organization.",
+    icon: Workflow,
+    label: "Business",
+    title: "Purpose and operating role",
+    description:
+      "Understand the business capability, process, service or outcome the enterprise object supports.",
+    facts: [
+      ["Business capability", "Customer Service"],
+      ["Operating role", "Core service"],
+      ["Business use", "Customer interaction"],
+    ],
   },
+
   {
-    key: "Operating process",
-    value: "Customer Support",
-    detail: "The process surrounding the AI activity.",
+    icon: Layers3,
+    label: "Technology",
+    title: "Technology position",
+    description:
+      "Understand the applications, platforms, environments and technology classifications surrounding the object.",
+    facts: [
+      ["Environment", "Production"],
+      ["Technology class", "Business application"],
+      ["Service relationship", "Shared"],
+    ],
   },
+
   {
-    key: "Criticality",
-    value: "High",
-    detail: "How important the surrounding business context is.",
+    icon: ShieldCheck,
+    label: "Governance",
+    title: "Governance context",
+    description:
+      "Connect policies, requirements, controls, classifications and governance obligations that apply.",
+    facts: [
+      ["Governance scope", "In scope"],
+      ["Classification", "Business critical"],
+      ["Control relationship", "Established"],
+    ],
+  },
+
+  {
+    icon: Database,
+    label: "Data",
+    title: "Information context",
+    description:
+      "Understand the data domains, sensitivity, business use and information classifications associated with the object.",
+    facts: [
+      ["Data domain", "Customer"],
+      ["Sensitivity", "Confidential"],
+      ["Data use", "Operational"],
+    ],
+  },
+
+  {
+    icon: BrainCircuit,
+    label: "AI",
+    title: "AI context",
+    description:
+      "Understand models, agents and AI-enabled capabilities as part of the wider enterprise environment.",
+    facts: [
+      ["AI relationship", "AI enabled"],
+      ["Capability", "Decision support"],
+      ["Operating role", "Assisted"],
+    ],
   },
 ];
+
+
+function ContextFlashcards() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const reduceMotion =
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+    if (reduceMotion) {
+      return;
+    }
+
+    const timer = window.setInterval(() => {
+      setActiveIndex((current) =>
+        (current + 1) % contextCards.length
+      );
+    }, 4000);
+
+    return () => {
+      window.clearInterval(timer);
+    };
+  }, []);
+
+
+  const getPosition = (index: number) => {
+    const total = contextCards.length;
+
+    let difference = index - activeIndex;
+
+    if (difference > total / 2) {
+      difference -= total;
+    }
+
+    if (difference < -total / 2) {
+      difference += total;
+    }
+
+    if (difference === 0) {
+      return "active";
+    }
+
+    if (difference === 1) {
+      return "next";
+    }
+
+    if (difference === -1) {
+      return "previous";
+    }
+
+    if (difference === 2) {
+      return "farNext";
+    }
+
+    if (difference === -2) {
+      return "farPrevious";
+    }
+
+    return "hidden";
+  };
+
+
+  const active = contextCards[activeIndex];
+
+
+  return (
+    <div className={styles.experience}>
+
+      <div className={styles.objectPanel}>
+
+        <div className={styles.objectTop}>
+          <span className={styles.objectEyebrow}>
+            Example enterprise object
+          </span>
+
+          <span className={styles.liveIndicator}>
+            <i aria-hidden="true" />
+
+            Context building
+          </span>
+        </div>
+
+
+        <div className={styles.objectIdentity}>
+          <span>
+            Business application
+          </span>
+
+          <strong>
+            Customer Service Application
+          </strong>
+
+          <p>
+            One enterprise object understood through the organisational,
+            business, technology, governance, data and AI context around it.
+          </p>
+        </div>
+
+
+        <div className={styles.objectContext}>
+          <span>
+            Context in view
+          </span>
+
+          <strong>
+            {active.label}
+          </strong>
+        </div>
+
+      </div>
+
+
+      <div className={styles.stageColumn}>
+
+        <div
+          className={styles.stage}
+          aria-live="polite"
+        >
+          {contextCards.map((card, index) => {
+            const Icon = card.icon;
+            const position = getPosition(index);
+
+            return (
+              <button
+                key={card.label}
+                type="button"
+                className={[
+                  styles.flashcard,
+                  styles[position],
+                ].join(" ")}
+                onClick={() => setActiveIndex(index)}
+                aria-label={`Show ${card.label} context`}
+                aria-pressed={index === activeIndex}
+              >
+
+                <div className={styles.cardHeader}>
+
+                  <div className={styles.iconWrap}>
+                    <Icon
+                      size={21}
+                      strokeWidth={1.7}
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  <span>
+                    {card.label}
+                  </span>
+
+                </div>
+
+
+                <div className={styles.cardBody}>
+
+                  <small>
+                    Enterprise context
+                  </small>
+
+                  <strong>
+                    {card.title}
+                  </strong>
+
+                  <p>
+                    {card.description}
+                  </p>
+
+                </div>
+
+              </button>
+            );
+          })}
+        </div>
+
+
+        <div className={styles.detailPanel}>
+
+          <div className={styles.detailHeading}>
+            <span>
+              {active.label} context
+            </span>
+
+            <strong>
+              {active.title}
+            </strong>
+          </div>
+
+
+          <div className={styles.factGrid}>
+            {active.facts.map(([label, value]) => (
+              <div key={label}>
+                <span>
+                  {label}
+                </span>
+
+                <strong>
+                  {value}
+                </strong>
+              </div>
+            ))}
+          </div>
+
+        </div>
+
+
+        <div
+          className={styles.controls}
+          aria-label="Enterprise context dimensions"
+        >
+          {contextCards.map((card, index) => (
+            <button
+              key={card.label}
+              type="button"
+              onClick={() => setActiveIndex(index)}
+              className={
+                index === activeIndex
+                  ? styles.controlActive
+                  : styles.control
+              }
+              aria-label={`Show ${card.label} context`}
+              aria-current={
+                index === activeIndex
+                  ? "true"
+                  : undefined
+              }
+            >
+              <span className={styles.controlDot} />
+            </button>
+          ))}
+        </div>
+
+      </div>
+
+    </div>
+  );
+}
+
 
 export default function EnterpriseContextPage() {
   return (
     <>
-      {/* ====================================================
-          HERO — ENTERPRISE ARCHITECTURE
-      ==================================================== */}
 
       <section className={styles.hero}>
         <PublicContainer>
+
           <div className={styles.heroGrid}>
 
             <div className={styles.heroCopy}>
-              <p className={styles.eyebrow}>
-                Platform Capability 01
-              </p>
 
-              <h1>
-                Establish the enterprise context around AI.
+              <div className={styles.platformIdentity}>
+                <span>
+                  AIGO-OS PLATFORM
+                </span>
+
+                <strong>
+                  ENTERPRISE CONTEXT
+                </strong>
+              </div>
+
+
+              <h1 className={styles.heroTitle}>
+                <span>
+                  Know what enterprise information
+                </span>
+
+                <span>
+                  actually means here.
+                </span>
               </h1>
 
+
               <p className={styles.heroText}>
-                Enterprise Context gives AIGO-OS the organizational,
-                operational and ownership structure needed to understand
-                where AI activity sits within the business.
+                AIGO-OS gives connected enterprise information consistent
+                organisational and business meaning so the same application,
+                service, policy, control, AI system or other enterprise object
+                can be understood in context across the organisation.
               </p>
+
 
               <div className={styles.heroActions}>
                 <Link
@@ -68,385 +397,473 @@ export default function EnterpriseContextPage() {
                   Platform Overview
                 </Link>
               </div>
+
             </div>
 
 
-            <div className={styles.enterpriseModel}>
-              <div className={styles.enterpriseBackplane} />
+            <div className={styles.contextProfileVisual}>
 
-              <div className={styles.enterpriseCanvas}>
+  <div className={styles.profileHeader}>
+    <span>
+      Enterprise context in progress
+    </span>
 
-                <div className={styles.canvasHeader}>
-                  <div>
-                    <span>
-                      Enterprise Context
-                    </span>
-
-                    <strong>
-                      Organizational position
-                    </strong>
-                  </div>
-
-                  <div className={styles.contextState}>
-                    Context available
-                  </div>
-                </div>
+    <strong>
+      One connected record becomes an understandable enterprise object.
+    </strong>
+  </div>
 
 
-                <div className={styles.orgHierarchy}>
+  <div className={styles.profileStage}>
 
-                  <div className={styles.orgLevel}>
-                    <span>
-                      Enterprise
-                    </span>
+    <div className={styles.profileObject}>
 
-                    <strong>
-                      AIGO example organization
-                    </strong>
-                  </div>
+      <div className={styles.profileObjectTop}>
+        <span>
+          Connected enterprise object
+        </span>
 
-                  <div className={styles.hierarchyRule} />
+        <i aria-hidden="true" />
+      </div>
 
+      <strong>
+        Business Application
+      </strong>
 
-                  <div className={styles.orgLevelSecondary}>
-                    <span>
-                      Business function
-                    </span>
+      <small>
+        Context is being established from connected enterprise information.
+      </small>
 
-                    <strong>
-                      Customer Operations
-                    </strong>
-                  </div>
-
-                  <div className={styles.hierarchyRuleShort} />
+    </div>
 
 
-                  <div className={styles.processRow}>
-                    <div>
-                      <span>
-                        Process
-                      </span>
+    <div className={`${styles.contextLayer} ${styles.layerOrganisation}`}>
+      <span>
+        Organisation
+      </span>
 
-                      <strong>
-                        Customer Support
-                      </strong>
-                    </div>
+      <strong>
+        Ownership and responsibility
+      </strong>
 
-                    <div>
-                      <span>
-                        Owner
-                      </span>
+      <small>
+        Accountable business area
+      </small>
+    </div>
 
-                      <strong>
-                        Digital Operations
-                      </strong>
-                    </div>
-                  </div>
 
-                  <div className={styles.contextFocus}>
-                    <span>
-                      AI activity
-                    </span>
+    <div className={`${styles.contextLayer} ${styles.layerBusiness}`}>
+      <span>
+        Business
+      </span>
 
-                    <strong>
-                      Customer service agent
-                    </strong>
+      <strong>
+        Purpose and operating role
+      </strong>
 
-                    <div className={styles.focusMeta}>
-                      <span>
-                        Criticality: High
-                      </span>
+      <small>
+        Business capability and use
+      </small>
+    </div>
 
-                      <span>
-                        Context retained
-                      </span>
-                    </div>
-                  </div>
 
-                </div>
-              </div>
-            </div>
+    <div className={`${styles.contextLayer} ${styles.layerTechnology}`}>
+      <span>
+        Technology
+      </span>
+
+      <strong>
+        Technology position
+      </strong>
+
+      <small>
+        Environment and service classification
+      </small>
+    </div>
+
+
+    <div className={`${styles.contextLayer} ${styles.layerGovernance}`}>
+      <span>
+        Governance
+      </span>
+
+      <strong>
+        Applicable governance context
+      </strong>
+
+      <small>
+        Requirements, controls and scope
+      </small>
+    </div>
+
+
+    <div className={`${styles.contextLayer} ${styles.layerData}`}>
+      <span>
+        Data & AI
+      </span>
+
+      <strong>
+        Information and AI context
+      </strong>
+
+      <small>
+        Data use, sensitivity and AI relationship
+      </small>
+    </div>
+
+  </div>
+
+
+  <div className={styles.profileResult}>
+
+    <div>
+      <span>
+        AIGO-OS result
+      </span>
+
+      <strong>
+        Enterprise context established
+      </strong>
+    </div>
+
+    <small>
+      The object can now be understood consistently across Govern and Impact.
+    </small>
+
+  </div>
+
+</div>
 
           </div>
         </PublicContainer>
       </section>
 
 
-      {/* ====================================================
-          ENTERPRISE CONTEXT ANATOMY
-      ==================================================== */}
-
-      <section className={styles.anatomySection}>
+      <section className={styles.problemSection}>
         <PublicContainer>
 
-          <div className={styles.anatomyHeader}>
+          <div className={styles.problemGrid}>
+
+            <p className={styles.sectionLabel}>
+              The context gap
+            </p>
+
             <div>
-              <p className={styles.sectionLabel}>
-                Context anatomy
+
+              <h2>
+                A record can be accurate and still tell only part of the story.
+              </h2>
+
+              <p>
+                An application inventory may identify an application.
+                A service platform may identify its owner. Architecture may
+                describe its dependencies. GRC may show applicable controls.
+                Data and AI platforms may describe other important relationships.
+              </p>
+
+              <p>
+                The challenge is understanding those facts as one enterprise
+                object with a consistent meaning across the organisation.
+              </p>
+
+            </div>
+
+          </div>
+
+        </PublicContainer>
+      </section>
+
+
+      <section className={styles.modelSection}>
+        <PublicContainer>
+
+          <div className={styles.sectionHeader}>
+
+            <div>
+              <p className={styles.sectionLabelLight}>
+                Context around the enterprise object
               </p>
 
               <h2>
-                AI sits inside an enterprise structure.
+                See the different meanings surrounding the same thing.
               </h2>
             </div>
 
-            <p className={styles.anatomyIntro}>
-              AIGO-OS treats the surrounding business environment as part
-              of the intelligence itself, rather than information that must
-              be reconstructed later.
+            <p>
+              AIGO-OS keeps these dimensions connected rather than forcing
+              people to reconstruct them manually from separate systems.
             </p>
+
           </div>
 
 
-          <div className={styles.anatomyLayout}>
+          <ContextFlashcards />
 
-            <div className={styles.anatomyPrimary}>
-              <span className={styles.largeIndex}>
-                01
-              </span>
+        </PublicContainer>
+      </section>
+
+
+      <section className={styles.normalisationSection}>
+        <PublicContainer>
+
+          <div className={styles.normalisationGrid}>
+
+            <div className={styles.normalisationCopy}>
+
+              <p className={styles.sectionLabel}>
+                Resolve inconsistent language
+              </p>
+
+              <h2>
+                Different systems can describe the same enterprise reality differently.
+              </h2>
+
+              <p>
+                AIGO-OS can relate different identifiers, names,
+                classifications and source terminology to the enterprise
+                object they represent while preserving where each fact came from.
+              </p>
+
+            </div>
+
+
+            <div className={styles.normalisationVisual}>
+
+              <div className={styles.sourceTerms}>
+
+                <div>
+                  <span>Service management</span>
+                  <strong>Customer Support App</strong>
+                </div>
+
+                <div>
+                  <span>Architecture</span>
+                  <strong>Customer Service Platform</strong>
+                </div>
+
+                <div>
+                  <span>Governance</span>
+                  <strong>APP-2048</strong>
+                </div>
+
+              </div>
+
+
+              <ArrowRight
+                size={20}
+                strokeWidth={1.6}
+                className={styles.resolveArrow}
+                aria-hidden="true"
+              />
+
+
+              <div className={styles.resolvedContext}>
+                <span>
+                  Resolved enterprise object
+                </span>
+
+                <strong>
+                  Customer Service Application
+                </strong>
+
+                <p>
+                  Different source references are connected to one
+                  understandable enterprise object without erasing
+                  their original sources.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </PublicContainer>
+      </section>
+
+
+      <section className={styles.definitionSection}>
+        <PublicContainer>
+
+          <div className={styles.sectionHeader}>
+
+            <div>
+              <p className={styles.sectionLabelLight}>
+                Organisation-specific meaning
+              </p>
+
+              <h2>
+                Context should reflect how the organisation actually operates.
+              </h2>
+            </div>
+
+            <p>
+              Enterprise terms such as critical, production, customer-facing,
+              material or in scope only become useful when their meaning is
+              understood in the context of the organisation using them.
+            </p>
+
+          </div>
+
+
+          <div className={styles.definitionBoard}>
+
+            <div className={styles.definitionSource}>
 
               <div>
-                <p className={styles.microLabel}>
-                  Enterprise position
-                </p>
+                <FileText
+                  size={19}
+                  strokeWidth={1.7}
+                  aria-hidden="true"
+                />
 
-                <h3>
-                  Where does this AI activity belong?
-                </h3>
-
-                <p>
-                  Place AI within the organizational structure that gives
-                  its activity meaning.
-                </p>
+                <span>
+                  Enterprise definition
+                </span>
               </div>
+
+              <strong>
+                Business critical
+              </strong>
+
+              <p>
+                Defined by the organisation according to its own operational,
+                customer, regulatory or other material considerations.
+              </p>
+
             </div>
 
 
-            <div className={styles.dimensionList}>
-              {contextDimensions.map((item, index) => (
-                <div
-                  key={item.key}
-                  className={styles.dimensionRow}
-                >
-                  <span className={styles.dimensionNumber}>
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
+            <div className={styles.definitionSource}>
 
-                  <div className={styles.dimensionName}>
-                    <span>
-                      {item.key}
-                    </span>
+              <div>
+                <ShieldCheck
+                  size={19}
+                  strokeWidth={1.7}
+                  aria-hidden="true"
+                />
 
-                    <strong>
-                      {item.value}
-                    </strong>
-                  </div>
+                <span>
+                  Connected conditions
+                </span>
+              </div>
 
-                  <p>
-                    {item.detail}
-                  </p>
-                </div>
-              ))}
+              <strong>
+                Context around the object
+              </strong>
+
+              <p>
+                Ownership, business role, technology position, governance,
+                information and other connected facts provide the surrounding meaning.
+              </p>
+
+            </div>
+
+
+            <div className={styles.definitionResult}>
+
+              <span>
+                AIGO-OS context
+              </span>
+
+              <strong>
+                Meaning becomes usable across Govern and Impact.
+              </strong>
+
+              <div>
+                <small>Governance</small>
+                <small>Technology</small>
+                <small>Business</small>
+                <small>AI</small>
+              </div>
+
             </div>
 
           </div>
+
         </PublicContainer>
       </section>
 
 
-      {/* ====================================================
-          OWNERSHIP + CRITICALITY — ASYMMETRIC SECTION
-      ==================================================== */}
-
-      <section className={styles.operatingSection}>
+      <section className={styles.productSection}>
         <PublicContainer>
 
-          <div className={styles.operatingGrid}>
+          <div className={styles.sectionHeader}>
 
-            <div className={styles.operatingCopy}>
-              <p className={styles.sectionLabelLight}>
-                Ownership and significance
+            <div>
+              <p className={styles.sectionLabel}>
+                Shared context, different use
               </p>
 
               <h2>
-                Context explains who is responsible and how much the activity matters.
+                Govern and Impact use the same enterprise meaning differently.
               </h2>
-
-              <p>
-                AI activity becomes more meaningful when management can see
-                the responsible business area, the operating process around
-                it and the criticality of the environment it affects.
-              </p>
             </div>
 
-
-            <div className={styles.operatingComposition}>
-
-              <div className={styles.ownershipPanel}>
-                <span>
-                  Responsible owner
-                </span>
-
-                <strong>
-                  Digital Operations
-                </strong>
-
-                <p>
-                  Clear organizational responsibility around the activity.
-                </p>
-              </div>
-
-
-              <div className={styles.criticalityPanel}>
-                <span>
-                  Business criticality
-                </span>
-
-                <strong>
-                  High
-                </strong>
-
-                <div className={styles.criticalityScale}>
-                  <span />
-                  <span />
-                  <span />
-                  <span className={styles.activeScale} />
-                </div>
-              </div>
-
-
-              <div className={styles.businessPanel}>
-                <div>
-                  <span>
-                    Business function
-                  </span>
-
-                  <strong>
-                    Customer Operations
-                  </strong>
-                </div>
-
-                <div>
-                  <span>
-                    Operating process
-                  </span>
-
-                  <strong>
-                    Customer Support
-                  </strong>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-        </PublicContainer>
-      </section>
-
-
-      {/* ====================================================
-          CONTEXT BEFORE / AFTER
-      ==================================================== */}
-
-      <section className={styles.comparisonSection}>
-        <PublicContainer>
-
-          <div className={styles.comparisonHeader}>
-            <p className={styles.sectionLabel}>
-              Why context changes the view
+            <p>
+              Enterprise Context gives both products a consistent foundation
+              without turning the platform capability itself into a governance
+              or business-impact workflow.
             </p>
 
-            <h2>
-              The activity is the same. The understanding is not.
-            </h2>
           </div>
 
 
-          <div className={styles.comparisonGrid}>
+          <div className={styles.productGrid}>
 
-            <div className={styles.comparisonBare}>
-              <div className={styles.comparisonTop}>
-                <span>
-                  Without enterprise context
-                </span>
+            <Link
+              href="/products/aigo-os-govern"
+              className={styles.productCard}
+            >
+              <span>
+                AIGO-OS Govern
+              </span>
 
-                <strong>
-                  AI activity observed
-                </strong>
-              </div>
-
-              <div className={styles.bareRecord}>
-                <span>
-                  Customer service agent
-                </span>
-
-                <strong>
-                  Activity recorded
-                </strong>
-              </div>
+              <h3>
+                Understand governance in the context of the organisation.
+              </h3>
 
               <p>
-                The activity exists, but business ownership,
-                operational significance and enterprise relationships
-                are not immediately visible.
+                Use ownership, scope, classifications, business role and other
+                enterprise context when interpreting requirements, controls,
+                coverage and assurance.
               </p>
-            </div>
+
+              <strong>
+                Explore Govern
+                <ArrowRight
+                  size={15}
+                  aria-hidden="true"
+                />
+              </strong>
+            </Link>
 
 
-            <div className={styles.comparisonContextual}>
-              <div className={styles.comparisonTop}>
-                <span>
-                  With enterprise context
-                </span>
+            <Link
+              href="/products/aigo-os-impact"
+              className={styles.productCard}
+            >
+              <span>
+                AIGO-OS Impact
+              </span>
 
-                <strong>
-                  Business meaning retained
-                </strong>
-              </div>
+              <h3>
+                Understand technology in the context of the business.
+              </h3>
 
-              <div className={styles.contextualRecord}>
-                <div>
-                  <span>
-                    AI activity
-                  </span>
+              <p>
+                Use criticality, ownership, business purpose and operating
+                context when interpreting what an incident, change,
+                dependency or technical condition means.
+              </p>
 
-                  <strong>
-                    Customer service agent
-                  </strong>
-                </div>
-
-                <div>
-                  <span>
-                    Function
-                  </span>
-
-                  <strong>
-                    Customer Operations
-                  </strong>
-                </div>
-
-                <div>
-                  <span>
-                    Owner
-                  </span>
-
-                  <strong>
-                    Digital Operations
-                  </strong>
-                </div>
-
-                <div>
-                  <span>
-                    Criticality
-                  </span>
-
-                  <strong>
-                    High
-                  </strong>
-                </div>
-              </div>
-            </div>
+              <strong>
+                Explore Impact
+                <ArrowRight
+                  size={15}
+                  aria-hidden="true"
+                />
+              </strong>
+            </Link>
 
           </div>
 
@@ -454,63 +871,51 @@ export default function EnterpriseContextPage() {
       </section>
 
 
-      {/* ====================================================
-          PLATFORM HANDOFF
-      ==================================================== */}
-
-      <section className={styles.handoffSection}>
+      <section className={styles.boundarySection}>
         <PublicContainer>
 
-          <div className={styles.handoffGrid}>
+          <div className={styles.boundaryPanel}>
 
-            <div className={styles.handoffCopy}>
-              <p className={styles.sectionLabelLight}>
-                Context becomes a foundation
+            <div>
+
+              <p className={styles.sectionLabel}>
+                Keep the source visible
               </p>
 
               <h2>
-                Enterprise Context gives the next capabilities something meaningful to build on.
+                Shared meaning does not erase source authority.
               </h2>
+
+              <p>
+                AIGO-OS can establish a consistent enterprise understanding
+                while retaining the source systems and records that support it.
+              </p>
+
             </div>
 
 
-            <div className={styles.handoffSequence}>
+            <div className={styles.boundaryExample}>
 
-              <div className={styles.handoffCurrent}>
-                <span>
-                  01
-                </span>
+              <span>
+                Enterprise context
+              </span>
 
-                <strong>
-                  Enterprise Context
-                </strong>
+              <strong>
+                Customer Service Application is business critical.
+              </strong>
 
-                <p>
-                  Establish the business environment.
-                </p>
-              </div>
+              <small>
+                Supported by connected business, service and governance context
+              </small>
 
+              <ArrowRight
+                size={18}
+                aria-hidden="true"
+              />
 
-              <Link
-                href="/platform/ai-business-mapping"
-                className={styles.handoffNext}
-              >
-                <span>
-                  02
-                </span>
-
-                <strong>
-                  AI Business Mapping
-                </strong>
-
-                <p>
-                  Connect AI to the business structures it serves.
-                </p>
-
-                <span className={styles.continueLabel}>
-                  Continue
-                </span>
-              </Link>
+              <span>
+                Source evidence remains traceable
+              </span>
 
             </div>
 
@@ -518,9 +923,46 @@ export default function EnterpriseContextPage() {
 
         </PublicContainer>
       </section>
+
+
+      <section className={styles.nextSection}>
+        <PublicContainer>
+
+          <Link
+            href="/platform/relationship-dependency-intelligence"
+            className={styles.nextCapability}
+          >
+
+            <div>
+              <span>
+                Explore next
+              </span>
+
+              <strong>
+                Relationship & Dependency Intelligence
+              </strong>
+
+              <p>
+                Once enterprise objects have consistent meaning,
+                AIGO-OS can understand how they relate to and depend on one another.
+              </p>
+            </div>
+
+            <ArrowRight
+              size={22}
+              strokeWidth={1.7}
+              aria-hidden="true"
+            />
+
+          </Link>
+
+        </PublicContainer>
+      </section>
+
     </>
   );
 }
+
 
 
 

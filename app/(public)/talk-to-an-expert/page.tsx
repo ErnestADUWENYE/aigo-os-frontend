@@ -1,4 +1,7 @@
-﻿import {
+﻿"use client";
+
+import Link from "next/link";
+import {
   Building2,
   Mail,
   MessageSquareText,
@@ -6,12 +9,123 @@
   UserRound,
 } from "lucide-react";
 
+import {
+  FormEvent,
+  useState,
+} from "react";
+
 import { PublicContainer } from "@/components/public/public-container";
 
 import styles from "./page.module.css";
 
 
+type SubmitState =
+  | "idle"
+  | "submitting"
+  | "success"
+  | "error";
+
+
 export default function TalkToAnExpertPage() {
+  const [submitState, setSubmitState] =
+    useState<SubmitState>("idle");
+
+  const [message, setMessage] =
+    useState("");
+
+
+  async function handleSubmit(
+    event: FormEvent<HTMLFormElement>
+  ) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+
+    setSubmitState("submitting");
+    setMessage("");
+
+    try {
+      const formData = new FormData(form);
+
+      const payload = {
+        firstName:
+          String(formData.get("firstName") ?? "").trim(),
+
+        lastName:
+          String(formData.get("lastName") ?? "").trim(),
+
+        email:
+          String(formData.get("email") ?? "").trim(),
+
+        company:
+          String(formData.get("company") ?? "").trim(),
+
+        role:
+          String(formData.get("role") ?? "").trim(),
+
+        topic:
+          String(formData.get("topic") ?? "").trim(),
+
+        question:
+          String(formData.get("question") ?? "").trim(),
+
+        environment:
+          String(formData.get("environment") ?? "").trim(),
+      };
+
+
+      const response = await fetch(
+        "/api/talk-to-an-expert",
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify(payload),
+        }
+      );
+
+
+      const result = await response.json();
+
+
+      if (!response.ok) {
+        throw new Error(
+          result?.error ||
+          "We could not send your request."
+        );
+      }
+
+
+      form.reset();
+
+      setSubmitState("success");
+
+      setMessage(
+        "Thank you. Your request has been sent to AIGO-OS."
+      );
+    }
+    catch (error) {
+      console.error(
+        "Talk to an Expert submission failed:",
+        error
+      );
+
+      setSubmitState("error");
+
+      setMessage(
+        "We could not send your request. Please try again."
+      );
+    }
+  }
+
+
+  const isSubmitting =
+    submitState === "submitting";
+
+
   return (
     <main>
       <section className={styles.hero}>
@@ -32,6 +146,7 @@ export default function TalkToAnExpertPage() {
                 relevant to your AI environment and business priorities.
               </p>
             </div>
+
 
             <aside className={styles.heroAside}>
               <span>
@@ -83,7 +198,10 @@ export default function TalkToAnExpertPage() {
 
 
             <div className={styles.formCard}>
-              <form className={styles.form}>
+              <form
+                className={styles.form}
+                onSubmit={handleSubmit}
+              >
                 <div className={styles.twoColumn}>
                   <div className={styles.field}>
                     <label htmlFor="firstName">
@@ -213,7 +331,10 @@ export default function TalkToAnExpertPage() {
                       defaultValue=""
                       required
                     >
-                      <option value="" disabled>
+                      <option
+                        value=""
+                        disabled
+                      >
                         Select a topic
                       </option>
 
@@ -279,18 +400,44 @@ export default function TalkToAnExpertPage() {
                 </div>
 
 
+                {message ? (
+                  <div
+                    className={
+                      submitState === "success"
+                        ? styles.formSuccess
+                        : styles.formError
+                    }
+                    role={
+                      submitState === "error"
+                        ? "alert"
+                        : "status"
+                    }
+                    aria-live="polite"
+                  >
+                    {message}
+                  </div>
+                ) : null}
+
+
                 <div className={styles.formFooter}>
                   <p className={styles.privacy}>
                     Please do not include confidential, regulated or sensitive
-                    information in this form.
+                    information in this form. See our{" "}
+                    <Link href="/privacy">
+                      Privacy Policy
+                    </Link>
+                    {" "}for information about how AIGO-OS handles personal information.
                   </p>
 
                   <button
                     type="submit"
                     className={styles.submitButton}
+                    disabled={isSubmitting}
                   >
                     <span>
-                      Talk to an Expert
+                      {isSubmitting
+                        ? "Sending..."
+                        : "Talk to an Expert"}
                     </span>
 
                     <Send
@@ -308,3 +455,5 @@ export default function TalkToAnExpertPage() {
     </main>
   );
 }
+
+

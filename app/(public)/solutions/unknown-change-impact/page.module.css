@@ -1,0 +1,2095 @@
+﻿.page {
+  --navy: #071f35;
+  --navy-2: #083f50;
+  --navy-3: #07566a;
+  --ink: #0b2037;
+  --text: #405970;
+  --muted: #698093;
+  --green: #168c78;
+  --green-bright: #20aa8d;
+  --aqua: #63dfce;
+  --cream: #f8f5ed;
+  --white: #ffffff;
+
+  overflow: hidden;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 94% 8%, rgba(74, 211, 188, 0.14), transparent 24%),
+    linear-gradient(180deg, #faf8f2 0%, #ffffff 34%, #f7fbfa 100%);
+}
+
+.page *,
+.page *::before,
+.page *::after {
+  box-sizing: border-box;
+}
+
+.page svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  position: relative;
+  padding: 34px 0 58px;
+}
+
+.heroInner {
+  width: min(1460px, calc(100% - 96px));
+  min-height: 540px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(390px, 0.88fr) minmax(570px, 1.12fr);
+  gap: clamp(46px, 5vw, 78px);
+  align-items: center;
+}
+
+.heroCopy {
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow,
+.sectionEyebrow {
+  margin: 0 0 18px;
+  color: #34536d;
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.title {
+  max-width: 600px;
+  margin: 0;
+
+  color: var(--ink);
+  font-size: clamp(48px, 4.2vw, 66px);
+  line-height: 0.98;
+  letter-spacing: -0.052em;
+  font-weight: 900;
+}
+
+.lead {
+  max-width: 610px;
+  margin: 24px 0 0;
+
+  color: #344c63;
+  font-size: clamp(20px, 1.5vw, 24px);
+  line-height: 1.42;
+  font-weight: 800;
+}
+
+.body {
+  max-width: 610px;
+  margin: 19px 0 0;
+
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.62;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.primaryAction,
+.secondaryAction,
+.ctaPrimary,
+.ctaSecondary {
+  min-height: 58px;
+  padding: 0 27px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  border: 0;
+  border-radius: 14px;
+
+  text-decoration: none !important;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 900;
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+.primaryAction {
+  color: #ffffff !important;
+  background: #073f55 !important;
+  box-shadow:
+    0 14px 28px rgba(7, 31, 53, 0.15),
+    0 3px 7px rgba(7, 31, 53, 0.09),
+    inset 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.primaryAction span,
+.primaryAction strong {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.primaryAction svg {
+  width: 19px;
+  height: 19px;
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.secondaryAction {
+  color: var(--ink) !important;
+  background: #ffffff !important;
+  box-shadow:
+    0 13px 28px rgba(15, 40, 58, 0.08),
+    0 2px 5px rgba(15, 40, 58, 0.04),
+    inset 0 1px rgba(255, 255, 255, 0.95);
+}
+
+.secondaryAction span,
+.secondaryAction strong {
+  color: var(--ink) !important;
+}
+
+.primaryAction:hover,
+.secondaryAction:hover,
+.ctaPrimary:hover,
+.ctaSecondary:hover {
+  transform: translateY(-3px);
+}
+
+/* =========================================================
+   HERO IMPACT CONSOLE
+   ========================================================= */
+
+.heroVisual {
+  min-width: 0;
+  width: 100%;
+}
+
+.impactConsole {
+  position: relative;
+  min-height: 0;
+  padding: 25px;
+  overflow: hidden;
+  isolation: isolate;
+
+  border-radius: 32px;
+
+  background:
+    radial-gradient(circle at 42% 45%, rgba(38, 189, 158, 0.13), transparent 32%),
+    radial-gradient(circle at 95% 4%, rgba(83, 219, 196, 0.11), transparent 27%),
+    linear-gradient(145deg, #073b4c 0%, #075565 100%);
+
+  box-shadow:
+    13px 16px 0 rgba(6, 59, 72, 0.075),
+    0 28px 58px rgba(9, 52, 64, 0.17),
+    inset 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.impactConsole::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  pointer-events: none;
+
+  border-radius: 31px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.055),
+      transparent 24%,
+      transparent 72%,
+      rgba(74, 219, 195, 0.035)
+    );
+}
+
+.consoleGlow {
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  left: 15%;
+  top: 20%;
+  z-index: -1;
+
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(44, 213, 178, 0.13) 0%,
+      rgba(44, 213, 178, 0.04) 42%,
+      transparent 70%
+    );
+
+  filter: blur(3px);
+  animation: breathe 7s ease-in-out infinite;
+}
+
+.consoleHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+  color: #ffffff;
+}
+
+.consoleHeader div:first-child {
+  display: grid;
+  gap: 4px;
+}
+
+.consoleHeader span {
+  color: #91eadb;
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.consoleHeader strong {
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1.15;
+}
+
+.proposedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 9px 13px;
+
+  border-radius: 999px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.09);
+
+  box-shadow:
+    0 8px 20px rgba(2, 29, 36, 0.08),
+    inset 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.proposedBadge svg {
+  width: 16px;
+  height: 16px;
+}
+
+.proposedBadge span {
+  color: #ffffff;
+  font-size: 11px;
+  letter-spacing: 0;
+}
+
+/* No overlapping / staggered cards */
+
+.consoleBody {
+  display: grid;
+  grid-template-columns: minmax(205px, 0.82fr) minmax(300px, 1.18fr);
+  gap: 19px;
+  align-items: stretch;
+  margin-top: 25px;
+}
+
+.changedObject {
+  position: relative;
+  min-height: 248px;
+  padding: 28px 23px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  color: #ffffff;
+
+  border-radius: 28px;
+
+  background:
+    radial-gradient(circle at 50% -5%, rgba(255, 255, 255, 0.16), transparent 38%),
+    linear-gradient(145deg, #20a88d 0%, #10856f 100%);
+
+  box-shadow:
+    0 22px 36px rgba(2, 35, 43, 0.2),
+    0 6px 13px rgba(2, 35, 43, 0.11),
+    inset 0 1px rgba(255, 255, 255, 0.2),
+    inset 0 -14px 30px rgba(2, 76, 66, 0.08);
+
+  animation: floatObject 6s ease-in-out infinite;
+}
+
+.changedObject::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  pointer-events: none;
+
+  border-radius: 27px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08),
+      transparent 28%,
+      transparent 72%,
+      rgba(0, 44, 39, 0.05)
+    );
+}
+
+.changedIcon {
+  width: 54px;
+  height: 54px;
+  margin-bottom: 18px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 17px;
+  color: #ffffff;
+
+  background: rgba(255, 255, 255, 0.13);
+
+  box-shadow:
+    0 10px 20px rgba(2, 58, 50, 0.09),
+    inset 0 1px rgba(255, 255, 255, 0.16);
+}
+
+.changedIcon svg {
+  width: 27px;
+  height: 27px;
+}
+
+.changedObject span,
+.exposureCard span,
+.runwayNode span,
+.runwayOrigin span {
+  color: #a7efe2;
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 900;
+  letter-spacing: 0.065em;
+}
+
+.changedObject strong {
+  margin-top: 7px;
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 1.08;
+}
+
+.changedObject small {
+  max-width: 190px;
+  margin-top: 10px;
+
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 12px;
+  line-height: 1.42;
+}
+
+.exposureColumn {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 11px;
+  min-width: 0;
+}
+
+.exposureCard,
+.exposureCard:nth-child(2),
+.exposureCard:nth-child(3) {
+  position: relative;
+  min-height: 0;
+  margin-left: 0 !important;
+  padding: 15px 16px;
+
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+
+  overflow: hidden;
+  border-radius: 19px;
+  color: #ffffff;
+
+  background:
+    radial-gradient(circle at 100% 0%, rgba(91, 221, 199, 0.08), transparent 42%),
+    linear-gradient(135deg, #285f70 0%, #1c5668 100%);
+
+  box-shadow:
+    0 12px 22px rgba(1, 31, 40, 0.13),
+    0 3px 7px rgba(1, 31, 40, 0.07),
+    inset 0 1px rgba(255, 255, 255, 0.1);
+
+  transition:
+    transform 190ms ease,
+    box-shadow 190ms ease;
+}
+
+.exposureCard::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  pointer-events: none;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      130deg,
+      rgba(255, 255, 255, 0.055),
+      transparent 30%,
+      transparent 72%,
+      rgba(0, 29, 38, 0.04)
+    );
+}
+
+.exposureCard:nth-child(2) {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(108, 232, 210, 0.1), transparent 40%),
+    linear-gradient(135deg, #176f77 0%, #11776f 100%);
+}
+
+.exposureCard:nth-child(3),
+.businessExposure {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(138, 244, 220, 0.12), transparent 42%),
+    linear-gradient(135deg, #168d76 0%, #117d69 100%);
+}
+
+.exposureCard:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 17px 29px rgba(1, 31, 40, 0.16),
+    0 4px 8px rgba(1, 31, 40, 0.07),
+    inset 0 1px rgba(255, 255, 255, 0.11);
+}
+
+.exposureIcon {
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 14px;
+  color: #ffffff;
+
+  background: rgba(255, 255, 255, 0.11);
+
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.11),
+    0 7px 14px rgba(1, 36, 43, 0.07);
+}
+
+.exposureIcon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.exposureCard div:last-child {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.exposureCard strong {
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.exposureCard small {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+/* Replaces the visually problematic yellow warning style */
+
+.heroInsight {
+  position: relative;
+  margin-top: 17px;
+  padding: 14px 16px;
+
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+
+  border-radius: 18px;
+
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(76, 221, 196, 0.11), transparent 34%),
+    linear-gradient(135deg, #082d3f, #0a4351);
+
+  box-shadow:
+    0 13px 24px rgba(2, 35, 43, 0.15),
+    inset 0 1px rgba(255, 255, 255, 0.09);
+}
+
+.insightIcon {
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 14px;
+
+  background: rgba(97, 225, 202, 0.12);
+  color: #72e1ce;
+}
+
+.insightIcon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.heroInsight > div:nth-child(2) {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.heroInsight span {
+  color: #75dfcd !important;
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 900;
+  letter-spacing: 0.065em;
+}
+
+.heroInsight strong {
+  color: #ffffff !important;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.reviewState {
+  padding: 8px 11px;
+
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px !important;
+
+  border-radius: 999px;
+
+  background: rgba(103, 225, 204, 0.12);
+  color: #b8f3e9 !important;
+
+  white-space: nowrap;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.reviewState svg {
+  width: 15px;
+  height: 15px;
+  color: #75dfcd;
+}
+
+/* =========================================================
+   QUESTION SECTION
+   ========================================================= */
+
+.questionSection {
+  padding: 78px 0;
+
+  background:
+    radial-gradient(circle at 78% 50%, rgba(58, 202, 174, 0.1), transparent 25%),
+    #ffffff;
+}
+
+.questionInner {
+  width: min(1380px, calc(100% - 96px));
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.questionCopy h2,
+.pathHeading h2,
+.valueCopy h2 {
+  margin: 0;
+  color: var(--ink);
+
+  font-size: clamp(36px, 3.35vw, 52px);
+  line-height: 1.04;
+  letter-spacing: -0.042em;
+}
+
+.questionCopy > p:last-child,
+.valueCopy > p:last-child {
+  margin: 22px 0 0;
+
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+/* No visible orbit/border lines */
+
+.questionVisual {
+  position: relative;
+  min-height: 390px;
+  overflow: hidden;
+
+  border-radius: 34px;
+
+  background:
+    radial-gradient(circle at center, rgba(57, 195, 169, 0.14), transparent 34%),
+    linear-gradient(145deg, #eff8f5, #e7f4f0);
+
+  box-shadow:
+    0 24px 48px rgba(21, 75, 72, 0.09),
+    inset 0 1px rgba(255, 255, 255, 0.9);
+}
+
+.orbitField,
+.orbitField span {
+  position: absolute;
+  inset: 0;
+}
+
+.orbitField {
+  pointer-events: none;
+}
+
+.orbitField span {
+  margin: auto;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.orbitField span:nth-child(1) {
+  width: 220px;
+  height: 220px;
+}
+
+.orbitField span:nth-child(2) {
+  width: 310px;
+  height: 310px;
+}
+
+.orbitField span:nth-child(3) {
+  width: 400px;
+  height: 400px;
+}
+
+.changeCore {
+  position: absolute;
+
+  width: 205px;
+  min-height: 148px;
+
+  left: 50%;
+  top: 50%;
+
+  padding: 21px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  border-radius: 25px;
+
+  color: #ffffff;
+
+  background:
+    radial-gradient(circle at 50% 0%, rgba(83, 219, 196, 0.1), transparent 40%),
+    linear-gradient(145deg, #073f54, #075f6d);
+
+  box-shadow:
+    0 20px 36px rgba(7, 51, 64, 0.21),
+    0 5px 10px rgba(7, 51, 64, 0.1),
+    inset 0 1px rgba(255, 255, 255, 0.11);
+}
+
+.changeCore svg {
+  width: 27px;
+  height: 27px;
+  margin-bottom: 12px;
+  color: #73e3d2;
+}
+
+.changeCore span {
+  color: #7ce2d2;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.075em;
+}
+
+.changeCore strong {
+  margin-top: 6px;
+  color: #ffffff;
+  font-size: 19px;
+}
+
+.signal {
+  position: absolute;
+  min-width: 145px;
+  max-width: 185px;
+
+  padding: 13px 16px;
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  box-shadow:
+    0 13px 27px rgba(16, 69, 67, 0.1),
+    0 3px 6px rgba(16, 69, 67, 0.04),
+    inset 0 1px rgba(255, 255, 255, 0.98);
+
+  animation: signalFloat 6.5s ease-in-out infinite;
+}
+
+.signal span {
+  display: block;
+
+  color: #24836f;
+  font-size: 9px;
+  line-height: 1.2;
+  font-weight: 900;
+  letter-spacing: 0.065em;
+}
+
+.signal strong {
+  display: block;
+  margin-top: 4px;
+
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.signalOne {
+  top: 38px;
+  left: 42px;
+}
+
+.signalTwo {
+  top: 44px;
+  right: 42px;
+  animation-delay: -1.5s;
+}
+
+.signalThree {
+  bottom: 40px;
+  left: 42px;
+  animation-delay: -3s;
+}
+
+.signalFour {
+  right: 42px;
+  bottom: 44px;
+  animation-delay: -4.5s;
+}
+
+/* =========================================================
+   IMPACT PATH
+   ========================================================= */
+
+.pathSection {
+  padding: 78px 0;
+
+  background:
+    radial-gradient(circle at 88% 30%, rgba(44, 188, 160, 0.07), transparent 23%),
+    linear-gradient(180deg, #f4faf8 0%, #ffffff 100%);
+}
+
+.pathInner {
+  width: min(1400px, calc(100% - 96px));
+  margin: 0 auto;
+}
+
+.pathHeading {
+  display: grid;
+  grid-template-columns: 1.05fr 0.72fr;
+  gap: 60px;
+  align-items: end;
+}
+
+.pathHeading h2 {
+  max-width: 700px;
+}
+
+.pathHeading > p {
+  margin: 0;
+
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.62;
+}
+
+/*
+  Compact impact chain.
+  No multi-screen giant runway.
+*/
+
+.impactRunway {
+  margin-top: 38px;
+  padding: 22px;
+
+  display: grid;
+  grid-template-columns: minmax(170px, 0.9fr) 24px minmax(0, 4fr);
+  align-items: stretch;
+  gap: 11px;
+
+  overflow: visible;
+
+  border-radius: 28px;
+
+  background:
+    radial-gradient(circle at 10% 50%, rgba(45, 198, 167, 0.12), transparent 25%),
+    linear-gradient(145deg, #e8f5f1, #f5faf8);
+
+  box-shadow:
+    0 20px 42px rgba(20, 78, 72, 0.08),
+    inset 0 1px rgba(255, 255, 255, 0.95);
+}
+
+.runwayOrigin,
+.runwayNode {
+  min-height: 142px;
+  padding: 18px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border-radius: 20px;
+}
+
+.runwayOrigin {
+  min-width: 0;
+
+  background:
+    linear-gradient(145deg, #ffffff, #f9fcfb);
+
+  box-shadow:
+    0 12px 25px rgba(20, 65, 68, 0.09),
+    inset 0 1px rgba(255, 255, 255, 1);
+}
+
+.runwayIcon {
+  width: 39px;
+  height: 39px;
+  margin-bottom: 13px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 12px;
+
+  background: #ddf3ed;
+  color: #0c806b;
+}
+
+.runwayIcon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.runwayOrigin span {
+  color: #347461;
+}
+
+.runwayOrigin strong,
+.runwayNode strong {
+  margin-top: 5px;
+  font-size: 15px;
+  line-height: 1.22;
+}
+
+.runwayOrigin strong {
+  color: var(--ink);
+}
+
+.runwayOrigin small,
+.runwayNode small {
+  margin-top: 6px;
+
+  font-size: 10.5px;
+  line-height: 1.4;
+}
+
+.runwayOrigin small {
+  color: var(--text);
+}
+
+.runwayGroup {
+  min-width: 0;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  align-items: stretch;
+}
+
+.runwayNode {
+  position: relative;
+  min-width: 0;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 13px 26px rgba(4, 49, 58, 0.12),
+    0 3px 7px rgba(4, 49, 58, 0.06),
+    inset 0 1px rgba(255, 255, 255, 0.09);
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.runwayNode::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+
+  pointer-events: none;
+  border-radius: 19px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.05),
+      transparent 35%,
+      transparent 75%,
+      rgba(0, 0, 0, 0.025)
+    );
+}
+
+.runwayNode:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 18px 31px rgba(4, 49, 58, 0.15),
+    0 4px 8px rgba(4, 49, 58, 0.07),
+    inset 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.runwayNode strong {
+  color: #ffffff;
+}
+
+.runwayNode small {
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.technicalNode {
+  background: linear-gradient(145deg, #275f70, #245467);
+}
+
+.applicationNode {
+  background: linear-gradient(145deg, #197678, #176b70);
+}
+
+.serviceNode {
+  background: linear-gradient(145deg, #138d78, #117b69);
+}
+
+.businessNode {
+  background: linear-gradient(145deg, #31494a, #263f43);
+}
+
+.runwayArrow {
+  display: grid;
+  place-items: center;
+  color: #279b84;
+}
+
+.runwayArrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.pathConclusion {
+  max-width: 880px;
+  margin: 18px auto 0;
+  padding: 16px 20px;
+
+  display: grid;
+  grid-template-columns: 43px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+
+  border-radius: 18px;
+
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(77, 215, 191, 0.1), transparent 35%),
+    #082d3f;
+
+  box-shadow:
+    0 16px 31px rgba(7, 39, 53, 0.13),
+    inset 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.conclusionMark {
+  width: 43px;
+  height: 43px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 13px;
+
+  background: rgba(91, 222, 199, 0.12);
+  color: #69dfcb;
+}
+
+.conclusionMark svg {
+  width: 21px;
+  height: 21px;
+}
+
+.pathConclusion > div:last-child {
+  display: grid;
+  gap: 3px;
+}
+
+.pathConclusion span {
+  color: #70ddca;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+}
+
+.pathConclusion strong {
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+/* =========================================================
+   VALUE
+   ========================================================= */
+
+.valueSection {
+  padding: 78px 0;
+  background: #ffffff;
+}
+
+.valueInner {
+  width: min(1340px, calc(100% - 96px));
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.valueStatement {
+  min-height: 245px;
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border-radius: 30px;
+
+  color: #ffffff;
+
+  background:
+    radial-gradient(circle at 100% 0%, rgba(68, 220, 190, 0.15), transparent 36%),
+    linear-gradient(145deg, #082d40, #075463);
+
+  box-shadow:
+    12px 14px 0 rgba(12, 81, 82, 0.055),
+    0 22px 45px rgba(9, 52, 64, 0.13),
+    inset 0 1px rgba(255, 255, 255, 0.09);
+}
+
+.valueStatement span {
+  color: #75e0cd;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.valueStatement strong {
+  margin-top: 13px;
+
+  color: #ffffff;
+  font-size: clamp(25px, 2.15vw, 34px);
+  line-height: 1.24;
+}
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.ctaSection {
+  padding: 30px 0 85px;
+  background: #ffffff;
+}
+
+.cta {
+  width: min(1400px, calc(100% - 96px));
+  min-height: 300px;
+  margin: 0 auto;
+  padding: 48px 52px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 285px;
+  gap: 55px;
+  align-items: center;
+
+  border-radius: 32px;
+
+  background:
+    radial-gradient(circle at 88% 20%, rgba(67, 214, 188, 0.14), transparent 26%),
+    linear-gradient(135deg, #073e50, #075765);
+
+  box-shadow:
+    0 26px 50px rgba(7, 54, 65, 0.13),
+    inset 0 1px rgba(255, 255, 255, 0.09);
+}
+
+.ctaCopy > span {
+  color: #83e2d1 !important;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+}
+
+.ctaCopy h2 {
+  max-width: 850px;
+  margin: 15px 0 0;
+
+  color: #ffffff !important;
+
+  font-size: clamp(34px, 3.2vw, 50px);
+  line-height: 1.04;
+  letter-spacing: -0.043em;
+}
+
+.ctaCopy p {
+  max-width: 820px;
+  margin: 18px 0 0;
+
+  color: rgba(255, 255, 255, 0.9) !important;
+
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.ctaActions {
+  display: grid;
+  gap: 12px;
+}
+
+.ctaPrimary,
+.ctaSecondary {
+  width: 100%;
+  min-height: 56px;
+  padding: 0 22px;
+}
+
+.ctaPrimary {
+  color: #08273b !important;
+  background: #ffffff !important;
+
+  box-shadow:
+    0 13px 27px rgba(1, 25, 33, 0.18),
+    inset 0 1px rgba(255, 255, 255, 1);
+}
+
+/* Force Talk to an Expert to remain visible */
+
+.ctaPrimary,
+.ctaPrimary *,
+.ctaPrimary span,
+.ctaPrimary strong {
+  color: #08273b !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  -webkit-text-fill-color: #08273b !important;
+}
+
+.ctaPrimary svg {
+  color: #08273b !important;
+  stroke: #08273b !important;
+}
+
+.ctaSecondary {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.11) !important;
+
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.1),
+    0 10px 22px rgba(1, 25, 33, 0.08);
+}
+
+.ctaSecondary,
+.ctaSecondary *,
+.ctaSecondary span,
+.ctaSecondary strong {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* =========================================================
+   MOTION
+   ========================================================= */
+
+@keyframes floatObject {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes signalFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(0.97);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.04);
+    opacity: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .changedObject,
+  .signal,
+  .consoleGlow {
+    animation: none;
+  }
+
+  .primaryAction,
+  .secondaryAction,
+  .ctaPrimary,
+  .ctaSecondary,
+  .runwayNode,
+  .exposureCard {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1250px) {
+  .heroInner {
+    width: min(1160px, calc(100% - 56px));
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 36px;
+  }
+
+  .impactConsole {
+    padding: 22px;
+  }
+
+  .questionInner,
+  .valueInner {
+    gap: 45px;
+  }
+
+  .pathInner {
+    width: min(1160px, calc(100% - 56px));
+  }
+
+  .impactRunway {
+    grid-template-columns: 180px 22px minmax(0, 1fr);
+  }
+
+  .runwayGroup {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 980px) {
+  .hero {
+    padding-top: 50px;
+  }
+
+  .heroInner,
+  .questionInner,
+  .valueInner,
+  .pathHeading,
+  .cta {
+    grid-template-columns: 1fr;
+  }
+
+  .heroInner,
+  .questionInner,
+  .pathInner,
+  .valueInner,
+  .cta {
+    width: min(100% - 40px, 760px);
+  }
+
+  .heroInner {
+    min-height: 0;
+  }
+
+  .heroCopy {
+    max-width: 680px;
+  }
+
+  .consoleBody {
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+
+  .questionInner {
+    gap: 40px;
+  }
+
+  .pathHeading {
+    gap: 20px;
+  }
+
+  .impactRunway {
+    grid-template-columns: 1fr;
+  }
+
+  .runwayArrow {
+    min-height: 24px;
+    transform: rotate(90deg);
+  }
+
+  .runwayGroup {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .valueInner {
+    gap: 38px;
+  }
+
+  .cta {
+    padding: 42px;
+    gap: 32px;
+  }
+
+  .ctaActions {
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 680px) {
+  .heroInner,
+  .questionInner,
+  .pathInner,
+  .valueInner,
+  .cta {
+    width: min(100% - 28px, 560px);
+  }
+
+  .hero {
+    padding: 42px 0 50px;
+  }
+
+  .title {
+    font-size: clamp(43px, 13vw, 58px);
+  }
+
+  .lead {
+    font-size: 20px;
+  }
+
+  .body {
+    font-size: 16px;
+  }
+
+  .actions {
+    display: grid;
+  }
+
+  .primaryAction,
+  .secondaryAction {
+    width: 100%;
+  }
+
+  .impactConsole {
+    padding: 19px;
+    border-radius: 26px;
+  }
+
+  .consoleHeader {
+    display: grid;
+  }
+
+  .proposedBadge {
+    justify-self: start;
+  }
+
+  .consoleBody {
+    grid-template-columns: 1fr;
+  }
+
+  .changedObject {
+    min-height: 190px;
+  }
+
+  .exposureColumn {
+    grid-template-rows: auto;
+  }
+
+  .exposureCard {
+    min-height: 82px;
+  }
+
+  .heroInsight {
+    grid-template-columns: 42px 1fr;
+  }
+
+  .reviewState {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .questionSection,
+  .pathSection,
+  .valueSection {
+    padding: 65px 0;
+  }
+
+  .questionVisual {
+    min-height: 500px;
+  }
+
+  .changeCore {
+    width: 190px;
+  }
+
+  .signal {
+    min-width: 135px;
+    max-width: 155px;
+  }
+
+  .signalOne {
+    top: 24px;
+    left: 16px;
+  }
+
+  .signalTwo {
+    top: 115px;
+    right: 16px;
+  }
+
+  .signalThree {
+    bottom: 115px;
+    left: 16px;
+  }
+
+  .signalFour {
+    right: 16px;
+    bottom: 24px;
+  }
+
+  .impactRunway {
+    padding: 17px;
+  }
+
+  .runwayGroup {
+    grid-template-columns: 1fr;
+  }
+
+  .runwayOrigin,
+  .runwayNode {
+    min-height: 120px;
+  }
+
+  .valueStatement {
+    min-height: 220px;
+    padding: 30px;
+  }
+
+  .cta {
+    min-height: 0;
+    padding: 34px 25px;
+    border-radius: 27px;
+  }
+
+  .ctaCopy h2 {
+    font-size: 36px;
+  }
+}
+
+/* =========================================================
+   STRONGER CHANGE-QUESTION VISUAL SURFACE
+   ========================================================= */
+
+.questionVisual {
+  position: relative !important;
+  min-height: 390px !important;
+  overflow: hidden !important;
+
+  border-radius: 34px !important;
+
+  background:
+    radial-gradient(
+      circle at 52% 48%,
+      rgba(55, 200, 169, 0.18),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 82% 16%,
+      rgba(255, 255, 255, 0.55),
+      transparent 22%
+    ),
+    linear-gradient(
+      145deg,
+      #dfeee9 0%,
+      #edf7f3 48%,
+      #d9ebe6 100%
+    ) !important;
+
+  box-shadow:
+    0 26px 52px rgba(18, 72, 68, 0.13),
+    10px 12px 0 rgba(17, 119, 101, 0.045),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -18px 38px rgba(17, 107, 91, 0.035) !important;
+}
+
+
+/* subtle inner material layer */
+
+.questionVisual::before {
+  content: "";
+
+  position: absolute;
+  inset: 15px;
+
+  pointer-events: none;
+
+  border-radius: 27px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.28),
+      transparent 32%,
+      transparent 70%,
+      rgba(12, 103, 89, 0.035)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+
+/* give centre object more elevation */
+
+.changeCore {
+  z-index: 4 !important;
+
+  box-shadow:
+    0 21px 0 rgba(5, 74, 85, 0.08),
+    0 30px 48px rgba(7, 51, 64, 0.21),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+}
+
+
+/* make the outer context cards feel embedded in the surface */
+
+.signal {
+  z-index: 3 !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f8fbfa
+    ) !important;
+
+  box-shadow:
+    0 13px 25px rgba(15, 70, 66, 0.11),
+    0 5px 0 rgba(15, 104, 88, 0.035),
+    inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+}
+
+
+/* =========================================================
+   FINAL IMPACT RUNWAY FIX
+   Existing TSX structure preserved
+   ========================================================= */
+
+/*
+   The important correction:
+   runwayGroup should not create another grid.
+   Its children participate directly in the main runway.
+*/
+
+.impactRunway {
+  margin-top: 38px !important;
+  padding: 22px !important;
+
+  display: flex !important;
+  align-items: stretch !important;
+
+  gap: 10px !important;
+
+  width: 100% !important;
+
+  overflow: visible !important;
+
+  border-radius: 28px !important;
+
+  background:
+    radial-gradient(
+      circle at 10% 50%,
+      rgba(45, 198, 167, 0.13),
+      transparent 24%
+    ),
+    linear-gradient(
+      145deg,
+      #e4f2ee,
+      #f3f9f7
+    ) !important;
+
+  box-shadow:
+    0 22px 44px rgba(20, 78, 72, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+}
+
+
+/* CRITICAL FIX */
+
+.runwayGroup {
+  display: contents !important;
+}
+
+
+/* ---------------------------------------------------------
+   Change origin
+   --------------------------------------------------------- */
+
+.runwayOrigin {
+  flex: 0 0 190px !important;
+
+  min-width: 190px !important;
+  min-height: 155px !important;
+
+  padding: 19px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+
+  border-radius: 21px !important;
+
+  background:
+    radial-gradient(
+      circle at 30% 0%,
+      rgba(62, 209, 179, 0.09),
+      transparent 42%
+    ),
+    #ffffff !important;
+
+  box-shadow:
+    0 14px 27px rgba(18, 68, 67, 0.10),
+    0 4px 0 rgba(18, 117, 99, 0.035),
+    inset 0 1px 0 #ffffff !important;
+}
+
+
+.runwayIcon {
+  width: 42px !important;
+  height: 42px !important;
+
+  margin-bottom: 14px !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  border-radius: 13px !important;
+
+  background: #dff3ed !important;
+  color: #11806c !important;
+}
+
+
+.runwayIcon svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+
+.runwayOrigin span {
+  color: #277461 !important;
+
+  font-size: 9px !important;
+  font-weight: 900 !important;
+
+  letter-spacing: 0.07em !important;
+}
+
+
+.runwayOrigin strong {
+  margin-top: 6px !important;
+
+  color: #0b2037 !important;
+
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+}
+
+
+.runwayOrigin small {
+  margin-top: 7px !important;
+
+  color: #405970 !important;
+
+  font-size: 10px !important;
+  line-height: 1.4 !important;
+}
+
+
+/* ---------------------------------------------------------
+   Exposure nodes
+   --------------------------------------------------------- */
+
+.runwayNode {
+  flex: 1 1 0 !important;
+
+  width: auto !important;
+  min-width: 0 !important;
+  min-height: 155px !important;
+
+  padding: 18px 16px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+
+  position: relative !important;
+
+  overflow: hidden !important;
+
+  border-radius: 20px !important;
+
+  color: #ffffff !important;
+
+  box-shadow:
+    0 15px 29px rgba(3, 46, 55, 0.13),
+    0 4px 8px rgba(3, 46, 55, 0.06),
+    inset 0 1px 0 rgba(255,255,255,0.10) !important;
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease !important;
+}
+
+
+.runwayNode::after {
+  content: "";
+
+  position: absolute;
+  inset: 1px;
+
+  pointer-events: none;
+
+  border-radius: 19px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.06),
+      transparent 34%,
+      transparent 72%,
+      rgba(0,0,0,0.035)
+    );
+}
+
+
+.runwayNode:hover {
+  transform: translateY(-4px) !important;
+
+  box-shadow:
+    0 20px 35px rgba(3, 46, 55, 0.16),
+    0 5px 9px rgba(3, 46, 55, 0.06),
+    inset 0 1px 0 rgba(255,255,255,0.11) !important;
+}
+
+
+.runwayNode span {
+  display: block !important;
+
+  color: #a4ecdf !important;
+
+  font-size: 8.5px !important;
+  font-weight: 900 !important;
+
+  line-height: 1.25 !important;
+
+  letter-spacing: 0.065em !important;
+}
+
+
+.runwayNode strong {
+  display: block !important;
+
+  margin-top: 6px !important;
+
+  color: #ffffff !important;
+
+  font-size: 15px !important;
+  line-height: 1.23 !important;
+
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
+
+.runwayNode small {
+  display: block !important;
+
+  margin-top: 7px !important;
+
+  color: rgba(255,255,255,0.88) !important;
+
+  font-size: 10px !important;
+  line-height: 1.42 !important;
+
+  word-break: normal !important;
+}
+
+
+/* distinct exposure depth */
+
+.technicalNode {
+  background:
+    linear-gradient(
+      145deg,
+      #2b6172,
+      #235263
+    ) !important;
+}
+
+
+.applicationNode {
+  background:
+    linear-gradient(
+      145deg,
+      #1d797b,
+      #176c70
+    ) !important;
+}
+
+
+.serviceNode {
+  background:
+    linear-gradient(
+      145deg,
+      #149078,
+      #107767
+    ) !important;
+}
+
+
+.businessNode {
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(239, 189, 53, 0.08),
+      transparent 36%
+    ),
+    linear-gradient(
+      145deg,
+      #3b4e49,
+      #293f41
+    ) !important;
+}
+
+
+/* ---------------------------------------------------------
+   Arrows
+   --------------------------------------------------------- */
+
+.runwayArrow {
+  flex: 0 0 24px !important;
+
+  width: 24px !important;
+  min-width: 24px !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  color: #209d85 !important;
+
+  transform: none !important;
+}
+
+
+.runwayArrow svg {
+  width: 19px !important;
+  height: 19px !important;
+}
+
+
+/* ---------------------------------------------------------
+   Conclusion
+   --------------------------------------------------------- */
+
+.pathConclusion {
+  max-width: 900px !important;
+
+  margin: 18px auto 0 !important;
+
+  padding: 16px 20px !important;
+
+  display: grid !important;
+
+  grid-template-columns:
+    43px
+    minmax(0, 1fr) !important;
+
+  gap: 14px !important;
+
+  align-items: center !important;
+
+  border-radius: 18px !important;
+
+  color: #ffffff !important;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(77, 215, 191, 0.10),
+      transparent 35%
+    ),
+    #082d3f !important;
+
+  box-shadow:
+    0 16px 31px rgba(7, 39, 53, 0.13),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+
+.pathConclusion span {
+  color: #70ddca !important;
+}
+
+
+.pathConclusion strong {
+  color: #ffffff !important;
+
+  font-size: 14px !important;
+  line-height: 1.45 !important;
+}
+
+
+/* =========================================================
+   MID-SIZE DESKTOP
+   ========================================================= */
+
+@media (max-width: 1250px) {
+
+  .impactRunway {
+    flex-wrap: wrap !important;
+  }
+
+  .runwayOrigin {
+    flex: 1 1 210px !important;
+  }
+
+  .runwayNode {
+    flex: 1 1 190px !important;
+  }
+
+  .runwayArrow {
+    flex: 0 0 22px !important;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .impactRunway {
+    display: grid !important;
+
+    grid-template-columns: 1fr !important;
+
+    gap: 10px !important;
+
+    padding: 17px !important;
+  }
+
+
+  .runwayGroup {
+    display: contents !important;
+  }
+
+
+  .runwayOrigin,
+  .runwayNode {
+    width: 100% !important;
+
+    min-width: 0 !important;
+    min-height: 120px !important;
+  }
+
+
+  .runwayArrow {
+    width: 100% !important;
+    min-width: 0 !important;
+
+    height: 25px !important;
+
+    transform: rotate(90deg) !important;
+  }
+
+}
+
