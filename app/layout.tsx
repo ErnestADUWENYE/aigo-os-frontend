@@ -9,8 +9,6 @@ import {
 
 import { siteConfig } from "@/lib/seo/site";
 
-import { ApplicationProviders } from "./providers/application-providers";
-
 import "./globals.css";
 
 
@@ -126,11 +124,10 @@ export default function RootLayout({
           data={websiteSchema()}
         />
 
-        <ApplicationProviders>
-          {children}
-        </ApplicationProviders>
+        {children}
       </body>
     </html>
   );
 }
+
 

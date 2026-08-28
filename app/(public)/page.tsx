@@ -17,7 +17,7 @@ const heroScenes = [
     text:
       "AIGO-OS relates selected enterprise records and AI signals so management can reason from connected context instead of reconstructing it manually.",
     mode: "context",
-    background: "/images/hero/connected-intelligence.jpg",
+    background: "/images/hero/connected-intelligence.png",
   },
 
   {
@@ -27,7 +27,7 @@ const heroScenes = [
     text:
       "AIGO-OS connects agentic activity with ownership, authority, services and business context so teams can understand where it sits and why it matters.",
     mode: "agentic",
-    background: "/images/hero/agentic-ai.jpg",
+    background: "/images/hero/agentic-ai.png",
   },
 
   {
@@ -57,7 +57,7 @@ const heroScenes = [
     text:
       "Connect incidents, changes and dependencies to the services, applications, processes and business relationships that give them significance.",
     mode: "impact",
-    background: "/images/hero/business-impact.jpg",
+    background: "/images/hero/business-impact.png",
   },
 
   {
@@ -1083,6 +1083,7 @@ export default function HomePage() {
     </>
   );
 }
+
 
 
 

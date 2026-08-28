@@ -1,3 +1,5 @@
+﻿import { ApplicationProviders } from "../providers/application-providers";
+
 import {
   CircleUserRound,
   Network,
@@ -40,7 +42,8 @@ export default function AuthenticationLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="aigo-login">
+    <ApplicationProviders>
+      <main className="aigo-login">
       <section className="aigo-login__brand">
         <div className="aigo-login__grid" />
         <div className="aigo-login__orb aigo-login__orb--one" />
@@ -116,5 +119,8 @@ export default function AuthenticationLayout({
         </div>
       </section>
     </main>
+    </ApplicationProviders>
   );
 }
+
+

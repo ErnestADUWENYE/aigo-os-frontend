@@ -339,28 +339,35 @@ export function PublicHeader() {
                     href="/platform/relationship-dependency-intelligence"
                     onClick={closeNavigation}
                   >
-                    AI Business Mapping
+                    Relationship & Dependency Intelligence
                   </Link>
 
                   <Link
                     href="/platform/continuous-intelligence"
                     onClick={closeNavigation}
                   >
-                    Activity & Event Correlation
+                    Continuous Intelligence
                   </Link>
 
                   <Link
                     href="/platform/contextual-reasoning"
                     onClick={closeNavigation}
                   >
-                    Contextual Intelligence
+                    Contextual Reasoning
                   </Link>
 
                   <Link
-                    href="/platform"
+                    href="/platform/enterprise-connectivity"
                     onClick={closeNavigation}
                   >
-                    Management Intelligence
+                    Enterprise Connectivity
+                  </Link>
+
+                  <Link
+                    href="/platform/explainability-traceability"
+                    onClick={closeNavigation}
+                  >
+                    Explainability & Traceability
                   </Link>
                 </div>
               </details>
@@ -417,31 +424,38 @@ export function PublicHeader() {
                   </span>
 
                   <Link
+                    href="/solutions/disconnected-policies-controls"
+                    onClick={closeNavigation}
+                  >
+                    Disconnected Policies & Controls
+                  </Link>
+
+                  <Link
+                    href="/solutions/unclear-control-applicability"
+                    onClick={closeNavigation}
+                  >
+                    Unclear Control Applicability
+                  </Link>
+
+                  <Link
+                    href="/solutions/unclear-control-coverage"
+                    onClick={closeNavigation}
+                  >
+                    Unclear Control Coverage
+                  </Link>
+
+                  <Link
                     href="/solutions/unclear-ownership-accountability"
                     onClick={closeNavigation}
                   >
-                    AI Agent Accountability
+                    Unclear Ownership & Accountability
                   </Link>
 
                   <Link
-                    href="/products/aigo-os-govern"
+                    href="/solutions/unknown-governance-change-impact"
                     onClick={closeNavigation}
                   >
-                    AI Agent Access Authority
-                  </Link>
-
-                  <Link
-                    href="/products/aigo-os-govern"
-                    onClick={closeNavigation}
-                  >
-                    AI Agent Sprawl
-                  </Link>
-
-                  <Link
-                    href="/products/aigo-os-govern"
-                    onClick={closeNavigation}
-                  >
-                    AI Governance Priorities
+                    Unknown Governance Change Impact
                   </Link>
 
                   <span className={styles.mobileSubLabel}>
@@ -452,21 +466,28 @@ export function PublicHeader() {
                     href="/solutions/hidden-dependencies"
                     onClick={closeNavigation}
                   >
-                    AI Business Dependencies
+                    Hidden Dependencies
+                  </Link>
+
+                  <Link
+                    href="/solutions/unclear-critical-service-dependencies"
+                    onClick={closeNavigation}
+                  >
+                    Unclear Critical Service Dependencies
                   </Link>
 
                   <Link
                     href="/solutions/unknown-change-impact"
                     onClick={closeNavigation}
                   >
-                    AI Change Business Impact
+                    Unknown Change Impact
                   </Link>
 
                   <Link
                     href="/solutions/unclear-incident-business-impact"
                     onClick={closeNavigation}
                   >
-                    AI Incident Business Impact
+                    Unclear Incident Business Impact
                   </Link>
                 </div>
               </details>
@@ -578,5 +599,6 @@ export function PublicHeader() {
     </header>
   );
 }
+
 
 

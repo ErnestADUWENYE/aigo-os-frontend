@@ -341,7 +341,7 @@
   text-align: center;
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 767px) {
   .desktopNav {
     display: none;
   }
@@ -520,7 +520,7 @@
    AIGO-OS MOBILE NAVIGATION
    ========================================================== */
 
-@media (max-width: 1120px) {
+@media (max-width: 767px) {
 
   .mobilePanel {
     position: fixed;
@@ -847,7 +847,7 @@
 }
 
 
-@media (max-width: 1120px) {
+@media (max-width: 767px) {
 
   .header {
     overflow: visible !important;
@@ -1214,4 +1214,6 @@
     transition: none !important;
   }
 }
+
+
 

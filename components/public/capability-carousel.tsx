@@ -25,32 +25,39 @@ const capabilities = [
     label: "Business context",
   },
   {
-    title: "AI Business Mapping",
+    title: "Relationship & Dependency Intelligence",
     href: "/platform/relationship-dependency-intelligence",
     description:
-      "Relate AI to the business processes, systems and dependencies around it.",
+      "Understand relationships and dependencies across AI, systems, services and the wider enterprise.",
     label: "Business relationships",
   },
   {
-    title: "Activity & Event Correlation",
+    title: "Continuous Intelligence",
     href: "/platform/continuous-intelligence",
     description:
-      "Connect AI signals with relevant operational and enterprise events.",
+      "Continuously connect relevant AI, governance and enterprise signals as conditions change.",
     label: "Signal correlation",
   },
   {
-    title: "Contextual Intelligence",
+    title: "Contextual Reasoning",
     href: "/platform/contextual-reasoning",
     description:
-      "Interpret AI activity together with existing enterprise context.",
+      "Reason across AI activity, governance information and the enterprise context surrounding it.",
     label: "Connected understanding",
   },
   {
-    title: "Management Intelligence",
-    href: "/platform",
+    title: "Enterprise Connectivity",
+    href: "/platform/enterprise-connectivity",
     description:
-      "Present connected context in a form management teams can use.",
-    label: "Management view",
+      "Connect the enterprise systems and information sources that provide governance and business context.",
+    label: "Enterprise connectivity",
+  },
+  {
+    title: "Explainability & Traceability",
+    href: "/platform/explainability-traceability",
+    description:
+      "Make intelligence understandable and traceable to the information, relationships and reasoning behind it.",
+    label: "Explainability",
   },
   {
     title: "Governance Intelligence",
@@ -230,5 +237,6 @@ export function CapabilityCarousel() {
     </div>
   );
 }
+
 
 

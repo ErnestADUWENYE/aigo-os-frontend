@@ -1,5 +1,6 @@
-import { AdminConsoleLayout } from "../../components/admin/admin-console-layout";
+﻿import { AdminConsoleLayout } from "../../components/admin/admin-console-layout";
 import { AdminAccessGate } from "../../components/admin/admin-access-gate";
+import { ApplicationProviders } from "../providers/application-providers";
 
 export default function AdminLayout({
   children,
@@ -7,10 +8,12 @@ export default function AdminLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <AdminAccessGate>
-      <AdminConsoleLayout>
-        {children}
-      </AdminConsoleLayout>
-    </AdminAccessGate>
+    <ApplicationProviders>
+      <AdminAccessGate>
+        <AdminConsoleLayout>
+          {children}
+        </AdminConsoleLayout>
+      </AdminAccessGate>
+    </ApplicationProviders>
   );
 }
