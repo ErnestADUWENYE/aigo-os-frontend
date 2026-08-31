@@ -11,7 +11,7 @@ export const metadata = createPageMetadata({
   keywords: [
     "AI governance explainability",
     "AI governance traceability",
-    "AI governance evidence",
+    "AI governance traceability",
   ],
 });
 
@@ -44,4 +44,5 @@ export default function Layout({
     </>
   );
 }
+
 

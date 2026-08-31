@@ -8,10 +8,10 @@
   title: "AIGO-OS | AI Governance Operating System",
 
   description:
-    "AIGO-OS is the governance operating layer for enterprise AI, continuously governing AI actors, authority, risk, decisions and evidence across autonomous systems.",
+    "AIGO-OS connects AI activity, governance information and enterprise relationships to create connected intelligence for enterprise AI governance and business impact.",
 
   shortDescription:
-    "The governance operating layer for autonomous enterprise AI.",
+    "Connected intelligence for enterprise AI governance.",
 
   locale: "en_US",
 
@@ -20,17 +20,18 @@
   socialImageAlt: "AIGO-OS",
 
   keywords: [
+    "AIGO-OS",
     "AI governance",
     "enterprise AI governance",
     "AI governance platform",
     "AI governance operating system",
-    "AI risk management",
-    "AI agent governance",
-    "autonomous AI governance",
-    "AI oversight",
-    "AI governance evidence",
+    "connected intelligence",
+    "enterprise AI",
     "AI governance controls",
-    "AIGO-OS",
+    "AI governance context",
+    "AI business impact",
+    "enterprise relationships",
+    "AI risk management",
   ],
 } as const;
 
@@ -46,3 +47,5 @@ export function absoluteUrl(path = "/") {
       : `/${path}`
   }`;
 }
+
+
