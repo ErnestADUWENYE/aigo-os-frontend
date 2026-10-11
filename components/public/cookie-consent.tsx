@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import {
   useEffect,
@@ -6,11 +6,13 @@ import {
 } from "react";
 
 import Link from "next/link";
+import { createPortal } from "react-dom";
 
 import {
   Check,
   Settings2,
   ShieldCheck,
+  Fingerprint,
   X,
 } from "lucide-react";
 
@@ -99,9 +101,15 @@ export function CookieConsent() {
   const [view, setView] =
     useState<View>("hidden");
 
+  const [mounted, setMounted] = useState(false);
+
   const [analytics, setAnalytics] =
     useState(false);
 
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -166,8 +174,32 @@ export function CookieConsent() {
   }
 
 
-  return (
+  if (!mounted) {
+    return null;
+  }
+
+  return createPortal(
     <>
+      {view === "hidden" ? (
+      <button
+        type="button"
+        className={styles.privacyLauncher}
+        onClick={() => {
+          const stored = getStoredConsent();
+          setAnalytics(stored?.analytics ?? false);
+          setView("preferences");
+        }}
+        aria-label="Open privacy preferences"
+        title="Privacy preferences"
+      >
+        <Fingerprint
+          size={23}
+          strokeWidth={1.7}
+          aria-hidden="true"
+        />
+      </button>
+      ) : null}
+
       {view === "banner" ? (
         <section
           className={styles.banner}
@@ -398,10 +430,10 @@ export function CookieConsent() {
           </section>
         </div>
       ) : null}
-    </>
+    </>,
+    document.body
   );
 }
-
 
 export function openCookieSettings() {
   if (typeof window === "undefined") {
@@ -414,5 +446,3 @@ export function openCookieSettings() {
     )
   );
 }
-
-

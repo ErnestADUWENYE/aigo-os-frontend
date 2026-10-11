@@ -1,14 +1,9 @@
 ﻿.banner {
-  position: fixed;
-  z-index: 1000;
-
-  right: 22px;
-  bottom: 22px;
-  left: 22px;
-
+  position: fixed !important;
+  z-index: 2147483000;
+  inset: auto 20px 20px 20px;
   display: flex;
   justify-content: center;
-
   pointer-events: none;
 }
 
@@ -193,20 +188,14 @@
 
 
 .overlay {
-  position: fixed;
-  z-index: 1100;
-
+  position: fixed !important;
+  z-index: 2147483002;
   inset: 0;
-
   padding: 24px;
-
   display: grid;
   place-items: center;
-
-  background:
-    rgba(5, 17, 30, 0.56);
-
-  backdrop-filter: blur(5px);
+  background: rgba(5, 17, 30, 0.68);
+  backdrop-filter: blur(9px);
 }
 
 
@@ -479,99 +468,145 @@
 }
 
 
-/* ==========================================================
-   RESPONSIVE
-========================================================== */
 
+/* RESPONSIVE CONSENT EXPERIENCE */
 
 @media (max-width: 900px) {
   .bannerInner {
-    grid-template-columns:
-      auto
-      minmax(0, 1fr);
+    grid-template-columns: auto minmax(0, 1fr);
   }
-
 
   .bannerActions {
     grid-column: 1 / -1;
-
     justify-content: flex-end;
   }
 }
 
-
 @media (max-width: 650px) {
   .banner {
-    right: 10px;
-    bottom: 10px;
-    left: 10px;
+    inset: 0 !important;
+    padding: 0;
+    background: #071a33;
+    pointer-events: auto;
+    overflow-y: auto;
+    align-items: stretch;
   }
-
 
   .bannerInner {
-    padding: 18px;
-
-    grid-template-columns: 1fr;
-
-    gap: 13px;
-
-    border-radius: 14px;
+    width: 100%;
+    min-height: 100dvh;
+    padding:
+      max(34px, env(safe-area-inset-top))
+      24px
+      max(30px, env(safe-area-inset-bottom));
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 24px;
+    border: 0;
+    border-radius: 0;
+    background:
+      radial-gradient(
+        circle at 90% 12%,
+        rgba(16,164,184,.16),
+        transparent 45%
+      ),
+      linear-gradient(160deg, #0d2948, #071a33 70%);
+    box-shadow: none;
   }
-
 
   .bannerIcon {
-    width: 40px;
-    height: 40px;
+    width: 62px;
+    height: 62px;
+    border: 1px solid rgba(200,163,93,.4);
+    border-radius: 19px;
+    background: rgba(255,255,255,.08);
+    color: #e4c68e;
   }
 
+  .bannerCopy h2 {
+    color: #ffffff;
+    font-size: clamp(28px, 7vw, 38px);
+    line-height: 1.12;
+    letter-spacing: -.04em;
+  }
+
+  .bannerCopy p {
+    color: #c4d5e1 !important;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .policyLinks a {
+    color: #e4c68e;
+  }
 
   .bannerActions {
-    grid-column: auto;
-
-    display: grid;
-
-    grid-template-columns: 1fr;
-  }
-
-
-  .primaryButton,
-  .secondaryButton {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
   }
 
+  .bannerActions button {
+    width: 100%;
+    min-height: 54px;
+    font-size: 13px;
+  }
+
+  .bannerActions .primaryButton {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #071a33;
+  }
+
+  .bannerActions .secondaryButton {
+    background: rgba(255,255,255,.08);
+    border-color: rgba(255,255,255,.28);
+    color: #ffffff;
+  }
 
   .overlay {
-    padding: 12px;
-
-    align-items: end;
+    padding: 0;
+    align-items: stretch;
+    overflow-y: auto;
   }
-
 
   .dialog {
-    max-height: calc(100vh - 24px);
-
-    padding: 22px;
-
-    border-radius: 17px;
+    width: 100%;
+    min-height: 100dvh;
+    max-height: none;
+    padding:
+      max(34px, env(safe-area-inset-top))
+      24px
+      max(30px, env(safe-area-inset-bottom));
+    border: 0;
+    border-radius: 0;
   }
-
 
   .dialogActions {
     display: grid;
-
     grid-template-columns: 1fr;
+  }
+
+  .privacyLauncher {
+    left: 18px;
+    bottom: 18px;
+    width: 48px;
+    height: 48px;
   }
 }
 
-
 @media (prefers-reduced-motion: reduce) {
+  .privacyLauncher,
   .primaryButton,
   .secondaryButton,
   .slider,
   .slider::before {
     transition: none;
   }
-
 
   .primaryButton:hover,
   .primaryButton:focus-visible {
